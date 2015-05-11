@@ -1,10 +1,12 @@
-FAANG sample metadata spec
+#FAANG sample metadata spec
 
-In this context, we consider donor animals, tissue samples, primary cells or other biological material to be samples. All Samples must be registered in BioSamples (at EMBL-EBI). This resource is a peer of  BioSample (at NCBI), and they exchange data regularly. FAANG samples should be registered in BioSamples prior to data submission. This document describes the attributes which must be associated with any BioSamples submission.
+This document describes the specification for all sample metadata. You can find an overview of our metadata and archival plans in [the overview document](faang_metadata_overview.md). The [experiment](faang_experiment_metadata.md) and [analysis](faang_analysis_metadata.md) documents are also in this [git repo](https://github.com/FAANG/faang-metadata).
 
-Metadata requirements
+In the sample context, we consider donor animals, tissue samples, primary cells or other biological material to be samples. All Samples must be registered in BioSamples (at EMBL-EBI). This resource is a peer of  BioSample (at NCBI), and they exchange data regularly. FAANG samples should be registered in BioSamples prior to data submission. This document describes the attributes which must be associated with any BioSamples submission.
 
-Common 
+##Metadata requirements
+
+###Common 
 
 These attributes should be present on every type of sample record
 
@@ -29,7 +31,7 @@ Sire
 Dam
 Siblings
 
-Specimen
+###Specimen
 
 A piece of tissue taken from an animal.
 
@@ -44,7 +46,7 @@ Links to other records
 Animal (derived from) (required)
 
 
-Purified cell
+###Purified cell
 
 Cells purified from a specimen.
 
@@ -56,7 +58,7 @@ Protocol
 Links to other records
 Specimen (derived from) (required)
 
-Cell culture
+###Cell culture
 
 Cells cultured from a specimen or purified cells
 
@@ -78,10 +80,7 @@ Location (longitude / latitude in decimal degrees + region name text)
 Sex (One of male/female/unknown)
 Protocol (URL of protocol document)
 
-
-
-
-Sample naming
+###Sample naming
 
 We propose a sample naming scheme comprising the following elements:
 
@@ -91,7 +90,7 @@ alpha numeric sample ID from LIMS
 
 The purpose is to ensure that samples are uniquely and clearly identified, with reasonably short names.
 
-Pooled samples
+###Pooled samples
 
 Where samples are pooled, a new sample record should be created, containing 
 
@@ -100,12 +99,17 @@ Protocol
 Links to other records
 Other samples (derived from)
 
-Notes
-
+###Submission
 
 BioSample have a template for animal submissions:
 
 https://submit.ncbi.nlm.nih.gov/biosample/template/?package=Model.organism.animal.1.0&action=definition
 
-This shares the same problems as the IHEC standards - redundant provision of information across records. We need to know if we can use our model with BioSample@NCBI, or just with BioSamples@EMBL-EBI. 
+###Notes
+
+As mentioned in the [overview](faang_metadata_overview.md) document, Sample submission has and open question. Data Exchange between between the EBI and NCBI sample databases isn't entirely ironed out and if FAANG partners are to share samples this will need to be resolved before the best scenario for sample registration can be used.
+
+The current plan also has some redundancy contained within it. We need to work out how much redundancy can be removed. 
+
+
 
