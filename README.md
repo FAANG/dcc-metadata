@@ -16,5 +16,5 @@ The expected outcomes are:
 
 If you would like to join FAANG and the M&DS committee visit the [FAANG website](http://faang.org).
 
-If you have any questions please email [faang@iastate.edu](mailto:faang@iastate.edu)
+If you have any questions please email [faang-metadata@animalgenome.org](mailto:faang-metadata@animalgenome.org)
 
