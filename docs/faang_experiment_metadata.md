@@ -33,12 +33,13 @@ Each assay type will require metadata in addition to the core set of common attr
 
 ##Whole-genome bisulfite sequencing
 Assay type: methylation profiling by high throughput sequencing ([EFO:0002761](http://www.ebi.ac.uk/efo/EFO_0002761))
+
 Experiment target: methylated DNA ([SO:0000306](http://www.sequenceontology.org/browser/current_svn/term/SO:0000306))
 
 ###Protocols
 - EXTRACTION_PROTOCOL The protocol used to isolate the extract material.
 - BISULFITE_CONVERSION_PROTOCOL The bisulfite conversion protocol.
-- LIBRARY_GENERATION_PCR_PRODUCT_ISOLATION_PROTOCOL
+- LIBRARY_GENERATION_PCR_PRODUCT_ISOLATION_PROTOCOL The protocol for isolating PCR products used for library generation.
 
 ###Attributes
 
@@ -60,6 +61,7 @@ Experiment target: methylated DNA ([SO:0000306](http://www.sequenceontology.org/
 
 ##ChIP-seq
 Assay type: ChIP-seq ([EFO:0002692](http://www.ebi.ac.uk/efo/EFO_0002692))
+
 Experiment target: variable. Consider child terms of ([SO:0001700](http://www.sequenceontology.org/browser/current_svn/term/SO:0001700)) for histone modifications
 
 ###Protocols
@@ -82,7 +84,8 @@ Experiment target: variable. Consider child terms of ([SO:0001700](http://www.se
 - LIBRARY_GENERATION_FRAGMENT_SIZE_RANGE The fragment size range of the preparation.
 
 ##RNA-seq
-Assay type: RNA-seq of coding RNA ([EFO:0003738]((http://www.ebi.ac.uk/efo/EFO_0003738))
+Assay type: RNA-seq of coding RNA ([EFO:0003738](http://www.ebi.ac.uk/efo/EFO_0003738))
+
 Experiment target: RNA e.g. polyA RNA ([OBI:0000869](http://purl.obolibrary.org/obo/OBI_0000869)), total RNA ([EFO:0004964](http://www.ebi.ac.uk/efo/EFO_0004964))
 
 ###Protocols
