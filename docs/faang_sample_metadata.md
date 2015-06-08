@@ -10,40 +10,40 @@ In the sample context, we consider donor animals, tissue samples, primary cells 
 
 These attributes should be present on every type of sample record
 
-Sample Name / ID
-Description (optional)
-Biomaterial provider
-Animal
+ * Sample Name / ID
+ * Description (optional)
+ * Biomaterial provider
+ * Animal
 
 Required:
-Species - NCBI taxon ID.
-Sex (any child term of EFO_0000695)
-Birth date
-Birth location
-Strain / Breed (ontology or link to DB?)
-Pedigree (point to pedigree DB - examples?) 
+ * Species - NCBI taxon ID.
+ * Sex (any child term of EFO_0000695)
+ * Birth date
+ * Birth location
+ * Strain / Breed (ontology or link to DB?)
+ * Pedigree (point to pedigree DB - examples?) 
 Optional:
-Phenotype terms - as many terms as required from MP or similar ontology?
-Phenotype data - not clear what to expect here, assume similar data to IMPC. Can we use BioStudies or BioSamples for this?
+ * Phenotype terms - as many terms as required from MP or similar ontology?
+ * Phenotype data - not clear what to expect here, assume similar data to IMPC. Can we use BioStudies or BioSamples for this?
 
 Links to other records (required if related animals are part of FAANG, e.g. quads)
-Sire
-Dam
-Siblings
+ * Sire
+ * Dam
+ * Siblings
 
 ###Specimen
 
 A piece of tissue taken from an animal.
 
 Required:
-Date at which specimen collection occurred
-Animal age at point of specimen collection
-Animal Disease / health status at point of collection
-Tissue (UBERON term)
-Method of collection (protocol)
+ * Date at which specimen collection occurred
+ * Animal age at point of specimen collection
+ * Animal Disease / health status at point of collection
+ * Tissue (UBERON term)
+ * Method of collection (protocol)
 
 Links to other records
-Animal (derived from) (required)
+ * Animal (derived from) (required)
 
 
 ###Purified cell
@@ -51,42 +51,42 @@ Animal (derived from) (required)
 Cells purified from a specimen.
 
 Required:
-Markers
-Cell type (CL term)
-Protocol
+ * Markers
+ * Cell type (CL term)
+ * Protocol
 
 Links to other records
-Specimen (derived from) (required)
+ * Specimen (derived from) (required)
 
 ###Cell culture
 
 Cells cultured from a specimen or purified cells
 
 Required:
-Cell type  (CL term)
-Protocol
-Culture conditions
+ * Cell type  (CL term)
+ * Protocol
+ * Culture conditions
 
 Links to other records - require one of the possibilities below:
-Specimen (derived from) 
-Purified cell (derived from)
+ * Specimen (derived from) 
+ * Purified cell (derived from)
 
 Data types
-Text
-Ontology link (text for term + Ontology + ID within that ontology)
-Age (specify units in submission)
-Date (specify format in submission)
-Location (longitude / latitude in decimal degrees + region name text)
-Sex (One of male/female/unknown)
-Protocol (URL of protocol document)
+ * Text
+ * Ontology link (text for term + Ontology + ID within that ontology)
+ * Age (specify units in submission)
+ * Date (specify format in submission)
+ * Location (longitude / latitude in decimal degrees + region name text)
+ * Sex (One of male/female/unknown)
+ * Protocol (URL of protocol document)
 
 ###Sample naming
 
 We propose a sample naming scheme comprising the following elements:
 
-short species code
-lab or institute short name
-alpha numeric sample ID from LIMS
+ * short species code
+ * lab or institute short name
+ * alpha numeric sample ID from LIMS
 
 The purpose is to ensure that samples are uniquely and clearly identified, with reasonably short names.
 
@@ -94,10 +94,10 @@ The purpose is to ensure that samples are uniquely and clearly identified, with 
 
 Where samples are pooled, a new sample record should be created, containing 
 
-Protocol
+ * Protocol
 
 Links to other records
-Other samples (derived from)
+ * Other samples (derived from)
 
 ###Submission
 
@@ -107,7 +107,7 @@ https://submit.ncbi.nlm.nih.gov/biosample/template/?package=Model.organism.anima
 
 ###Notes
 
-As mentioned in the [overview](faang_metadata_overview.md) document, Sample submission has and open question. Data Exchange between between the EBI and NCBI sample databases isn't entirely ironed out and if FAANG partners are to share samples this will need to be resolved before the best scenario for sample registration can be used.
+As mentioned in the [overview](faang_metadata_overview.md) document, Sample submission is an open question. Data Exchange between between the EBI and NCBI sample databases isn't entirely ironed out and if FAANG partners are to share samples this will need to be resolved before the best scenario for sample registration can be used.
 
 The current plan also has some redundancy contained within it. We need to work out how much redundancy can be removed. 
 
