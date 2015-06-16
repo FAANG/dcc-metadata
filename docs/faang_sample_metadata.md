@@ -25,8 +25,15 @@ Required:
  * Pedigree (point to pedigree DB - examples?)
 
 Optional:
- * Phenotype terms - as many terms as required from MP or similar ontology?
+ * Physiological conditions (as many terms as required from [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
+ * Environmental conditions (as many terms as required from [EOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
+ * Phenotype terms (as many terms as required from [VT](http://purl.bioontology.org/ontology/VT), [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en) or [MP](http://purl.bioontology.org/ontology/MP))
  * Phenotype data - not clear what to expect here, assume similar data to IMPC. Can we use BioStudies or BioSamples for this?
+ * Birth weight
+ * Placental weight
+ * Pregnancy length
+ * Delivery timing
+ * Delivery Ease
 
 Links to other records (required if related animals are part of FAANG, e.g. quads)
  * Sire (child of)
@@ -44,9 +51,15 @@ Required:
  * Tissue ([UBERON](http://uberon.github.io/) term preferred)
  * Method of collection (protocol)
 
+Optional:
+ * Number of pieces
+ * Volume
+ * Size
+ * Weight
+ * Organ/tissue picture (URL or include image directly in submission?)
+
 Links to other records
  * Animal (derived from) (required)
-
 
 ###Purified cell
 
@@ -65,9 +78,11 @@ Links to other records
 Cells cultured from a specimen or purified cells
 
 Required:
+ * Culture type (child term of [BTO_0000214](http://purl.obolibrary.org/obo/BTO_0000214))
  * Cell type  ([CL](http://www.ontobee.org/browser/index.php?o=CL) term preferred)
  * Protocol
- * Culture conditions
+ * Culture conditions (e.g. 'on feeder cells', 'E8 media')
+ * Number of passages
 
 Links to other records - require one of the possibilities below:
  * Specimen (derived from) 
