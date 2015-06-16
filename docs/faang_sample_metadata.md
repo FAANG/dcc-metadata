@@ -12,23 +12,25 @@ These attributes should be present on every type of sample record
 
  * Sample Name / ID
  * Description (optional)
- * Biomaterial provider
- * Animal
+ * Material (e.g. [organism](http://www.ontobee.org/browser/rdf.php?o=OBI&iri=http://purl.obolibrary.org/obo/OBI_0100026), [specimen](http://www.ontobee.org/browser/rdf.php?o=OBI&iri=http://purl.obolibrary.org/obo/OBI_0100051))
+
+###Animal
 
 Required:
  * Species - NCBI taxon ID.
- * Sex (any child term of EFO_0000695)
+ * Sex (any child term of [EFO_0000695](http://www.ebi.ac.uk/efo/EFO_0000695))
  * Birth date
  * Birth location
  * Strain / Breed (ontology or link to DB?)
- * Pedigree (point to pedigree DB - examples?) 
+ * Pedigree (point to pedigree DB - examples?)
+
 Optional:
  * Phenotype terms - as many terms as required from MP or similar ontology?
  * Phenotype data - not clear what to expect here, assume similar data to IMPC. Can we use BioStudies or BioSamples for this?
 
 Links to other records (required if related animals are part of FAANG, e.g. quads)
- * Sire
- * Dam
+ * Sire (child of)
+ * Dam (child of)
  * Siblings
 
 ###Specimen
@@ -39,7 +41,7 @@ Required:
  * Date at which specimen collection occurred
  * Animal age at point of specimen collection
  * Animal Disease / health status at point of collection
- * Tissue (UBERON term)
+ * Tissue ([UBERON](http://uberon.github.io/) term preferred)
  * Method of collection (protocol)
 
 Links to other records
@@ -52,7 +54,7 @@ Cells purified from a specimen.
 
 Required:
  * Markers
- * Cell type (CL term)
+ * Cell type ([CL](http://www.ontobee.org/browser/index.php?o=CL) term preferred)
  * Protocol
 
 Links to other records
@@ -63,7 +65,7 @@ Links to other records
 Cells cultured from a specimen or purified cells
 
 Required:
- * Cell type  (CL term)
+ * Cell type  ([CL](http://www.ontobee.org/browser/index.php?o=CL) term preferred)
  * Protocol
  * Culture conditions
 
@@ -71,13 +73,13 @@ Links to other records - require one of the possibilities below:
  * Specimen (derived from) 
  * Purified cell (derived from)
 
-Data types
+###Data types
  * Text
  * Ontology link (text for term + Ontology + ID within that ontology)
  * Age (specify units in submission)
  * Date (specify format in submission)
  * Location (longitude / latitude in decimal degrees + region name text)
- * Sex (One of male/female/unknown)
+ * Sex (ontology link, any child term of [EFO_0000695](http://www.ebi.ac.uk/efo/EFO_0000695))
  * Protocol (URL of protocol document)
 
 ###Sample naming
