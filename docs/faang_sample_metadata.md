@@ -20,11 +20,12 @@ Required:
  * Species - NCBI taxon ID.
  * Sex (any child term of [EFO_0000695](http://www.ebi.ac.uk/efo/EFO_0000695))
  * Birth date
- * Birth location
  * Strain / Breed (ontology or link to DB?)
- * Pedigree (point to pedigree DB - examples?)
+ 
 
 Optional:
+ * Birth location
+ * Pedigree (link to pedigree DB entry - do we have any examples of this?)
  * Physiological conditions (as many terms as required from [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
  * Environmental conditions (as many terms as required from [EOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
  * Phenotype terms (as many terms as required from [VT](http://purl.bioontology.org/ontology/VT), [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en) or [MP](http://purl.bioontology.org/ontology/MP))
