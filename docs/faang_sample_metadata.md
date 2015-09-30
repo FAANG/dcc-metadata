@@ -13,6 +13,7 @@ These attributes should be present on every type of sample record
  * Sample Name / ID
  * Description (optional)
  * Material (e.g. [organism](http://www.ontobee.org/browser/rdf.php?o=OBI&iri=http://purl.obolibrary.org/obo/OBI_0100026), [specimen](http://www.ontobee.org/browser/rdf.php?o=OBI&iri=http://purl.obolibrary.org/obo/OBI_0100051))
+ * Availability URL (optional) - a link to a web page giving information on sample availability - who to contact and if the sample is available
 
 ###Animal
 
