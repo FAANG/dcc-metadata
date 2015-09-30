@@ -13,18 +13,21 @@ These attributes should be present on every type of sample record
  * Sample Name / ID
  * Description (optional)
  * Material (e.g. [organism](http://www.ontobee.org/browser/rdf.php?o=OBI&iri=http://purl.obolibrary.org/obo/OBI_0100026), [specimen](http://www.ontobee.org/browser/rdf.php?o=OBI&iri=http://purl.obolibrary.org/obo/OBI_0100051))
+ * Availability URL (optional) - a link to a web page giving information on sample availability - who to contact and if the sample is available
 
 ###Animal
+
+An animal sampled for FAANG. The following attributes are in addition to the common attributes listed above...
 
 Required:
  * Species - NCBI taxon ID.
  * Sex (any child term of [EFO_0000695](http://www.ebi.ac.uk/efo/EFO_0000695))
  * Birth date
- * Birth location
  * Strain / Breed (ontology or link to DB?)
- * Pedigree (point to pedigree DB - examples?)
-
+ 
 Optional:
+ * Birth location
+ * Pedigree (link to pedigree DB entry - do we have any examples of this?)
  * Physiological conditions (as many terms as required from [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
  * Environmental conditions (as many terms as required from [EOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
  * Phenotype terms (as many terms as required from [VT](http://purl.bioontology.org/ontology/VT), [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en) or [MP](http://purl.bioontology.org/ontology/MP))
@@ -42,7 +45,7 @@ Links to other records (required if related animals are part of FAANG, e.g. quad
 
 ###Specimen
 
-A piece of tissue taken from an animal.
+A piece of tissue taken from an animal. The following attributes are in addition to the common attributes listed above...
 
 Required:
  * Date at which specimen collection occurred
@@ -50,8 +53,10 @@ Required:
  * Animal Disease / health status at point of collection
  * Tissue ([UBERON](http://uberon.github.io/) term preferred)
  * Method of collection (protocol)
+ * Fasted status - either 'fed', 'fasted' or 'unknown'. Criteria *must* be specified in the protocol.
 
 Optional:
+ * Physiological conditions (as many terms as required from [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
  * Number of pieces
  * Volume
  * Size
@@ -63,7 +68,7 @@ Links to other records
 
 ###Purified cell
 
-Cells purified from a specimen.
+Cells purified from a specimen. The following attributes are in addition to the common attributes listed above...
 
 Required:
  * Markers
@@ -75,7 +80,7 @@ Links to other records
 
 ###Cell culture
 
-Cells cultured from a specimen or purified cells
+Cells cultured from a specimen or purified cells. The following attributes are in addition to the common attributes listed above...
 
 Required:
  * Culture type (child term of [BTO_0000214](http://purl.obolibrary.org/obo/BTO_0000214))
