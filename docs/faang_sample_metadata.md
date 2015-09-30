@@ -16,6 +16,8 @@ These attributes should be present on every type of sample record
 
 ###Animal
 
+An animal sampled for FAANG. The following attributes are in addition to the common attributes listed above...
+
 Required:
  * Species - NCBI taxon ID.
  * Sex (any child term of [EFO_0000695](http://www.ebi.ac.uk/efo/EFO_0000695))
@@ -43,7 +45,7 @@ Links to other records (required if related animals are part of FAANG, e.g. quad
 
 ###Specimen
 
-A piece of tissue taken from an animal.
+A piece of tissue taken from an animal. The following attributes are in addition to the common attributes listed above...
 
 Required:
  * Date at which specimen collection occurred
@@ -64,7 +66,7 @@ Links to other records
 
 ###Purified cell
 
-Cells purified from a specimen.
+Cells purified from a specimen. The following attributes are in addition to the common attributes listed above...
 
 Required:
  * Markers
@@ -76,7 +78,7 @@ Links to other records
 
 ###Cell culture
 
-Cells cultured from a specimen or purified cells
+Cells cultured from a specimen or purified cells. The following attributes are in addition to the common attributes listed above...
 
 Required:
  * Culture type (child term of [BTO_0000214](http://purl.obolibrary.org/obo/BTO_0000214))
