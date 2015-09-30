@@ -24,7 +24,6 @@ Required:
  * Birth date
  * Strain / Breed (ontology or link to DB?)
  
-
 Optional:
  * Birth location
  * Pedigree (link to pedigree DB entry - do we have any examples of this?)
@@ -53,8 +52,10 @@ Required:
  * Animal Disease / health status at point of collection
  * Tissue ([UBERON](http://uberon.github.io/) term preferred)
  * Method of collection (protocol)
+ * Fasted status - either 'fed', 'fasted' or 'unknown'. Criteria *must* be specified in the protocol.
 
 Optional:
+ * Physiological conditions (as many terms as required from [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
  * Number of pieces
  * Volume
  * Size
