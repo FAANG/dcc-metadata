@@ -17,8 +17,25 @@ These following elements must always be present in any experiment metadata
 	* What is the experiment trying to find? e.g. Methylated DNA, polyA RNA, total RNA. This should be stored in the experiment attributes for SRA archives using their controlled vocabulary.
 * Sample
 	* This should be a reference to the BioSample ID for the specimen, purified cell, cultured cell or cell line the experiment was conducted on.
-* Sample Storage
-	* This should reference how the sample was stored e.g frozen, liquid nitrogen
+* Sample storage
+	* This should document how the sample was stored, from one of these values:
+		*  frozen, liquid nitrogen
+		*  frozen, -70 freezer
+		*  frozen, vapor phase
+		*  RNAlater, frozen
+		*  paraffin block
+		*  cut slide
+		*  fresh
+* Sample storage processing
+	* This should document how the sample was prepared for storage, from one of these values:
+		* cryopreservation in liquid nitrogen (dead tissue)
+		* cryopreservation in dry ice (dead tissue)
+		* cryopreservation of live cells in liquid nitrogen
+		* cryopreservation, other
+		* formalin fixed, unbuffered
+		* formalin fixed, buffered
+		* formalin fixed and paraffin embedded
+		* fresh
 * Sample to preparation interval / preparation date 
 	* This should list how long between the sample being taken and use in the experiment
 * Experimental Protocol
@@ -105,4 +122,10 @@ Experiment target: RNA e.g. polyA RNA ([OBI:0000869](http://purl.obolibrary.org/
 <dl>
 <dt>read strand</dt>
 <dd>where a strand specific protocol is used, specify which mate pair maps to the transcribed strand. (NA otherwise).</dd>
+<dt>RNA purity - 260:280 ratio</dt>
+<dd>Sample purity assesed with fluoresence ratio at 260 and 280nm, informative for protein contamination</dd>
+<dt>RNA purity - 260:230 ratio</dt>
+<dd>Sample purity assesed with fluoresence ratio at 260 and 230nm, informative for contamination by phenolate ion, thiocyanates, and other organic compounds</dd>
+<dt>RNA integrity number</dt>
+<dd>See <a href="http://www.biomedcentral.com/1471-2199/7/3">Schroeder <i>et al</i>, 2006</a></dd>
 </dl>
