@@ -6,46 +6,66 @@ In the sample context, we consider donor animals, tissue samples, primary cells 
 
 ##Metadata requirements
 
+Requirements are laid out like this:  
+
+* `attribute_name` (*data type*) a brief description
+
+To avoid duplication, each *data type* is explained at the end of the document. 
+
 ###Common 
 
 These attributes should be present on every type of sample record
 
- * Sample Name / ID
- * Description (optional)
- * Material (e.g. [organism](http://www.ontobee.org/browser/rdf.php?o=OBI&iri=http://purl.obolibrary.org/obo/OBI_0100026), [specimen](http://www.ontobee.org/browser/rdf.php?o=OBI&iri=http://purl.obolibrary.org/obo/OBI_0100051))
- * Availability (optional) - either a link to a web page giving information on sample availability (who to contact and if the sample is available), or a e-mail address to contact about availability. In either case, long term support of the web page or e-mail address is necessary. Group e-mail addressees are preferable to indiviudal.
+Required:
+
+  * Sample Name / ID
+  * `material` (*ontology term*) the type of material being described. This will be used to decide what metadata are required and must be one of the expected terms:
+   * [organism](http://purl.obolibrary.org/obo/OBI_0100026)
+   * [tissue specimen](http://purl.obolibrary.org/obo/OBI_0001479)
+   * [cell specimen](http://purl.obolibrary.org/obo/OBI_0001468)
+   * [cell culture](http://purl.obolibrary.org/obo/OBI_0001876)
+   * [pool of specimens](http://purl.obolibrary.org/obo/OBI_0302716)
+
+Optional:
+
+ * `description` (*text*) a brief description of the sample.
+ * `availability` (*uri*) either a link to a web page giving information on sample availability (who to contact and if the sample is available), or a e-mail address to contact about availability. E-mail addresses should be prefixed with 'mailto:', e.g. 'mailto:samples@example.ac.uk'. In either case, long term support of the web page or e-mail address is necessary. Group e-mail addressees are preferable to indiviudal.
 
 ###Animal
 
-An animal sampled for FAANG. The following attributes are in addition to the common attributes listed above...
+An animal sampled for FAANG. The following attributes are in addition to the common attributes listed above. The `material` should be reported as [organism](http://purl.obolibrary.org/obo/OBI_0100026).
 
 Required:
- * Species - NCBI taxon ID.
- * Sex (any child term of [PATO_0000047](http://bioportal.bioontology.org/ontologies/EFO/?p=classes&conceptid=http%3A%2F%2Fpurl.org%2Fobo%2Fowl%2FPATO%23PATO_0000047&jump_to_nav=true))
- * Birth date
- * Strain / Breed (ontology or link to DB?)
+
+ * `species` (*NCBI taxon ID*)
+ * `sex`  (*ontology term*) animal sex, described using any child term of [PATO_0000047](http://bioportal.bioontology.org/ontologies/EFO/?p=classes&conceptid=http%3A%2F%2Fpurl.org%2Fobo%2Fowl%2FPATO%23PATO_0000047&jump_to_nav=true))
+ * `birth_date` (*date*) 
+ * `breed` (*ontology term*) animal breed, described using a term from the [Livestock Breed Ontology](http://purl.obolibrary.org/obo/LBO_0000000)
  
 Optional:
- * Birth location
- * Pedigree (link to pedigree DB entry - do we have any examples of this?)
- * Physiological conditions (as many terms as required from [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
- * Environmental conditions (as many terms as required from [EOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
- * Phenotype terms (as many terms as required from [VT](http://purl.bioontology.org/ontology/VT), [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en) or [MP](http://purl.bioontology.org/ontology/MP))
- * Phenotype data - not clear what to expect here, assume similar data to IMPC. Can we use BioStudies or BioSamples for this?
+
+ * `birth location` (*location*)
+ * `physiological_conditions`(*ontology term*) use as many terms as necessary from [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
+ * `environmental_conditions`(*ontology term*) as many terms as necessary from [EOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
+ * `phenotype` (*ontology term*) as many terms as required from the [VT](http://purl.bioontology.org/ontology/VT), [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en) or [MP](http://purl.bioontology.org/ontology/MP)) ontologies
  * Birth weight
  * Placental weight
  * Pregnancy length
  * Delivery timing
  * Delivery Ease
+ 
+ * Pedigree (link to pedigree DB entry - do we have any examples of this?)
+ * Phenotype data - not clear what to expect here, assume similar data to IMPC. Can we use BioStudies or BioSamples for this?
 
 Links to other records (required if related animals are part of FAANG, e.g. quads)
+
  * Sire (child of)
  * Dam (child of)
  * Siblings
 
 ###Specimen
 
-A piece of tissue taken from an animal. The following attributes are in addition to the common attributes listed above...
+A piece of tissue taken from an animal. The following attributes are in addition to the common attributes listed above. The `material` should be reported as [tissue specimen](http://purl.obolibrary.org/obo/OBI_0001479).
 
 Required:
  * Date at which specimen collection occurred
