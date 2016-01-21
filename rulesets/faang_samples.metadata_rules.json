@@ -49,7 +49,7 @@
                 {
                     "_comment": "#TODO add date type, to support IS0 8601 dates",
                     "mandatory": "mandatory",
-                    "name": "birth_date",
+                    "name": "birth date",
                     "type": "text",
                     "valid_units": [
                         "YYYY-MM-DD"
@@ -63,15 +63,21 @@
                     "valid_ancestor_uris": "http://purl.obolibrary.org/obo/LBO_0000000"
                 },
                 {
-                    "_comment": "#TODO location type",
                     "mandatory": "optional",
-                    "name": "birth_location",
+                    "name": "birth location",
                     "type": "text"
                 },
                 {
                     "mandatory": "optional",
-                    "name": "pedigree",
-                    "type": "text"
+                    "name": "birth location longitude",
+                    "type": "number",
+                    "valid_units": ["decimal degrees"]
+                },
+                {
+                    "mandatory": "optional",
+                    "name": "birth location latitude",
+                    "type": "number",
+                    "valid_units": ["decimal degrees"]
                 },
                 {
                     "_comment": "#TODO dd ATOL and EOL once available in OLS",
@@ -87,13 +93,13 @@
                     "_comment": "#TODO add full EOL URI once available in OLS",
                     "allow_multiple": "true",
                     "mandatory": "optional",
-                    "name": "environmental_conditions",
+                    "name": "environmental conditions",
                     "type": "ontology_uri",
                     "valid_ancestor_uris": "EOL:0000001"
                 },
                 {
                     "mandatory": "optional",
-                    "name": "birth_weight",
+                    "name": "birth weight",
                     "type": "number",
                     "valid_units": [
                         "kilograms"
@@ -101,7 +107,7 @@
                 },
                 {
                     "mandatory": "optional",
-                    "name": "placental_weight",
+                    "name": "placental weight",
                     "type": "number",
                     "valid_units": [
                         "kilograms"
@@ -109,23 +115,20 @@
                 },
                 {
                     "mandatory": "optional",
-                    "name": "pregnancy_length",
+                    "name": "pregnancy length",
                     "type": "number",
                     "valid_units": [
-                        "days"
+                        "days","weeks","months"
                     ]
                 },
                 {
                     "mandatory": "optional",
-                    "name": "delivering_timing",
-                    "type": "number",
-                    "valid_units": [
-                        "kilograms"
-                    ]
+                    "name": "delivery timing",
+                    "type": "text",
                 },
                 {
                     "mandatory": "optional",
-                    "name": "delivering_ease",
+                    "name": "delivering ease",
                     "type": "text"
                 }
             ]
@@ -145,7 +148,7 @@
                 },
                 {
                     "mandatory": "mandatory",
-                    "name": "animal_age_at_collection",
+                    "name": "animal age at collection",
                     "type": "number",
                     "valid_units": [
                         "years",
@@ -156,7 +159,7 @@
                 },
                 {
                     "mandatory": "mandatory",
-                    "name": "animal_health_status_at_collection",
+                    "name": "animal health status at collection",
                     "type": "text"
                 },
                 {
@@ -170,12 +173,12 @@
                 {
                     "_comment": "#TODO - url to protocol needs rule type",
                     "mandatory": "mandatory",
-                    "name": "method_of_collection",
+                    "name": "specimen collection protocol",
                     "type": "text"
                 },
                 {
                     "mandatory": "optional",
-                    "name": "fasted_status",
+                    "name": "fasted status",
                     "type": "enum",
                     "valid_values": [
                         "fed",
@@ -187,18 +190,19 @@
                     "_comment": "#TODO add full ATOL URI once available in OLS",
                     "allow_multiple": "true",
                     "mandatory": "optional",
-                    "name": "physiological_conditions",
+                    "name": "physiological conditions",
                     "type": "ontology_uri",
                     "valid_ancestor_uris": "EOL:0000001"
                 },
                 {
                     "mandatory": "optional",
-                    "name": "number_of_pieces",
-                    "type": "number"
+                    "name": "number of pieces",
+                    "type": "number",
+                    "valid_units": ["count"]
                 },
                 {
                     "mandatory": "optional",
-                    "name": "volume",
+                    "name": "specimen volume",
                     "type": "number",
                     "valid_units": [
                         "square centimeters",
@@ -208,7 +212,7 @@
                 },
                 {
                     "mandatory": "optional",
-                    "name": "size",
+                    "name": "specimen size",
                     "type": "number",
                     "valid_units": [
                         "meters",
@@ -217,9 +221,18 @@
                     ]
                 },
                 {
+                    "mandatory": "optional",
+                    "name": "specimen weight",
+                    "type": "number",
+                    "valid_units": [
+                        "grams",
+                        "kilograms"
+                    ]
+                },
+                {
                     "allow_multiple": "true",
                     "mandatory": "optional",
-                    "name": "specimen_picture",
+                    "name": "specimen picture url",
                     "type": "url"
                 }
             ]
@@ -235,7 +248,7 @@
                 },
                 {
                     "mandatory": "mandatory",
-                    "name": "cell_type",
+                    "name": "cell type",
                     "type": "ontology_uri",
                     "valid_ancestor_uris": [
                         "http://purl.obolibrary.org/obo/CL_0000000"
@@ -243,7 +256,7 @@
                 },
                 { 
                     "mandatory": "mandatory",
-                    "name": "cell_purification_protocol",
+                    "name": "cell purification protocol",
                     "type": "url"
                 },
             ]
@@ -254,7 +267,7 @@
             "rules": [                
                 {
                     "mandatory": "mandatory",
-                    "name": "culture_type",
+                    "name": "culture type",
                     "type": "ontology_uri",
                     "valid_ancestor_uris": [
                         "http://purl.obolibrary.org/obo/BTO_0000214"
@@ -262,7 +275,7 @@
                 },
                 {
                     "mandatory": "mandatory",
-                    "name": "cell_type",
+                    "name": "cell type",
                     "type": "ontology_uri",
                     "valid_ancestor_uris": [
                         "http://purl.obolibrary.org/obo/CL_0000000"
@@ -270,7 +283,7 @@
                 },
                 {
                     "mandatory": "mandatory",
-                    "name": "cell_culture_protocol",
+                    "name": "cell culture protocol",
                     "type": "url",
                     "valid_ancestor_uris": [
                         "http://purl.obolibrary.org/obo/CL_0000000"
@@ -278,12 +291,12 @@
                 },
                 {
                     "mandatory": "mandatory",
-                    "name": "culture_conditions",
+                    "name": "culture conditions",
                     "type": "text"
                 },
                 {
                     "mandatory": "mandatory",
-                    "name": "number_of_passages",
+                    "name": "number of passages",
                     "type": "number"
                 }
             ]
