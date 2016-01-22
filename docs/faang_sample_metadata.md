@@ -10,50 +10,7 @@ Requirements are laid out like this:
 
 * `attribute name` (*data type*) a brief description
 
-##Data types for sample attributes
-
-[BioSamples](http://www.ebi.ac.uk/biosamples) takes sample records with a set of attributes. Each attribute has a name and a value. It can also have 'Units', or a 'Term Source' and a 'Term Source ID'. The Term Source and ID allow us to refer to entries in other databases or ontologies. This is fully described on the [BioSamples help pages](http://www.ebi.ac.uk/biosamples/help/st_scd.html). The following section describe the expectations for each data type within FAANG.
-
-###date
-
-Dates should be reported in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format,  YYYY-MM-DD. To ensure clarity, the format should be reported as the 'units'.
-
-###NCBI taxon ID
-
-A species name and identifier from the [NCBI Taxonomy database](http://www.ncbi.nlm.nih.gov/taxonomy). For example, a [human](http://www.ncbi.nlm.nih.gov/taxonomy/9606) would be described with a value of 'Homo sapiens', a term source of  'NCBI Taxonomy' and a term source ID of 9606.
-
-###number
-
-A number, with units specified. BioSamples recommends that units are given without abbreviations .For example, a birth weight could have a value of 1.3 and the units specified as 'kilograms'.
-
-###protocol
-
-A URL link to a protocol document on the FAANG FTP site. Please contact the [FAANG data coordination centre](mailto:faang-dcc@ebi.ac.uk) to have your protocol documents added to the FTP site.
-
-###text
-
-Text, using US English spellings.
-
-###URL
-
-A URL,  such as 'http://faang.org/'. Depending on the context, http, ftp, mailto links may be appropriate. Examples:
-
- * ftp, ftp://ftp.faang.ebi.ac.uk/ftp/README
- * http,  http://faang.org/
- * mailto, mailto:bob@example.org 
- 
-
-###ontology term
-
-A reference to an ontology term. The attribute value should be the term label. The term source should be the ontology used, and the term source ID should be an ID from that ontology. For example, cerebral cortex could be  described with a term source of 'UBERON', a term source ID of 'UBERON:0000956' and a value of 'cerebral cortex'.
-
-###location
-
-A location should be reported as using three attributes:
-
- * `location` (*text*) name of the location
- * `location latitude` (*number*) latitude in decimal degrees. Units should be reported as 'decimal degrees'
- * `location longitude`(*number*) longitude in decimal degrees. Units should be reported as 'decimal degrees'
+The data types will be described later in this document.
 
 ###Common 
 
@@ -114,7 +71,7 @@ A piece of tissue taken from an animal. The following attributes are in addition
 Required:
 
  * `specimen collection date`(*date*) date at which the  specimen was collected
- * `animal age at collection` (*number*) animal age at the point of collection, in years, months, weeks or days. Units must be specified. An estimmate is acceptable where the age is not precisely known.
+ * `animal age at collection` (*number*) animal age at the point of collection, in years, months, weeks or days. Units must be specified. An estimate is acceptable where the age is not precisely known.
  * `developmental stage` (*ontology term*) a child term of [life cycle stage](http://purl.obolibrary.org/obo/UBERON_0000105)
  * Animal Disease / health status at point of collection
  * `tissue` ([UBERON](http://uberon.github.io/) term preferred)
@@ -159,7 +116,7 @@ Cells cultured from a specimen or purified cells. The following attributes are i
 
 Required:
 
- * `culture type`(*ontology term*) a child term of [BTO_0000214](http://purl.obolibrary.org/obo/BTO_0000214))
+ * `culture type`(*ontology term*) a child term of [BTO_0000214](http://purl.obolibrary.org/obo/BTO_0000214)
  * `cell type` (*ontology term*) a term from the [CL ontology](http://www.ontobee.org/browser/index.php?o=CL) 
  * `cell culture protocol` (*protocol*) protocol describing how the cells were purified
  * `culture conditions` (*text*) brief description of culture conditions (e.g. 'on feeder cells', 'E8 media')
@@ -178,6 +135,51 @@ Where samples are pooled, a new sample record should be created, containing
 
 Links to other records
  * pooled samples (derived from)
+ 
+##Data types for sample attributes
+
+[BioSamples](http://www.ebi.ac.uk/biosamples) takes sample records with a set of attributes. Each attribute has a name and a value. It can also have 'Units', or a 'Term Source' and a 'Term Source ID'. The Term Source and ID allow us to refer to entries in other databases or ontologies. This is fully described on the [BioSamples help pages](http://www.ebi.ac.uk/biosamples/help/st_scd.html). The following section describe the expectations for each data type within FAANG.
+
+###date
+
+Dates should be reported in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format,  YYYY-MM-DD. To ensure clarity, the format should be reported as the 'units'.
+
+###NCBI taxon ID
+
+A species name and identifier from the [NCBI Taxonomy database](http://www.ncbi.nlm.nih.gov/taxonomy). For example, a [human](http://www.ncbi.nlm.nih.gov/taxonomy/9606) would be described with a value of 'Homo sapiens', a term source of  'NCBI Taxonomy' and a term source ID of 9606.
+
+###number
+
+A number, with units specified. BioSamples recommends that units are given without abbreviations .For example, a birth weight could have a value of 1.3 and the units specified as 'kilograms'.
+
+###protocol
+
+A URL link to a protocol document on the FAANG FTP site. Please contact the [FAANG data coordination centre](mailto:faang-dcc@ebi.ac.uk) to have your protocol documents added to the FTP site.
+
+###text
+
+Text, using US English spellings.
+
+###URL
+
+A URL,  such as 'http://faang.org/'. Depending on the context, http, ftp, mailto links may be appropriate. Examples:
+
+ * ftp, ftp://ftp.faang.ebi.ac.uk/ftp/README
+ * http,  http://faang.org/
+ * mailto, mailto:bob@example.org 
+ 
+
+###ontology term
+
+A reference to an ontology term. The attribute value should be the term label. The term source should be the ontology used, and the term source ID should be an ID from that ontology. For example, cerebral cortex could be  described with a term source of 'UBERON', a term source ID of 'UBERON:0000956' and a value of 'cerebral cortex'.
+
+###location
+
+A location should be reported as using three attributes:
+
+ * `location` (*text*) name of the location
+ * `location latitude` (*number*) latitude in decimal degrees. Units should be reported as 'decimal degrees'
+ * `location longitude`(*number*) longitude in decimal degrees. Units should be reported as 'decimal degrees'
  
 
 ##Sample naming
