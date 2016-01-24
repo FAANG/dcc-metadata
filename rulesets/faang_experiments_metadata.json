@@ -1,0 +1,32 @@
+
+    "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all sample, and additional groups based on the sample type.",
+    "name": "FAANG experiment metadata rules",
+    "rule_groups": [
+        {
+            "name": "standard",
+            "rules": [
+                {
+                    "mandatory": "mandatory",
+                    "name": "assay type",
+                    "type": "ontology_text",
+                    "valid_ancestor_uris": ["http://www.ebi.ac.uk/efo/EFO_0002773"]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "experiment target",
+                    "type": "ontology_text",
+                    "valid_ancestor_uris": [
+                        "http://purl.obolibrary.org/obo/SO_0001700",
+                        "http://www.ebi.ac.uk/efo/EFO_0005031",
+                        "http://purl.obolibrary.org/obo/OBI_0001468",
+                        "http://purl.obolibrary.org/obo/OBI_0302716",
+                        "http://purl.obolibrary.org/obo/OBI_0001876"
+                    ]
+                },
+                {
+                    "mandatory": "optional",
+                    "name": "availability",
+                    "type": "text"
+                }
+            ]
+        },

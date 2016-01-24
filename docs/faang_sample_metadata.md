@@ -4,7 +4,7 @@ This document describes the specification for all sample metadata. You can find 
 
 In the sample context, we consider donor animals, tissue samples, primary cells or other biological material to be samples. All Samples must be registered in BioSamples (at EMBL-EBI). This resource is a peer of  BioSample (at NCBI), and they exchange data regularly. FAANG samples should be registered in BioSamples prior to data submission. This document describes the attributes which must be associated with any BioSamples submission.
 
-##Metadata requirements
+##Sample metadata requirements
 
 Requirements are laid out like this:  
 
@@ -12,7 +12,7 @@ Requirements are laid out like this:
 
 The data types will be described later in this document.
 
-###Common 
+###Common
 
 These attributes should be present on every sample record.
 
@@ -41,7 +41,7 @@ Required:
  * `sex`  (*ontology term*) animal sex, described using any child term of [PATO_0000047](http://purl.obolibrary.org/obo/PATO_0000047)
  * `birth date` (*date*) birth date, in the format YYYY-MM-DD
  * `breed` (*ontology term*) animal breed, described using a term from the [Livestock Breed Ontology](http://purl.obolibrary.org/obo/LBO_0000000)
- 
+
 Optional:
 
  * birth location (*location*)
@@ -50,8 +50,8 @@ Optional:
    * `birth location longitude` (*number*) longitude of the birth location in decimal degrees. Units should be specified as 'decimal degrees'
  * `birth weight` (*number*) weight, in kilograms or grams. Units must be specified
  * `placental weight` (*number*) weight, in kilograms or grams. Units must be specified.
- * `pregnancy length` (*number*) length of time, in days, weeks or months 
- * `delivery timing` (*text*) 
+ * `pregnancy length` (*number*) length of time, in days, weeks or months
+ * `delivery timing` (*text*)
  * `delivery ease` (*text*)
  * `physiological conditions`(*ontology term*) use as many terms as necessary from [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
  * `environmental conditions`(*ontology term*) as many terms as necessary from [EOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
@@ -75,11 +75,11 @@ Required:
  * `developmental stage` (*ontology term*) a child term of [life cycle stage](http://purl.obolibrary.org/obo/UBERON_0000105)
  * Animal Disease / health status at point of collection
  * `tissue` ([UBERON](http://uberon.github.io/) term preferred)
- * `specimen collection protocol` (*protocol*) a link to the protocol followed when taking the specimen 
+ * `specimen collection protocol` (*protocol*) a link to the protocol followed when taking the specimen
  * `fasted status` - (*text*) One of the following values, for which the criteria _must_ be specified in the protocol:
    * fed
    * fasted
-   * unkown 
+   * unkown
 
 Optional:
 
@@ -98,7 +98,7 @@ Links to other records:
 
 ###Purified cells
 
-Cells purified from a specimen. The following attributes are in addition to the  attributes listed in the 'Common' section above. The `material` should be reported as [cell specimen](http://purl.obolibrary.org/obo/OBI_0001468). 
+Cells purified from a specimen. The following attributes are in addition to the  attributes listed in the 'Common' section above. The `material` should be reported as [cell specimen](http://purl.obolibrary.org/obo/OBI_0001468).
 
 Required:
 
@@ -117,25 +117,25 @@ Cells cultured from a specimen or purified cells. The following attributes are i
 Required:
 
  * `culture type`(*ontology term*) a child term of [BTO_0000214](http://purl.obolibrary.org/obo/BTO_0000214)
- * `cell type` (*ontology term*) a term from the [CL ontology](http://www.ontobee.org/browser/index.php?o=CL) 
+ * `cell type` (*ontology term*) a term from the [CL ontology](http://www.ontobee.org/browser/index.php?o=CL)
  * `cell culture protocol` (*protocol*) protocol describing how the cells were purified
  * `culture conditions` (*text*) brief description of culture conditions (e.g. 'on feeder cells', 'E8 media')
  * `number of passages` (*number*)  number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures
 
 Links to other records - require one of the possibilities below:
 
- * Specimen (derived from) 
+ * Specimen (derived from)
  * Purified cell (derived from)
 
 ###Pooled samples
 
-Where samples are pooled, a new sample record should be created, containing 
+Where samples are pooled, a new sample record should be created, containing
 
  * `pooling protocol` (*protocol*)
 
 Links to other records
  * pooled samples (derived from)
- 
+
 ##Data types for sample attributes
 
 [BioSamples](http://www.ebi.ac.uk/biosamples) takes sample records with a set of attributes. Each attribute has a name and a value. It can also have 'Units', or a 'Term Source' and a 'Term Source ID'. The Term Source and ID allow us to refer to entries in other databases or ontologies. This is fully described on the [BioSamples help pages](http://www.ebi.ac.uk/biosamples/help/st_scd.html). The following section describe the expectations for each data type within FAANG.
@@ -166,8 +166,8 @@ A URL,  such as 'http://faang.org/'. Depending on the context, http, ftp, mailto
 
  * ftp, ftp://ftp.faang.ebi.ac.uk/ftp/README
  * http,  http://faang.org/
- * mailto, mailto:bob@example.org 
- 
+ * mailto, mailto:bob@example.org
+
 
 ###ontology term
 
@@ -180,7 +180,7 @@ A location should be reported as using three attributes:
  * `location` (*text*) name of the location
  * `location latitude` (*number*) latitude in decimal degrees. Units should be reported as 'decimal degrees'
  * `location longitude`(*number*) longitude in decimal degrees. Units should be reported as 'decimal degrees'
- 
+
 
 ##Sample naming
 
@@ -204,7 +204,4 @@ https://submit.ncbi.nlm.nih.gov/biosample/template/?package=Model.organism.anima
 
 As mentioned in the [overview](faang_metadata_overview.md) document, Sample submission is an open question. Data Exchange between between the EBI and NCBI sample databases isn't entirely ironed out and if FAANG partners are to share samples this will need to be resolved before the best scenario for sample registration can be used.
 
-The current plan also has some redundancy contained within it. We need to work out how much redundancy can be removed. 
-
-
-
+The current plan also has some redundancy contained within it. We need to work out how much redundancy can be removed.
