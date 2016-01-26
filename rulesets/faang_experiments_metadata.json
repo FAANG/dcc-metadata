@@ -1,5 +1,5 @@
-
-    "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all sample, and additional groups based on the sample type.",
+{
+    "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all experiments, and additional groups based on the experiment type.",
     "name": "FAANG experiment metadata rules",
     "rule_groups": [
         {
@@ -9,7 +9,9 @@
                     "mandatory": "mandatory",
                     "name": "assay type",
                     "type": "ontology_text",
-                    "valid_ancestor_uris": ["http://www.ebi.ac.uk/efo/EFO_0002773"]
+                    "valid_ancestor_uris": [
+                        "http://www.ebi.ac.uk/efo/EFO_0002773"
+                    ]
                 },
                 {
                     "mandatory": "mandatory",
@@ -25,8 +27,53 @@
                 },
                 {
                     "mandatory": "optional",
-                    "name": "availability",
-                    "type": "text"
+                    "name": "sample_storage",
+                    "type": "text",
+                    "valid_values": [
+                        "frozen, liquid nitrogen",
+                        "frozen, -70 freezer",
+                        "frozen, vapor phase",
+                        "RNAlater, frozen",
+                        "paraffin block",
+                        "cut slide",
+                        "fresh"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "sample storage processing",
+                    "type": "text",
+                    "valid_values": [
+                        "cryopreservation in liquid nitrogen (dead tissue)",
+                                       "cryopreservation in dry ice (dead tissue)",
+                                       "cryopreservation of live cells in liquid nitrogen",
+                                       "cryopreservation, other",
+                                       "formalin fixed, unbuffered",
+                                       "formalin fixed, buffered",
+                                       "formalin fixed and paraffin embedded",
+                                       "fresh"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "sampling to preparation interval",
+                    "type": "number",
+                    "valid_units": [
+                        "minutes",
+                        "hours",
+                        "days",
+                        "weeks",
+                        "years"
+                    ]
                 }
+                {
+                    "mandatory": "mandatory",
+                    "name": "experimental protocol",
+                    "type": "protocol"
+                }
+                * `experimental protocol` (*protocol*) a description of the experiment protocol.
+                
             ]
-        },
+        }
+    ]
+}
