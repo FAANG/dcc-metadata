@@ -76,7 +76,7 @@ Required:
 
  * `extraction protocol` (*protocol*) the protocol used to isolate the extract material
  * `bisulfite conversion protocol` (*protocol*) 
- * `PCR product isolation protocol` (*protocol*) the protocol for isolating PCR products used for library generation
+ * `pcr product isolation protocol` (*protocol*) the protocol for isolating PCR products used for library generation
  * `bisulfite conversion percent` (*number*) bisulfite conversion percent (between 0 and 100)
  
 
