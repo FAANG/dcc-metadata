@@ -55,6 +55,18 @@ These following elements must always be present in any experiment metadata
 * `sampling to preparation interval` (*number*) This should list how long between the sample being taken and used in the experiment. Units should be specified, and be either 'minutes','hours','days','weeks' or 'years'.
 * `experimental protocol` (*protocol*) a description of the experiment protocol.
 
+Recommended:
+
+ * library preparation location (*location*)
+   * `library preparation location` (*text*) name of the library preparation location
+   * `library preparation location latitude` (*number*) latitude of the library prep. location in decimal degrees. Units should be specified as 'decimal degrees'
+   * `library preparation location longitude` (*number*) longitude of the library prep. location in decimal degrees. Units should be specified as 'decimal degrees'
+ * `library preparation date`  (*date*) Date on which the library was prepared, formatted as YYYY-MM-DD. Units should be specified as 'YYYY-MM-DD' 
+ * sequencing location (*location*)
+   * `sequencing location` (*text*) name of the sequencing location
+   * `sequencing location latitude` (*number*) latitude of the sequencing location in decimal degrees. Units should be specified as 'decimal degrees'
+   * `sequencing location longitude` (*number*) longitude of the sequencing. location in decimal degrees. Units should be specified as 'decimal degrees'
+ * `sequencing date` (*date*) date of sequencing
 
 ###Whole-genome bisulfite sequencing
 
