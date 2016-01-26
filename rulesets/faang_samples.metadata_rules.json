@@ -1,5 +1,5 @@
 {
-    "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all sample, and additional groups based on the sample type.",
+    "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all samples, and additional groups based on the sample type.",
     "name": "FAANG sample metadata rules",
     "rule_groups": [
         {
