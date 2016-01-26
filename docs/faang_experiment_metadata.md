@@ -21,6 +21,9 @@ Each assay type will require metadata in addition to the core set of common attr
 
 ###Common
 
+
+Recquired:
+
 These following elements must always be present in any experiment metadata
 
  * Each experiment should reference one `sample`. The metadata for that sample should comply with the FAANG metadata specification.
@@ -54,83 +57,94 @@ These following elements must always be present in any experiment metadata
 
 
 ###Whole-genome bisulfite sequencing
-Assay type: methylation profiling by high throughput sequencing ([EFO:0002761](http://www.ebi.ac.uk/efo/EFO_0002761))
 
-Experiment target: methylated DNA ([SO:0000306](http://www.sequenceontology.org/browser/current_svn/term/SO:0000306))
+WGBS experiments should have an `assay type` of [methylation profiling by high throughput sequencing](http://www.ebi.ac.uk/efo/EFO_0002761) and an `experiment target`  of  [DNA methylation](http://purl.obolibrary.org/obo/GO_0006306).
 
-###Protocols
-<dl>
-<dt>extraction protocol</dt>
-<dd>The protocol used to isolate the extract material</dd>
-<dt>bisulfite conversion protocol</dt>
-<dd></dd>
-<dt>PCR product isolation protocol</dt>
-<dd>The protocol for isolating PCR products used for library generation.</dd>
-</dl>
+Required: 
 
-###Attributes
-<dl>
-<dt>bisulfite conversion percent</dt>
-<dd>the bisulfite conversion percent</dd>
-</dl>
+ * `extraction protocol` (*protocol*) the protocol used to isolate the extract material
+ * `bisulfite conversion protocol` (*protocol*) 
+ * `PCR product isolation protocol` (*protocol*) the protocol for isolating PCR products used for library generation
+ * `bisulfite conversion percent` (*number*) bisulfite conversion percent (between 0 and 100)
+ 
 
-##ChIP-seq
-Assay type: ChIP-seq ([EFO:0002692](http://www.ebi.ac.uk/efo/EFO_0002692))
+###ChIP-seq
 
-Experiment target: variable. Consider child terms of ([SO:0001700](http://www.sequenceontology.org/browser/current_svn/term/SO:0001700)) for histone modifications
+ChIP-seq experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/efo/EFO_0002692). The `experiment target` is variable. Use a child term of [SO:0001700](http://www.sequenceontology.org/browser/current_svn/term/SO:0001700) for histone modifications.
 
-###Protocols
-<dl>
-<dt>extraction protocol</dt>
-<dd>the protocol used to isolate the extract material.</dd>
-<dt>ChIP protocol</dt>
-<dd>the chip protocol used.</dd>
-</dl>
+Examples of the antibody information are from the [H3K4me3 antibody from Diagenode](https://www.diagenode.com/p/h3k4me3-polyclonal-antibody-premium-50-ug-50-ul), used by the BLUEPRINT project. 
 
-###Attributes
-<dl>
-<dt>ChIP antibody </dt>
-<dd>the specific antibody used in the ChIP protocol</dd>
-<dt>ChIP antibody provider</dt>
-<dd>the name of the company, laboratory or person that provided the antibody</dd>
-<dt>ChIP antibody catalog</dt>
-<dd>the catalog from which the antibody was purchased</dd>
-<dt>ChIP antibody lot</dt>
-<dd>the lot identifier of the antibody</dd>
-<dt>library generation fragment size range</dt>
-<dd>the fragment size range of the preparation.</dd>
-</dl>
+Required:
+
+ * `extraction protocol` (*protocol*) the protocol used to isolate the extract material
+ * `chip protocol` (*protocol*)  the ChIP protocol used
+ * `chip antibody provider` (*text*) the name of the company, laboratory or person that provided the antibody e.g. Diagneode 
+ * `chip antibody catalog` (*text*)  the catalog from which the antibody was purchased e.g. pAb-003-050
+ * `chip antibody lot` (*text*) the lot identifier of the antibody e.g. A5051-001P
+ * `library generation max fragment size range` (*number*) the maximum fragment size range of the preparation
+ * `library generation min fragment size range` (*number*) the minimum fragment size range of the preparation
+
+###ChIP-seq input
+
+ChIP-seq experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/efo/EFO_0002692) and an `experiment target` of [Input DNA](http://www.ebi.ac.uk/efo/EFO_0005031) for ChIP input sequencing.
+
+Required:
+
+ * `extraction protocol` (*protocol*) the protocol used to isolate the extract material
+ * `chip protocol` (*protocol*)  the ChIP protocol used
+ * `library generation max fragment size range` (*number*) the maximum fragment size range of the preparation
+ * `library generation min fragment size range` (*number*) the minimum fragment size range of the preparation
+ 
+###RNA-seq
+
+RNA-seq experiemnts should have an `assay type` of one of the following: 
+
+ * [RNA-seq of coding RNA](http://www.ebi.ac.uk/efo/EFO_0003738)
+ * [RNA-seq of non coding RNA](http://www.ebi.ac.uk/efo/EFO_0003737)
+ * [microRNA profiling by high throughput sequencing](http://www.ebi.ac.uk/efo/EFO_0002896) 
+ 
+The `experiment target` should be one of the following:
+
+ * [polyA RNA](http://purl.obolibrary.org/obo/OBI_0000869)
+ * [total RNA](http://www.ebi.ac.uk/efo/EFO_0004964)
+ * [ncRNA](http://purl.obolibrary.org/obo/SO_0000655)
+ * [microRNA](http://purl.obolibrary.org/obo/SBO_0000316)
+
+Required:
+
+ * `extraction protocol` (*protocol*) the protocol used to isolate the extract material
+ * `rna preparation 3' adapter ligation protocol` (*protocol*) the protocol for 3’ adapter ligation used in preparation
+ * `rna preparation 5' adapter ligation protocol`*(protocol*) the protocol for 5’ adapter ligation used in preparation
+ * `library generation pcr product isolation protocol` (*protocol*) the protocol for isolating pcr products used for library generation
+ * `preparation reverse transcription protocol` (*protocol*) the protocol for reverse transcription used in preparation
+ * `library generation protocol` (*protocol*)  the protocol used to generate the library
+ * `read strand` (*text*) where a strand specific protocol is used, specify which mate pair maps to the transcribed strand. Report 'not applicable' if the protocol is not strand specific. Possible values:
+  * 'not applicable' if the protocol is not strand specific 
+  * single-ended sequencing:
+     * 'sense' if the reads should be on the same strand as the transcript
+     * antisense if  the read should be on the opposite strand of the transcript
+  * paired-end sequencing:
+     * 'mate 1 sense' if mate 1 should be on the same strand as the transcript
+     * 'mate 2 sense' if mate 2 should be on the same strand as the transcript
+ * `rna purity - 260:280 ratio` (*number*) sample purity assesed with fluoresence ratio at 260 and 280nm, informative for protein contamination
+ * `rna purity - 260:230 ratio` (*number*) Sample purity assesed with fluoresence ratio at 260 and 230nm, informative for contamination by phenolate ion, thiocyanates, and other organic compounds
+ * `rna integrity number` (*number*) See [Schroeder *et al* , 2006](http://www.biomedcentral.com/1471-2199/7/3)
+
+###DNase-Hypersensitivity seq
+
+DNase-seq experiments should have an `assay type` of  [DNase-Hypersensitivity seq](http://www.ebi.ac.uk/efo/EFO_0003752) and an `experiment target` of  [open chromatin region](http://purl.obolibrary.org/obo/SO_0001747)
+
+Required:
+
+ * `extraction protocol` (*protocol*) the protocol used to isolate the extract material.
+ * `dnase protocol` (*protocol*) the protocol used for DNAse treatment
 
 
-##RNA-seq
-Assay type: RNA-seq of coding RNA ([EFO:0003738](http://www.ebi.ac.uk/efo/EFO_0003738))
+###ATAC-seq
 
-Experiment target: RNA e.g. polyA RNA ([OBI:0000869](http://purl.obolibrary.org/obo/OBI_0000869)), total RNA ([EFO:0004964](http://www.ebi.ac.uk/efo/EFO_0004964))
+ATAC-seq experiments should have an `assay type` of 'ATAC-seq' (EFO term requested) and an `experiment target` of  [open chromatin region](http://purl.obolibrary.org/obo/SO_0001747)
 
-###Protocols
-<dl>
-<dt>extraction_protocol</dt>
-<dd>the protocol used to isolate the extract material.</dd>
-<dt>RNA preparation 3' adapter ligation protocol</dt>
-<dd>the protocol for 3’ adapter ligation used in preparation.</dd>
-<dt>RNA preparation 5' adapter ligation protocol</dt>
-<dd>the protocol for 5’ adapter ligation used in preparation.</dd>
-<dt>library generation pcr product isolation_protocol</dt>
-<dd>the protocol for isolating pcr products used for library generation.</dd>
-<dt>preparation reverse transcription protocol</dt>
-<dd>the protocol for reverse transcription used in preparation.</dd>
-<dt>library generation protocol</dt>
-<dd>the protocol used to generate the library.</dd>
-</dl>
+Required:
 
-###Attributes
-<dl>
-<dt>read strand</dt>
-<dd>where a strand specific protocol is used, specify which mate pair maps to the transcribed strand. (NA otherwise).</dd>
-<dt>RNA purity - 260:280 ratio</dt>
-<dd>Sample purity assesed with fluoresence ratio at 260 and 280nm, informative for protein contamination</dd>
-<dt>RNA purity - 260:230 ratio</dt>
-<dd>Sample purity assesed with fluoresence ratio at 260 and 230nm, informative for contamination by phenolate ion, thiocyanates, and other organic compounds</dd>
-<dt>RNA integrity number</dt>
-<dd>See <a href="http://www.biomedcentral.com/1471-2199/7/3">Schroeder <i>et al</i>, 2006</a></dd>
-</dl>
+ * `extraction protocol` (*protocol*) the protocol used to isolate the extract material.
+ * `transposase protocol` (*protocol*) the protocol used for transposase treatment
