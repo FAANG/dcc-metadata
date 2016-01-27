@@ -53,7 +53,8 @@ These following elements must always be present in any experiment metadata
 		* formalin fixed and paraffin embedded
 		* fresh
 * `sampling to preparation interval` (*number*) This should list how long between the sample being taken and used in the experiment. Units should be specified, and be either 'minutes','hours','days','weeks' or 'years'.
-* `experimental protocol` (*protocol*) a description of the experiment protocol.
+* `experimental protocol` (*protocol*) a description of the experiment protocol
+ * `extraction protocol` (*protocol*) the protocol used to isolate the extract material
 
 Recommended:
 
@@ -74,7 +75,6 @@ WGBS experiments should have an `assay type` of [methylation profiling by high t
 
 Required: 
 
- * `extraction protocol` (*protocol*) the protocol used to isolate the extract material
  * `bisulfite conversion protocol` (*protocol*) 
  * `pcr product isolation protocol` (*protocol*) the protocol for isolating PCR products used for library generation
  * `bisulfite conversion percent` (*number*) bisulfite conversion percent (between 0 and 100)
@@ -88,7 +88,6 @@ Examples of the antibody information are from the [H3K4me3 antibody from Diageno
 
 Required:
 
- * `extraction protocol` (*protocol*) the protocol used to isolate the extract material
  * `chip protocol` (*protocol*)  the ChIP protocol used
  * `chip antibody provider` (*text*) the name of the company, laboratory or person that provided the antibody e.g. Diagneode 
  * `chip antibody catalog` (*text*)  the catalog from which the antibody was purchased e.g. pAb-003-050
@@ -102,7 +101,6 @@ ChIP-seq experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.a
 
 Required:
 
- * `extraction protocol` (*protocol*) the protocol used to isolate the extract material
  * `chip protocol` (*protocol*)  the ChIP protocol used
  * `library generation max fragment size range` (*number*) the maximum fragment size range of the preparation
  * `library generation min fragment size range` (*number*) the minimum fragment size range of the preparation
@@ -124,7 +122,6 @@ The `experiment target` should be one of the following:
 
 Required:
 
- * `extraction protocol` (*protocol*) the protocol used to isolate the extract material
  * `rna preparation 3' adapter ligation protocol` (*protocol*) the protocol for 3’ adapter ligation used in preparation
  * `rna preparation 5' adapter ligation protocol`*(protocol*) the protocol for 5’ adapter ligation used in preparation
  * `library generation pcr product isolation protocol` (*protocol*) the protocol for isolating pcr products used for library generation
@@ -148,18 +145,26 @@ DNase-seq experiments should have an `assay type` of  [DNase-Hypersensitivity se
 
 Required:
 
- * `extraction protocol` (*protocol*) the protocol used to isolate the extract material.
  * `dnase protocol` (*protocol*) the protocol used for DNAse treatment
 
 
 ###ATAC-seq
 
-ATAC-seq experiments should have an `assay type` of 'ATAC-seq' (EFO term requested) and an `experiment target` of  [open chromatin region](http://purl.obolibrary.org/obo/SO_0001747)
+ATAC-seq experiments should have an `assay type` of [ATAC-seq](http://www.ebi.ac.uk/efo/EFO_0007045) (due in release 2.69) and an `experiment target` of  [open chromatin region](http://purl.obolibrary.org/obo/SO_0001747)
 
 Required:
 
- * `extraction protocol` (*protocol*) the protocol used to isolate the extract material.
  * `transposase protocol` (*protocol*) the protocol used for transposase treatment
+
+###Hi-C
+
+Hi-C experiments should have an `assay type` of  'Hi-C' (term requested from EFO)  and an `experiment target` of 'chromosome interaction' (appropriate ontology to be determined).
+
+Required:
+
+ * restriction enzyme (*text*)
+ * restriction site (*text*)
+
  
 ##Data types for experiment attributes
 
