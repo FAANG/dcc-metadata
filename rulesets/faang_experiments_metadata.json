@@ -200,8 +200,9 @@
             ]
         },
         {
-            "_comment": "TODO: need to make this easier to specify for multiple values",
+            "_comment": "TODO: need to make this easier to specify for multiple values in the condition",
             "condition": "/attributes/*/*[key eq 'name' && value eq 'assay type']/../*[key eq 'value' && value eq 'RNA-seq of coding RNA']",
+            "name": "RNA-seq",
             "rules": [
                 {
                     "mandatory": "mandatory",
@@ -270,6 +271,54 @@
                     "mandatory": "mandatory",
                     "name": "rna integrity number",
                     "type": "number"
+                }
+            ]
+        },
+        {
+            "condition": "/attributes/*/*[key eq 'name' && value eq 'assay type']/../*[key eq 'value' && value eq 'DNase-Hypersensitivity seq']",
+            "name": "DNase-seq",
+            "rules": [
+                {
+                    "mandatory": "mandatory",
+                    "name": "experiment target",
+                    "type": "text",
+                    "valid_values": [
+                        "open chromatin region"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "extraction protocol",
+                    "type": "protocol"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "dnase protocol",
+                    "type": "protocol"
+                }
+            ]
+        },
+        {
+            "condition": "/attributes/*/*[key eq 'name' && value eq 'assay type']/../*[key eq 'value' && value eq 'ATAC-seq']",
+            "name": "ATAC-seq",
+            "rules": [
+                {
+                    "mandatory": "mandatory",
+                    "name": "experiment target",
+                    "type": "text",
+                    "valid_values": [
+                        "open chromatin region"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "extraction protocol",
+                    "type": "protocol"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "transposase protocol",
+                    "type": "protocol"
                 }
             ]
         }
