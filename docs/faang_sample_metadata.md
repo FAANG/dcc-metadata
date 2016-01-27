@@ -192,16 +192,10 @@ We propose a sample naming scheme comprising the following elements:
 
 The purpose is to ensure that samples are uniquely and clearly identified, with reasonably short names.
 
-
-
 ##Submission
 
-BioSample have a template for animal submissions:
+Samples should be submitted to [BioSamples@EBI](https://www.ebi.ac.uk/biosamples/). They should be added to the 'FAANG' group (TODO: how do you do this).  Samples in the 'FAANG' group will be synced to [BioSample@NCBI](http://www.ncbi.nlm.nih.gov/biosample/) periodically. Samples in BioSamples@EBI/BioSample@NCBI can be referenced in submissions to SRA at EBI and NCBI.
 
-https://submit.ncbi.nlm.nih.gov/biosample/template/?package=Model.organism.animal.1.0&action=definition
+##Validation
 
-##Notes
-
-As mentioned in the [overview](faang_metadata_overview.md) document, Sample submission is an open question. Data Exchange between between the EBI and NCBI sample databases isn't entirely ironed out and if FAANG partners are to share samples this will need to be resolved before the best scenario for sample registration can be used.
-
-The current plan also has some redundancy contained within it. We need to work out how much redundancy can be removed.
+The DCC team at EBI will check the submitted metadata against the specification. Samples that do not meet the minimum requirements will be not be included in FAANG data releases.
