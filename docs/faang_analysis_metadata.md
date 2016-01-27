@@ -30,6 +30,14 @@ The analysis must be reproducible based on the protocol document.
 
 The analysis metadata will also contain QC attributes. These will vary based on the experiment type, but for sequencing work should always include mapping statistics as a bare minimum.
 
+
+Required:
+
+ * `total reads` (*number*) the number of reads used in mapping
+ * `mapped reads` (*number*) the number of  reads that can be mapped. Care should be taken that reads with multiple mappings are only counted once
+ * `percentage reads mapped` (*number*)  the percentage of  reads that can be mapped. As with `mapped reads`, care should be taken that reads with multiple mappings are only counted once.
+
+
 ###File naming
 
 Each file should be uniquely identifiable with a human readable name, giving sufficient information to understand what it contains. We expect analysis to be repeated at intervals, as reference data and protocols are updated, so a data freeze date is included.
@@ -52,7 +60,4 @@ e.g
 OAR3_1.OA_Roslin001.liver.H3K27ac.ERX053278.FAANGUK_chipv3.peaks.20150617.bb
 
 So this hypothetical example represents a liver H3K27ac ChIP-Seq experiment for the Roslin's first Sheep sample using the FAANG v3 peak calling pipeline on the Sheep Assembly OAR_v3.1
-
-
-
 
