@@ -322,5 +322,29 @@
                 }
             ]
         }
+        {
+            "condition": "/attributes/*/*[key eq 'name' && value eq 'assay type']/../*[key eq 'value' && value eq 'HiC']",
+            "name": "HiC",
+            "rules": [
+                {
+                    "mandatory": "mandatory",
+                    "name": "experiment target",
+                    "type": "text",
+                    "valid_values": [
+                        "chromosome conformation"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "restriction enzyme",
+                    "type": "text"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "restriction site",
+                    "type": "text"
+                }
+            ]
+        }
     ]
 }
