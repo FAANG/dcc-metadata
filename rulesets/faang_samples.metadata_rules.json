@@ -63,6 +63,15 @@
                     "valid_ancestor_uris": "http://purl.obolibrary.org/obo/LBO_0000000"
                 },
                 {
+                    "mandatory": "mandatory",
+                    "name": "health status",
+                    "type": "ontology_uri",
+                    "valid_ancestor_uris": [
+                        "http://purl.obolibrary.org/obo/PATO_0000461",
+                        "http://www.ebi.ac.uk/efo/EFO_0000408"
+                    ]
+                },
+                {
                     "mandatory": "optional",
                     "name": "birth location",
                     "type": "text"
@@ -71,13 +80,17 @@
                     "mandatory": "optional",
                     "name": "birth location longitude",
                     "type": "number",
-                    "valid_units": ["decimal degrees"]
+                    "valid_units": [
+                        "decimal degrees"
+                    ]
                 },
                 {
                     "mandatory": "optional",
                     "name": "birth location latitude",
                     "type": "number",
-                    "valid_units": ["decimal degrees"]
+                    "valid_units": [
+                        "decimal degrees"
+                    ]
                 },
                 {
                     "_comment": "#TODO dd ATOL and EOL once available in OLS",
@@ -118,13 +131,15 @@
                     "name": "pregnancy length",
                     "type": "number",
                     "valid_units": [
-                        "days","weeks","months"
+                        "days",
+                        "weeks",
+                        "months"
                     ]
                 },
                 {
                     "mandatory": "optional",
                     "name": "delivery timing",
-                    "type": "text",
+                    "type": "text"
                 },
                 {
                     "mandatory": "optional",
@@ -198,7 +213,9 @@
                     "mandatory": "optional",
                     "name": "number of pieces",
                     "type": "number",
-                    "valid_units": ["count"]
+                    "valid_units": [
+                        "count"
+                    ]
                 },
                 {
                     "mandatory": "optional",
@@ -254,17 +271,17 @@
                         "http://purl.obolibrary.org/obo/CL_0000000"
                     ]
                 },
-                { 
+                {
                     "mandatory": "mandatory",
                     "name": "cell purification protocol",
                     "type": "url"
-                },
+                }
             ]
         },
         {
             "condition": "/attributes/*/*[key eq 'name' && value eq 'material']/../*[key eq 'uri' && value eq 'http://purl.obolibrary.org/obo/OBI_0100060']",
             "name": "cell_culture",
-            "rules": [                
+            "rules": [
                 {
                     "mandatory": "mandatory",
                     "name": "culture type",
