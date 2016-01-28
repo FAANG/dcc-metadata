@@ -158,7 +158,7 @@ Required:
 
 ###Hi-C
 
-Hi-C experiments should have an `assay type` of  'Hi-C' (term requested from EFO)  and an `experiment target` of 'chromosome interaction' (appropriate ontology to be determined).
+Hi-C experiments should have an `assay type` of  [HiC](http://purl.obolibrary.org/obo/OBI_0002042)  and an `experiment target` of [chromosome conformation](http://purl.obolibrary.org/obo/OBI_0001917).
 
 Required:
 
