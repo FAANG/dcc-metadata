@@ -72,6 +72,11 @@
                     "type": "protocol"
                 },
                 {
+                    "mandatory": "mandatory",
+                    "name": "extraction protocol",
+                    "type": "protocol"
+                },
+                {
                     "mandatory": "recommended",
                     "name": "library preparation location",
                     "type": "text"
@@ -137,11 +142,6 @@
             "rules": [
                 {
                     "mandatory": "mandatory",
-                    "name": "extraction protocol",
-                    "type": "protocol"
-                },
-                {
-                    "mandatory": "mandatory",
                     "name": "bisulfite conversion protocol",
                     "type": "protocol"
                 },
@@ -162,11 +162,6 @@
             "condition": "/attributes/*/*[key eq 'name' && value eq 'assay type']/../*[key eq 'value' && value eq 'ChIP-seq']",
             "name": "ChIP-seq",
             "rules": [
-                {
-                    "mandatory": "mandatory",
-                    "name": "extraction protocol",
-                    "type": "protocol"
-                },
                 {
                     "mandatory": "mandatory",
                     "name": "chip protocol",
@@ -214,11 +209,6 @@
                         "ncRNA",
                         "microRNA"
                     ]
-                },
-                {
-                    "mandatory": "mandatory",
-                    "name": "extraction protocol",
-                    "type": "protocol"
                 },
                 {
                     "mandatory": "mandatory",
@@ -288,11 +278,6 @@
                 },
                 {
                     "mandatory": "mandatory",
-                    "name": "extraction protocol",
-                    "type": "protocol"
-                },
-                {
-                    "mandatory": "mandatory",
                     "name": "dnase protocol",
                     "type": "protocol"
                 }
@@ -309,11 +294,6 @@
                     "valid_values": [
                         "open chromatin region"
                     ]
-                },
-                {
-                    "mandatory": "mandatory",
-                    "name": "extraction protocol",
-                    "type": "protocol"
                 },
                 {
                     "mandatory": "mandatory",
