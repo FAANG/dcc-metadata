@@ -19,7 +19,7 @@ These attributes should be present on every sample record.
 Required:
 
   * Sample Name / ID
-  * `material` (*ontology term*) the type of material being described. This will be used to decide what metadata are required and must be one of the expected terms:
+  * `Material` (*ontology term*) the type of material being described. This will be used to decide what metadata are required and must be one of the expected terms:
    * [organism](http://purl.obolibrary.org/obo/OBI_0100026)
    * [tissue specimen](http://purl.obolibrary.org/obo/OBI_0001479)
    * [cell specimen](http://purl.obolibrary.org/obo/OBI_0001468)
