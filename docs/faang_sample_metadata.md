@@ -37,7 +37,7 @@ An animal sampled for FAANG. The following attributes are in addition to the  at
 
 Required:
 
- * `species` (*NCBI taxon ID*)
+ * `Organism` (*NCBI taxon ID*)
  * `sex`  (*ontology term*) animal sex, described using any child term of [PATO_0000047](http://purl.obolibrary.org/obo/PATO_0000047)
  * `birth date` (*date*) birth date, in the format YYYY-MM-DD
  * `breed` (*ontology term*) animal breed, described using a term from the [Livestock Breed Ontology](http://purl.obolibrary.org/obo/LBO_0000000)
