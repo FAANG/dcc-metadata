@@ -8,9 +8,15 @@
                 {
                     "mandatory": "mandatory",
                     "name": "assay type",
-                    "type": "ontology_text",
-                    "valid_ancestor_uris": [
-                        "http://www.ebi.ac.uk/efo/EFO_0002773"
+                    "type": "text",
+                    "valid_values": [
+                        "methylation profiling by high throughput sequencing",
+                        "ChIP-seq",
+                        "RNA-seq of coding RNA",
+                        "RNA-seq of non coding RNA",
+                        "microRNA profiling by high throughput sequencing",
+                        "DNase-Hypersensitivity seq",
+                        "ATAC-seq"
                     ]
                 },
                 {
@@ -137,7 +143,13 @@
             ]
         },
         {
-            "condition": "/attributes/*/*[key eq 'name' && value eq 'assay type']/../*[key eq 'value' && value eq 'methylation profiling by high throughput sequencing']",
+            "condition": {
+                "attribute_value_match": {
+                    "assay type": [
+                        "methylation profiling by high throughput sequencing"
+                    ]
+                }
+            },
             "name": "WGBS",
             "rules": [
                 {
@@ -158,8 +170,14 @@
             ]
         },
         {
-            "_comment": "TODO: need to make some of this specific to non-Input DNA",
-            "condition": "/attributes/*/*[key eq 'name' && value eq 'assay type']/../*[key eq 'value' && value eq 'ChIP-seq']",
+            "condition": {
+                "attribute_value_match": {
+                    "assay type": [
+                        "ChIP-seq"
+                    ]
+                },
+                "dpath_condition": "/attributes/*/*[key eq 'name' && value eq 'experiment target']/../*[key eq 'value' && value ne 'Input DNA']"
+            },
             "name": "ChIP-seq",
             "rules": [
                 {
@@ -195,8 +213,45 @@
             ]
         },
         {
-            "_comment": "TODO: need to make this easier to specify for multiple values in the condition",
-            "condition": "/attributes/*/*[key eq 'name' && value eq 'assay type']/../*[key eq 'value' && value eq 'RNA-seq of coding RNA']",
+            "condition": {
+                "attribute_value_match": {
+                    "assay type": [
+                        "ChIP-seq"
+                    ],
+                    "experiment target": [
+                        "Input DNA"
+                    ]
+                }
+            },
+            "name": "ChIP-seq input",
+            "rules": [
+                {
+                    "mandatory": "mandatory",
+                    "name": "chip protocol",
+                    "type": "protocol"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "library generation max fragment size range",
+                    "type": "number"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "library generation min fragment size range",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "condition": {
+                "attribute_value_match": {
+                    "assay type": [
+                        "RNA-seq of coding RNA",
+                        "RNA-seq of non coding RNA",
+                        "microRNA profiling by high throughput sequencing"
+                    ]
+                }
+            },
             "name": "RNA-seq",
             "rules": [
                 {
@@ -265,7 +320,13 @@
             ]
         },
         {
-            "condition": "/attributes/*/*[key eq 'name' && value eq 'assay type']/../*[key eq 'value' && value eq 'DNase-Hypersensitivity seq']",
+            "condition": {
+                "attribute_value_match": {
+                    "assay type": [
+                        "DNase-Hypersensitivity seq"
+                    ]
+                }
+            },
             "name": "DNase-seq",
             "rules": [
                 {
@@ -284,7 +345,13 @@
             ]
         },
         {
-            "condition": "/attributes/*/*[key eq 'name' && value eq 'assay type']/../*[key eq 'value' && value eq 'ATAC-seq']",
+            "condition": {
+                "attribute_value_match": {
+                    "assay type": [
+                        "ATAC-seq"
+                    ]
+                }
+            },
             "name": "ATAC-seq",
             "rules": [
                 {
@@ -301,9 +368,15 @@
                     "type": "protocol"
                 }
             ]
-        }
+        },
         {
-            "condition": "/attributes/*/*[key eq 'name' && value eq 'assay type']/../*[key eq 'value' && value eq 'HiC']",
+            "condition": {
+                "attribute_value_match": {
+                    "assay type": [
+                        "HiC"
+                    ]
+                }
+            },
             "name": "HiC",
             "rules": [
                 {

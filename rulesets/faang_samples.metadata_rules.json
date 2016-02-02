@@ -21,6 +21,13 @@
                         "http://purl.obolibrary.org/obo/OBI_0001468",
                         "http://purl.obolibrary.org/obo/OBI_0302716",
                         "http://purl.obolibrary.org/obo/OBI_0001876"
+                    ],
+                    "valid_values": [
+                        "organism",
+                        "tissue specimen",
+                        "cell specimen",
+                        "pool of specimens",
+                        "cell culture"
                     ]
                 },
                 {
@@ -31,7 +38,13 @@
             ]
         },
         {
-            "condition": "/attributes/*/*[key eq 'name' && value eq 'material']/../*[key eq 'uri' && value eq 'http://purl.obolibrary.org/obo/OBI_0100026']",
+            "condition": {
+                "attribute_value_match": {
+                    "material": [
+                        "organism"
+                    ]
+                }
+            },
             "name": "animal",
             "rules": [
                 {
@@ -149,7 +162,13 @@
             ]
         },
         {
-            "condition": "/attributes/*/*[key eq 'name' && value eq 'material']/../*[key eq 'uri' && value eq 'http://purl.obolibrary.org/obo/OBI_0001479']",
+            "condition": {
+                "attribute_value_match": {
+                    "material": [
+                        "tissue specimen"
+                    ]
+                }
+            },
             "name": "specimen",
             "rules": [
                 {
@@ -255,8 +274,14 @@
             ]
         },
         {
-            "condition": "/attributes/*/*[key eq 'name' && value eq 'material']/../*[key eq 'uri' && value eq 'http://purl.obolibrary.org/obo/OBI_0001468']",
-            "name": "purified_cells",
+            "condition": {
+                "attribute_value_match": {
+                    "material": [
+                        "cell specimen"
+                    ]
+                }
+            },
+            "name": "purified cells",
             "rules": [
                 {
                     "mandatory": "mandatory",
@@ -279,8 +304,14 @@
             ]
         },
         {
-            "condition": "/attributes/*/*[key eq 'name' && value eq 'material']/../*[key eq 'uri' && value eq 'http://purl.obolibrary.org/obo/OBI_0100060']",
-            "name": "cell_culture",
+            "condition": {
+                "attribute_value_match": {
+                    "material": [
+                        "cell culture"
+                    ]
+                }
+            },
+            "name": "cell culture",
             "rules": [
                 {
                     "mandatory": "mandatory",
