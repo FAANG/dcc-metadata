@@ -199,3 +199,23 @@ A URL,  such as 'http://faang.org/'. Depending on the context, http, ftp, mailto
 ###ontology term
 
 The text label of a term from an ontology. The attribute value should be the term label. Unlike for sample submissions, direct links to ontologies cannot be submitted as attributes. The attribute value should exactly match the term name in the ontology. 
+
+##Missing data
+
+Where data cannot be included in a submission, submit one of these text values instead
+
+ * 'not applicable'
+ * 'not collected' (i.e. will always be missing)
+ * 'not provided' (i.e. may be added later)
+ * 'restricted access' (i.e. it isn't missing, we just can't include it in a public document)
+
+The use of these values will interact with the metadata validation system as follows:
+
+ * attribute is required
+  * not applicable, not collected, not provided - validation will regard these as an error
+  * restricted access - validation will generate a warning
+ * attribute is recommended
+  * not applicable, not collected, not provided - validation will generate a warning
+  * restricted access - pass
+ * attribute is optional
+   * validation will pass with any of missing values terms
