@@ -48,37 +48,35 @@
             "name": "animal",
             "rules": [
                 {
-                    "_comment": "#TODO add NCBI taxon validation",
                     "mandatory": "mandatory",
                     "name": "species",
-                    "type": "number"
+                    "type": "ontology_id",
+                    "valid_ancestor_uris": "http://purl.obolibrary.org/obo/NCBITaxon_1"
                 },
                 {
                     "mandatory": "mandatory",
                     "name": "sex",
-                    "type": "ontology_uri",
+                    "type": "ontology_id",
                     "valid_ancestor_uris": "http://purl.obolibrary.org/obo/PATO_0000047"
                 },
                 {
-                    "_comment": "#TODO add date type, to support IS0 8601 dates",
                     "mandatory": "mandatory",
                     "name": "birth date",
-                    "type": "text",
+                    "type": "date",
                     "valid_units": [
                         "YYYY-MM-DD"
                     ]
                 },
                 {
-                    "_comment": "#TODO LBO is not in OLS yet",
                     "mandatory": "mandatory",
                     "name": "breed",
-                    "type": "ontology_uri",
+                    "type": "ontology_id",
                     "valid_ancestor_uris": "http://purl.obolibrary.org/obo/LBO_0000000"
                 },
                 {
                     "mandatory": "mandatory",
                     "name": "health status",
-                    "type": "ontology_uri",
+                    "type": "ontology_id",
                     "valid_ancestor_uris": [
                         "http://purl.obolibrary.org/obo/PATO_0000461",
                         "http://www.ebi.ac.uk/efo/EFO_0000408"
@@ -110,7 +108,7 @@
                     "allow_multiple": "true",
                     "mandatory": "optional",
                     "name": "phenotype",
-                    "type": "ontology_uri",
+                    "type": "ontology_id",
                     "valid_ancestor_uris": [
                         "http://purl.obolibrary.org/obo/VT_0000001"
                     ]
@@ -120,7 +118,7 @@
                     "allow_multiple": "true",
                     "mandatory": "optional",
                     "name": "environmental conditions",
-                    "type": "ontology_uri",
+                    "type": "ontology_id",
                     "valid_ancestor_uris": "EOL:0000001"
                 },
                 {
@@ -172,10 +170,9 @@
             "name": "specimen",
             "rules": [
                 {
-                    "_comment": "#TODO date type",
                     "mandatory": "mandatory",
                     "name": "specimen_collection_date",
-                    "type": "text",
+                    "type": "date",
                     "valid_units": [
                         "YYYY-MM-DD"
                     ]
@@ -199,16 +196,15 @@
                 {
                     "mandatory": "mandatory",
                     "name": "tissue",
-                    "type": "ontology_uri",
+                    "type": "ontology_id",
                     "valid_ancestor_uris": [
                         "http://purl.obolibrary.org/obo/UBERON_0001062"
                     ]
                 },
                 {
-                    "_comment": "#TODO - url to protocol needs rule type",
                     "mandatory": "mandatory",
                     "name": "specimen collection protocol",
-                    "type": "text"
+                    "type": "url"
                 },
                 {
                     "mandatory": "optional",
@@ -225,7 +221,7 @@
                     "allow_multiple": "true",
                     "mandatory": "optional",
                     "name": "physiological conditions",
-                    "type": "ontology_uri",
+                    "type": "ontology_id",
                     "valid_ancestor_uris": "EOL:0000001"
                 },
                 {
@@ -291,7 +287,7 @@
                 {
                     "mandatory": "mandatory",
                     "name": "cell type",
-                    "type": "ontology_uri",
+                    "type": "ontology_id",
                     "valid_ancestor_uris": [
                         "http://purl.obolibrary.org/obo/CL_0000000"
                     ]
@@ -316,7 +312,7 @@
                 {
                     "mandatory": "mandatory",
                     "name": "culture type",
-                    "type": "ontology_uri",
+                    "type": "ontology_id",
                     "valid_ancestor_uris": [
                         "http://purl.obolibrary.org/obo/BTO_0000214"
                     ]
@@ -324,7 +320,7 @@
                 {
                     "mandatory": "mandatory",
                     "name": "cell type",
-                    "type": "ontology_uri",
+                    "type": "ontology_id",
                     "valid_ancestor_uris": [
                         "http://purl.obolibrary.org/obo/CL_0000000"
                     ]
@@ -332,10 +328,7 @@
                 {
                     "mandatory": "mandatory",
                     "name": "cell culture protocol",
-                    "type": "url",
-                    "valid_ancestor_uris": [
-                        "http://purl.obolibrary.org/obo/CL_0000000"
-                    ]
+                    "type": "url"
                 },
                 {
                     "mandatory": "mandatory",
