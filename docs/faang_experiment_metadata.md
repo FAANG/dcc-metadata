@@ -1,4 +1,4 @@
-#FAANG experiment metadata spec
+##FAANG metadata - experiment specification
 
 This document describes the specification for all experiment metadata. You can find an overview of our metadata and archival plans in [the overview document](faang_metadata_overview.md). The [sample](faang_sample_metadata.md) and [analysis](faang_analysis_metadata.md) documents are also in this [git repo](https://github.com/FAANG/faang-metadata).
 
@@ -219,3 +219,7 @@ The use of these values will interact with the metadata validation system as fol
   * restricted access - pass
  * attribute is optional
    * validation will pass with any of missing values terms
+   
+##Submission
+
+Each experiment record should reference a record in BioSamples. These have accessions like SAMEA1234567

@@ -1,4 +1,4 @@
-#FAANG sample metadata spec
+##FAANG metadata - sample specification
 
 This document describes the specification for all sample metadata. You can find an overview of our metadata and archival plans in [the overview document](faang_metadata_overview.md). The [experiment](faang_experiment_metadata.md) and [analysis](faang_analysis_metadata.md) documents are also in this [git repo](https://github.com/FAANG/faang-metadata).
 
