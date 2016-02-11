@@ -36,24 +36,25 @@ These following elements must always be present in any experiment metadata
 	* ATAC-seq and DNase-seq should use the term [open_chromatin_region](http://purl.obolibrary.org/obo/SO_0001747)
 	* Methylation assays should use the term [DNA methylation](http://purl.obolibrary.org/obo/GO_0006306)
  * `sample storage` (*text*) This should document how the sample was stored, from one of these values:
-		*  frozen, liquid nitrogen
-		*  frozen, -70 freezer
-		*  frozen, vapor phase
-		*  RNAlater, frozen
-		*  paraffin block
-		*  cut slide
-		*  fresh
-* `sample storage processing` (*text*) This should document how the sample was prepared for storage, from one of these values:
-		* cryopreservation in liquid nitrogen (dead tissue)
-		* cryopreservation in dry ice (dead tissue)
-		* cryopreservation of live cells in liquid nitrogen
-		* cryopreservation, other
-		* formalin fixed, unbuffered
-		* formalin fixed, buffered
-		* formalin fixed and paraffin embedded
-		* fresh
-* `sampling to preparation interval` (*number*) This should list how long between the sample being taken and used in the experiment. Units should be specified, and be either 'minutes','hours','days','weeks' or 'years'.
-* `experimental protocol` (*protocol*) a description of the experiment protocol
+  *  frozen, liquid nitrogen
+  *  frozen, -70 freezer
+  *  frozen, vapor phase
+  *  RNAlater, frozen
+  *  paraffin block
+  *  cut slide
+  *  fresh
+  * ambient temperature
+ * `sample storage processing` (*text*) This should document how the sample was prepared for storage, from one of these values:
+  * cryopreservation in liquid nitrogen (dead tissue)
+  * cryopreservation in dry ice (dead tissue)
+  * cryopreservation of live cells in liquid nitrogen
+  * cryopreservation, other
+  * formalin fixed, unbuffered
+  * formalin fixed, buffered
+  * formalin fixed and paraffin embedded
+  * fresh
+ * `sampling to preparation interval` (*number*) This should list how long between the sample being taken and used in the experiment. Units should be specified, and be either 'minutes','hours','days','weeks' or 'years'.
+ * `experimental protocol` (*protocol*) a description of the experiment protocol
  * `extraction protocol` (*protocol*) the protocol used to isolate the extract material
 
 Recommended:
