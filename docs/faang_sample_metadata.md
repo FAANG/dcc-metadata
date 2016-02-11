@@ -21,7 +21,7 @@ An animal sampled for FAANG. The following attributes are in addition to the com
 
 Required:
  * Species - NCBI taxon ID.
- * Sex (any child term of [PATO_0000047](http://bioportal.bioontology.org/ontologies/EFO/?p=classes&conceptid=http%3A%2F%2Fpurl.org%2Fobo%2Fowl%2FPATO%23PATO_0000047&jump_to_nav=true))
+ * Sex (any child term of [PATO_0000047](http://www.ontobee.org/ontology/PATO?iri=http://purl.obolibrary.org/obo/PATO_0000047))
  * Birth date
  * Strain / Breed (ontology or link to DB?)
  
