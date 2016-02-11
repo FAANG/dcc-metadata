@@ -2,7 +2,7 @@
 
 This document describes the principles and structure for the FAANG metadata guidance. 
 
-The main goal of the [FAANG](http://www.faang.org) standards is to ensure all FAANG experiments, samples and analyses are fully described and as many potentially confounding factors as possible are recorded. We support the MIAME and MINSEQE guidelines, and aim to convert them to a concrete specification.
+The main goal of the [FAANG](http://www.faang.org) standards is to ensure all FAANG experiments, samples and analyses are well described and that description is well structured. This will ensure as many potentially confounding factors as possible are recorded. We support the MIAME and MINSEQE guidelines, and aim to convert them to a concrete specification.
 
 We divide the metadata into 3 related categories
 
@@ -49,4 +49,4 @@ The different archives we recommend can support all support out metadata at a ba
 
 The appropriate metadata recommendations are covered in their data type documents as linked to at the top of this document.
 
-Sample records should be submitted to [BioSamples@EBI](http://www.ebi.ac.uk/biosamples/) prior to the submission of experimental results. These sample records will be mirrored by [BioSample@NCBI](http://www.ncbi.nlm.nih.gov/biosample/). The sample records should be referenced when submitting experimental results.
+Sample records should be submitted to [BioSamples@EBI](http://www.ebi.ac.uk/biosamples/) prior to the submission of experimental results. These sample records will be mirrored by [BioSample@NCBI](http://www.ncbi.nlm.nih.gov/biosample/). The sample records should be referenced when submitting experimental results to the appropriate assay archive.
