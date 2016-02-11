@@ -104,22 +104,22 @@
                     ]
                 },
                 {
-                    "_comment": "#TODO dd ATOL and EOL once available in OLS",
                     "allow_multiple": 1,
                     "mandatory": "optional",
                     "name": "phenotype",
                     "type": "ontology_id",
                     "valid_ancestor_uris": [
-                        "http://purl.obolibrary.org/obo/VT_0000001"
+                        "http://purl.obolibrary.org/obo/VT_0000001",
+                        "http://purl.org/obo/owlATOL_0000002",
+                        "http://purl.org/obo/owlEOL_0000001"
                     ]
                 },
                 {
-                    "_comment": "#TODO add full EOL URI once available in OLS",
                     "allow_multiple": 1,
                     "mandatory": "optional",
                     "name": "environmental conditions",
                     "type": "ontology_id",
-                    "valid_ancestor_uris": ["EOL:0000001"]
+                    "valid_ancestor_uris": ["http://purl.org/obo/owlEOL_0000001"]
                 },
                 {
                     "mandatory": "optional",
@@ -217,12 +217,11 @@
                     ]
                 },
                 {
-                    "_comment": "#TODO add full ATOL URI once available in OLS",
                     "allow_multiple": 1,
                     "mandatory": "optional",
                     "name": "physiological conditions",
                     "type": "ontology_id",
-                    "valid_ancestor_uris": ["EOL:0000001"]
+                    "valid_ancestor_uris": ["http://purl.org/obo/owlATOL_0000002"]
                 },
                 {
                     "mandatory": "optional",
