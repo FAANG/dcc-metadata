@@ -75,6 +75,7 @@
                 },
                 {
                     "mandatory": "mandatory",
+                    "allow_multiple": 1,
                     "name": "health status",
                     "type": "ontology_id",
                     "valid_ancestor_uris": [
@@ -189,9 +190,14 @@
                     ]
                 },
                 {
+                    "allow_multiple": 1,
                     "mandatory": "mandatory",
-                    "name": "animal health status at collection",
-                    "type": "text"
+                    "name": "health status at collection",
+                    "type": "ontology_id",
+                    "valid_ancestor_uris": [
+                        "http://purl.obolibrary.org/obo/PATO_0000461",
+                        "http://www.ebi.ac.uk/efo/EFO_0000408"
+                    ]
                 },
                 {
                     "mandatory": "mandatory",
