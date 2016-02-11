@@ -1,4 +1,4 @@
-#Overview
+#FAANG metadata - overview
 
 This document describes the principles and structure for the FAANG metadata guidance. 
 
@@ -18,7 +18,7 @@ Where multiple records are related, data should not be duplicated between them, 
 
 Across all categories, descriptive factors should use ontology terms. Our preferred ontologies are EFO and the ontologies it imports, although we will use others where necessary. Where appropriate terms are not available in the ontology, we will work with that ontology to have the term added.
 
-e.g., tissue can be described using terms from UBERON - e.g. lung, UBERON:0002048
+e.g., tissue specimens can be described using terms from UBERON such as  [lung, UBERON:0002048](http://purl.obolibrary.org/obo/UBERON_0002048)
 
 Protocols will be stored separately from the metadata, with a standardised name and a long term stable URL (DCC FTP site, or a database). The URL/name can be referenced from the metadata.
 
@@ -35,7 +35,7 @@ The different archives we recommend can support all support out metadata at a ba
 |Data Type|Archive|Host Institution|Native ontology support|
 |---------|-------|----------------|-----------------------|
 |Sample| BioSamples | EBI| Yes|
-|Sample| BioSample | NCBI| Yes|
+|Sample| BioSample | NCBI| No|
 |Experiment - WGS/Exomes | ENA | EBI | No |
 |Experiment - WGS/Exomes | SRA | NCBI | No | 
 |Experiment - Epigenomics | ArrayExpress | EBI | ? |
@@ -49,7 +49,4 @@ The different archives we recommend can support all support out metadata at a ba
 
 The appropriate metadata recommendations are covered in their data type documents as linked to at the top of this document.
 
-There are a couple of important open questions which do need to be addressed before everything can be finalised.
-
-* Can Biosamples ids from the EBI be used in NCBI archive submissions and vice versa.
-* Do we want to archive data like deep phenotyping data in an unstructured archive like BioStudies as there is no appropriate assay archive for them.
+Sample records should be submitted to [BioSamples@EBI](http://www.ebi.ac.uk/biosamples/) prior to the submission of experimental results. These sample records will be mirrored by [BioSample@NCBI](http://www.ncbi.nlm.nih.gov/biosample/). The sample records should be referenced when submitting experimental results.

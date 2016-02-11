@@ -1,0 +1,351 @@
+{
+    "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all samples, and additional groups based on the sample type.",
+    "name": "FAANG sample metadata rules",
+    "rule_groups": [
+        {
+            "name": "standard",
+            "rules": [
+                {
+                    "mandatory": "optional",
+                    "name": "description",
+                    "type": "text"
+                },
+                {
+                    "_comment": "Covers organism, tissue specimen, cell specimen, pool of specimens, cell culture",
+                    "mandatory": "mandatory",
+                    "name": "material",
+                    "type": "ontology_uri",
+                    "valid_ancestor_uris": [
+                        "http://purl.obolibrary.org/obo/OBI_0100026",
+                        "http://purl.obolibrary.org/obo/OBI_0001479",
+                        "http://purl.obolibrary.org/obo/OBI_0001468",
+                        "http://purl.obolibrary.org/obo/OBI_0302716",
+                        "http://purl.obolibrary.org/obo/OBI_0001876"
+                    ],
+                    "valid_values": [
+                        "organism",
+                        "tissue specimen",
+                        "cell specimen",
+                        "pool of specimens",
+                        "cell culture"
+                    ]
+                },
+                {
+                    "mandatory": "optional",
+                    "name": "availability",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "condition": {
+                "attribute_value_match": {
+                    "material": [
+                        "organism"
+                    ]
+                }
+            },
+            "name": "animal",
+            "rules": [
+                {
+                    "mandatory": "mandatory",
+                    "name": "species",
+                    "type": "ontology_id",
+                    "valid_ancestor_uris": ["http://purl.obolibrary.org/obo/NCBITaxon_1"]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "sex",
+                    "type": "ontology_id",
+                    "valid_ancestor_uris": ["http://purl.obolibrary.org/obo/PATO_0000047"]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "birth date",
+                    "type": "date",
+                    "valid_units": [
+                        "YYYY-MM-DD"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "breed",
+                    "type": "ontology_id",
+                    "valid_ancestor_uris": ["http://purl.obolibrary.org/obo/LBO_0000000"]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "allow_multiple": 1,
+                    "name": "health status",
+                    "type": "ontology_id",
+                    "valid_ancestor_uris": [
+                        "http://purl.obolibrary.org/obo/PATO_0000461",
+                        "http://www.ebi.ac.uk/efo/EFO_0000408"
+                    ]
+                },
+                {
+                    "mandatory": "optional",
+                    "name": "birth location",
+                    "type": "text"
+                },
+                {
+                    "mandatory": "optional",
+                    "name": "birth location longitude",
+                    "type": "number",
+                    "valid_units": [
+                        "decimal degrees"
+                    ]
+                },
+                {
+                    "mandatory": "optional",
+                    "name": "birth location latitude",
+                    "type": "number",
+                    "valid_units": [
+                        "decimal degrees"
+                    ]
+                },
+                {
+                    "allow_multiple": 1,
+                    "mandatory": "optional",
+                    "name": "phenotype",
+                    "type": "ontology_id",
+                    "valid_ancestor_uris": [
+                        "http://purl.obolibrary.org/obo/VT_0000001",
+                        "http://purl.org/obo/owlATOL_0000002",
+                        "http://purl.org/obo/owlEOL_0000001"
+                    ]
+                },
+                {
+                    "allow_multiple": 1,
+                    "mandatory": "optional",
+                    "name": "environmental conditions",
+                    "type": "ontology_id",
+                    "valid_ancestor_uris": ["http://purl.org/obo/owlEOL_0000001"]
+                },
+                {
+                    "mandatory": "optional",
+                    "name": "birth weight",
+                    "type": "number",
+                    "valid_units": [
+                        "kilograms"
+                    ]
+                },
+                {
+                    "mandatory": "optional",
+                    "name": "placental weight",
+                    "type": "number",
+                    "valid_units": [
+                        "kilograms"
+                    ]
+                },
+                {
+                    "mandatory": "optional",
+                    "name": "pregnancy length",
+                    "type": "number",
+                    "valid_units": [
+                        "days",
+                        "weeks",
+                        "months"
+                    ]
+                },
+                {
+                    "mandatory": "optional",
+                    "name": "delivery timing",
+                    "type": "text"
+                },
+                {
+                    "mandatory": "optional",
+                    "name": "delivering ease",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "condition": {
+                "attribute_value_match": {
+                    "material": [
+                        "tissue specimen"
+                    ]
+                }
+            },
+            "name": "specimen",
+            "rules": [
+                {
+                    "mandatory": "mandatory",
+                    "name": "specimen_collection_date",
+                    "type": "date",
+                    "valid_units": [
+                        "YYYY-MM-DD"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "animal age at collection",
+                    "type": "number",
+                    "valid_units": [
+                        "years",
+                        "months",
+                        "weeks",
+                        "days"
+                    ]
+                },
+                {
+                    "allow_multiple": 1,
+                    "mandatory": "mandatory",
+                    "name": "health status at collection",
+                    "type": "ontology_id",
+                    "valid_ancestor_uris": [
+                        "http://purl.obolibrary.org/obo/PATO_0000461",
+                        "http://www.ebi.ac.uk/efo/EFO_0000408"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "tissue",
+                    "type": "ontology_id",
+                    "valid_ancestor_uris": [
+                        "http://purl.obolibrary.org/obo/UBERON_0001062"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "specimen collection protocol",
+                    "type": "uri_value"
+                },
+                {
+                    "mandatory": "optional",
+                    "name": "fasted status",
+                    "type": "enum",
+                    "valid_values": [
+                        "fed",
+                        "fasted",
+                        "unknown"
+                    ]
+                },
+                {
+                    "allow_multiple": 1,
+                    "mandatory": "optional",
+                    "name": "physiological conditions",
+                    "type": "ontology_id",
+                    "valid_ancestor_uris": ["http://purl.org/obo/owlATOL_0000002"]
+                },
+                {
+                    "mandatory": "optional",
+                    "name": "number of pieces",
+                    "type": "number",
+                    "valid_units": [
+                        "count"
+                    ]
+                },
+                {
+                    "mandatory": "optional",
+                    "name": "specimen volume",
+                    "type": "number",
+                    "valid_units": [
+                        "square centimeters",
+                        "liters",
+                        "milliliters"
+                    ]
+                },
+                {
+                    "mandatory": "optional",
+                    "name": "specimen size",
+                    "type": "number",
+                    "valid_units": [
+                        "meters",
+                        "centimeters",
+                        "millimeters"
+                    ]
+                },
+                {
+                    "mandatory": "optional",
+                    "name": "specimen weight",
+                    "type": "number",
+                    "valid_units": [
+                        "grams",
+                        "kilograms"
+                    ]
+                },
+                {
+                    "allow_multiple": 1,
+                    "mandatory": "optional",
+                    "name": "specimen picture url",
+                    "type": "uri_value"
+                }
+            ]
+        },
+        {
+            "condition": {
+                "attribute_value_match": {
+                    "material": [
+                        "cell specimen"
+                    ]
+                }
+            },
+            "name": "purified cells",
+            "rules": [
+                {
+                    "mandatory": "mandatory",
+                    "name": "markers",
+                    "type": "text"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "cell type",
+                    "type": "ontology_id",
+                    "valid_ancestor_uris": [
+                        "http://purl.obolibrary.org/obo/CL_0000000"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "cell purification protocol",
+                    "type": "uri_value"
+                }
+            ]
+        },
+        {
+            "condition": {
+                "attribute_value_match": {
+                    "material": [
+                        "cell culture"
+                    ]
+                }
+            },
+            "name": "cell culture",
+            "rules": [
+                {
+                    "mandatory": "mandatory",
+                    "name": "culture type",
+                    "type": "ontology_id",
+                    "valid_ancestor_uris": [
+                        "http://purl.obolibrary.org/obo/BTO_0000214"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "cell type",
+                    "type": "ontology_id",
+                    "valid_ancestor_uris": [
+                        "http://purl.obolibrary.org/obo/CL_0000000"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "cell culture protocol",
+                    "type": "uri_value"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "culture conditions",
+                    "type": "text"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "number of passages",
+                    "type": "number"
+                }
+            ]
+        }
+    ]
+}

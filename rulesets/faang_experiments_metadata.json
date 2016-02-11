@@ -1,0 +1,403 @@
+{
+    "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all experiments, and additional groups based on the experiment type.",
+    "name": "FAANG experiment metadata rules",
+    "rule_groups": [
+        {
+            "name": "standard",
+            "rules": [
+                {
+                    "mandatory": "mandatory",
+                    "name": "assay type",
+                    "type": "text",
+                    "valid_values": [
+                        "methylation profiling by high throughput sequencing",
+                        "ChIP-seq",
+                        "RNA-seq of coding RNA",
+                        "RNA-seq of non coding RNA",
+                        "microRNA profiling by high throughput sequencing",
+                        "DNase-Hypersensitivity seq",
+                        "ATAC-seq"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "experiment target",
+                    "type": "ontology_text",
+                    "valid_ancestor_uris": [
+                        "http://purl.obolibrary.org/obo/SO_0001700",
+                        "http://www.ebi.ac.uk/efo/EFO_0005031",
+                        "http://purl.obolibrary.org/obo/OBI_0001468",
+                        "http://purl.obolibrary.org/obo/OBI_0302716",
+                        "http://purl.obolibrary.org/obo/OBI_0001876"
+                    ]
+                },
+                {
+                    "mandatory": "optional",
+                    "name": "sample_storage",
+                    "type": "text",
+                    "valid_values": [
+                        "frozen, liquid nitrogen",
+                        "frozen, -70 freezer",
+                        "frozen, vapor phase",
+                        "RNAlater, frozen",
+                        "paraffin block",
+                        "cut slide",
+                        "fresh"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "sample storage processing",
+                    "type": "text",
+                    "valid_values": [
+                        "cryopreservation in liquid nitrogen (dead tissue)",
+                        "cryopreservation in dry ice (dead tissue)",
+                        "cryopreservation of live cells in liquid nitrogen",
+                        "cryopreservation, other",
+                        "formalin fixed, unbuffered",
+                        "formalin fixed, buffered",
+                        "formalin fixed and paraffin embedded",
+                        "fresh"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "sampling to preparation interval",
+                    "type": "number",
+                    "valid_units": [
+                        "minutes",
+                        "hours",
+                        "days",
+                        "weeks",
+                        "years"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "experimental protocol",
+                    "type": "protocol"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "extraction protocol",
+                    "type": "protocol"
+                },
+                {
+                    "mandatory": "recommended",
+                    "name": "library preparation location",
+                    "type": "text"
+                },
+                {
+                    "mandatory": "recommended",
+                    "name": "library preparation location longitude",
+                    "type": "number",
+                    "valid_units": [
+                        "decimal degrees"
+                    ]
+                },
+                {
+                    "mandatory": "recommended",
+                    "name": "library preparation location latitude",
+                    "type": "number",
+                    "valid_units": [
+                        "decimal degrees"
+                    ]
+                },
+                {
+                    "mandatory": "recommended",
+                    "name": "library preparation date",
+                    "type": "date",
+                    "valid_units": [
+                        "YYYY-MM-DD"
+                    ]
+                },
+                {
+                    "mandatory": "recommended",
+                    "name": "sequencing location",
+                    "type": "text"
+                },
+                {
+                    "mandatory": "recommended",
+                    "name": "sequencing location longitude",
+                    "type": "number",
+                    "valid_units": [
+                        "decimal degrees"
+                    ]
+                },
+                {
+                    "mandatory": "recommended",
+                    "name": "sequencing location latitude",
+                    "type": "number",
+                    "valid_units": [
+                        "decimal degrees"
+                    ]
+                },
+                {
+                    "mandatory": "recommended",
+                    "name": "sequencing date",
+                    "type": "date",
+                    "valid_units": [
+                        "YYYY-MM-DD"
+                    ]
+                }
+            ]
+        },
+        {
+            "condition": {
+                "attribute_value_match": {
+                    "assay type": [
+                        "methylation profiling by high throughput sequencing"
+                    ]
+                }
+            },
+            "name": "WGBS",
+            "rules": [
+                {
+                    "mandatory": "mandatory",
+                    "name": "bisulfite conversion protocol",
+                    "type": "protocol"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "pcr product isolation protocol",
+                    "type": "protocol"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "bisulfite conversion percent",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "condition": {
+                "attribute_value_match": {
+                    "assay type": [
+                        "ChIP-seq"
+                    ]
+                },
+                "dpath_condition": "/attributes/*/*[key eq 'name' && value eq 'experiment target']/../*[key eq 'value' && value ne 'Input DNA']"
+            },
+            "name": "ChIP-seq",
+            "rules": [
+                {
+                    "mandatory": "mandatory",
+                    "name": "chip protocol",
+                    "type": "protocol"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "chip antibody provider",
+                    "type": "text"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "chip antibody catalog",
+                    "type": "text"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "chip antibody lot",
+                    "type": "text"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "library generation max fragment size range",
+                    "type": "number"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "library generation min fragment size range",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "condition": {
+                "attribute_value_match": {
+                    "assay type": [
+                        "ChIP-seq"
+                    ],
+                    "experiment target": [
+                        "Input DNA"
+                    ]
+                }
+            },
+            "name": "ChIP-seq input",
+            "rules": [
+                {
+                    "mandatory": "mandatory",
+                    "name": "chip protocol",
+                    "type": "protocol"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "library generation max fragment size range",
+                    "type": "number"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "library generation min fragment size range",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "condition": {
+                "attribute_value_match": {
+                    "assay type": [
+                        "RNA-seq of coding RNA",
+                        "RNA-seq of non coding RNA",
+                        "microRNA profiling by high throughput sequencing"
+                    ]
+                }
+            },
+            "name": "RNA-seq",
+            "rules": [
+                {
+                    "mandatory": "mandatory",
+                    "name": "experiment target",
+                    "type": "text",
+                    "valid_values": [
+                        "polyA RNA",
+                        "total RNA",
+                        "ncRNA",
+                        "microRNA"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "rna preparation 3' adapter ligation protocol",
+                    "type": "protocol"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "rna preparation 5' adapter ligation protocol",
+                    "type": "protocol"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "library generation pcr product isolation protocol",
+                    "type": "protocol"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "preparation reverse transcription protocol",
+                    "type": "protocol"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "library generation protocol",
+                    "type": "protocol"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "read strand",
+                    "type": "text",
+                    "valid_values": [
+                        "not applicable",
+                        "sense",
+                        "antisense",
+                        "mate 1 sense",
+                        "mate 2 sense"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "rna purity - 260:280 ratio",
+                    "type": "number"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "rna purity - 260:230 ratio",
+                    "type": "number"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "rna integrity number",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "condition": {
+                "attribute_value_match": {
+                    "assay type": [
+                        "DNase-Hypersensitivity seq"
+                    ]
+                }
+            },
+            "name": "DNase-seq",
+            "rules": [
+                {
+                    "mandatory": "mandatory",
+                    "name": "experiment target",
+                    "type": "text",
+                    "valid_values": [
+                        "open chromatin region"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "dnase protocol",
+                    "type": "protocol"
+                }
+            ]
+        },
+        {
+            "condition": {
+                "attribute_value_match": {
+                    "assay type": [
+                        "ATAC-seq"
+                    ]
+                }
+            },
+            "name": "ATAC-seq",
+            "rules": [
+                {
+                    "mandatory": "mandatory",
+                    "name": "experiment target",
+                    "type": "text",
+                    "valid_values": [
+                        "open chromatin region"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "transposase protocol",
+                    "type": "protocol"
+                }
+            ]
+        },
+        {
+            "condition": {
+                "attribute_value_match": {
+                    "assay type": [
+                        "HiC"
+                    ]
+                }
+            },
+            "name": "HiC",
+            "rules": [
+                {
+                    "mandatory": "mandatory",
+                    "name": "experiment target",
+                    "type": "text",
+                    "valid_values": [
+                        "chromosome conformation"
+                    ]
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "restriction enzyme",
+                    "type": "text"
+                },
+                {
+                    "mandatory": "mandatory",
+                    "name": "restriction site",
+                    "type": "text"
+                }
+            ]
+        }
+    ]
+}
