@@ -51,13 +51,13 @@
                     "mandatory": "mandatory",
                     "name": "species",
                     "type": "ontology_id",
-                    "valid_ancestor_uris": "http://purl.obolibrary.org/obo/NCBITaxon_1"
+                    "valid_ancestor_uris": ["http://purl.obolibrary.org/obo/NCBITaxon_1"]
                 },
                 {
                     "mandatory": "mandatory",
                     "name": "sex",
                     "type": "ontology_id",
-                    "valid_ancestor_uris": "http://purl.obolibrary.org/obo/PATO_0000047"
+                    "valid_ancestor_uris": ["http://purl.obolibrary.org/obo/PATO_0000047"]
                 },
                 {
                     "mandatory": "mandatory",
@@ -71,7 +71,7 @@
                     "mandatory": "mandatory",
                     "name": "breed",
                     "type": "ontology_id",
-                    "valid_ancestor_uris": "http://purl.obolibrary.org/obo/LBO_0000000"
+                    "valid_ancestor_uris": ["http://purl.obolibrary.org/obo/LBO_0000000"]
                 },
                 {
                     "mandatory": "mandatory",
@@ -105,7 +105,7 @@
                 },
                 {
                     "_comment": "#TODO dd ATOL and EOL once available in OLS",
-                    "allow_multiple": "true",
+                    "allow_multiple": 1,
                     "mandatory": "optional",
                     "name": "phenotype",
                     "type": "ontology_id",
@@ -115,11 +115,11 @@
                 },
                 {
                     "_comment": "#TODO add full EOL URI once available in OLS",
-                    "allow_multiple": "true",
+                    "allow_multiple": 1,
                     "mandatory": "optional",
                     "name": "environmental conditions",
                     "type": "ontology_id",
-                    "valid_ancestor_uris": "EOL:0000001"
+                    "valid_ancestor_uris": ["EOL:0000001"]
                 },
                 {
                     "mandatory": "optional",
@@ -204,7 +204,7 @@
                 {
                     "mandatory": "mandatory",
                     "name": "specimen collection protocol",
-                    "type": "url"
+                    "type": "uri_value"
                 },
                 {
                     "mandatory": "optional",
@@ -218,11 +218,11 @@
                 },
                 {
                     "_comment": "#TODO add full ATOL URI once available in OLS",
-                    "allow_multiple": "true",
+                    "allow_multiple": 1,
                     "mandatory": "optional",
                     "name": "physiological conditions",
                     "type": "ontology_id",
-                    "valid_ancestor_uris": "EOL:0000001"
+                    "valid_ancestor_uris": ["EOL:0000001"]
                 },
                 {
                     "mandatory": "optional",
@@ -262,10 +262,10 @@
                     ]
                 },
                 {
-                    "allow_multiple": "true",
+                    "allow_multiple": 1,
                     "mandatory": "optional",
                     "name": "specimen picture url",
-                    "type": "url"
+                    "type": "uri_value"
                 }
             ]
         },
@@ -295,7 +295,7 @@
                 {
                     "mandatory": "mandatory",
                     "name": "cell purification protocol",
-                    "type": "url"
+                    "type": "uri_value"
                 }
             ]
         },
@@ -328,7 +328,7 @@
                 {
                     "mandatory": "mandatory",
                     "name": "cell culture protocol",
-                    "type": "url"
+                    "type": "uri_value"
                 },
                 {
                     "mandatory": "mandatory",
