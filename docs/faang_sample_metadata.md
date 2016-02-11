@@ -6,11 +6,14 @@ In the sample context, we consider donor animals, tissue samples, primary cells 
 
 ##Sample metadata requirements
 
-Requirements are laid out like this:  
+Most requirements are laid out like this:  
 
 * `attribute name` (*data type*) a brief description
 
 The data types will be described later in this document.
+
+Sample name and links (relationships between samples) do not follow this pattern. Sample names should adhere to the naming scheme later in this document. Links should follow the guidance in the [BioSamples documentation](http://www.ebi.ac.uk/biosamples/help/st_scd.html).
+
 
 ###Common
 
@@ -18,7 +21,7 @@ These attributes should be present on every sample record.
 
 Required:
 
-  * Sample Name / ID
+  * Sample name
   * `Material` (*ontology term*) the type of material being described. This will be used to decide what metadata are required and must be one of the expected terms:
    * [organism](http://purl.obolibrary.org/obo/OBI_0100026)
    * [tissue specimen](http://purl.obolibrary.org/obo/OBI_0001479)
