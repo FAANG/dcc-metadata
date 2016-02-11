@@ -81,6 +81,7 @@ Required:
    * fed
    * fasted
    * unkown
+ * `health status at collection` (*ontology term*) Healthy animals should have the term [normal](http://purl.obolibrary.org/obo/PATO_0000461), otherwise use the as many [disease](http://www.ebi.ac.uk/efo/EFO_0000408) terms as necessary from EFO
 
 Optional:
 
@@ -215,7 +216,7 @@ The purpose is to ensure that samples are uniquely and clearly identified, with 
 
 ##Submission
 
-Samples should be submitted to [BioSamples@EBI](https://www.ebi.ac.uk/biosamples/). They should be added to the 'FAANG' group (TODO: how do you do this).  Samples in the 'FAANG' group will be synced to [BioSample@NCBI](http://www.ncbi.nlm.nih.gov/biosample/) periodically. Samples in BioSamples@EBI/BioSample@NCBI can be referenced in submissions to SRA at EBI and NCBI.
+Samples should be submitted to [BioSamples@EBI](https://www.ebi.ac.uk/biosamples/). They should be added to the [FAANG group](http://www.ebi.ac.uk/biosamples/group/SAMEG307473) (details of how to do this to follow).  Samples in the 'FAANG' group will be synced to [BioSample@NCBI](http://www.ncbi.nlm.nih.gov/biosample/) periodically. Samples in BioSamples@EBI/BioSample@NCBI can be referenced in submissions to SRA at EBI and NCBI.
 
 ##Validation
 
