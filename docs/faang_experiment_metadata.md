@@ -22,12 +22,11 @@ Each assay type will require metadata in addition to the core set of common attr
 ###Common
 
 
-Recquired:
+Required:
 
 These following elements must always be present in any experiment metadata
 
- * Each experiment should reference one `sample`. The metadata for that sample should comply with the FAANG metadata specification.
-	* This should be a reference to the BioSample ID for the specimen, purified cell, cultured cell or cell line the experiment was conducted on.
+ * `sample`  (*BioSample ID*) the BioSamples ID for the specimen, purified cell, cultured cell or cell line the experiment was conducted on. Each experiment must reference one FAANG BioSample
  * `assay type` (*ontology term*) The class of experiment performed. e.g. RNA-Seq or expression array. This should be a child term of [EFO:0002773](http://www.ebi.ac.uk/efo/EFO_0002773)
  * `experiment target` (*ontology term*) What is the experiment trying to find?
   * ChIP-seq for histone modifications should use a child term of [histone modification](http://purl.obolibrary.org/obo/SO_0001700)
@@ -200,6 +199,10 @@ A URL,  such as 'http://faang.org/'. Depending on the context, http, ftp, mailto
 ###ontology term
 
 The text label of a term from an ontology. The attribute value should be the term label. Unlike for sample submissions, direct links to ontologies cannot be submitted as attributes. The attribute value should exactly match the term name in the ontology. 
+
+###BioSample ID
+
+BioSample IDs are in the form SAMEA2821491. They must be used when linking the experiment to the sample record.
 
 ##Missing data
 
