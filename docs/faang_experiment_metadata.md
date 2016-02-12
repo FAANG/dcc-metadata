@@ -29,30 +29,30 @@ These following elements must always be present in any experiment metadata
  * Each experiment should reference one `sample`. The metadata for that sample should comply with the FAANG metadata specification.
 	* This should be a reference to the BioSample ID for the specimen, purified cell, cultured cell or cell line the experiment was conducted on.
  * `assay type` (*ontology term*) The class of experiment performed. e.g. RNA-Seq or expression array. This should be a child term of [EFO:0002773](http://www.ebi.ac.uk/efo/EFO_0002773)
- * `experiment target` (*ontology term*) What is the experiment trying to find?
-  * ChIP-seq for histone modifications should use a child term of [histone modification](http://purl.obolibrary.org/obo/SO_0001700)
-	* ChIP-seq input should use the term [input DNA](http://www.ebi.ac.uk/efo/EFO_0005031)
-	* RNA-seq should use a child term of [RNA](http://purl.obolibrary.org/obo/CHEBI_33697)
-	* ATAC-seq and DNase-seq should use the term [open_chromatin_region](http://purl.obolibrary.org/obo/SO_0001747)
-	* Methylation assays should use the term [DNA methylation](http://purl.obolibrary.org/obo/GO_0006306)
+ * `experiment target` (*ontology term*) What is the experiment trying to find/measure?
+ * ChIP-seq for histone modifications should use a child term of [histone modification](http://purl.obolibrary.org/obo/SO_0001700)
+ * ChIP-seq input should use the term [input DNA](http://www.ebi.ac.uk/efo/EFO_0005031)
+ * RNA-seq should use a child term of [RNA](http://purl.obolibrary.org/obo/CHEBI_33697)
+ * ATAC-seq and DNase-seq should use the term [open_chromatin_region](http://purl.obolibrary.org/obo/SO_0001747)
+ * Methylation assays should use the term [DNA methylation](http://purl.obolibrary.org/obo/GO_0006306)
  * `sample storage` (*text*) This should document how the sample was stored, from one of these values:
-  *  frozen, liquid nitrogen
-  *  frozen, -70 freezer
-  *  frozen, vapor phase
-  *  RNAlater, frozen
-  *  paraffin block
-  *  cut slide
-  *  fresh
-  * ambient temperature
+   *  frozen, liquid nitrogen
+   *  frozen, -70 freezer
+   *  frozen, vapor phase
+   *  RNAlater, frozen
+   *  paraffin block
+   *  cut slide
+   *  fresh
+   * ambient temperature
  * `sample storage processing` (*text*) This should document how the sample was prepared for storage, from one of these values:
-  * cryopreservation in liquid nitrogen (dead tissue)
-  * cryopreservation in dry ice (dead tissue)
-  * cryopreservation of live cells in liquid nitrogen
-  * cryopreservation, other
-  * formalin fixed, unbuffered
-  * formalin fixed, buffered
-  * formalin fixed and paraffin embedded
-  * fresh
+   * cryopreservation in liquid nitrogen (dead tissue)
+   * cryopreservation in dry ice (dead tissue)
+   * cryopreservation of live cells in liquid nitrogen
+   * cryopreservation, other
+   * formalin fixed, unbuffered
+   * formalin fixed, buffered
+   * formalin fixed and paraffin embedded
+   * fresh
  * `sampling to preparation interval` (*number*) This should list how long between the sample being taken and used in the experiment. Units should be specified, and be either 'minutes','hours','days','weeks' or 'years'.
  * `experimental protocol` (*protocol*) a description of the experiment protocol
  * `extraction protocol` (*protocol*) the protocol used to isolate the extract material
@@ -223,4 +223,10 @@ The use of these values will interact with the metadata validation system as fol
    
 ##Submission
 
-Each experiment record should reference a record in BioSamples. These have accessions like SAMEA1234567
+Each experiment record should reference a record in BioSamples. These have accessions like SAMEA1234567. As described above, experiments themselves should be submitted to the appropriate EMBL-EBI, NCBI or DDBJ assay archives. Links to the different submission systems can be found below.
+
+[The European Nucleotide Archive](http://www.ebi.ac.uk/ena/submit/read-submission)
+[ArrayExpress](http://www.ebi.ac.uk/arrayexpress/submit/overview.html)
+[The Sequence read archive at NCBI](http://www.ncbi.nlm.nih.gov/sra/docs/submit/)
+[GEO](http://www.ncbi.nlm.nih.gov/geo/info/submission.html)
+[DDBJ](http://www.ddbj.nig.ac.jp/submission_general-e.html)
