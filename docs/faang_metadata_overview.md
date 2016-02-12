@@ -38,12 +38,12 @@ The different archives we recommend can support all support out metadata at a ba
 |Sample| BioSample | NCBI| No|
 |Experiment - WGS/Exomes | ENA | EBI | No |
 |Experiment - WGS/Exomes | SRA | NCBI | No | 
-|Experiment - Epigenomics | ArrayExpress | EBI | ? |
+|Experiment - Epigenomics | ArrayExpress | EBI | No |
 |Experiment - Epigenomics | Geo | NCBI | ? |
-|Experiment - Transcriptomics | ArrayExpress | EBI | ? |
+|Experiment - Transcriptomics | ArrayExpress | EBI | No |
 |Experiment - Transcriptomics | Geo | NCBI | ? |
 |Analysis - Alignment | ENA | EBI | No |
-|Analysis - Variant Calls | EVA | EBI | ? |
+|Analysis - Variant Calls | EVA | EBI | No |
 |Analysis - signal/region calls | ? | ? | ? | 
 |Unstructured data | BioStudies | EBI | ? |
 
