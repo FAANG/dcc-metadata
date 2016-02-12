@@ -10,10 +10,7 @@ Most requirements are laid out like this:
 
 * `attribute name` (*data type*) a brief description
 
-The data types will be described later in this document.
-
-Sample name and links (relationships between samples) do not follow this pattern. Sample names should adhere to the naming scheme later in this document. Links should follow the guidance in the [BioSamples documentation](http://www.ebi.ac.uk/biosamples/help/st_scd.html).
-
+The data types are described later in this document.
 
 ###Common
 
@@ -21,7 +18,7 @@ These attributes should be present on every sample record.
 
 Required:
 
-  * Sample name
+  * `Sample name` (*text*) sample names should follow the naming rules listed below. Each name must be unique.
   * `Material` (*ontology term*) the type of material being described. This will be used to decide what metadata are required and must be one of the expected terms:
    * [organism](http://purl.obolibrary.org/obo/OBI_0100026)
    * [tissue specimen](http://purl.obolibrary.org/obo/OBI_0001479)
@@ -62,12 +59,10 @@ Optional:
  * `phenotype` (*ontology term*) as many terms as required from the [VT](http://purl.bioontology.org/ontology/VT), [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en) or [MP](http://purl.bioontology.org/ontology/MP)) ontologies
  * `pedigree` (*URL*) a link to pedigree information for the animal
 
-Links to other records (required if related animals are part of FAANG, e.g. quads)
+Links to other records:
 
- * Sire (child of)
- * Dam (child of)
- * Siblings
-
+ * `child of` (*sample*) sample name or Biosample ID for sire/dam. Required if related animals are part of FAANG, e.g. quads.
+ 
 ###Specimen
 
 A piece of tissue taken from an animal. The following attributes are in addition to the attributes listed in the 'Common' section above. The `material` should be reported as [tissue specimen](http://purl.obolibrary.org/obo/OBI_0001479).
@@ -99,7 +94,7 @@ Optional:
 
 Links to other records:
 
- * Animal (derived from) (required)
+ * `derived from` (*sample*) sample name or BioSample ID for an *animal* record (required).
 
 ###Purified cells
 
@@ -113,7 +108,7 @@ Required:
 
 Links to other records:
 
- * Specimen (derived from) (required)
+ * `derived from` (*sample*) sample name or BioSample ID for a *specimen* record (required).
 
 ###Cell culture
 
@@ -127,10 +122,9 @@ Required:
  * `culture conditions` (*text*) brief description of culture conditions (e.g. 'on feeder cells', 'E8 media')
  * `number of passages` (*number*)  number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures
 
-Links to other records - require one of the possibilities below:
+Links to other records:
 
- * Specimen (derived from)
- * Purified cell (derived from)
+ * `derived from` (*sample*) sample name or BioSample ID for a *specimen* or *purified cell* record (required).
 
 ###Pooled samples
 
@@ -138,8 +132,9 @@ Where samples are pooled, a new sample record should be created, containing
 
  * `pooling protocol` (*protocol*)
 
-Links to other records
- * pooled samples (derived from)
+Links to other records:
+ 
+  * `derived from` (*sample*) sample name or BioSample ID for a *specimen*, *purified cells* or *cell culture* record (required).
 
 ##Data types for sample attributes
 
@@ -185,6 +180,10 @@ A location should be reported as using three attributes:
  * `location` (*text*) name of the location
  * `location latitude` (*number*) latitude in decimal degrees. Units should be reported as 'decimal degrees'
  * `location longitude`(*number*) longitude in decimal degrees. Units should be reported as 'decimal degrees'
+
+###sample
+
+Samples can be referred to in two ways. If the sample you need to reference is in the submission, use the sample name. If the sample was already submitted, use the BioSample ID (e.g. SAMEA2821491).
 
 ##Missing data
 
