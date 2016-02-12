@@ -4,14 +4,20 @@ This document describes the specification for all analysis metadata. You can fin
 
 *Raw data* produced by each experiment will be analysed, producing *analysis results*. For example :
 
-1. ChIP-seq experiment will generate reads.
-2. Reads are aligned to the genome.
-3. Normalized signal plots and QC metrics will be produced from the alignments. 
+1. The ChIP-seq experiment will generate reads.
+2. The reads are aligned to the genome.
+3. Normalized signal plots and QC metrics are produced from the alignments. 
 4. ChIP-seq  & ChIP input alignments are used for peak calling. 
 
 Steps 2-4 produce analysis results. For each of these analysis results we should record which data, reference data and protocol were used to produce them. 
 
-##Metadata requirements
+##Analysis metadata requirements
+
+Requirements are laid out like this:  
+
+ * `attribute name` (*data type*) a brief description
+
+The data types will be described later in this document. The metadata & data sharing (M&DS) group will seek guidance from the bioinformtics and data analysis (B&DA) group on what needs to be recorded here for each analysis type.
 
 ###Process attributes
 
@@ -24,7 +30,7 @@ Analysis metadata needs to contain the following process attributes
   * Full command line used to run the analysis
   * Link to any VM or containers used, if applicable
 
-The analysis must be reproducible based on the protocol document. 
+The analysis must be reproducible based on the protocol document, as such we strongly recommend any inhouse scripts which are using through the process are made publicly available through github or a similar code repository. FAANG is happy to host people's code under the FAANG github repository if that is needed. 
 
 ###QC attributes
 
