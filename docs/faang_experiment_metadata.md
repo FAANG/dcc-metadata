@@ -156,9 +156,9 @@ Required:
 
  * `transposase protocol` (*protocol*) the protocol used for transposase treatment
 
-###Hi-C
+###HiC
 
-Hi-C experiments should have an `assay type` of  [HiC](http://purl.obolibrary.org/obo/OBI_0002042)  and an `experiment target` of [chromosome conformation](http://purl.obolibrary.org/obo/OBI_0001917).
+HiC experiments should have an `assay type` of  [HiC](http://purl.obolibrary.org/obo/OBI_0002042)  and an `experiment target` of [chromosome conformation](http://purl.obolibrary.org/obo/OBI_0001917).
 
 Required:
 
