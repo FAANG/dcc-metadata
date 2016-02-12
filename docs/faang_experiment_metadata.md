@@ -224,6 +224,3 @@ The use of these values will interact with the metadata validation system as fol
  * attribute is optional
    * validation will pass with any of missing values terms
    
-##Submission
-
-Each experiment record should reference a record in BioSamples. These have accessions like SAMEA1234567
