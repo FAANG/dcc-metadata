@@ -217,6 +217,16 @@ We propose a sample naming scheme comprising the following elements:
 
 The purpose is to ensure that samples are uniquely and clearly identified, with reasonably short names.
 
+Short species codes:
+
+ * _Bos taurus_ BTA
+ * _Sus scrofa_ SSC
+ * _Ovis aries_ OAR
+ * _Gallus gallus_ GGA
+ * _Equus caballus_ ECA
+ * _Capra hircus_ CHR
+
+
 ##Submission
 
 Samples should be submitted to [BioSamples@EBI](https://www.ebi.ac.uk/biosamples/). They should be added to the [FAANG group](http://www.ebi.ac.uk/biosamples/group/SAMEG307473) (details of how to do this to follow).  Samples in the 'FAANG' group will be synced to [BioSample@NCBI](http://www.ncbi.nlm.nih.gov/biosample/) periodically. Samples in BioSamples@EBI/BioSample@NCBI can be referenced in submissions to SRA at EBI and NCBI.
