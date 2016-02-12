@@ -14,7 +14,7 @@ Requirements are laid out like this:
 
  * `attribute name` (*data type*) a brief description
 
-The data types will be described later in this document. The metadata group will seek guidance from the assay group on what needs to be recorded here for each assay type.
+The data types will be described later in this document. The metadata & data sharing (M&DS) group will seek guidance from the assays, samples and animals (ASA) group on what needs to be recorded here for each assay type.
 
 Each assay type will require metadata in addition to the core set of common attributes. The initial set proposed is based upon the [IHEC metadata standards](http://ihec-epigenomes.org/research/reference-epigenome-standards/)
 
