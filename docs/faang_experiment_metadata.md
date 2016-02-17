@@ -58,15 +58,13 @@ These following elements must always be present in any experiment metadata
 
 Recommended:
 
- * library preparation location (*location*)
-   * `library preparation location` (*text*) name of the library preparation location
-   * `library preparation location latitude` (*number*) latitude of the library prep. location in decimal degrees. Units should be specified as 'decimal degrees'
-   * `library preparation location longitude` (*number*) longitude of the library prep. location in decimal degrees. Units should be specified as 'decimal degrees'
+ * `library preparation location` (*text*) name of the library preparation location
+ * `library preparation location latitude` (*number*) latitude of the library prep. location in decimal degrees. Units should be specified as 'decimal degrees'
+ * `library preparation location longitude` (*number*) longitude of the library prep. location in decimal degrees. Units should be specified as 'decimal degrees'
  * `library preparation date`  (*date*) Date on which the library was prepared, formatted as YYYY-MM-DD. Units should be specified as 'YYYY-MM-DD' 
- * sequencing location (*location*)
-   * `sequencing location` (*text*) name of the sequencing location
-   * `sequencing location latitude` (*number*) latitude of the sequencing location in decimal degrees. Units should be specified as 'decimal degrees'
-   * `sequencing location longitude` (*number*) longitude of the sequencing. location in decimal degrees. Units should be specified as 'decimal degrees'
+ * `sequencing location` (*text*) name of the sequencing location
+ * `sequencing location latitude` (*number*) latitude of the sequencing location in decimal degrees. Units should be specified as 'decimal degrees'
+ * `sequencing location longitude` (*number*) longitude of the sequencing. location in decimal degrees. Units should be specified as 'decimal degrees'
  * `sequencing date` (*date*) date of sequencing
 
 ###Whole-genome bisulfite sequencing
@@ -194,6 +192,14 @@ A URL,  such as 'http://faang.org/'. Depending on the context, http, ftp, mailto
  * ftp, ftp://ftp.faang.ebi.ac.uk/ftp/README
  * http,  http://faang.org/
  * mailto, mailto:bob@example.org
+ 
+###location
+
+ A location should be reported as using three attributes:
+
+  * `location` (*text*) name of the location
+  * `location latitude` (*number*) latitude in decimal degrees. Units should be reported as 'decimal degrees'
+  * `location longitude`(*number*) longitude in decimal degrees. Units should be reported as 'decimal degrees'
 
 
 ###ontology term
