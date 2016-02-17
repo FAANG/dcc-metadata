@@ -39,16 +39,16 @@ Required:
 
  * `Organism` (*NCBI taxon ID*)
  * `sex`  (*ontology term*) animal sex, described using any child term of [PATO_0000047](http://purl.obolibrary.org/obo/PATO_0000047)
- * `birth date` (*date*) birth date, in the format YYYY-MM-DD
+ * `birth date` (*date*) birth date, in the format YYYY-MM-DD, or YYYY-MM where only the month is known
  * `breed` (*ontology term*) animal breed, described using a term from the [Livestock Breed Ontology](http://purl.obolibrary.org/obo/LBO_0000000)
  * `health status` (*ontology term*) Healthy animals should have the term [normal](http://purl.obolibrary.org/obo/PATO_0000461), otherwise use the as many [disease](http://www.ebi.ac.uk/efo/EFO_0000408) terms as necessary from EFO
 
 Optional:
 
- * birth location (*location*)
-   * `birth location` (*text*) name of the birth location
-   * `birth location latitude` (*number*) latitude of the birth location in decimal degrees. Units should be specified as 'decimal degrees'
-   * `birth location longitude` (*number*) longitude of the birth location in decimal degrees. Units should be specified as 'decimal degrees'
+
+ * `birth location` (*text*) name of the birth location
+ * `birth location latitude` (*number*) latitude of the birth location in decimal degrees. Units should be specified as 'decimal degrees'
+ * `birth location longitude` (*number*) longitude of the birth location in decimal degrees. Units should be specified as 'decimal degrees'
  * `birth weight` (*number*) weight, in kilograms or grams. Units must be specified
  * `placental weight` (*number*) weight, in kilograms or grams. Units must be specified.
  * `pregnancy length` (*number*) length of time, in days, weeks or months
@@ -142,7 +142,7 @@ Links to other records:
 
 ###date
 
-Dates should be reported in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format,  YYYY-MM-DD. To ensure clarity, the format should be reported as the 'units'.
+Dates should be reported in an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format,  YYYY-MM-DD for dates or YYYY-MM for months. To ensure clarity, the format must be reported as the 'units'.
 
 ###NCBI taxon ID
 

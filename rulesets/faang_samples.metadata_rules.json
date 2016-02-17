@@ -64,7 +64,8 @@
                     "name": "birth date",
                     "type": "date",
                     "valid_units": [
-                        "YYYY-MM-DD"
+                        "YYYY-MM-DD",
+                        "YYYY-MM"
                     ]
                 },
                 {
