@@ -31,6 +31,14 @@
                     ]
                 },
                 {
+                    "mandatory": "mandatory",
+                    "name": "project",
+                    "type": "text",
+                    "valid_values": [
+                        "FAANG"
+                    ]
+                },
+                {
                     "mandatory": "optional",
                     "name": "availability",
                     "type": "text"
@@ -51,13 +59,17 @@
                     "mandatory": "mandatory",
                     "name": "species",
                     "type": "ontology_id",
-                    "valid_ancestor_uris": ["http://purl.obolibrary.org/obo/NCBITaxon_1"]
+                    "valid_ancestor_uris": [
+                        "http://purl.obolibrary.org/obo/NCBITaxon_1"
+                    ]
                 },
                 {
                     "mandatory": "mandatory",
                     "name": "sex",
                     "type": "ontology_id",
-                    "valid_ancestor_uris": ["http://purl.obolibrary.org/obo/PATO_0000047"]
+                    "valid_ancestor_uris": [
+                        "http://purl.obolibrary.org/obo/PATO_0000047"
+                    ]
                 },
                 {
                     "mandatory": "mandatory",
@@ -72,7 +84,9 @@
                     "mandatory": "mandatory",
                     "name": "breed",
                     "type": "ontology_id",
-                    "valid_ancestor_uris": ["http://purl.obolibrary.org/obo/LBO_0000000"]
+                    "valid_ancestor_uris": [
+                        "http://purl.obolibrary.org/obo/LBO_0000000"
+                    ]
                 },
                 {
                     "mandatory": "mandatory",
@@ -121,7 +135,9 @@
                     "mandatory": "optional",
                     "name": "environmental conditions",
                     "type": "ontology_id",
-                    "valid_ancestor_uris": ["http://purl.org/obo/owlEOL_0000001"]
+                    "valid_ancestor_uris": [
+                        "http://purl.org/obo/owlEOL_0000001"
+                    ]
                 },
                 {
                     "mandatory": "optional",
@@ -152,12 +168,22 @@
                 {
                     "mandatory": "optional",
                     "name": "delivery timing",
-                    "type": "text"
+                    "type": "text",
+                    "valid_values": [
+                        "early parturition",
+                        "full-term parturition",
+                        "delayed parturition"
+                    ]
                 },
                 {
                     "mandatory": "optional",
                     "name": "delivering ease",
-                    "type": "text"
+                    "type": "text",
+                    "valid_values": [
+                        "normal autonomous delivery",
+                        "c-section",
+                        "vetinarian assisted"
+                    ]
                 }
             ]
         },
@@ -228,7 +254,9 @@
                     "mandatory": "optional",
                     "name": "physiological conditions",
                     "type": "ontology_id",
-                    "valid_ancestor_uris": ["http://purl.org/obo/owlATOL_0000002"]
+                    "valid_ancestor_uris": [
+                        "http://purl.org/obo/owlATOL_0000002"
+                    ]
                 },
                 {
                     "mandatory": "optional",

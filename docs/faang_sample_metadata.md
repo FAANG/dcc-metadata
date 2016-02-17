@@ -25,6 +25,7 @@ Required:
    * [cell specimen](http://purl.obolibrary.org/obo/OBI_0001468)
    * [cell culture](http://purl.obolibrary.org/obo/OBI_0001876)
    * [pool of specimens](http://purl.obolibrary.org/obo/OBI_0302716)
+  * `project` (*text*) project name - this should always be 'FAANG'. This will allow the DCC ot identify FAANG samples
 
 Optional:
 
@@ -52,8 +53,14 @@ Optional:
  * `birth weight` (*number*) weight, in kilograms or grams. Units must be specified
  * `placental weight` (*number*) weight, in kilograms or grams. Units must be specified.
  * `pregnancy length` (*number*) length of time, in days, weeks or months
- * `delivery timing` (*text*)
- * `delivery ease` (*text*)
+ * `delivery timing` (*ontology term*) possible values
+   * early parturition
+   * full-term parturition
+   * delayed parturition
+ * `delivery ease` (*text*) possible values
+   * normal autonomous delivery
+   * c-section
+   * vetinarian assisted
  * `physiological conditions`(*ontology term*) use as many terms as necessary from [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
  * `environmental conditions`(*ontology term*) as many terms as necessary from [EOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
  * `phenotype` (*ontology term*) as many terms as required from the [VT](http://purl.bioontology.org/ontology/VT), [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en) or [MP](http://purl.bioontology.org/ontology/MP)) ontologies
@@ -228,7 +235,7 @@ Short species codes:
 
 ##Submission
 
-Samples should be submitted to [BioSamples@EBI](https://www.ebi.ac.uk/biosamples/). They should be added to the [FAANG group](http://www.ebi.ac.uk/biosamples/group/SAMEG307473) (details of how to do this to follow).  Samples in the 'FAANG' group will be synced to [BioSample@NCBI](http://www.ncbi.nlm.nih.gov/biosample/) periodically. Samples in BioSamples@EBI/BioSample@NCBI can be referenced in submissions to SRA at EBI and NCBI.
+Samples should be submitted to [BioSamples@EBI](https://www.ebi.ac.uk/biosamples/). All samples tagged with a `project` of 'FAANG' will be added to the [FAANG BioSamples group](http://www.ebi.ac.uk/biosamples/group/SAMEG307473).  Samples in this group will be synced to [BioSample@NCBI](http://www.ncbi.nlm.nih.gov/biosample/) periodically. Samples in BioSamples@EBI/BioSample@NCBI can be referenced in submissions to SRA at EBI and NCBI.
 
 ##Validation
 
