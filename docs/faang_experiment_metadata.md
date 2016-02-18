@@ -18,9 +18,7 @@ The data types will be described later in this document. The metadata group will
 
 Each assay type will require metadata in addition to the core set of common attributes. The initial set proposed is based upon the [IHEC metadata standards](http://ihec-epigenomes.org/research/reference-epigenome-standards/)
 
-
 ###Common
-
 
 Required:
 
