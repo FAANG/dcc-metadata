@@ -18,56 +18,51 @@ The data types will be described later in this document. The metadata & data sha
 
 Each assay type will require metadata in addition to the core set of common attributes. The initial set proposed is based upon the [IHEC metadata standards](http://ihec-epigenomes.org/research/reference-epigenome-standards/)
 
-
 ###Common
 
-
-Recquired:
+Required:
 
 These following elements must always be present in any experiment metadata
 
- * Each experiment should reference one `sample`. The metadata for that sample should comply with the FAANG metadata specification.
-	* This should be a reference to the BioSample ID for the specimen, purified cell, cultured cell or cell line the experiment was conducted on.
+ * `sample`  (*BioSample ID*) the BioSamples ID for the specimen, purified cell, cultured cell or cell line the experiment was conducted on. Each experiment must reference one FAANG BioSample
  * `assay type` (*ontology term*) The class of experiment performed. e.g. RNA-Seq or expression array. This should be a child term of [EFO:0002773](http://www.ebi.ac.uk/efo/EFO_0002773)
- * `experiment target` (*ontology term*) What is the experiment trying to find/measure?
- * ChIP-seq for histone modifications should use a child term of [histone modification](http://purl.obolibrary.org/obo/SO_0001700)
- * ChIP-seq input should use the term [input DNA](http://www.ebi.ac.uk/efo/EFO_0005031)
- * RNA-seq should use a child term of [RNA](http://purl.obolibrary.org/obo/CHEBI_33697)
- * ATAC-seq and DNase-seq should use the term [open_chromatin_region](http://purl.obolibrary.org/obo/SO_0001747)
- * Methylation assays should use the term [DNA methylation](http://purl.obolibrary.org/obo/GO_0006306)
+ * `experiment target` (*ontology term*) What is the experiment trying to find?
+  * ChIP-seq for histone modifications should use a child term of [histone modification](http://purl.obolibrary.org/obo/SO_0001700)
+  * ChIP-seq input should use the term [input DNA](http://www.ebi.ac.uk/efo/EFO_0005031)
+  * RNA-seq should use a child term of [RNA](http://purl.obolibrary.org/obo/CHEBI_33697)
+  * ATAC-seq and DNase-seq should use the term [open chromatin region](http://purl.obolibrary.org/obo/SO_0001747)
+  * Methylation assays should use the term [DNA methylation](http://purl.obolibrary.org/obo/GO_0006306)
  * `sample storage` (*text*) This should document how the sample was stored, from one of these values:
-   *  frozen, liquid nitrogen
-   *  frozen, -70 freezer
-   *  frozen, vapor phase
-   *  RNAlater, frozen
-   *  paraffin block
-   *  cut slide
-   *  fresh
-   * ambient temperature
+    * frozen, liquid nitrogen
+    * frozen, -70 freezer
+    * frozen, vapor phase
+    * RNAlater, frozen
+    * paraffin block
+    * cut slide
+    * fresh
+    * ambient temperature
  * `sample storage processing` (*text*) This should document how the sample was prepared for storage, from one of these values:
-   * cryopreservation in liquid nitrogen (dead tissue)
-   * cryopreservation in dry ice (dead tissue)
-   * cryopreservation of live cells in liquid nitrogen
-   * cryopreservation, other
-   * formalin fixed, unbuffered
-   * formalin fixed, buffered
-   * formalin fixed and paraffin embedded
-   * fresh
+     * cryopreservation in liquid nitrogen (dead tissue)
+     * cryopreservation in dry ice (dead tissue)
+     * cryopreservation of live cells in liquid nitrogen
+     * cryopreservation, other
+     * formalin fixed, unbuffered
+     * formalin fixed, buffered
+     * formalin fixed and paraffin embedded
+     * fresh
  * `sampling to preparation interval` (*number*) This should list how long between the sample being taken and used in the experiment. Units should be specified, and be either 'minutes','hours','days','weeks' or 'years'.
  * `experimental protocol` (*protocol*) a description of the experiment protocol
  * `extraction protocol` (*protocol*) the protocol used to isolate the extract material
 
 Recommended:
 
- * library preparation location (*location*)
-   * `library preparation location` (*text*) name of the library preparation location
-   * `library preparation location latitude` (*number*) latitude of the library prep. location in decimal degrees. Units should be specified as 'decimal degrees'
-   * `library preparation location longitude` (*number*) longitude of the library prep. location in decimal degrees. Units should be specified as 'decimal degrees'
+ * `library preparation location` (*text*) name of the library preparation location
+ * `library preparation location latitude` (*number*) latitude of the library prep. location in decimal degrees. Units should be specified as 'decimal degrees'
+ * `library preparation location longitude` (*number*) longitude of the library prep. location in decimal degrees. Units should be specified as 'decimal degrees'
  * `library preparation date`  (*date*) Date on which the library was prepared, formatted as YYYY-MM-DD. Units should be specified as 'YYYY-MM-DD' 
- * sequencing location (*location*)
-   * `sequencing location` (*text*) name of the sequencing location
-   * `sequencing location latitude` (*number*) latitude of the sequencing location in decimal degrees. Units should be specified as 'decimal degrees'
-   * `sequencing location longitude` (*number*) longitude of the sequencing. location in decimal degrees. Units should be specified as 'decimal degrees'
+ * `sequencing location` (*text*) name of the sequencing location
+ * `sequencing location latitude` (*number*) latitude of the sequencing location in decimal degrees. Units should be specified as 'decimal degrees'
+ * `sequencing location longitude` (*number*) longitude of the sequencing. location in decimal degrees. Units should be specified as 'decimal degrees'
  * `sequencing date` (*date*) date of sequencing
 
 ###Whole-genome bisulfite sequencing
@@ -129,13 +124,13 @@ Required:
  * `preparation reverse transcription protocol` (*protocol*) the protocol for reverse transcription used in preparation
  * `library generation protocol` (*protocol*)  the protocol used to generate the library
  * `read strand` (*text*) where a strand specific protocol is used, specify which mate pair maps to the transcribed strand. Report 'not applicable' if the protocol is not strand specific. Possible values:
-  * 'not applicable' if the protocol is not strand specific 
-  * single-ended sequencing:
-     * 'sense' if the reads should be on the same strand as the transcript
-     * antisense if  the read should be on the opposite strand of the transcript
-  * paired-end sequencing:
-     * 'mate 1 sense' if mate 1 should be on the same strand as the transcript
-     * 'mate 2 sense' if mate 2 should be on the same strand as the transcript
+    * 'not applicable' if the protocol is not strand specific 
+    * single-ended sequencing:
+         * 'sense' if the reads should be on the same strand as the transcript
+         * 'antisense' if  the read should be on the opposite strand of the transcript
+    * paired-end sequencing:
+         * 'mate 1 sense' if mate 1 should be on the same strand as the transcript
+         * 'mate 2 sense' if mate 2 should be on the same strand as the transcript
  * `rna purity - 260:280 ratio` (*number*) sample purity assesed with fluoresence ratio at 260 and 280nm, informative for protein contamination
  * `rna purity - 260:230 ratio` (*number*) Sample purity assesed with fluoresence ratio at 260 and 230nm, informative for contamination by phenolate ion, thiocyanates, and other organic compounds
  * `rna integrity number` (*number*) See [Schroeder *et al* , 2006](http://www.biomedcentral.com/1471-2199/7/3)
@@ -157,9 +152,9 @@ Required:
 
  * `transposase protocol` (*protocol*) the protocol used for transposase treatment
 
-###Hi-C
+###HiC
 
-Hi-C experiments should have an `assay type` of  [HiC](http://purl.obolibrary.org/obo/OBI_0002042)  and an `experiment target` of [chromosome conformation](http://purl.obolibrary.org/obo/OBI_0001917).
+HiC experiments should have an `assay type` of  [HiC](http://purl.obolibrary.org/obo/OBI_0002042)  and an `experiment target` of [chromosome conformation](http://purl.obolibrary.org/obo/OBI_0001917).
 
 Required:
 
@@ -195,11 +190,23 @@ A URL,  such as 'http://faang.org/'. Depending on the context, http, ftp, mailto
  * ftp, ftp://ftp.faang.ebi.ac.uk/ftp/README
  * http,  http://faang.org/
  * mailto, mailto:bob@example.org
+ 
+###location
+
+ A location should be reported as using three attributes:
+
+  * `location` (*text*) name of the location
+  * `location latitude` (*number*) latitude in decimal degrees. Units should be reported as 'decimal degrees'
+  * `location longitude`(*number*) longitude in decimal degrees. Units should be reported as 'decimal degrees'
 
 
 ###ontology term
 
 The text label of a term from an ontology. The attribute value should be the term label. Unlike for sample submissions, direct links to ontologies cannot be submitted as attributes. The attribute value should exactly match the term name in the ontology. 
+
+###BioSample ID
+
+BioSample IDs are in the form SAMEA2821491. They must be used when linking the experiment to the sample record.
 
 ##Missing data
 
@@ -221,6 +228,8 @@ The use of these values will interact with the metadata validation system as fol
  * attribute is optional
    * validation will pass with any of missing values terms
    
+<<<<<<< HEAD
+=======
 ##Submission
 
 Each experiment record should reference a record in BioSamples. These have accessions like SAMEA1234567. As described above, experiments themselves should be submitted to the appropriate EMBL-EBI, NCBI or DDBJ assay archives. Links to the different submission systems can be found below.
@@ -230,3 +239,4 @@ Each experiment record should reference a record in BioSamples. These have acces
 [The Sequence read archive at NCBI](http://www.ncbi.nlm.nih.gov/sra/docs/submit/)
 [GEO](http://www.ncbi.nlm.nih.gov/geo/info/submission.html)
 [DDBJ](http://www.ddbj.nig.ac.jp/submission_general-e.html)
+>>>>>>> master

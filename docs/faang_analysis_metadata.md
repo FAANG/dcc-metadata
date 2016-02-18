@@ -26,9 +26,9 @@ Analysis metadata needs to contain the following process attributes
  1. Input data - a list of files used as input and references to the experiment records in a data archive
  2. Reference data - genome assembly, gene set, etc
  3. Analysis protocol - a precise description of the analysis protocol, including the following information:
-  * URLs and version numbers for all software used (including in-house scripts)
-  * Full command line used to run the analysis
-  * Link to any VM or containers used, if applicable
+    * URLs and version numbers for all software used (including in-house scripts)
+    * Full command line used to run the analysis
+    * Link to any VM or containers used, if applicable
 
 The analysis must be reproducible based on the protocol document, as such we strongly recommend any inhouse scripts which are using through the process are made publicly available through github or a similar code repository. FAANG is happy to host people's code under the FAANG github repository if that is needed. 
 
@@ -41,7 +41,6 @@ Required:
 
  * `total reads` (*number*) the number of reads used in mapping
  * `mapped reads` (*number*) the number of  reads that can be mapped. Care should be taken that reads with multiple mappings are only counted once
- * `percentage reads mapped` (*number*)  the percentage of  reads that can be mapped. As with `mapped reads`, care should be taken that reads with multiple mappings are only counted once.
 
 
 ###File naming

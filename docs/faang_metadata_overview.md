@@ -20,9 +20,9 @@ Across all categories, descriptive factors should use ontology terms. Our prefer
 
 e.g., tissue specimens can be described using terms from UBERON such as  [lung, UBERON:0002048](http://purl.obolibrary.org/obo/UBERON_0002048)
 
-Protocols will be stored separately from the metadata, with a standardised name and a long term stable URL (DCC FTP site, or a database). The URL/name can be referenced from the metadata.
+Protocols will be stored separately from the metadata, with a standardised name and a long term stable URL (DCC FTP site, or a database). The URL/name can be referenced from the metadata. e.g. The  3rd version of the Roslin ChIP Protocol would get a name like this:
 
-e.g. ChIP-seq protocol document for lab would get a name like ChIP_protocol_roslin_20150511_v3. Where this was the 3v of the Roslin ChIP Protocol
+`ChIP_protocol_roslin_20150511_v3`
 
 Protocols may specify data to record during the experiment. Some of this should be stored as metadata. Where the data is numeric, the unit should be specified.  
 

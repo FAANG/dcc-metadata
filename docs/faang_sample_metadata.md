@@ -10,10 +10,7 @@ Most requirements are laid out like this:
 
 * `attribute name` (*data type*) a brief description
 
-The data types will be described later in this document.
-
-Sample name and links (relationships between samples) do not follow this pattern. Sample names should adhere to the naming scheme later in this document. Links should follow the guidance in the [BioSamples documentation](http://www.ebi.ac.uk/biosamples/help/st_scd.html).
-
+The data types are described later in this document.
 
 ###Common
 
@@ -21,13 +18,14 @@ These attributes should be present on every sample record.
 
 Required:
 
-  * Sample name
+  * `Sample name` (*text*) sample names should follow the naming rules listed below. Each name must be unique.
   * `Material` (*ontology term*) the type of material being described. This will be used to decide what metadata are required and must be one of the expected terms:
-   * [organism](http://purl.obolibrary.org/obo/OBI_0100026)
-   * [tissue specimen](http://purl.obolibrary.org/obo/OBI_0001479)
-   * [cell specimen](http://purl.obolibrary.org/obo/OBI_0001468)
-   * [cell culture](http://purl.obolibrary.org/obo/OBI_0001876)
-   * [pool of specimens](http://purl.obolibrary.org/obo/OBI_0302716)
+    * [organism](http://purl.obolibrary.org/obo/OBI_0100026)
+    * [tissue specimen](http://purl.obolibrary.org/obo/OBI_0001479)
+    * [cell specimen](http://purl.obolibrary.org/obo/OBI_0001468)
+    * [cell culture](http://purl.obolibrary.org/obo/OBI_0001876)
+    * [pool of specimens](http://purl.obolibrary.org/obo/OBI_0302716)
+  * `project` (*text*) project name - this should always be 'FAANG'. This will allow the DCC to identify FAANG samples
 
 Optional:
 
@@ -42,32 +40,36 @@ Required:
 
  * `Organism` (*NCBI taxon ID*)
  * `sex`  (*ontology term*) animal sex, described using any child term of [PATO_0000047](http://purl.obolibrary.org/obo/PATO_0000047)
- * `birth date` (*date*) birth date, in the format YYYY-MM-DD
+ * `birth date` (*date*) birth date, in the format YYYY-MM-DD, or YYYY-MM where only the month is known
  * `breed` (*ontology term*) animal breed, described using a term from the [Livestock Breed Ontology](http://purl.obolibrary.org/obo/LBO_0000000)
  * `health status` (*ontology term*) Healthy animals should have the term [normal](http://purl.obolibrary.org/obo/PATO_0000461), otherwise use the as many [disease](http://www.ebi.ac.uk/efo/EFO_0000408) terms as necessary from EFO
 
 Optional:
 
- * birth location (*location*)
-   * `birth location` (*text*) name of the birth location
-   * `birth location latitude` (*number*) latitude of the birth location in decimal degrees. Units should be specified as 'decimal degrees'
-   * `birth location longitude` (*number*) longitude of the birth location in decimal degrees. Units should be specified as 'decimal degrees'
+
+ * `birth location` (*text*) name of the birth location
+ * `birth location latitude` (*number*) latitude of the birth location in decimal degrees. Units should be specified as 'decimal degrees'
+ * `birth location longitude` (*number*) longitude of the birth location in decimal degrees. Units should be specified as 'decimal degrees'
  * `birth weight` (*number*) weight, in kilograms or grams. Units must be specified
  * `placental weight` (*number*) weight, in kilograms or grams. Units must be specified.
  * `pregnancy length` (*number*) length of time, in days, weeks or months
- * `delivery timing` (*text*)
- * `delivery ease` (*text*)
+ * `delivery timing` (*ontology term*) possible values
+     * early parturition
+     * full-term parturition
+     * delayed parturition
+ * `delivery ease` (*text*) possible values
+     * normal autonomous delivery
+     * c-section
+     * vetinarian assisted
  * `physiological conditions`(*ontology term*) use as many terms as necessary from [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
  * `environmental conditions`(*ontology term*) as many terms as necessary from [EOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
  * `phenotype` (*ontology term*) as many terms as required from the [VT](http://purl.bioontology.org/ontology/VT), [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en) or [MP](http://purl.bioontology.org/ontology/MP)) ontologies
  * `pedigree` (*URL*) a link to pedigree information for the animal
 
-Links to other records (required if related animals are part of FAANG, e.g. quads)
+Links to other records:
 
- * Sire (child of)
- * Dam (child of)
- * Siblings
-
+ * `child of` (*sample*) sample name or Biosample ID for sire/dam. Required if related animals are part of FAANG, e.g. quads.
+ 
 ###Specimen
 
 A piece of tissue taken from an animal. The following attributes are in addition to the attributes listed in the 'Common' section above. The `material` should be reported as [tissue specimen](http://purl.obolibrary.org/obo/OBI_0001479).
@@ -81,9 +83,9 @@ Required:
  * `tissue` ([UBERON](http://uberon.github.io/) term preferred)
  * `specimen collection protocol` (*protocol*) a link to the protocol followed when taking the specimen
  * `fasted status` - (*text*) One of the following values, for which the criteria _must_ be specified in the protocol:
-   * fed
-   * fasted
-   * unkown
+     * fed
+     * fasted
+     * unknown
  * `health status at collection` (*ontology term*) Healthy animals should have the term [normal](http://purl.obolibrary.org/obo/PATO_0000461), otherwise use the as many [disease](http://www.ebi.ac.uk/efo/EFO_0000408) terms as necessary from EFO
 
 Optional:
@@ -99,7 +101,7 @@ Optional:
 
 Links to other records:
 
- * Animal (derived from) (required)
+ * `derived from` (*sample*) sample name or BioSample ID for an *animal* record (required).
 
 ###Purified cells
 
@@ -113,7 +115,7 @@ Required:
 
 Links to other records:
 
- * Specimen (derived from) (required)
+ * `derived from` (*sample*) sample name or BioSample ID for a *specimen* record (required).
 
 ###Cell culture
 
@@ -127,10 +129,9 @@ Required:
  * `culture conditions` (*text*) brief description of culture conditions (e.g. 'on feeder cells', 'E8 media')
  * `number of passages` (*number*)  number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures
 
-Links to other records - require one of the possibilities below:
+Links to other records:
 
- * Specimen (derived from)
- * Purified cell (derived from)
+ * `derived from` (*sample*) sample name or BioSample ID for a *specimen* or *purified cell* record (required).
 
 ###Pooled samples
 
@@ -138,8 +139,9 @@ Where samples are pooled, a new sample record should be created, containing
 
  * `pooling protocol` (*protocol*)
 
-Links to other records
- * pooled samples (derived from)
+Links to other records:
+ 
+  * `derived from` (*sample*) sample name or BioSample ID for a *specimen*, *purified cells* or *cell culture* record (required).
 
 ##Data types for sample attributes
 
@@ -147,7 +149,7 @@ Links to other records
 
 ###date
 
-Dates should be reported in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format,  YYYY-MM-DD. To ensure clarity, the format should be reported as the 'units'.
+Dates should be reported in an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format,  YYYY-MM-DD for dates or YYYY-MM for months. To ensure clarity, the format must be reported as the 'units'.
 
 ###NCBI taxon ID
 
@@ -186,6 +188,10 @@ A location should be reported as using three attributes:
  * `location latitude` (*number*) latitude in decimal degrees. Units should be reported as 'decimal degrees'
  * `location longitude`(*number*) longitude in decimal degrees. Units should be reported as 'decimal degrees'
 
+###sample
+
+Samples can be referred to in two ways. If the sample you need to reference is in the submission, use the sample name. If the sample was already submitted, use the BioSample ID (e.g. SAMEA2821491).
+
 ##Missing data
 
 Where data cannot be included in a submission, submit one of these text values instead
@@ -198,13 +204,13 @@ Where data cannot be included in a submission, submit one of these text values i
 The use of these values will interact with the metadata validation system as follows:
 
  * attribute is required
-  * not applicable, not collected, not provided - validation will regard these as an error
-  * restricted access - validation will generate a warning
+    * not applicable, not collected, not provided - validation will regard these as an error
+    * restricted access - validation will generate a warning
  * attribute is recommended
-  * not applicable, not collected, not provided - validation will generate a warning
-  * restricted access - pass
+    * not applicable, not collected, not provided - validation will generate a warning
+    * restricted access - pass
  * attribute is optional
-   * validation will pass with any of missing values terms
+    * validation will pass with any of missing values terms
 
 
 ##Sample naming
@@ -217,9 +223,19 @@ We propose a sample naming scheme comprising the following elements:
 
 The purpose is to ensure that samples are uniquely and clearly identified, with reasonably short names.
 
+Short species codes:
+
+ * _Bos taurus_ BTA
+ * _Sus scrofa_ SSC
+ * _Ovis aries_ OAR
+ * _Gallus gallus_ GGA
+ * _Equus caballus_ ECA
+ * _Capra hircus_ CHR
+
+
 ##Submission
 
-Samples should be submitted to [BioSamples@EBI](https://www.ebi.ac.uk/biosamples/). They should be added to the [FAANG group](http://www.ebi.ac.uk/biosamples/group/SAMEG307473) (details of how to do this to follow).  Samples in the 'FAANG' group will be synced to [BioSample@NCBI](http://www.ncbi.nlm.nih.gov/biosample/) periodically. Samples in BioSamples@EBI/BioSample@NCBI can be referenced in submissions to SRA at EBI and NCBI.
+Samples should be submitted to [BioSamples@EBI](https://www.ebi.ac.uk/biosamples/). All samples tagged with a `project` of 'FAANG' will be added to the [FAANG BioSamples group](http://www.ebi.ac.uk/biosamples/group/SAMEG307473).  Samples in this group will be synced to [BioSample@NCBI](http://www.ncbi.nlm.nih.gov/biosample/) periodically. Samples in BioSamples@EBI/BioSample@NCBI can be referenced in submissions to SRA at EBI and NCBI.
 
 ##Validation
 

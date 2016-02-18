@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DOCS_DIR=$SCRIPT_DIR/../docs
+
+for m in $DOCS_DIR/*.md; do 
+	p=`echo $m | sed 's/\.md$/.pdf/'`;
+	echo "Converting $m to $p";
+	pandoc -s -f markdown_github -o $p $m 
+done
