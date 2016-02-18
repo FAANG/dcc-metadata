@@ -35,7 +35,6 @@ Required:
 
  * `total reads` (*number*) the number of reads used in mapping
  * `mapped reads` (*number*) the number of  reads that can be mapped. Care should be taken that reads with multiple mappings are only counted once
- * `percentage reads mapped` (*number*)  the percentage of  reads that can be mapped. As with `mapped reads`, care should be taken that reads with multiple mappings are only counted once.
 
 
 ###File naming
