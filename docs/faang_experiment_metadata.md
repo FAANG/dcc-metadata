@@ -30,10 +30,10 @@ These following elements must always be present in any experiment metadata
  * `assay type` (*ontology term*) The class of experiment performed. e.g. RNA-Seq or expression array. This should be a child term of [EFO:0002773](http://www.ebi.ac.uk/efo/EFO_0002773)
  * `experiment target` (*ontology term*) What is the experiment trying to find?
   * ChIP-seq for histone modifications should use a child term of [histone modification](http://purl.obolibrary.org/obo/SO_0001700)
-	* ChIP-seq input should use the term [input DNA](http://www.ebi.ac.uk/efo/EFO_0005031)
-	* RNA-seq should use a child term of [RNA](http://purl.obolibrary.org/obo/CHEBI_33697)
-	* ATAC-seq and DNase-seq should use the term [open_chromatin_region](http://purl.obolibrary.org/obo/SO_0001747)
-	* Methylation assays should use the term [DNA methylation](http://purl.obolibrary.org/obo/GO_0006306)
+  * ChIP-seq input should use the term [input DNA](http://www.ebi.ac.uk/efo/EFO_0005031)
+  * RNA-seq should use a child term of [RNA](http://purl.obolibrary.org/obo/CHEBI_33697)
+  * ATAC-seq and DNase-seq should use the term [open chromatin region](http://purl.obolibrary.org/obo/SO_0001747)
+  * Methylation assays should use the term [DNA methylation](http://purl.obolibrary.org/obo/GO_0006306)
  * `sample storage` (*text*) This should document how the sample was stored, from one of these values:
   *  frozen, liquid nitrogen
   *  frozen, -70 freezer
@@ -129,7 +129,7 @@ Required:
   * 'not applicable' if the protocol is not strand specific 
   * single-ended sequencing:
      * 'sense' if the reads should be on the same strand as the transcript
-     * antisense if  the read should be on the opposite strand of the transcript
+     * 'antisense' if  the read should be on the opposite strand of the transcript
   * paired-end sequencing:
      * 'mate 1 sense' if mate 1 should be on the same strand as the transcript
      * 'mate 2 sense' if mate 2 should be on the same strand as the transcript
