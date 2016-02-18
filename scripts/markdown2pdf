@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DOCS_DIR=$SCRIPT_DIR/../docs
+CSS1=https://raw.githubusercontent.com/adamburmister/gitprint.com/master/public/css/main.css
+CSS2=https://raw.githubusercontent.com/adamburmister/gitprint.com/master/public/css/highlight.css
+
+for m in $DOCS_DIR/*.md; do 
+	p=`echo $m | sed 's/\.md$/.pdf/'`;
+	echo $m $p;
+	pandoc -s -f markdown_github -o $p $m 
+done
