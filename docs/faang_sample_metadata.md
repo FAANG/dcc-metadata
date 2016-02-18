@@ -25,7 +25,7 @@ Required:
    * [cell specimen](http://purl.obolibrary.org/obo/OBI_0001468)
    * [cell culture](http://purl.obolibrary.org/obo/OBI_0001876)
    * [pool of specimens](http://purl.obolibrary.org/obo/OBI_0302716)
-  * `project` (*text*) project name - this should always be 'FAANG'. This will allow the DCC ot identify FAANG samples
+  * `project` (*text*) project name - this should always be 'FAANG'. This will allow the DCC to identify FAANG samples
 
 Optional:
 
