@@ -33,23 +33,23 @@ These following elements must always be present in any experiment metadata
   * ATAC-seq and DNase-seq should use the term [open chromatin region](http://purl.obolibrary.org/obo/SO_0001747)
   * Methylation assays should use the term [DNA methylation](http://purl.obolibrary.org/obo/GO_0006306)
  * `sample storage` (*text*) This should document how the sample was stored, from one of these values:
-  *  frozen, liquid nitrogen
-  *  frozen, -70 freezer
-  *  frozen, vapor phase
-  *  RNAlater, frozen
-  *  paraffin block
-  *  cut slide
-  *  fresh
-  * ambient temperature
+    * frozen, liquid nitrogen
+    * frozen, -70 freezer
+    * frozen, vapor phase
+    * RNAlater, frozen
+    * paraffin block
+    * cut slide
+    * fresh
+    * ambient temperature
  * `sample storage processing` (*text*) This should document how the sample was prepared for storage, from one of these values:
-  * cryopreservation in liquid nitrogen (dead tissue)
-  * cryopreservation in dry ice (dead tissue)
-  * cryopreservation of live cells in liquid nitrogen
-  * cryopreservation, other
-  * formalin fixed, unbuffered
-  * formalin fixed, buffered
-  * formalin fixed and paraffin embedded
-  * fresh
+     * cryopreservation in liquid nitrogen (dead tissue)
+     * cryopreservation in dry ice (dead tissue)
+     * cryopreservation of live cells in liquid nitrogen
+     * cryopreservation, other
+     * formalin fixed, unbuffered
+     * formalin fixed, buffered
+     * formalin fixed and paraffin embedded
+     * fresh
  * `sampling to preparation interval` (*number*) This should list how long between the sample being taken and used in the experiment. Units should be specified, and be either 'minutes','hours','days','weeks' or 'years'.
  * `experimental protocol` (*protocol*) a description of the experiment protocol
  * `extraction protocol` (*protocol*) the protocol used to isolate the extract material
@@ -124,13 +124,13 @@ Required:
  * `preparation reverse transcription protocol` (*protocol*) the protocol for reverse transcription used in preparation
  * `library generation protocol` (*protocol*)  the protocol used to generate the library
  * `read strand` (*text*) where a strand specific protocol is used, specify which mate pair maps to the transcribed strand. Report 'not applicable' if the protocol is not strand specific. Possible values:
-  * 'not applicable' if the protocol is not strand specific 
-  * single-ended sequencing:
-     * 'sense' if the reads should be on the same strand as the transcript
-     * 'antisense' if  the read should be on the opposite strand of the transcript
-  * paired-end sequencing:
-     * 'mate 1 sense' if mate 1 should be on the same strand as the transcript
-     * 'mate 2 sense' if mate 2 should be on the same strand as the transcript
+    * 'not applicable' if the protocol is not strand specific 
+    * single-ended sequencing:
+         * 'sense' if the reads should be on the same strand as the transcript
+         * 'antisense' if  the read should be on the opposite strand of the transcript
+    * paired-end sequencing:
+         * 'mate 1 sense' if mate 1 should be on the same strand as the transcript
+         * 'mate 2 sense' if mate 2 should be on the same strand as the transcript
  * `rna purity - 260:280 ratio` (*number*) sample purity assesed with fluoresence ratio at 260 and 280nm, informative for protein contamination
  * `rna purity - 260:230 ratio` (*number*) Sample purity assesed with fluoresence ratio at 260 and 230nm, informative for contamination by phenolate ion, thiocyanates, and other organic compounds
  * `rna integrity number` (*number*) See [Schroeder *et al* , 2006](http://www.biomedcentral.com/1471-2199/7/3)

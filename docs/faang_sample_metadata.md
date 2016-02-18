@@ -20,11 +20,11 @@ Required:
 
   * `Sample name` (*text*) sample names should follow the naming rules listed below. Each name must be unique.
   * `Material` (*ontology term*) the type of material being described. This will be used to decide what metadata are required and must be one of the expected terms:
-   * [organism](http://purl.obolibrary.org/obo/OBI_0100026)
-   * [tissue specimen](http://purl.obolibrary.org/obo/OBI_0001479)
-   * [cell specimen](http://purl.obolibrary.org/obo/OBI_0001468)
-   * [cell culture](http://purl.obolibrary.org/obo/OBI_0001876)
-   * [pool of specimens](http://purl.obolibrary.org/obo/OBI_0302716)
+    * [organism](http://purl.obolibrary.org/obo/OBI_0100026)
+    * [tissue specimen](http://purl.obolibrary.org/obo/OBI_0001479)
+    * [cell specimen](http://purl.obolibrary.org/obo/OBI_0001468)
+    * [cell culture](http://purl.obolibrary.org/obo/OBI_0001876)
+    * [pool of specimens](http://purl.obolibrary.org/obo/OBI_0302716)
   * `project` (*text*) project name - this should always be 'FAANG'. This will allow the DCC to identify FAANG samples
 
 Optional:
@@ -54,13 +54,13 @@ Optional:
  * `placental weight` (*number*) weight, in kilograms or grams. Units must be specified.
  * `pregnancy length` (*number*) length of time, in days, weeks or months
  * `delivery timing` (*ontology term*) possible values
-   * early parturition
-   * full-term parturition
-   * delayed parturition
+     * early parturition
+     * full-term parturition
+     * delayed parturition
  * `delivery ease` (*text*) possible values
-   * normal autonomous delivery
-   * c-section
-   * vetinarian assisted
+     * normal autonomous delivery
+     * c-section
+     * vetinarian assisted
  * `physiological conditions`(*ontology term*) use as many terms as necessary from [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
  * `environmental conditions`(*ontology term*) as many terms as necessary from [EOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
  * `phenotype` (*ontology term*) as many terms as required from the [VT](http://purl.bioontology.org/ontology/VT), [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en) or [MP](http://purl.bioontology.org/ontology/MP)) ontologies
@@ -83,9 +83,9 @@ Required:
  * `tissue` ([UBERON](http://uberon.github.io/) term preferred)
  * `specimen collection protocol` (*protocol*) a link to the protocol followed when taking the specimen
  * `fasted status` - (*text*) One of the following values, for which the criteria _must_ be specified in the protocol:
-   * fed
-   * fasted
-   * unknown
+     * fed
+     * fasted
+     * unknown
  * `health status at collection` (*ontology term*) Healthy animals should have the term [normal](http://purl.obolibrary.org/obo/PATO_0000461), otherwise use the as many [disease](http://www.ebi.ac.uk/efo/EFO_0000408) terms as necessary from EFO
 
 Optional:
@@ -204,13 +204,13 @@ Where data cannot be included in a submission, submit one of these text values i
 The use of these values will interact with the metadata validation system as follows:
 
  * attribute is required
-  * not applicable, not collected, not provided - validation will regard these as an error
-  * restricted access - validation will generate a warning
+    * not applicable, not collected, not provided - validation will regard these as an error
+    * restricted access - validation will generate a warning
  * attribute is recommended
-  * not applicable, not collected, not provided - validation will generate a warning
-  * restricted access - pass
+    * not applicable, not collected, not provided - validation will generate a warning
+    * restricted access - pass
  * attribute is optional
-   * validation will pass with any of missing values terms
+    * validation will pass with any of missing values terms
 
 
 ##Sample naming

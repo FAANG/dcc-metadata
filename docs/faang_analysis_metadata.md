@@ -20,9 +20,9 @@ Analysis metadata needs to contain the following process attributes
  1. Input data - a list of files used as input and references to the experiment records in a data archive
  2. Reference data - genome assembly, gene set, etc
  3. Analysis protocol - a precise description of the analysis protocol, including the following information:
-  * URLs and version numbers for all software used (including in-house scripts)
-  * Full command line used to run the analysis
-  * Link to any VM or containers used, if applicable
+    * URLs and version numbers for all software used (including in-house scripts)
+    * Full command line used to run the analysis
+    * Link to any VM or containers used, if applicable
 
 The analysis must be reproducible based on the protocol document. 
 
