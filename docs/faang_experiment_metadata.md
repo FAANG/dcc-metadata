@@ -228,15 +228,12 @@ The use of these values will interact with the metadata validation system as fol
  * attribute is optional
    * validation will pass with any of missing values terms
    
-<<<<<<< HEAD
-=======
 ##Submission
 
 Each experiment record should reference a record in BioSamples. These have accessions like SAMEA1234567. As described above, experiments themselves should be submitted to the appropriate EMBL-EBI, NCBI or DDBJ assay archives. Links to the different submission systems can be found below.
 
-[The European Nucleotide Archive](http://www.ebi.ac.uk/ena/submit/read-submission)
-[ArrayExpress](http://www.ebi.ac.uk/arrayexpress/submit/overview.html)
-[The Sequence read archive at NCBI](http://www.ncbi.nlm.nih.gov/sra/docs/submit/)
-[GEO](http://www.ncbi.nlm.nih.gov/geo/info/submission.html)
-[DDBJ](http://www.ddbj.nig.ac.jp/submission_general-e.html)
->>>>>>> master
+ * [The European Nucleotide Archive](http://www.ebi.ac.uk/ena/submit/read-submission)
+ * [ArrayExpress](http://www.ebi.ac.uk/arrayexpress/submit/overview.html)
+ * [The Sequence read archive at NCBI](http://www.ncbi.nlm.nih.gov/sra/docs/submit/)
+ * [GEO](http://www.ncbi.nlm.nih.gov/geo/info/submission.html)
+ * [DDBJ](http://www.ddbj.nig.ac.jp/submission_general-e.html)
