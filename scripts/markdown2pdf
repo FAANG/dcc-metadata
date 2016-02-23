@@ -2,10 +2,10 @@
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 DOCS_DIR=$SCRIPT_DIR/../docs
-LATEX_OPTS="--latex-engine=xelatex --variable=colorlinks --template=$SCRIPT_DIR/latex.template"
+LATEX_OPTS="--variable=colorlinks"
 
 for m in $DOCS_DIR/*.md; do 
 	p=`echo $m | sed 's/\.md$/.pdf/'`;
 	echo "Converting $m to $p";
-	pandoc -s -f markdown_github $LATEX_OPTS -o $p $m
+	pandoc -f markdown_github $LATEX_OPTS -o $p $m
 done
