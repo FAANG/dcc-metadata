@@ -23,7 +23,7 @@
                         "http://purl.obolibrary.org/obo/OBI_0001876"
                     ],
                     "valid_values": [
-                        "Organism",
+                        "organism",
                         "tissue specimen",
                         "cell specimen",
                         "pool of specimens",
