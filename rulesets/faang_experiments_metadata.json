@@ -76,12 +76,12 @@
                 {
                     "mandatory": "mandatory",
                     "name": "experimental protocol",
-                    "type": "protocol"
+                    "type": "uri_value"
                 },
                 {
                     "mandatory": "mandatory",
                     "name": "extraction protocol",
-                    "type": "protocol"
+                    "type": "uri_value"
                 },
                 {
                     "mandatory": "recommended",
@@ -156,12 +156,12 @@
                 {
                     "mandatory": "mandatory",
                     "name": "bisulfite conversion protocol",
-                    "type": "protocol"
+                    "type": "uri_value"
                 },
                 {
                     "mandatory": "mandatory",
                     "name": "pcr product isolation protocol",
-                    "type": "protocol"
+                    "type": "uri_value"
                 },
                 {
                     "mandatory": "mandatory",
@@ -184,7 +184,7 @@
                 {
                     "mandatory": "mandatory",
                     "name": "chip protocol",
-                    "type": "protocol"
+                    "type": "uri_value"
                 },
                 {
                     "mandatory": "mandatory",
@@ -229,7 +229,7 @@
                 {
                     "mandatory": "mandatory",
                     "name": "chip protocol",
-                    "type": "protocol"
+                    "type": "uri_value"
                 },
                 {
                     "mandatory": "mandatory",
@@ -269,27 +269,27 @@
                 {
                     "mandatory": "mandatory",
                     "name": "rna preparation 3' adapter ligation protocol",
-                    "type": "protocol"
+                    "type": "uri_value"
                 },
                 {
                     "mandatory": "mandatory",
                     "name": "rna preparation 5' adapter ligation protocol",
-                    "type": "protocol"
+                    "type": "uri_value"
                 },
                 {
                     "mandatory": "mandatory",
                     "name": "library generation pcr product isolation protocol",
-                    "type": "protocol"
+                    "type": "uri_value"
                 },
                 {
                     "mandatory": "mandatory",
                     "name": "preparation reverse transcription protocol",
-                    "type": "protocol"
+                    "type": "uri_value"
                 },
                 {
                     "mandatory": "mandatory",
                     "name": "library generation protocol",
-                    "type": "protocol"
+                    "type": "uri_value"
                 },
                 {
                     "mandatory": "mandatory",
@@ -341,7 +341,7 @@
                 {
                     "mandatory": "mandatory",
                     "name": "dnase protocol",
-                    "type": "protocol"
+                    "type": "uri_value"
                 }
             ]
         },
@@ -366,7 +366,7 @@
                 {
                     "mandatory": "mandatory",
                     "name": "transposase protocol",
-                    "type": "protocol"
+                    "type": "uri_value"
                 }
             ]
         },
