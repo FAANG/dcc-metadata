@@ -14,7 +14,7 @@
                     "_comment": "Covers organism, tissue specimen, cell specimen, pool of specimens, cell culture",
                     "mandatory": "mandatory",
                     "name": "Material",
-                    "type": "ontology_uri",
+                    "type": "ontology_id",
                     "valid_ancestor_uris": [
                         "http://purl.obolibrary.org/obo/OBI_0100026",
                         "http://purl.obolibrary.org/obo/OBI_0001479",
@@ -48,7 +48,7 @@
         {
             "condition": {
                 "attribute_value_match": {
-                    "material": [
+                    "Material": [
                         "organism"
                     ]
                 }
@@ -190,7 +190,7 @@
         {
             "condition": {
                 "attribute_value_match": {
-                    "material": [
+                    "Material": [
                         "tissue specimen"
                     ]
                 }
@@ -306,7 +306,7 @@
         {
             "condition": {
                 "attribute_value_match": {
-                    "material": [
+                    "Material": [
                         "cell specimen"
                     ]
                 }
@@ -336,7 +336,7 @@
         {
             "condition": {
                 "attribute_value_match": {
-                    "material": [
+                    "Material": [
                         "cell culture"
                     ]
                 }
