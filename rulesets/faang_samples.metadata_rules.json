@@ -7,13 +7,13 @@
             "rules": [
                 {
                     "mandatory": "optional",
-                    "name": "description",
+                    "name": "Sample Description",
                     "type": "text"
                 },
                 {
                     "_comment": "Covers organism, tissue specimen, cell specimen, pool of specimens, cell culture",
                     "mandatory": "mandatory",
-                    "name": "material",
+                    "name": "Material",
                     "type": "ontology_uri",
                     "valid_ancestor_uris": [
                         "http://purl.obolibrary.org/obo/OBI_0100026",
@@ -23,7 +23,7 @@
                         "http://purl.obolibrary.org/obo/OBI_0001876"
                     ],
                     "valid_values": [
-                        "organism",
+                        "Organism",
                         "tissue specimen",
                         "cell specimen",
                         "pool of specimens",
@@ -65,7 +65,7 @@
                 },
                 {
                     "mandatory": "mandatory",
-                    "name": "sex",
+                    "name": "Sex",
                     "type": "ontology_id",
                     "valid_ancestor_uris": [
                         "http://purl.obolibrary.org/obo/PATO_0000047"

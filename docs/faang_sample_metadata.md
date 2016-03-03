@@ -29,7 +29,7 @@ Required:
 
 Optional:
 
- * `description` (*text*) a brief description of the sample
+ * `Sample Description` (*text*) a brief description of the sample
  * `availability` (*URL*) either a link to a web page giving information on sample availability (who to contact and if the sample is available), or a e-mail address to contact about availability. E-mail addresses should be prefixed with 'mailto:', e.g. 'mailto:samples@example.ac.uk'. In either case, long term support of the web page or e-mail address is necessary. Group e-mail addressees are preferable to indiviudal.
 
 ###Animal
@@ -39,7 +39,7 @@ An animal sampled for FAANG. The following attributes are in addition to the  at
 Required:
 
  * `Organism` (*NCBI taxon ID*)
- * `sex`  (*ontology term*) animal sex, described using any child term of [PATO_0000047](http://purl.obolibrary.org/obo/PATO_0000047)
+ * `Sex`  (*ontology term*) animal sex, described using any child term of [PATO_0000047](http://purl.obolibrary.org/obo/PATO_0000047)
  * `birth date` (*date*) birth date, in the format YYYY-MM-DD, or YYYY-MM where only the month is known
  * `breed` (*ontology term*) animal breed, described using a term from the [Livestock Breed Ontology](http://purl.obolibrary.org/obo/LBO_0000000)
  * `health status` (*ontology term*) Healthy animals should have the term [normal](http://purl.obolibrary.org/obo/PATO_0000461), otherwise use the as many [disease](http://www.ebi.ac.uk/efo/EFO_0000408) terms as necessary from EFO
