@@ -161,9 +161,9 @@
           "name": "pregnancy length",
           "type": "number",
           "valid_units": [
-            "days",
-            "weeks",
-            "months"
+            "day",
+            "week",
+            "month"
           ]
         },
         {
@@ -226,10 +226,18 @@
           "name": "animal age at collection",
           "type": "number",
           "valid_units": [
-            "years",
-            "months",
-            "weeks",
-            "days"
+            "year",
+            "month",
+            "week",
+            "day"
+          ]
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "developmental stage",
+          "type": "ontology_id",
+          "valid_ancestor_uris": [
+            "http://www.ebi.ac.uk/efo/EFO_0000399"
           ]
         },
         {
@@ -247,7 +255,8 @@
           "name": "tissue",
           "type": "ontology_id",
           "valid_ancestor_uris": [
-            "http://purl.obolibrary.org/obo/UBERON_0001062"
+            "http://purl.obolibrary.org/obo/UBERON_0001062",
+            "http://purl.obolibrary.org/obo/BTO_0000042"
           ]
         },
         {
@@ -318,6 +327,11 @@
           "type": "uri_value"
         },
         {
+          "mandatory": "optional",
+          "name": "pedigree",
+          "type": "uri_value"
+        },
+        {
           "mandatory": "mandatory",
           "name": "Derived from",
           "type": "relationship",
@@ -356,7 +370,7 @@
         },
         {
           "mandatory": "mandatory",
-          "name": "cell purification protocol",
+          "name": "purification protocol",
           "type": "uri_value"
         },
         {
