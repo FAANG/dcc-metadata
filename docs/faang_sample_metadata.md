@@ -2,7 +2,7 @@
 
 This document describes the specification for all sample metadata. You can find an overview of our metadata and archival plans in [the overview document](faang_metadata_overview.md). The [experiment](faang_experiment_metadata.md) and [analysis](faang_analysis_metadata.md) documents are also in this [git repo](https://github.com/FAANG/faang-metadata).
 
-In the sample context, we consider donor animals, tissue samples, primary cells or other biological material to be samples. All Samples must be registered in BioSamples at EMBL-EBI as this samples archive has the best support for related to and derived from sample relationships. The NCBI BioSample database is a peer of the EMBL-EBI BioSamples, and they exchange data regularly. FAANG samples should be registered in the EMBL-EBI BioSamples prior to data submission. This document describes the attributes which must be associated with any BioSamples submission.
+In the sample context, we consider donor animals, tissue samples, primary cells or other biological material to be samples. All Samples must be registered in BioSamples at EMBL-EBI as this samples archive has the best support for 'child of' and 'derived from' sample relationships. The NCBI BioSample database is a peer of the EMBL-EBI BioSamples, and they exchange data regularly. FAANG samples should be registered in the EMBL-EBI BioSamples prior to data submission. This document describes the attributes which must be associated with any BioSamples submission.
 
 ##Sample metadata requirements
 
@@ -68,7 +68,7 @@ Optional:
 
 Links to other records:
 
- * `child of` (*sample*) sample name or Biosample ID for sire/dam. Required if related animals are part of FAANG, e.g. quads.
+ * `Child of` (*sample*) sample name or Biosample ID for sire/dam. Required if related animals are part of FAANG, e.g. quads.
  
 ###Specimen
 
@@ -90,9 +90,9 @@ Required:
 
 Optional:
 
- * `physiological_conditions`(*ontology term*) as many terms as necessary from
+ * `physiological conditions`(*ontology term*) as many terms as necessary from
 [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en)
- * `number_of_pieces` (*number*) Units must be specified as 'count'
+ * `number of pieces` (*number*) Units must be specified as 'count'
  * `specimen volume` (*number*) Units must be specified as either 'square centimeters', 'liters' or 'milliliters'
  * `specimen size`(*number*) Units must be specified as either 'meters', 'centimeters' or 'millimeters'
  * `specimen weight` (*number*) Units must be specified as either 'grams', 'kilograms'
@@ -101,7 +101,7 @@ Optional:
 
 Links to other records:
 
- * `derived from` (*sample*) sample name or BioSample ID for an *animal* record (required).
+ * `Derived from` (*sample*) sample name or BioSample ID for an *animal* record (required).
 
 ###Purified cells
 
@@ -115,7 +115,7 @@ Required:
 
 Links to other records:
 
- * `derived from` (*sample*) sample name or BioSample ID for a *specimen* record (required).
+ * `Derived from` (*sample*) sample name or BioSample ID for a *specimen* record (required).
 
 ###Cell culture
 
@@ -131,7 +131,7 @@ Required:
 
 Links to other records:
 
- * `derived from` (*sample*) sample name or BioSample ID for a *specimen* or *purified cell* record (required).
+ * `Derived from` (*sample*) sample name or BioSample ID for a *specimen* or *purified cell* record (required).
 
 ###Pooled samples
 
@@ -141,7 +141,7 @@ Where samples are pooled, a new sample record should be created, containing
 
 Links to other records:
  
-  * `derived from` (*sample*) sample name or BioSample ID for a *specimen*, *purified cells* or *cell culture* record (required).
+  * `Derived from` (*sample*) sample name or BioSample ID for a *specimen*, *purified cells* or *cell culture* record (required).
 
 ##Data types for sample attributes
 
