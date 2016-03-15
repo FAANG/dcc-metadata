@@ -15,12 +15,37 @@
           "mandatory": "mandatory",
           "name": "Material",
           "type": "ontology_id",
-          "valid_ancestor_uris": [
-            "http://purl.obolibrary.org/obo/OBI_0100026",
-            "http://purl.obolibrary.org/obo/OBI_0001479",
-            "http://purl.obolibrary.org/obo/OBI_0001468",
-            "http://purl.obolibrary.org/obo/OBI_0302716",
-            "http://purl.obolibrary.org/obo/OBI_0001876"
+          "valid_terms": [
+            {
+              "ontology_name": "OBI",
+              "term_iri": "http://purl.obolibrary.org/obo/OBI_0100026",
+              "allow_descendants": false,
+              "include_root": true
+            },
+            {
+              "ontology_name": "OBI",
+              "term_iri": "http://purl.obolibrary.org/obo/OBI_0001479",
+              "allow_descendants": false,
+              "include_root": true
+            },
+            {
+              "ontology_name": "OBI",
+              "term_iri": "http://purl.obolibrary.org/obo/OBI_0001468",
+              "allow_descendants": false,
+              "include_root": true
+            },
+            {
+              "ontology_name": "OBI",
+              "term_iri": "http://purl.obolibrary.org/obo/OBI_0302716",
+              "allow_descendants": false,
+              "include_root": true
+            },
+            {
+              "ontology_name": "OBI",
+              "term_iri": "http://purl.obolibrary.org/obo/OBI_0001876",
+              "allow_descendants": false,
+              "include_root": true
+            }
           ],
           "valid_values": [
             "organism",
@@ -59,16 +84,22 @@
           "mandatory": "mandatory",
           "name": "Organism",
           "type": "ontology_id",
-          "valid_ancestor_uris": [
-            "http://purl.obolibrary.org/obo/NCBITaxon_1"
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/NCBITaxon_1",
+              "ontology_name": "NCBITaxon"
+            }
           ]
         },
         {
           "mandatory": "mandatory",
           "name": "Sex",
           "type": "ontology_id",
-          "valid_ancestor_uris": [
-            "http://purl.obolibrary.org/obo/PATO_0000047"
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/PATO_0000047",
+              "ontology_name": "PATO"
+            }
           ]
         },
         {
@@ -85,8 +116,11 @@
           "mandatory": "mandatory",
           "name": "breed",
           "type": "ontology_id",
-          "valid_ancestor_uris": [
-            "http://purl.obolibrary.org/obo/LBO_0000000"
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/LBO_0000000",
+              "ontology_name": "LBO"
+            }
           ]
         },
         {
@@ -94,9 +128,15 @@
           "allow_multiple": 1,
           "name": "health status",
           "type": "ontology_id",
-          "valid_ancestor_uris": [
-            "http://purl.obolibrary.org/obo/PATO_0000461",
-            "http://www.ebi.ac.uk/efo/EFO_0000408"
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/PATO_0000461",
+              "ontology_name": "PATO"
+            },
+            {
+              "term_iri": "http://www.ebi.ac.uk/efo/EFO_0000408",
+              "ontology_name": "EFO"
+            }
           ]
         },
         {
@@ -125,10 +165,19 @@
           "mandatory": "optional",
           "name": "phenotype",
           "type": "ontology_id",
-          "valid_ancestor_uris": [
-            "http://purl.obolibrary.org/obo/VT_0000001",
-            "http://purl.org/obo/owlATOL_0000002",
-            "http://purl.org/obo/owlEOL_0000001"
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/VT_0000001",
+              "ontology_name": "VT"
+            },
+            {
+              "term_iri": "http://purl.org/obo/owlATOL_0000002",
+              "ontology_name": "ATOL"
+            },
+            {
+              "term_iri": "http://purl.org/obo/owlEOL_0000001",
+              "ontology_name": "EOL"
+            }
           ]
         },
         {
@@ -136,8 +185,11 @@
           "mandatory": "optional",
           "name": "environmental conditions",
           "type": "ontology_id",
-          "valid_ancestor_uris": [
-            "http://purl.org/obo/owlEOL_0000001"
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.org/obo/owlEOL_0000001",
+              "ontology_name": "EOL"
+            }
           ]
         },
         {
@@ -236,8 +288,11 @@
           "mandatory": "mandatory",
           "name": "developmental stage",
           "type": "ontology_id",
-          "valid_ancestor_uris": [
-            "http://www.ebi.ac.uk/efo/EFO_0000399"
+          "valid_terms": [
+            {
+              "term_iri": "http://www.ebi.ac.uk/efo/EFO_0000399",
+              "ontology_name": "EFO"
+            }
           ]
         },
         {
@@ -245,18 +300,30 @@
           "mandatory": "mandatory",
           "name": "health status at collection",
           "type": "ontology_id",
-          "valid_ancestor_uris": [
-            "http://purl.obolibrary.org/obo/PATO_0000461",
-            "http://www.ebi.ac.uk/efo/EFO_0000408"
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/PATO_0000461",
+              "ontology_name": "PATO"
+            },
+            {
+              "term_iri": "http://www.ebi.ac.uk/efo/EFO_0000408",
+              "ontology_name": "EFO"
+            }
           ]
         },
         {
           "mandatory": "mandatory",
           "name": "tissue",
           "type": "ontology_id",
-          "valid_ancestor_uris": [
-            "http://purl.obolibrary.org/obo/UBERON_0001062",
-            "http://purl.obolibrary.org/obo/BTO_0000042"
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/UBERON_0001062",
+              "ontology_name": "UBERON"
+            },
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/BTO_0000042",
+              "ontology_name": "BTO"
+            }
           ]
         },
         {
@@ -279,8 +346,11 @@
           "mandatory": "optional",
           "name": "physiological conditions",
           "type": "ontology_id",
-          "valid_ancestor_uris": [
-            "http://purl.org/obo/owlATOL_0000002"
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.org/obo/owlATOL_0000002",
+              "ontology_name": "ATOL"
+            }
           ]
         },
         {
@@ -364,8 +434,11 @@
           "mandatory": "mandatory",
           "name": "cell type",
           "type": "ontology_id",
-          "valid_ancestor_uris": [
-            "http://purl.obolibrary.org/obo/CL_0000000"
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/CL_0000000",
+              "ontology_name": "CL"
+            }
           ]
         },
         {
@@ -401,16 +474,22 @@
           "mandatory": "mandatory",
           "name": "culture type",
           "type": "ontology_id",
-          "valid_ancestor_uris": [
-            "http://purl.obolibrary.org/obo/BTO_0000214"
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/BTO_0000214",
+              "ontology_name": "BTO"
+            }
           ]
         },
         {
           "mandatory": "mandatory",
           "name": "cell type",
           "type": "ontology_id",
-          "valid_ancestor_uris": [
-            "http://purl.obolibrary.org/obo/CL_0000000"
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/CL_0000000",
+              "ontology_name": "CL"
+            }
           ]
         },
         {
