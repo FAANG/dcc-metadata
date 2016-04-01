@@ -212,7 +212,7 @@ BioSample IDs are in the form SAMEA2821491. They must be used when linking the e
 
 Where data cannot be included in a submission, submit one of these text values instead
 
- * 'not applicable'
+ * 'not applicable' (i.e. does not apply to this experiment)
  * 'not collected' (i.e. will always be missing)
  * 'not provided' (i.e. may be added later)
  * 'restricted access' (i.e. it isn't missing, we just can't include it in a public document)
@@ -223,8 +223,8 @@ The use of these values will interact with the metadata validation system as fol
   * not applicable, not collected, not provided - validation will regard these as an error
   * restricted access - validation will generate a warning
  * attribute is recommended
-  * not applicable, not collected, not provided - validation will generate a warning
-  * restricted access - pass
+  * not collected, not provided - validation will generate a warning
+  * restricted access, not applicable - pass
  * attribute is optional
    * validation will pass with any of missing values terms
    

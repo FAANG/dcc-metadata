@@ -86,7 +86,7 @@
             "term_iri": "http://purl.obolibrary.org/obo/VT_0000001",
             "ontology_name": "VT",
             "allow_descendants": true,
-            "leaf_only": true,
+            "leaf_only": false,
             "include_root": false
           }
         },
@@ -96,17 +96,27 @@
             "term_iri": "http://purl.org/obo/owlATOL_0000002",
             "ontology_name": "ATOL",
             "allow_descendants": true,
-            "leaf_only": true,
+            "leaf_only": false,
             "include_root": false
           }
-        },       
+        },
         {
           "rule_prefix": "",
           "term": {
             "term_iri": "http://purl.org/obo/owlEOL_0000001",
             "ontology_name": "EOL",
             "allow_descendants": true,
-            "leaf_only": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        },
+        {
+          "rule_prefix": "",
+          "term": {
+            "term_iri": "http://purl.obolibrary.org/obo/MP_0000001",
+            "ontology_name": "MP",
+            "allow_descendants": true,
+            "leaf_only": false,
             "include_root": false
           }
         }
@@ -284,10 +294,40 @@
         {
           "rule_prefix": "",
           "term": {
+            "term_iri": "http://purl.obolibrary.org/obo/VT_0000001",
+            "ontology_name": "VT",
+            "allow_descendants": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        },
+        {
+          "rule_prefix": "",
+          "term": {
             "term_iri": "http://purl.org/obo/owlATOL_0000002",
             "ontology_name": "ATOL",
             "allow_descendants": true,
-            "leaf_only": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        },
+        {
+          "rule_prefix": "",
+          "term": {
+            "term_iri": "http://purl.org/obo/owlEOL_0000001",
+            "ontology_name": "EOL",
+            "allow_descendants": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        },
+        {
+          "rule_prefix": "",
+          "term": {
+            "term_iri": "http://purl.obolibrary.org/obo/MP_0000001",
+            "ontology_name": "MP",
+            "allow_descendants": true,
+            "leaf_only": false,
             "include_root": false
           }
         }
