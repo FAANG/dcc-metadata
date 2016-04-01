@@ -67,9 +67,7 @@ Optional:
  
  
 Phenotypic, physiological and environmental information can be recorded using as many terms as necessary from the
- [VT](http://www.ebi.ac.uk/ols/beta/ontologies/vt), [ATOL](http://www.ebi.ac.uk/ols/beta/ontologies/atol), 
- [EOL](http://www.ebi.ac.uk/ols/beta/ontologies/eol) and
- [MP](http://www.ebi.ac.uk/ols/beta/ontologies/mp) ontologies. Select an appropriate term and units for the information you wish to record. For example, for growth rate you could use the attribute name `post natal growth rate` and units of 'grams per day'.
+ [VT](http://www.ebi.ac.uk/ols/beta/ontologies/vt), [ATOL](http://www.ebi.ac.uk/ols/beta/ontologies/atol),  [EOL](http://www.ebi.ac.uk/ols/beta/ontologies/eol) and [MP](http://www.ebi.ac.uk/ols/beta/ontologies/mp) ontologies. Select an appropriate term and units for the information you wish to record. For example, for growth rate you could use the attribute name `post natal growth rate` and units of 'grams per day'.
  
 Links to other records:
 
@@ -103,9 +101,7 @@ Optional:
  * `gestational age at sample collection` (*number*)  If the animal was pregnant when the specimen was taken, state how long had it been pregnant for. Units must be specified as 'days' or 'weeks'.
 
 Phenotypic, physiological and environmental information can be recorded using as many terms as necessary from the
- [VT](http://www.ebi.ac.uk/ols/beta/ontologies/vt), [ATOL](http://www.ebi.ac.uk/ols/beta/ontologies/atol), 
- [EOL](http://www.ebi.ac.uk/ols/beta/ontologies/eol) and
- [MP](http://www.ebi.ac.uk/ols/beta/ontologies/mp) ontologies. Select an appropriate term and units for the information you wish to record. For example, for growth rate you could use the attribute name `post natal growth rate` and units of 'grams per day'.
+ [VT](http://www.ebi.ac.uk/ols/beta/ontologies/vt), [ATOL](http://www.ebi.ac.uk/ols/beta/ontologies/atol),  [EOL](http://www.ebi.ac.uk/ols/beta/ontologies/eol) and [MP](http://www.ebi.ac.uk/ols/beta/ontologies/mp) ontologies. Select an appropriate term and units for the information you wish to record. For example, for growth rate you could use the attribute name `post natal growth rate` and units of 'grams per day'.
 
 Links to other records:
 
