@@ -120,7 +120,7 @@
             {
               "term_iri": "http://purl.obolibrary.org/obo/LBO_0000000",
               "ontology_name": "LBO",
-              "leaf_only": true
+              "leaf_only": false
             }
           ]
         },
