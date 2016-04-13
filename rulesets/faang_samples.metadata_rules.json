@@ -83,7 +83,7 @@
         {
           "mandatory": "mandatory",
           "name": "Organism",
-          "type": "ontology_id",
+          "type": "ncbi_taxon",
           "valid_terms": [
             {
               "term_iri": "http://purl.obolibrary.org/obo/NCBITaxon_1",
