@@ -203,18 +203,7 @@
             "decimal degrees"
           ]
         },
-        {
-          "allow_multiple": 1,
-          "mandatory": "optional",
-          "name": "environmental conditions",
-          "type": "ontology_id",
-          "valid_terms": [
-            {
-              "term_iri": "http://purl.org/obo/owlEOL_0000001",
-              "ontology_name": "EOL"
-            }
-          ]
-        },
+        
         {
           "mandatory": "optional",
           "name": "birth weight",
