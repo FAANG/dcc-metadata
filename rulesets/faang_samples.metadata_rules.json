@@ -67,6 +67,11 @@
           "mandatory": "optional",
           "name": "availability",
           "type": "text"
+        },
+        {
+          "mandatory": "optional",
+          "name": "Same as",
+          "type": "relationship"
         }
       ]
     },
