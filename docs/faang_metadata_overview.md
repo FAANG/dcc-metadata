@@ -35,7 +35,6 @@ The different archives we recommend can support all support out metadata at a ba
 |Data Type|Archive|Host Institution|Native ontology support|
 |---------|-------|----------------|-----------------------|
 |Sample| BioSamples | EBI| Yes|
-|Sample| BioSample | NCBI| No|
 |Experiment - WGS/Exomes | ENA | EBI | No |
 |Experiment - WGS/Exomes | SRA | NCBI | No | 
 |Experiment - Epigenomics | ArrayExpress | EBI | No |
