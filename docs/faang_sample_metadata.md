@@ -40,12 +40,14 @@ Required:
 
  * `Organism` (*NCBI taxon ID*)
  * `Sex`  (*ontology term*) animal sex, described using any child term of [PATO_0000047](http://purl.obolibrary.org/obo/PATO_0000047)
- * `birth date` (*date*) birth date, in the format YYYY-MM-DD, or YYYY-MM where only the month is known
- * `breed` (*ontology term*) animal breed, described using a term from the [Livestock Breed Ontology](http://purl.obolibrary.org/obo/LBO_0000000)
+ * `breed` (*ontology term*) animal breed, described using the [FAANG breed description guidelines](http://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+guidelines+for+livestock+breed+nomenclature) and [Livestock Breed Ontology](http://purl.obolibrary.org/obo/LBO_0000000)
  * `health status` (*ontology term*) Healthy animals should have the term [normal](http://purl.obolibrary.org/obo/PATO_0000461), otherwise use the as many [disease](http://www.ebi.ac.uk/efo/EFO_0000408) terms as necessary from EFO
 
-Optional:
+Recommended:
 
+ * `birth date` (*date*) birth date, in the format YYYY-MM-DD, or YYYY-MM where only the month is known. For embryo samples, record 'not applicable'
+
+Optional:
 
  * `birth location` (*text*) name of the birth location
  * `birth location latitude` (*number*) latitude of the birth location in decimal degrees. Units should be specified as 'decimal degrees'
@@ -61,11 +63,12 @@ Optional:
      * normal autonomous delivery
      * c-section
      * vetinarian assisted
- * `physiological conditions`(*ontology term*) use as many terms as necessary from [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
- * `environmental conditions`(*ontology term*) as many terms as necessary from [EOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en))
- * `phenotype` (*ontology term*) as many terms as required from the [VT](http://purl.bioontology.org/ontology/VT), [ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en) or [MP](http://purl.bioontology.org/ontology/MP)) ontologies
  * `pedigree` (*URL*) a link to pedigree information for the animal
-
+ 
+ 
+Phenotypic, physiological and environmental information can be recorded using as many terms as necessary from the
+ [VT](http://www.ebi.ac.uk/ols/beta/ontologies/vt), [ATOL](http://www.ebi.ac.uk/ols/beta/ontologies/atol),  [EOL](http://www.ebi.ac.uk/ols/beta/ontologies/eol) and [MP](http://www.ebi.ac.uk/ols/beta/ontologies/mp) ontologies. Select an appropriate term and units for the information you wish to record. For example, for growth rate you could use the attribute name `post natal growth rate` and units of 'grams per day'.
+ 
 Links to other records:
 
  * `Child of` (*sample*) sample name or Biosample ID for sire/dam. Required if related animals are part of FAANG, e.g. quads.
@@ -90,14 +93,15 @@ Required:
 
 Optional:
 
- * `physiological conditions`(*ontology term*) as many terms as necessary from
-[ATOL](http://www.atol-ontology.com/index.php/en/les-ontologies-en/visualisation-en)
  * `number of pieces` (*number*) Units must be specified as 'count'
  * `specimen volume` (*number*) Units must be specified as either 'square centimeters', 'liters' or 'milliliters'
- * `specimen size`(*number*) Units must be specified as either 'meters', 'centimeters' or 'millimeters'
+ * `specimen size`(*number*) Units must be specified as either 'meters', 'centimeters', 'millimeters', 'square meters', 'square centimeters', or 'square millimeters'
  * `specimen weight` (*number*) Units must be specified as either 'grams', 'kilograms'
  * `specimen picture url` (*URL*) Link to a picture of the specimen
  * `gestational age at sample collection` (*number*)  If the animal was pregnant when the specimen was taken, state how long had it been pregnant for. Units must be specified as 'days' or 'weeks'.
+
+Phenotypic, physiological and environmental information can be recorded using as many terms as necessary from the
+ [VT](http://www.ebi.ac.uk/ols/beta/ontologies/vt), [ATOL](http://www.ebi.ac.uk/ols/beta/ontologies/atol),  [EOL](http://www.ebi.ac.uk/ols/beta/ontologies/eol) and [MP](http://www.ebi.ac.uk/ols/beta/ontologies/mp) ontologies. Select an appropriate term and units for the information you wish to record. For example, for growth rate you could use the attribute name `post natal growth rate` and units of 'grams per day'.
 
 Links to other records:
 
@@ -109,9 +113,12 @@ Cells purified from a specimen. The following attributes are in addition to the 
 
 Required:
 
- * `markers` (*text*) markers used to isolate and identify the cell type
- * `cell type` (*ontology term*) a term from the  [CL ontology](http://www.ontobee.org/browser/index.php?o=CL)
+ * `cell type` (*ontology term*) as many terms as necessary from the  [CL ontology](http://www.ontobee.org/browser/index.php?o=CL)
  * `purification protocol` (*protocol*) protocol describing how the cells were purified
+
+Optional:
+
+ * `markers` (*text*) markers used to isolate and identify the cell type (e.g. for FACS sorted cells)
 
 Links to other records:
 
@@ -196,7 +203,7 @@ Samples can be referred to in two ways. If the sample you need to reference is i
 
 Where data cannot be included in a submission, submit one of these text values instead
 
- * 'not applicable'
+ * 'not applicable' (i.e. does no apply to this sample)
  * 'not collected' (i.e. will always be missing)
  * 'not provided' (i.e. may be added later)
  * 'restricted access' (i.e. it isn't missing, we just can't include it in a public document)
@@ -207,8 +214,8 @@ The use of these values will interact with the metadata validation system as fol
     * not applicable, not collected, not provided - validation will regard these as an error
     * restricted access - validation will generate a warning
  * attribute is recommended
-    * not applicable, not collected, not provided - validation will generate a warning
-    * restricted access - pass
+    * not collected, not provided - validation will generate a warning
+    * restricted access, not applicable - pass
  * attribute is optional
     * validation will pass with any of missing values terms
 

@@ -1,5 +1,5 @@
 {
-  "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all samples, and additional groups based on the sample type.",
+  "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all samples, and additional groups based on the sample type. In addition to rules defined individually, attribute names are imported from the VT, ATOL and EOL ontologies.",
   "name": "FAANG sample metadata rules",
   "rule_groups": [
     {
@@ -67,6 +67,11 @@
           "mandatory": "optional",
           "name": "availability",
           "type": "text"
+        },
+        {
+          "mandatory": "optional",
+          "name": "Same as",
+          "type": "relationship"
         }
       ]
     },
@@ -79,6 +84,48 @@
         }
       },
       "name": "animal",
+      "imports": [
+        {
+          "rule_prefix": "",
+          "term": {
+            "term_iri": "http://purl.obolibrary.org/obo/VT_0000001",
+            "ontology_name": "VT",
+            "allow_descendants": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        },
+        {
+          "rule_prefix": "",
+          "term": {
+            "term_iri": "http://purl.org/obo/owlATOL_0000002",
+            "ontology_name": "ATOL",
+            "allow_descendants": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        },
+        {
+          "rule_prefix": "",
+          "term": {
+            "term_iri": "http://purl.org/obo/owlEOL_0000001",
+            "ontology_name": "EOL",
+            "allow_descendants": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        },
+        {
+          "rule_prefix": "",
+          "term": {
+            "term_iri": "http://purl.obolibrary.org/obo/MP_0000001",
+            "ontology_name": "MP",
+            "allow_descendants": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        }
+      ],
       "rules": [
         {
           "mandatory": "mandatory",
@@ -103,7 +150,7 @@
           ]
         },
         {
-          "mandatory": "mandatory",
+          "mandatory": "recommended",
           "name": "birth date",
           "type": "date",
           "valid_units": [
@@ -161,38 +208,7 @@
             "decimal degrees"
           ]
         },
-        {
-          "allow_multiple": 1,
-          "mandatory": "optional",
-          "name": "phenotype",
-          "type": "ontology_id",
-          "valid_terms": [
-            {
-              "term_iri": "http://purl.obolibrary.org/obo/VT_0000001",
-              "ontology_name": "VT"
-            },
-            {
-              "term_iri": "http://purl.org/obo/owlATOL_0000002",
-              "ontology_name": "ATOL"
-            },
-            {
-              "term_iri": "http://purl.org/obo/owlEOL_0000001",
-              "ontology_name": "EOL"
-            }
-          ]
-        },
-        {
-          "allow_multiple": 1,
-          "mandatory": "optional",
-          "name": "environmental conditions",
-          "type": "ontology_id",
-          "valid_terms": [
-            {
-              "term_iri": "http://purl.org/obo/owlEOL_0000001",
-              "ontology_name": "EOL"
-            }
-          ]
-        },
+        
         {
           "mandatory": "optional",
           "name": "birth weight",
@@ -214,9 +230,9 @@
           "name": "pregnancy length",
           "type": "number",
           "valid_units": [
-            "day",
-            "week",
-            "month"
+            "days",
+            "weeks",
+            "months"
           ]
         },
         {
@@ -231,7 +247,7 @@
         },
         {
           "mandatory": "optional",
-          "name": "delivering ease",
+          "name": "delivery ease",
           "type": "text",
           "valid_values": [
             "normal autonomous delivery",
@@ -251,6 +267,11 @@
               ]
             }
           }
+        },
+        {
+          "mandatory": "optional",
+          "name": "pedigree",
+          "type": "uri_value"
         }
       ]
     },
@@ -263,6 +284,48 @@
         }
       },
       "name": "specimen",
+      "imports": [
+        {
+          "rule_prefix": "",
+          "term": {
+            "term_iri": "http://purl.obolibrary.org/obo/VT_0000001",
+            "ontology_name": "VT",
+            "allow_descendants": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        },
+        {
+          "rule_prefix": "",
+          "term": {
+            "term_iri": "http://purl.org/obo/owlATOL_0000002",
+            "ontology_name": "ATOL",
+            "allow_descendants": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        },
+        {
+          "rule_prefix": "",
+          "term": {
+            "term_iri": "http://purl.org/obo/owlEOL_0000001",
+            "ontology_name": "EOL",
+            "allow_descendants": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        },
+        {
+          "rule_prefix": "",
+          "term": {
+            "term_iri": "http://purl.obolibrary.org/obo/MP_0000001",
+            "ontology_name": "MP",
+            "allow_descendants": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        }
+      ],
       "rules": [
         {
           "mandatory": "mandatory",
@@ -279,10 +342,10 @@
           "name": "animal age at collection",
           "type": "number",
           "valid_units": [
-            "year",
-            "month",
-            "week",
-            "day"
+            "years",
+            "months",
+            "weeks",
+            "days"
           ]
         },
         {
@@ -343,18 +406,6 @@
           ]
         },
         {
-          "allow_multiple": 1,
-          "mandatory": "optional",
-          "name": "physiological conditions",
-          "type": "ontology_id",
-          "valid_terms": [
-            {
-              "term_iri": "http://purl.org/obo/owlATOL_0000002",
-              "ontology_name": "ATOL"
-            }
-          ]
-        },
-        {
           "mandatory": "optional",
           "name": "number of pieces",
           "type": "number",
@@ -379,7 +430,10 @@
           "valid_units": [
             "meters",
             "centimeters",
-            "millimeters"
+            "millimeters",
+            "square meters",
+            "square centimeters",
+            "square millimeters"
           ]
         },
         {
@@ -399,8 +453,12 @@
         },
         {
           "mandatory": "optional",
-          "name": "pedigree",
-          "type": "uri_value"
+          "name": "gestational age at sample collection",
+          "type": "number",
+          "valid units": [
+            "days",
+            "weeks"
+          ]
         },
         {
           "mandatory": "mandatory",
@@ -427,7 +485,7 @@
       "name": "purified cells",
       "rules": [
         {
-          "mandatory": "mandatory",
+          "mandatory": "optional",
           "name": "markers",
           "type": "text"
         },
@@ -435,6 +493,7 @@
           "mandatory": "mandatory",
           "name": "cell type",
           "type": "ontology_id",
+          "allow_multiple": true,
           "valid_terms": [
             {
               "term_iri": "http://purl.obolibrary.org/obo/CL_0000000",
