@@ -85,6 +85,10 @@
         }
       },
       "name": "animal",
+      "consistency_checks": {
+        "faang_breed_species_check": {
+        }
+      },
       "imports": [
         {
           "rule_prefix": "",
@@ -209,7 +213,6 @@
             "decimal degrees"
           ]
         },
-        
         {
           "mandatory": "optional",
           "name": "birth weight",
@@ -233,7 +236,11 @@
           "valid_units": [
             "days",
             "weeks",
-            "months"
+            "months",
+            "day",
+            "week",
+            "month"
+            
           ]
         },
         {
@@ -346,7 +353,11 @@
             "years",
             "months",
             "weeks",
-            "days"
+            "days",
+            "year",
+            "month",
+            "week",
+            "day"
           ]
         },
         {
