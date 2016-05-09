@@ -1,10 +1,10 @@
-##FAANG metadata - sample specification
+## FAANG metadata - sample specification
 
 This document describes the specification for all sample metadata. You can find an overview of our metadata and archival plans in [the overview document](faang_metadata_overview.md). The [experiment](faang_experiment_metadata.md) and [analysis](faang_analysis_metadata.md) documents are also in this [git repo](https://github.com/FAANG/faang-metadata).
 
 In the sample context, we consider donor animals, tissue samples, primary cells or other biological material to be samples. All Samples must be registered in BioSamples at EMBL-EBI as this samples archive has the best support for 'child of' and 'derived from' sample relationships. The NCBI BioSample database is a peer of the EMBL-EBI BioSamples, and they exchange data regularly. FAANG samples should be registered in the EMBL-EBI BioSamples prior to data submission. This document describes the attributes which must be associated with any BioSamples submission.
 
-##Sample metadata requirements
+## Sample metadata requirements
 
 Most requirements are laid out like this:  
 
@@ -12,7 +12,7 @@ Most requirements are laid out like this:
 
 The data types are described later in this document.
 
-###Common
+### Common
 
 These attributes should be present on every sample record.
 
@@ -25,6 +25,7 @@ Required:
     * [cell specimen](http://purl.obolibrary.org/obo/OBI_0001468)
     * [cell culture](http://purl.obolibrary.org/obo/OBI_0001876)
     * [pool of specimens](http://purl.obolibrary.org/obo/OBI_0302716)
+    * [cell line](http://purl.obolibrary.org/obo/CLO_0000031)
   * `project` (*text*) project name - this should always be 'FAANG'. This will allow the DCC to identify FAANG samples
 
 Optional:
@@ -37,7 +38,7 @@ Optional:
   * `Same as` (*sample*) BioSample ID for an equivalent sample record, created before the FAANG metadata specification was available. This is optional and not intended for general use, please contact the data coordination centre (faang-dcc@ebi.ac.uk) before using it.
  
 
-###Animal
+### Animal
 
 An animal sampled for FAANG. The following attributes are in addition to the  attributes listed in the 'Common' section above. The `material` should be reported as [organism](http://purl.obolibrary.org/obo/OBI_0100026).
 
@@ -78,7 +79,7 @@ Links to other records:
 
  * `Child of` (*sample*) sample name or Biosample ID for sire/dam. Required if related animals are part of FAANG, e.g. quads.
  
-###Specimen
+### Specimen
 
 A piece of tissue taken from an animal. The following attributes are in addition to the attributes listed in the 'Common' section above. The `material` should be reported as [tissue specimen](http://purl.obolibrary.org/obo/OBI_0001479).
 
@@ -112,7 +113,7 @@ Links to other records:
 
  * `Derived from` (*sample*) sample name or BioSample ID for an *animal* record (required).
 
-###Purified cells
+### Purified cells
 
 Cells purified from a specimen. The following attributes are in addition to the  attributes listed in the 'Common' section above. The `material` should be reported as [cell specimen](http://purl.obolibrary.org/obo/OBI_0001468).
 
@@ -129,9 +130,9 @@ Links to other records:
 
  * `Derived from` (*sample*) sample name or BioSample ID for a *specimen* record (required).
 
-###Cell culture
+### Cell culture
 
-Cells cultured from a specimen or purified cells. The following attributes are in addition to the  attributes listed in the 'Common' section above.
+Cells cultured from a specimen or purified cells. The following attributes are in addition to the  attributes listed in the 'Common' section above.  The `material` should be reported as [cell culture](http://purl.obolibrary.org/obo/OBI_0001876).
 
 Required:
 
@@ -145,7 +146,36 @@ Links to other records:
 
  * `Derived from` (*sample*) sample name or BioSample ID for a *specimen* or *purified cell* record (required).
 
-###Pooled samples
+### Cell line
+
+A cultured cell population that represents a genetically stable and homogenous population of cultured cells that shares a common propagation history. The metadata requirements for this sample type are less stringent than for others, to allow for the level of detail normally available for established cell lines. The following attributes are in addition to the  attributes listed in the 'Common' section above. The `material` should be reported as [cell line](http://purl.obolibrary.org/obo/CLO_0000031)
+
+Required:
+
+ * `Organism` (*NCBI taxon ID*)
+ * `Sex`  (*ontology term*) animal sex, described using any child term of [PATO_0000047](http://purl.obolibrary.org/obo/PATO_0000047)
+  * `cell line` (*text*) name of the cell line
+  * `biomaterial provider` (*text*) name of company or lab that supplied the cell line
+
+Recommended:
+
+ * `catalogue number` (*text*) Identifier for the cell line in the suppliers catalogue. E.g. 'ACC 701' for IPEC-J2 from DSMZ.  
+ * `passage number` (*number*) The number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures.
+
+Optional:
+
+ * `breed` (*ontology term*) animal breed, described using the [FAANG breed description guidelines](http://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+guidelines+for+livestock+breed+nomenclature) and [Livestock Breed Ontology](http://purl.obolibrary.org/obo/LBO_0000000)
+ * `disease` (*ontology term*) a child term of either [PATO_0000461](http://purl.obolibrary.org/obo/PATO_0000461) or [EFO_0000408](http://www.ebi.ac.uk/efo/EFO_0000408)
+ * `cell type`(*ontology term*) a child term of either [CL_0000000](http://purl.obolibrary.org/obo/CL_0000000) or [BTO_0000000](http://purl.obolibrary.org/obo/BTO_0000000)
+ * `culture conditions` (*text*) brief description of culture conditions (e.g. 'on feeder cells', 'E8 media')
+ * `culture protocol` (*protocol*) protocol describing the maintenance of the culture
+ * `Derived from` (*relationship*) Identifier for the sample or animal that the cell line was derived from. This is intended for use where the cell line was derived from a FAANG sample, and is not necessary for established cell lines
+
+Links to other records:
+
+ * `Derived from` (*sample*) sample name or BioSample ID for the sample or animal  the cell line was dervived from, where this is known and  can be described within the FAANG standards (optional).
+
+### Pooled samples
 
 Where samples are pooled, a new sample record should be created, containing
 
@@ -154,32 +184,33 @@ Where samples are pooled, a new sample record should be created, containing
 Links to other records:
  
   * `Derived from` (*sample*) sample name or BioSample ID for a *specimen*, *purified cells* or *cell culture* record (required).
+  
 
-##Data types for sample attributes
+## Data types for sample attributes
 
 [BioSamples](http://www.ebi.ac.uk/biosamples) takes sample records with a set of attributes. Each attribute has a name and a value. It can also have 'Units', or a 'Term Source' and a 'Term Source ID'. The Term Source and ID allow us to refer to entries in other databases or ontologies. This is fully described on the [BioSamples help pages](http://www.ebi.ac.uk/biosamples/help/st_scd.html). The following section describe the expectations for each data type within FAANG.
 
-###date
+### date
 
 Dates should be reported in an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format,  YYYY-MM-DD for dates or YYYY-MM for months. To ensure clarity, the format must be reported as the 'units'.
 
-###NCBI taxon ID
+### NCBI taxon ID
 
 A species name and identifier from the [NCBI Taxonomy database](http://www.ncbi.nlm.nih.gov/taxonomy). For example, a [human](http://www.ncbi.nlm.nih.gov/taxonomy/9606) would be described with a value of 'Homo sapiens', a term source of  'NCBI Taxonomy' and a term source ID of 9606.
 
-###number
+### number
 
 A number, with units specified. BioSamples recommends that units are given without abbreviations .For example, a birth weight could have a value of 1.3 and the units specified as 'kilograms'.
 
-###protocol
+### protocol
 
 A URL link to a protocol document on the FAANG FTP site. Please contact the [FAANG data coordination centre](mailto:faang-dcc@ebi.ac.uk) to have your protocol documents added to the FTP site.
 
-###text
+### text
 
 Text, using US English spellings.
 
-###URL
+### URL
 
 A URL,  such as 'http://faang.org/'. Depending on the context, http, ftp, mailto links may be appropriate. Examples:
 
@@ -188,11 +219,11 @@ A URL,  such as 'http://faang.org/'. Depending on the context, http, ftp, mailto
  * mailto, mailto:bob@example.org
 
 
-###ontology term
+### ontology term
 
 A reference to an ontology term. The attribute value should be the term label. The term source should be the ontology used, and the term source ID should be an ID from that ontology. For example, cerebral cortex could be  described with a term source of 'UBERON', a term source ID of 'UBERON:0000956' and a value of 'cerebral cortex'.
 
-###location
+### location
 
 A location should be reported as using three attributes:
 
@@ -200,11 +231,11 @@ A location should be reported as using three attributes:
  * `location latitude` (*number*) latitude in decimal degrees. Units should be reported as 'decimal degrees'
  * `location longitude`(*number*) longitude in decimal degrees. Units should be reported as 'decimal degrees'
 
-###sample
+### sample
 
 Samples can be referred to in two ways. If the sample you need to reference is in the submission, use the sample name. If the sample was already submitted, use the BioSample ID (e.g. SAMEA2821491).
 
-##Missing data
+## Missing data
 
 Where data cannot be included in a submission, submit one of these text values instead
 
@@ -225,7 +256,7 @@ The use of these values will interact with the metadata validation system as fol
     * validation will pass with any of missing values terms
 
 
-##Sample naming
+## Sample naming
 
 We propose a sample naming scheme comprising the following elements:
 
@@ -237,6 +268,7 @@ The purpose is to ensure that samples are uniquely and clearly identified, with 
 
 Short species codes:
 
+ * _Bubalus bubalis_ BBU
  * _Bos taurus_ BTA
  * _Sus scrofa_ SSC
  * _Ovis aries_ OAR
@@ -245,10 +277,10 @@ Short species codes:
  * _Capra hircus_ CHR
 
 
-##Submission
+## Submission
 
 Samples should be submitted to [BioSamples@EBI](https://www.ebi.ac.uk/biosamples/). All samples tagged with a `project` of 'FAANG' will be added to the [FAANG BioSamples group](http://www.ebi.ac.uk/biosamples/group/SAMEG307473).  Samples in this group will be synced to [BioSample@NCBI](http://www.ncbi.nlm.nih.gov/biosample/) periodically. Samples in BioSamples@EBI/BioSample@NCBI can be referenced in submissions to SRA at EBI and NCBI.
 
-##Validation
+## Validation
 
 The DCC team at EBI will check the submitted metadata against the specification. Samples that do not meet the minimum requirements will be not be included in FAANG data releases.

@@ -12,7 +12,7 @@
           "type": "text"
         },
         {
-          "_comment": "Covers organism, tissue specimen, cell specimen, pool of specimens, cell culture",
+          "_comment": "Covers organism, tissue specimen, cell specimen, pool of specimens, cell culture, cell line",
           "mandatory": "mandatory",
           "name": "Material",
           "type": "ontology_id",
@@ -46,6 +46,12 @@
               "term_iri": "http://purl.obolibrary.org/obo/OBI_0001876",
               "allow_descendants": false,
               "include_root": true
+            },
+            {
+              "ontology_name": "OBI",
+              "term_iri": "http://purl.obolibrary.org/obo/CLO_0000031",
+              "allow_descendants": false,
+              "include_root": true
             }
           ],
           "valid_values": [
@@ -53,7 +59,8 @@
             "tissue specimen",
             "cell specimen",
             "pool of specimens",
-            "cell culture"
+            "cell culture",
+            "cell line"
           ]
         },
         {
@@ -67,7 +74,7 @@
         {
           "mandatory": "optional",
           "name": "availability",
-          "type": "text"
+          "type": "uri_value"
         },
         {
           "mandatory": "optional",
@@ -240,7 +247,6 @@
             "day",
             "week",
             "month"
-            
           ]
         },
         {
@@ -591,6 +597,117 @@
               ]
             }
           }
+        }
+      ]
+    },
+    {
+      "name": "cell line",
+      "condition": {
+        "attribute_value_match": {
+          "Material": [
+            "cell line"
+          ]
+        }
+      },
+      "rules": [
+        {
+          "mandatory": "mandatory",
+          "name": "Organism",
+          "type": "ncbi_taxon",
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/NCBITaxon_1",
+              "ontology_name": "NCBITaxon"
+            }
+          ]
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "Sex",
+          "type": "ontology_id",
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/PATO_0000047",
+              "ontology_name": "PATO"
+            }
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "breed",
+          "type": "faang_breed",
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/LBO_0000000",
+              "ontology_name": "LBO",
+              "leaf_only": false
+            }
+          ]
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "cell line",
+          "type": "text"
+        },
+        {
+          "mandatory": "optional",
+          "name": "disease",
+          "type": "ontology_id",
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/PATO_0000461",
+              "ontology_name": "PATO"
+            },
+            {
+              "term_iri": "http://www.ebi.ac.uk/efo/EFO_0000408",
+              "ontology_name": "EFO"
+            }
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "cell type",
+          "type": "ontology_id",
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/CL_0000000",
+              "ontology_name": "CL"
+            },
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/BTO_0000000",
+              "ontology_name": "BTO"
+            }
+          ]
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "biomaterial provider",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "catalogue number",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "passage number",
+          "type": "number"
+        },
+        {
+          "mandatory": "optional",
+          "name": "culture conditions",
+          "type": "text"
+        },
+        {
+          "mandatory": "optional",
+          "name": "culture protocol",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "optional",
+          "name": "Derived from",
+          "type": "relationship"
         }
       ]
     }
