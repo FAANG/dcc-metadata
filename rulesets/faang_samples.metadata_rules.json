@@ -363,7 +363,9 @@
             "year",
             "month",
             "week",
-            "day"
+            "day",
+            "hour",
+            "hours"
           ]
         },
         {
