@@ -89,7 +89,7 @@ Required:
  * `animal age at collection` (*number*) animal age at the point of collection, in years, months, weeks or days. Units must be specified. An estimate is acceptable where the age is not precisely known.
  * `developmental stage` (*ontology term*) a child term of [life cycle stage](http://purl.obolibrary.org/obo/UBERON_0000105)
  * Animal Disease / health status at point of collection
- * `tissue` ([UBERON](http://uberon.github.io/) term preferred)
+ * `organism part` ([UBERON](http://uberon.github.io/) term preferred)
  * `specimen collection protocol` (*protocol*) a link to the protocol followed when taking the specimen
  * `fasted status` - (*text*) One of the following values, for which the criteria _must_ be specified in the protocol:
      * fed
