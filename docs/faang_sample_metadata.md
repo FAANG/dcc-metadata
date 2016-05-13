@@ -161,6 +161,8 @@ Recommended:
 
  * `catalogue number` (*text*) Identifier for the cell line in the suppliers catalogue. E.g. 'ACC 701' for IPEC-J2 from DSMZ.  
  * `passage number` (*number*) The number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures.
+ * `date established` (*date*) date the line was established/re-established
+ * `publication` (*URL*) a publication where the cell line has been fully described including. This should include details such as  doubling time and adhesion  preference.
 
 Optional:
 
@@ -169,7 +171,8 @@ Optional:
  * `cell type`(*ontology term*) a child term of either [CL_0000000](http://purl.obolibrary.org/obo/CL_0000000) or [BTO_0000000](http://purl.obolibrary.org/obo/BTO_0000000)
  * `culture conditions` (*text*) brief description of culture conditions (e.g. 'on feeder cells', 'E8 media')
  * `culture protocol` (*protocol*) protocol describing the maintenance of the culture
- * `Derived from` (*relationship*) Identifier for the sample or animal that the cell line was derived from. This is intended for use where the cell line was derived from a FAANG sample, and is not necessary for established cell lines
+ * `karyotype` (*text*) karyotype of the cell line
+  
 
 Links to other records:
 

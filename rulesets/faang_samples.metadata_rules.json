@@ -395,7 +395,7 @@
         },
         {
           "mandatory": "mandatory",
-          "name": "tissue",
+          "name": "organism part",
           "type": "ontology_id",
           "valid_terms": [
             {
@@ -632,6 +632,40 @@
             }
           ]
         },
+        
+        {
+          "mandatory": "mandatory",
+          "name": "cell line",
+          "type": "text"
+        },        
+        {
+          "mandatory": "mandatory",
+          "name": "biomaterial provider",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "catalogue number",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "passage number",
+          "type": "number"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "date established",
+          "type": "date",
+          "valid_units": [
+            "YYYY","YYYY-MM", "YYYY-MM-DD"
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "publication",
+          "type": "uri_value"
+        },
         {
           "mandatory": "optional",
           "name": "breed",
@@ -641,26 +675,6 @@
               "term_iri": "http://purl.obolibrary.org/obo/LBO_0000000",
               "ontology_name": "LBO",
               "leaf_only": false
-            }
-          ]
-        },
-        {
-          "mandatory": "mandatory",
-          "name": "cell line",
-          "type": "text"
-        },
-        {
-          "mandatory": "optional",
-          "name": "disease",
-          "type": "ontology_id",
-          "valid_terms": [
-            {
-              "term_iri": "http://purl.obolibrary.org/obo/PATO_0000461",
-              "ontology_name": "PATO"
-            },
-            {
-              "term_iri": "http://www.ebi.ac.uk/efo/EFO_0000408",
-              "ontology_name": "EFO"
             }
           ]
         },
@@ -680,21 +694,6 @@
           ]
         },
         {
-          "mandatory": "mandatory",
-          "name": "biomaterial provider",
-          "type": "text"
-        },
-        {
-          "mandatory": "recommended",
-          "name": "catalogue number",
-          "type": "text"
-        },
-        {
-          "mandatory": "recommended",
-          "name": "passage number",
-          "type": "number"
-        },
-        {
           "mandatory": "optional",
           "name": "culture conditions",
           "type": "text"
@@ -706,9 +705,30 @@
         },
         {
           "mandatory": "optional",
+          "name": "disease",
+          "type": "ontology_id",
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/PATO_0000461",
+              "ontology_name": "PATO"
+            },
+            {
+              "term_iri": "http://www.ebi.ac.uk/efo/EFO_0000408",
+              "ontology_name": "EFO"
+            }
+          ]
+        },
+        
+        {
+          "mandatory": "optional",
+          "name": "karyotype",
+          "type": "text"
+        },
+        {
+          "mandatory": "optional",
           "name": "Derived from",
           "type": "relationship"
-        }
+        }         
       ]
     }
   ]
