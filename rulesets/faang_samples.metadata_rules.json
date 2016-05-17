@@ -184,7 +184,7 @@
           ]
         },
         {
-          "mandatory": "mandatory",
+          "mandatory": "recommended",
           "allow_multiple": 1,
           "name": "health status",
           "type": "ontology_id",
@@ -381,7 +381,7 @@
         },
         {
           "allow_multiple": 1,
-          "mandatory": "mandatory",
+          "mandatory": "recommended",
           "name": "health status at collection",
           "type": "ontology_id",
           "valid_terms": [

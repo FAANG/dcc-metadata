@@ -47,12 +47,12 @@ Required:
  * `Organism` (*NCBI taxon ID*)
  * `Sex`  (*ontology term*) animal sex, described using any child term of [PATO_0000047](http://purl.obolibrary.org/obo/PATO_0000047)
  * `breed` (*ontology term*) animal breed, described using the [FAANG breed description guidelines](http://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+guidelines+for+livestock+breed+nomenclature) and [Livestock Breed Ontology](http://purl.obolibrary.org/obo/LBO_0000000)
- * `health status` (*ontology term*) Healthy animals should have the term [normal](http://purl.obolibrary.org/obo/PATO_0000461), otherwise use the as many [disease](http://www.ebi.ac.uk/efo/EFO_0000408) terms as necessary from EFO
 
 Recommended:
 
  * `birth date` (*date*) birth date, in the format YYYY-MM-DD, or YYYY-MM where only the month is known. For embryo samples, record 'not applicable'
-
+ * `health status` (*ontology term*) Healthy animals should have the term [normal](http://purl.obolibrary.org/obo/PATO_0000461), otherwise use the as many [disease](http://www.ebi.ac.uk/efo/EFO_0000408) terms as necessary from EFO
+ 
 Optional:
 
  * `birth location` (*text*) name of the birth location
@@ -95,6 +95,9 @@ Required:
      * fed
      * fasted
      * unknown
+
+Recommended:
+
  * `health status at collection` (*ontology term*) Healthy animals should have the term [normal](http://purl.obolibrary.org/obo/PATO_0000461), otherwise use the as many [disease](http://www.ebi.ac.uk/efo/EFO_0000408) terms as necessary from EFO
 
 Optional:
