@@ -46,7 +46,7 @@ Required:
 
  * `Organism` (*NCBI taxon ID*)
  * `Sex`  (*ontology term*) animal sex, described using any child term of [PATO_0000047](http://purl.obolibrary.org/obo/PATO_0000047)
- * `breed` (*ontology term*) animal breed, described using the [FAANG breed description guidelines](http://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+guidelines+for+livestock+breed+nomenclature) and [Livestock Breed Ontology](http://purl.obolibrary.org/obo/LBO_0000000)
+ * `breed` (*ontology term*) animal breed, described using the [FAANG breed description guidelines](http://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+guidelines+for+livestock+breed+nomenclature) and [Livestock Breed Ontology](http://www.ebi.ac.uk/ols/ontologies/lbo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FLBO_0000000)
 
 Recommended:
 
@@ -168,7 +168,7 @@ Recommended:
 
 Optional:
 
- * `breed` (*ontology term*) animal breed, described using the [FAANG breed description guidelines](http://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+guidelines+for+livestock+breed+nomenclature) and [Livestock Breed Ontology](http://purl.obolibrary.org/obo/LBO_0000000)
+ * `breed` (*ontology term*) animal breed, described using the [FAANG breed description guidelines](http://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+guidelines+for+livestock+breed+nomenclature) and [Livestock Breed Ontology](http://www.ebi.ac.uk/ols/ontologies/lbo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FLBO_0000000)
  * `disease` (*ontology term*) a child term of either [PATO_0000461](http://purl.obolibrary.org/obo/PATO_0000461) or [EFO_0000408](http://www.ebi.ac.uk/efo/EFO_0000408)
  * `cell type`(*ontology term*) a child term of either [CL_0000000](http://purl.obolibrary.org/obo/CL_0000000) or [BTO_0000000](http://purl.obolibrary.org/obo/BTO_0000000)
  * `culture conditions` (*text*) brief description of culture conditions (e.g. 'on feeder cells', 'E8 media')
