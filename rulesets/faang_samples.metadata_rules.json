@@ -477,7 +477,7 @@
           "mandatory": "optional",
           "name": "gestational age at sample collection",
           "type": "number",
-          "valid units": [
+          "valid_units": [
             "days",
             "weeks"
           ]
