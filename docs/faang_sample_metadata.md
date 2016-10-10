@@ -21,7 +21,7 @@ Required:
   * `Sample name` (*text*) sample names should follow the naming rules listed below. Each name must be unique.
   * `Material` (*ontology term*) the type of material being described. This will be used to decide what metadata are required and must be one of the expected terms:
     * [organism](http://purl.obolibrary.org/obo/OBI_0100026)
-    * [tissue specimen](http://purl.obolibrary.org/obo/OBI_0001479)
+    * [specimen from organism](http://purl.obolibrary.org/obo/OBI_0001479)
     * [cell specimen](http://purl.obolibrary.org/obo/OBI_0001468)
     * [cell culture](http://purl.obolibrary.org/obo/OBI_0001876)
     * [pool of specimens](http://purl.obolibrary.org/obo/OBI_0302716)
@@ -81,7 +81,7 @@ Links to other records:
  
 ### Specimen
 
-A piece of tissue taken from an animal. The following attributes are in addition to the attributes listed in the 'Common' section above. The `material` should be reported as [tissue specimen](http://purl.obolibrary.org/obo/OBI_0001479).
+A piece of tissue taken from an animal. The following attributes are in addition to the attributes listed in the 'Common' section above. The `material` should be reported as [specimen from organism](http://purl.obolibrary.org/obo/OBI_0001479).
 
 Required:
 
