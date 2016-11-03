@@ -53,7 +53,7 @@
         },
         {
           "mandatory": "optional",
-          "name": "sample_storage",
+          "name": "sample storage",
           "type": "text",
           "valid_values": [
             "frozen, liquid nitrogen",
