@@ -62,7 +62,7 @@ Recommended:
  * `library preparation date`  (*date*) Date on which the library was prepared, formatted as YYYY-MM-DD. Units should be specified as 'YYYY-MM-DD' 
  * `sequencing location` (*text*) name of the sequencing location
  * `sequencing location latitude` (*number*) latitude of the sequencing location in decimal degrees. Units should be specified as 'decimal degrees'
- * `sequencing location longitude` (*number*) longitude of the sequencing. location in decimal degrees. Units should be specified as 'decimal degrees'
+ * `sequencing location longitude` (*number*) longitude of the sequencing location in decimal degrees. Units should be specified as 'decimal degrees'
  * `sequencing date` (*date*) date of sequencing
 
 ###Whole-genome bisulfite sequencing
