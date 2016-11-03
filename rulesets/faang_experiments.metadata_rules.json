@@ -9,6 +9,7 @@
         {
           "mandatory": "mandatory",
           "name": "assay type",
+          "description": "The type of experiment performed",
           "type": "text",
           "valid_values": [
             "methylation profiling by high throughput sequencing",
@@ -23,6 +24,7 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
+          "description": "What the experiment was trying to find. ChIP-seq histone modifications: use child term of SO_0001700. ChIP-seq input: use 'input DNA'. RNA-seq: child term of CHEBI_33697. ATAC-seq & DNase-seq: use 'open chromatin region'. Methylation assays: 'DNA methylation'",
           "type": "ontology_text",
           "valid_terms": [
             {
@@ -54,6 +56,7 @@
         {
           "mandatory": "optional",
           "name": "sample storage",
+          "description": "How the sample was stored",
           "type": "text",
           "valid_values": [
             "frozen, liquid nitrogen",
@@ -69,6 +72,7 @@
         {
           "mandatory": "mandatory",
           "name": "sample storage processing",
+          "description": "How the sample was prepared for storage",
           "type": "text",
           "valid_values": [
             "cryopreservation in liquid nitrogen (dead tissue)",
@@ -84,6 +88,7 @@
         {
           "mandatory": "mandatory",
           "name": "sampling to preparation interval",
+          "description": "How long between the sample being taken and used in the experiment",
           "type": "number",
           "valid_units": [
             "minutes",
@@ -96,21 +101,25 @@
         {
           "mandatory": "mandatory",
           "name": "experimental protocol",
+          "description": "Link to the description of the experiment protocol",
           "type": "uri_value"
         },
         {
           "mandatory": "mandatory",
           "name": "extraction protocol",
+          "description": "Link to the protocol used to isolate the extract material",
           "type": "uri_value"
         },
         {
           "mandatory": "recommended",
           "name": "library preparation location",
+          "description": "Location where library preperation was performed",
           "type": "text"
         },
         {
           "mandatory": "recommended",
           "name": "library preparation location longitude",
+          "description": "Latitude of the library prep location in decimal degrees",
           "type": "number",
           "valid_units": [
             "decimal degrees"
@@ -119,6 +128,7 @@
         {
           "mandatory": "recommended",
           "name": "library preparation location latitude",
+          "description": "Longitude of the library prep location in decimal degrees",
           "type": "number",
           "valid_units": [
             "decimal degrees"
@@ -127,6 +137,7 @@
         {
           "mandatory": "recommended",
           "name": "library preparation date",
+          "description": "Date on which the library was prepared",
           "type": "date",
           "valid_units": [
             "YYYY-MM-DD"
@@ -135,11 +146,13 @@
         {
           "mandatory": "recommended",
           "name": "sequencing location",
+          "description": "Location of where the sequencing was performed",
           "type": "text"
         },
         {
           "mandatory": "recommended",
-          "name": "sequencing location longitude",
+          "name": "sequencing location latitude",
+          "description": "Latitude of the sequencing location in decimal degrees",
           "type": "number",
           "valid_units": [
             "decimal degrees"
@@ -147,15 +160,18 @@
         },
         {
           "mandatory": "recommended",
-          "name": "sequencing location latitude",
+          "name": "sequencing location longitude",
+          "description": "Longitude of the sequencing location in decimal degrees",
           "type": "number",
           "valid_units": [
             "decimal degrees"
           ]
         },
+
         {
           "mandatory": "recommended",
           "name": "sequencing date",
+          "description": "Date sequencing was performed",
           "type": "date",
           "valid_units": [
             "YYYY-MM-DD"
@@ -176,16 +192,19 @@
         {
           "mandatory": "mandatory",
           "name": "bisulfite conversion protocol",
+          "description": "Link to bisulfite conversion protocol",
           "type": "uri_value"
         },
         {
           "mandatory": "mandatory",
           "name": "pcr product isolation protocol",
+          "description": "Link to the protocol for isolating PCR products used for library generation",
           "type": "uri_value"
         },
         {
           "mandatory": "mandatory",
           "name": "bisulfite conversion percent",
+          "description": "Bisulfite conversion percentage",
           "type": "number"
         }
       ]
@@ -204,31 +223,37 @@
         {
           "mandatory": "mandatory",
           "name": "chip protocol",
+          "description": "Link to the ChIP protocol used",
           "type": "uri_value"
         },
         {
           "mandatory": "mandatory",
           "name": "chip antibody provider",
+          "description": "The name of the company, laboratory or person that provided the antibody e.g. Diagneode",
           "type": "text"
         },
         {
           "mandatory": "mandatory",
           "name": "chip antibody catalog",
+          "description": "The catalog from which the antibody was purchased e.g. pAb-003-050",
           "type": "text"
         },
         {
           "mandatory": "mandatory",
           "name": "chip antibody lot",
+          "description": "The lot identifier of the antibody e.g. A5051-001P",
           "type": "text"
         },
         {
           "mandatory": "mandatory",
           "name": "library generation max fragment size range",
+          "description": "The maximum fragment size range of the preparation",
           "type": "number"
         },
         {
           "mandatory": "mandatory",
           "name": "library generation min fragment size range",
+          "description": "The minimum fragment size range of the preparation",
           "type": "number"
         }
       ]
@@ -249,16 +274,19 @@
         {
           "mandatory": "mandatory",
           "name": "chip protocol",
+          "description": "Link to the ChIP protocol used",
           "type": "uri_value"
         },
         {
           "mandatory": "mandatory",
           "name": "library generation max fragment size range",
+          "description": "The maximum fragment size range of the preparation",
           "type": "number"
         },
         {
           "mandatory": "mandatory",
           "name": "library generation min fragment size range",
+          "description": "The minimum fragment size range of the preparation",
           "type": "number"
         }
       ]
@@ -278,6 +306,7 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
+          "description": "The experimental target of RNA-Seq",
           "type": "text",
           "valid_values": [
             "polyA RNA",
@@ -289,31 +318,37 @@
         {
           "mandatory": "mandatory",
           "name": "rna preparation 3' adapter ligation protocol",
+          "description": "Link to the protocol for 3’ adapter ligation used in preparation",
           "type": "uri_value"
         },
         {
           "mandatory": "mandatory",
           "name": "rna preparation 5' adapter ligation protocol",
+          "description": "Link to the protocol for 5’ adapter ligation used in preparation",
           "type": "uri_value"
         },
         {
           "mandatory": "mandatory",
           "name": "library generation pcr product isolation protocol",
+          "description": "Link to the protocol for isolating pcr products used for library generation",
           "type": "uri_value"
         },
         {
           "mandatory": "mandatory",
           "name": "preparation reverse transcription protocol",
+          "description": "Link to the protocol for reverse transcription used in preparation",
           "type": "uri_value"
         },
         {
           "mandatory": "mandatory",
           "name": "library generation protocol",
+          "description": "Link to the protocol used to generate the library",
           "type": "uri_value"
         },
         {
           "mandatory": "mandatory",
           "name": "read strand",
+          "description": "For strand specific protocol, specify which mate pair maps to the transcribed strand or Report 'not applicable' if the protocol is not strand specific. For single-ended sequencing: use 'sense' if the reads should be on the same strand as the transcript, 'antisense' if on opposite strand. For paired-end sequencing: 'mate 1 sense' if mate 1 should be on the same strand as the transcript, 'mate 2 sense' if mate 2 should be on the same strand as the transcript",
           "type": "text",
           "valid_values": [
             "not applicable",
@@ -326,16 +361,19 @@
         {
           "mandatory": "mandatory",
           "name": "rna purity - 260:280 ratio",
+          "description": "Sample purity assesed with fluoresence ratio at 260 and 280nm, informative for protein contamination",
           "type": "number"
         },
         {
           "mandatory": "mandatory",
           "name": "rna purity - 260:230 ratio",
+          "description": "Sample purity assesed with fluoresence ratio at 260 and 230nm, informative for contamination by phenolate ion, thiocyanates, and other organic compounds",
           "type": "number"
         },
         {
           "mandatory": "mandatory",
           "name": "rna integrity number",
+          "description": "For more information see Schroeder et al. (2006) http://bmcmolbiol.biomedcentral.com/articles/10.1186/1471-2199-7-3",
           "type": "number"
         }
       ]
@@ -353,6 +391,7 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
+          "description": "Target is 'open chromatin region'",
           "type": "text",
           "valid_values": [
             "open chromatin region"
@@ -361,6 +400,7 @@
         {
           "mandatory": "mandatory",
           "name": "dnase protocol",
+          "description": "Link to the protocol used for transposase treatment",
           "type": "uri_value"
         }
       ]
@@ -378,6 +418,7 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
+          "description": "Eperiment target of 'open chromatin region'",
           "type": "text",
           "valid_values": [
             "open chromatin region"
@@ -386,6 +427,7 @@
         {
           "mandatory": "mandatory",
           "name": "transposase protocol",
+          "description": "Link to the protocol used for transposase treatment",
           "type": "uri_value"
         }
       ]
@@ -403,6 +445,7 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
+          "description": "Experiment target is 'chromosome conformation'",
           "type": "text",
           "valid_values": [
             "chromosome conformation"
@@ -411,11 +454,13 @@
         {
           "mandatory": "mandatory",
           "name": "restriction enzyme",
+          "description": "Restriction enzyme used",
           "type": "text"
         },
         {
           "mandatory": "mandatory",
           "name": "restriction site",
+          "description": "Restriction site targeted",
           "type": "text"
         }
       ]
