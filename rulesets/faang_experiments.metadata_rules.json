@@ -56,7 +56,7 @@
         {
           "mandatory": "optional",
           "name": "sample storage",
-          "description": "How the sample was stored. Temperatures are in celsius.",
+          "description": "How the sample was stored. Temperatures are in celsius. 'Frozen, vapor phase' refers to storing samples above liquid nitrogen in the vapor.",
           "type": "text",
           "valid_values": [
             "frozen, liquid nitrogen",
