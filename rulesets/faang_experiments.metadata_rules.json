@@ -56,11 +56,12 @@
         {
           "mandatory": "optional",
           "name": "sample storage",
-          "description": "How the sample was stored",
+          "description": "How the sample was stored. Temperatures are in celsius.",
           "type": "text",
           "valid_values": [
             "frozen, liquid nitrogen",
             "frozen, -70 freezer",
+            "frozen, -150 freezer",
             "frozen, vapor phase",
             "RNAlater, frozen",
             "paraffin block",
