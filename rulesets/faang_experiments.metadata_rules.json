@@ -14,6 +14,7 @@
           "valid_values": [
             "methylation profiling by high throughput sequencing",
             "ChIP-seq",
+            "transcription profiling by high throughput sequencing",
             "RNA-seq of coding RNA",
             "RNA-seq of non coding RNA",
             "microRNA profiling by high throughput sequencing",
@@ -296,6 +297,7 @@
       "condition": {
         "attribute_value_match": {
           "assay type": [
+            "transcription profiling by high throughput sequencing",
             "RNA-seq of coding RNA",
             "RNA-seq of non coding RNA",
             "microRNA profiling by high throughput sequencing"
