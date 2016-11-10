@@ -19,7 +19,8 @@
             "RNA-seq of non coding RNA",
             "microRNA profiling by high throughput sequencing",
             "DNase-Hypersensitivity seq",
-            "ATAC-seq"
+            "ATAC-seq",
+            "HiC"
           ]
         },
         {
