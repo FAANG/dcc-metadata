@@ -96,7 +96,7 @@
         {
           "mandatory": "mandatory",
           "name": "sampling to preparation interval",
-          "description": "How long between the sample being taken and used in the experiment",
+          "description": "How long between the sample being taken and the assay experiment preperations commencing. If sample preperations were then left in intermediate stages after preperation commenced, for example as sheared chromatin, then this should be made clear in your protocols",
           "type": "number",
           "valid_units": [
             "minutes",
