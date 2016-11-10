@@ -127,7 +127,7 @@
         {
           "mandatory": "recommended",
           "name": "library preparation location longitude",
-          "description": "Latitude of the library prep location in decimal degrees",
+          "description": "Longitude of the library prep location in decimal degrees",
           "type": "number",
           "valid_units": [
             "decimal degrees"
@@ -136,7 +136,7 @@
         {
           "mandatory": "recommended",
           "name": "library preparation location latitude",
-          "description": "Longitude of the library prep location in decimal degrees",
+          "description": "Latitude of the library prep location in decimal degrees",
           "type": "number",
           "valid_units": [
             "decimal degrees"
@@ -159,15 +159,6 @@
         },
         {
           "mandatory": "recommended",
-          "name": "sequencing location latitude",
-          "description": "Latitude of the sequencing location in decimal degrees",
-          "type": "number",
-          "valid_units": [
-            "decimal degrees"
-          ]
-        },
-        {
-          "mandatory": "recommended",
           "name": "sequencing location longitude",
           "description": "Longitude of the sequencing location in decimal degrees",
           "type": "number",
@@ -175,7 +166,15 @@
             "decimal degrees"
           ]
         },
-
+        {
+          "mandatory": "recommended",
+          "name": "sequencing location latitude",
+          "description": "Latitude of the sequencing location in decimal degrees",
+          "type": "number",
+          "valid_units": [
+            "decimal degrees"
+          ]
+        },
         {
           "mandatory": "recommended",
           "name": "sequencing date",
