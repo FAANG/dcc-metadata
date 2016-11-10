@@ -26,7 +26,7 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
-          "description": "What the experiment was trying to find. ChIP-seq histone modifications: use child term of SO_0001700. ChIP-seq input: use 'input DNA'. RNA-seq: child term of CHEBI_33697. ATAC-seq & DNase-seq: use 'open chromatin region'. Methylation assays: 'DNA methylation'",
+          "description": "What the experiment was trying to find. ChIP-seq histone modifications: use child term of SO_0001700. ChIP-seq input: use 'input DNA'. RNA-seq: child term of CHEBI_33697. ATAC-seq & DNase-seq: use 'open chromatin region'. Methylation assays: 'DNA methylation. For HiC use 'chromatin'. Please check for stricter rules for this field in the assay specific rules.",
           "type": "ontology_text",
           "valid_terms": [
             {
@@ -51,6 +51,11 @@
             {
               "ontology_name": "OBI",
               "term_iri": "http://purl.obolibrary.org/obo/GO_0006306",
+              "allow_descendants": false
+            },
+            {
+              "ontology_name": "OBI",
+              "term_iri": "http://purl.obolibrary.org/obo/GO_0000785",
               "allow_descendants": false
             }
           ]
@@ -310,7 +315,7 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
-          "description": "The experimental target of RNA-Seq",
+          "description": "Stricter rules for the experiment target from the standard rules. You only need one experiment target field.",
           "type": "text",
           "valid_values": [
             "polyA RNA",
@@ -395,7 +400,7 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
-          "description": "Target is 'open chromatin region'",
+          "description": "Stricter rules for the experiment target from the standard rules. You only need one experiment target field.",
           "type": "text",
           "valid_values": [
             "open chromatin region"
@@ -422,7 +427,7 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
-          "description": "Eperiment target of 'open chromatin region'",
+          "description": "Stricter rules for the experiment target from the standard rules. You only need one experiment target field.",
           "type": "text",
           "valid_values": [
             "open chromatin region"
@@ -449,10 +454,10 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
-          "description": "Experiment target is 'chromosome conformation'",
+          "description": "Stricter rules for the experiment target from the standard rules. You only need one experiment target field",
           "type": "text",
           "valid_values": [
-            "chromosome conformation"
+            "chromatin"
           ]
         },
         {
