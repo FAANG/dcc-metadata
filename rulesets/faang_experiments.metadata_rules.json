@@ -26,7 +26,7 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
-          "description": "What the experiment was trying to find. ChIP-seq histone modifications: use child term of SO_0001700. ChIP-seq input: use 'input DNA'. RNA-seq: child term of CHEBI_33697. ATAC-seq & DNase-seq: use 'open chromatin region'. Methylation assays: 'DNA methylation. For HiC use 'chromatin'. Please check for stricter rules for this field in the assay specific rules.",
+          "description": "What the experiment was trying to find, list the text rather than ontology link e.g. 'chromatin'. ChIP-seq histone modifications: use child term of SO_0001700. ChIP-seq input: use 'input DNA'. RNA-seq: child term of CHEBI_33697. ATAC-seq & DNase-seq: use 'open chromatin region'. Methylation assays: 'DNA methylation. For HiC use 'chromatin'. Please check for stricter rules for this field in the assay specific rules.",
           "type": "ontology_text",
           "valid_terms": [
             {
