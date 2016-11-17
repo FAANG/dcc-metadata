@@ -40,7 +40,7 @@
               "allow_descendants": false
             },
             {
-              "ontology_name": "CHEBI",
+              "ontology_name": "EFO",
               "term_iri": "http://purl.obolibrary.org/obo/CHEBI_33697"
             },
             {
