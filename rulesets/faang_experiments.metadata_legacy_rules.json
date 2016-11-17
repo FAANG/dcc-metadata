@@ -1,0 +1,478 @@
+{
+  "description": "Validation legacy rules for the FAANG project. Rules are divided into one group that is applied to all experiments, and additional groups based on the experiment type. Legacy experiments have less strict metadata requirements, and should only be used for projects that existed prior to FAANGs existence that cannot be brought up to the FAANG metadata standard.  Legacy experiments will be clearly marked in the FAANG portal and it may not be possible to include them in all downstream analyses and releases.",
+  "name": "FAANG legacy experiment metadata rules",
+  "further_details_iri": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_experiment_metadata.md",
+  "rule_groups": [
+    {
+      "name": "standard",
+      "rules": [
+        {
+          "mandatory": "mandatory",
+          "name": "assay type",
+          "description": "The type of experiment performed",
+          "type": "text",
+          "valid_values": [
+            "methylation profiling by high throughput sequencing",
+            "ChIP-seq",
+            "transcription profiling by high throughput sequencing",
+            "RNA-seq of coding RNA",
+            "RNA-seq of non coding RNA",
+            "microRNA profiling by high throughput sequencing",
+            "DNase-Hypersensitivity seq",
+            "ATAC-seq",
+            "HiC"
+          ]
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "experiment target",
+          "description": "What the experiment was trying to find, list the text rather than ontology link e.g. 'chromatin'. ChIP-seq histone modifications: use child term of SO_0001700. ChIP-seq input: use 'input DNA'. RNA-seq: child term of CHEBI_33697. ATAC-seq & DNase-seq: use 'open chromatin region'. Methylation assays: 'DNA methylation. For HiC use 'chromatin'. Please check for stricter rules for this field in the assay specific rules.",
+          "type": "ontology_text",
+          "valid_terms": [
+            {
+              "ontology_name": "SO",
+              "term_iri": "http://purl.obolibrary.org/obo/SO_0001700",
+              "leaf_only": true
+            },
+            {
+              "ontology_name": "EFO",
+              "term_iri": "http://www.ebi.ac.uk/efo/EFO_0005031",
+              "allow_descendants": false
+            },
+            {
+              "ontology_name": "CHEBI",
+              "term_iri": "http://purl.obolibrary.org/obo/CHEBI_33697"
+            },
+            {
+              "ontology_name": "SO",
+              "term_iri": "http://purl.obolibrary.org/obo/SO_0001747",
+              "allow_descendants": false
+            },
+            {
+              "ontology_name": "OBI",
+              "term_iri": "http://purl.obolibrary.org/obo/GO_0006306",
+              "allow_descendants": false
+            },
+            {
+              "ontology_name": "OBI",
+              "term_iri": "http://purl.obolibrary.org/obo/GO_0000785",
+              "allow_descendants": false
+            }
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "sample storage",
+          "description": "How the sample was stored. Temperatures are in celsius. 'Frozen, vapor phase' refers to storing samples above liquid nitrogen in the vapor.",
+          "type": "text",
+          "valid_values": [
+            "frozen, liquid nitrogen",
+            "frozen, -70 freezer",
+            "frozen, -150 freezer",
+            "frozen, vapor phase",
+            "RNAlater, frozen",
+            "TRIzol, frozen",
+            "paraffin block",
+            "cut slide",
+            "fresh",
+            "ambient temperature"
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "sample storage processing",
+          "description": "How the sample was prepared for storage",
+          "type": "text",
+          "valid_values": [
+            "cryopreservation in liquid nitrogen (dead tissue)",
+            "cryopreservation in dry ice (dead tissue)",
+            "cryopreservation of live cells in liquid nitrogen",
+            "cryopreservation, other",
+            "formalin fixed, unbuffered",
+            "formalin fixed, buffered",
+            "formalin fixed and paraffin embedded",
+            "fresh"
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "sampling to preparation interval",
+          "description": "How long between the sample being taken and the assay experiment preperations commencing. If sample preperations were then left in intermediate stages after preperation commenced, for example as sheared chromatin, then this should be made clear in your protocols",
+          "type": "number",
+          "valid_units": [
+            "minutes",
+            "hours",
+            "days",
+            "weeks",
+            "years"
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "experimental protocol",
+          "description": "Link to the description of the experiment protocol, an overview of the full experiment, that can refer to the order in which other protocols were performed and any intermediate steps not covered by the extraction or assay specific protocols.",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "extraction protocol",
+          "description": "Link to the protocol used to isolate the extract material",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "library preparation location",
+          "description": "Location where library preperation was performed",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "library preparation location longitude",
+          "description": "Longitude of the library prep location in decimal degrees",
+          "type": "number",
+          "valid_units": [
+            "decimal degrees"
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "library preparation location latitude",
+          "description": "Latitude of the library prep location in decimal degrees",
+          "type": "number",
+          "valid_units": [
+            "decimal degrees"
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "library preparation date",
+          "description": "Date on which the library was prepared",
+          "type": "date",
+          "valid_units": [
+            "YYYY-MM-DD"
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "sequencing location",
+          "description": "Location of where the sequencing was performed",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "sequencing location longitude",
+          "description": "Longitude of the sequencing location in decimal degrees",
+          "type": "number",
+          "valid_units": [
+            "decimal degrees"
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "sequencing location latitude",
+          "description": "Latitude of the sequencing location in decimal degrees",
+          "type": "number",
+          "valid_units": [
+            "decimal degrees"
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "sequencing date",
+          "description": "Date sequencing was performed",
+          "type": "date",
+          "valid_units": [
+            "YYYY-MM-DD"
+          ]
+        }
+      ]
+    },
+    {
+      "condition": {
+        "attribute_value_match": {
+          "assay type": [
+            "methylation profiling by high throughput sequencing"
+          ]
+        }
+      },
+      "name": "WGBS",
+      "rules": [
+        {
+          "mandatory": "recommended",
+          "name": "bisulfite conversion protocol",
+          "description": "Link to bisulfite conversion protocol",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "pcr product isolation protocol",
+          "description": "Link to the protocol for isolating PCR products used for library generation",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "bisulfite conversion percent",
+          "description": "Bisulfite conversion percentage",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "attribute_value_match": {
+          "assay type": [
+            "ChIP-seq"
+          ]
+        },
+        "dpath_condition": "/attributes/*/*[key eq 'name' && value eq 'experiment target']/../*[key eq 'value' && value ne 'Input DNA']"
+      },
+      "name": "ChIP-seq",
+      "rules": [
+        {
+          "mandatory": "recommended",
+          "name": "chip protocol",
+          "description": "Link to the ChIP protocol used",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "chip antibody provider",
+          "description": "The name of the company, laboratory or person that provided the antibody e.g. Diagneode",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "chip antibody catalog",
+          "description": "The catalog from which the antibody was purchased e.g. pAb-003-050",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "chip antibody lot",
+          "description": "The lot identifier of the antibody e.g. A5051-001P",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "library generation max fragment size range",
+          "description": "The maximum fragment size range of the preparation",
+          "type": "number"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "library generation min fragment size range",
+          "description": "The minimum fragment size range of the preparation",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "attribute_value_match": {
+          "assay type": [
+            "ChIP-seq"
+          ],
+          "experiment target": [
+            "Input DNA"
+          ]
+        }
+      },
+      "name": "ChIP-seq input",
+      "rules": [
+        {
+          "mandatory": "recommended",
+          "name": "chip protocol",
+          "description": "Link to the ChIP protocol used",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "library generation max fragment size range",
+          "description": "The maximum fragment size range of the preparation",
+          "type": "number"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "library generation min fragment size range",
+          "description": "The minimum fragment size range of the preparation",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "attribute_value_match": {
+          "assay type": [
+            "transcription profiling by high throughput sequencing",
+            "RNA-seq of coding RNA",
+            "RNA-seq of non coding RNA",
+            "microRNA profiling by high throughput sequencing"
+          ]
+        }
+      },
+      "name": "RNA-seq",
+      "rules": [
+        {
+          "mandatory": "mandatory",
+          "name": "experiment target",
+          "description": "Stricter rules for the experiment target from the standard rules. You only need one experiment target field.",
+          "type": "text",
+          "valid_values": [
+            "polyA RNA",
+            "total RNA",
+            "ncRNA",
+            "microRNA"
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "rna preparation 3' adapter ligation protocol",
+          "description": "Link to the protocol for 3’ adapter ligation used in preparation",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "rna preparation 5' adapter ligation protocol",
+          "description": "Link to the protocol for 5’ adapter ligation used in preparation",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "library generation pcr product isolation protocol",
+          "description": "Link to the protocol for isolating pcr products used for library generation",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "preparation reverse transcription protocol",
+          "description": "Link to the protocol for reverse transcription used in preparation",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "library generation protocol",
+          "description": "Link to the protocol used to generate the library",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "read strand",
+          "description": "For strand specific protocol, specify which mate pair maps to the transcribed strand or Report 'not applicable' if the protocol is not strand specific. For single-ended sequencing: use 'sense' if the reads should be on the same strand as the transcript, 'antisense' if on opposite strand. For paired-end sequencing: 'mate 1 sense' if mate 1 should be on the same strand as the transcript, 'mate 2 sense' if mate 2 should be on the same strand as the transcript",
+          "type": "text",
+          "valid_values": [
+            "not applicable",
+            "sense",
+            "antisense",
+            "mate 1 sense",
+            "mate 2 sense"
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "rna purity - 260:280 ratio",
+          "description": "Sample purity assesed with fluoresence ratio at 260 and 280nm, informative for protein contamination",
+          "type": "number"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "rna purity - 260:230 ratio",
+          "description": "Sample purity assesed with fluoresence ratio at 260 and 230nm, informative for contamination by phenolate ion, thiocyanates, and other organic compounds",
+          "type": "number"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "rna integrity number",
+          "description": "For more information see Schroeder et al. (2006) http://bmcmolbiol.biomedcentral.com/articles/10.1186/1471-2199-7-3",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "attribute_value_match": {
+          "assay type": [
+            "DNase-Hypersensitivity seq"
+          ]
+        }
+      },
+      "name": "DNase-seq",
+      "rules": [
+        {
+          "mandatory": "mandatory",
+          "name": "experiment target",
+          "description": "Stricter rules for the experiment target from the standard rules. You only need one experiment target field.",
+          "type": "text",
+          "valid_values": [
+            "open chromatin region"
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "dnase protocol",
+          "description": "Link to the protocol used for transposase treatment",
+          "type": "uri_value"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "attribute_value_match": {
+          "assay type": [
+            "ATAC-seq"
+          ]
+        }
+      },
+      "name": "ATAC-seq",
+      "rules": [
+        {
+          "mandatory": "mandatory",
+          "name": "experiment target",
+          "description": "Stricter rules for the experiment target from the standard rules. You only need one experiment target field.",
+          "type": "text",
+          "valid_values": [
+            "open chromatin region"
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "transposase protocol",
+          "description": "Link to the protocol used for transposase treatment",
+          "type": "uri_value"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "attribute_value_match": {
+          "assay type": [
+            "HiC"
+          ]
+        }
+      },
+      "name": "HiC",
+      "rules": [
+        {
+          "mandatory": "mandatory",
+          "name": "experiment target",
+          "description": "Stricter rules for the experiment target from the standard rules. You only need one experiment target field",
+          "type": "text",
+          "valid_values": [
+            "chromatin"
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "restriction enzyme",
+          "description": "Restriction enzyme used",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "restriction site",
+          "description": "Restriction site targeted",
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}

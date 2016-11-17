@@ -1,0 +1,798 @@
+{
+  "description": "Legacy validation rules for the FAANG project. Rules are divided into one group that is applied to all samples, and additional groups based on the sample type. In addition to rules defined individually, attribute names are imported from the VT, ATOL and EOL ontologies. Legacy samples have less strict metadata requirements, and should only be used for projects that existed prior to FAANGs existence that cannot be brought up to the FAANG metadata standard.  Legacy samples will be clearly marked in the FAANG portal and it may not be possible to include them in all downstream analyses and releases.",
+  "name": "FAANG legacy sample metadata rules",
+  "further_details_iri": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_sample_metadata.md",
+  "rule_groups": [
+    {
+      "name": "standard",
+      "rules": [
+        {
+          "mandatory": "optional",
+          "name": "Sample Description",
+          "description": "A brief description of the sample including species name",
+          "type": "text"
+        },
+        {
+          "_comment": "Covers organism, specimen from organism, cell specimen, pool of specimens, cell culture, cell line",
+          "mandatory": "mandatory",
+          "name": "Material",
+          "description": "The type of material being described.",
+          "type": "ontology_id",
+          "valid_terms": [
+            {
+              "ontology_name": "OBI",
+              "term_iri": "http://purl.obolibrary.org/obo/OBI_0100026",
+              "allow_descendants": false,
+              "include_root": true
+            },
+            {
+              "ontology_name": "OBI",
+              "term_iri": "http://purl.obolibrary.org/obo/OBI_0001479",
+              "allow_descendants": false,
+              "include_root": true
+            },
+            {
+              "ontology_name": "OBI",
+              "term_iri": "http://purl.obolibrary.org/obo/OBI_0001468",
+              "allow_descendants": false,
+              "include_root": true
+            },
+            {
+              "ontology_name": "OBI",
+              "term_iri": "http://purl.obolibrary.org/obo/OBI_0302716",
+              "allow_descendants": false,
+              "include_root": true
+            },
+            {
+              "ontology_name": "OBI",
+              "term_iri": "http://purl.obolibrary.org/obo/OBI_0001876",
+              "allow_descendants": false,
+              "include_root": true
+            },
+            {
+              "ontology_name": "OBI",
+              "term_iri": "http://purl.obolibrary.org/obo/CLO_0000031",
+              "allow_descendants": false,
+              "include_root": true
+            }
+          ],
+          "valid_values": [
+            "organism",
+            "specimen from organism",
+            "cell specimen",
+            "pool of specimens",
+            "cell culture",
+            "cell line"
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "project",
+          "description": "State that the project is 'FAANG'",
+          "type": "text",
+          "valid_values": [
+            "FAANG"
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "availability",
+          "description": "Either a link to a web page giving information on sample availability (who to contact and if the sample is available), or a e-mail address to contact about availability. E-mail addresses should be prefixed with 'mailto:', e.g. 'mailto:samples@example.ac.uk'. In either case, long term support of the web page or e-mail address is necessary. Group e-mail addresses are preferable to indiviudal.",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "optional",
+          "name": "Same as",
+          "description": "BioSample ID for an equivalent sample record, created before the FAANG metadata specification was available. This is optional and not intended for general use, please contact the data coordination centre (faang-dcc@ebi.ac.uk) before using it.",
+          "type": "relationship"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "attribute_value_match": {
+          "Material": [
+            "organism"
+          ]
+        }
+      },
+      "name": "animal",
+      "consistency_checks": {
+        "faang_breed_species_check": {
+        },
+        "faang_childof_species_check": {
+        }
+      },
+      "imports": [
+        {
+          "rule_prefix": "",
+          "term": {
+            "term_iri": "http://purl.obolibrary.org/obo/VT_0000001",
+            "ontology_name": "VT",
+            "allow_descendants": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        },
+        {
+          "rule_prefix": "",
+          "term": {
+            "term_iri": "http://purl.org/obo/owlATOL_0000002",
+            "ontology_name": "ATOL",
+            "allow_descendants": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        },
+        {
+          "rule_prefix": "",
+          "term": {
+            "term_iri": "http://purl.org/obo/owlEOL_0000001",
+            "ontology_name": "EOL",
+            "allow_descendants": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        },
+        {
+          "rule_prefix": "",
+          "term": {
+            "term_iri": "http://purl.obolibrary.org/obo/MP_0000001",
+            "ontology_name": "MP",
+            "allow_descendants": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        }
+      ],
+      "rules": [
+        {
+          "mandatory": "mandatory",
+          "name": "Organism",
+          "description": "NCBI taxon ID of organism",
+          "type": "ncbi_taxon",
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/NCBITaxon_1",
+              "ontology_name": "NCBITaxon"
+            }
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "Sex",
+          "description": "Animal sex, described using any child term of PATO_0000047",
+          "type": "ontology_id",
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/PATO_0000047",
+              "ontology_name": "PATO"
+            }
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "birth date",
+          "description": "Birth date, in the format YYYY-MM-DD, or YYYY-MM where only the month is known. For embryo samples record 'not applicable'",
+          "type": "date",
+          "valid_units": [
+            "YYYY-MM-DD",
+            "YYYY-MM",
+            "YYYY"
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "breed",
+          "description": "Animal breed, described using the FAANG breed description guidelines (https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+guidelines+for+livestock+breed+nomenclature)",
+          "type": "faang_breed",
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/LBO_0000000",
+              "ontology_name": "LBO",
+              "leaf_only": false
+            }
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "allow_multiple": 1,
+          "name": "health status",
+          "description": "Healthy animals should have the term normal, otherwise use the as many disease terms as necessary from EFO",
+          "type": "ontology_id",
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/PATO_0000461",
+              "ontology_name": "PATO"
+            },
+            {
+              "term_iri": "http://www.ebi.ac.uk/efo/EFO_0000408",
+              "ontology_name": "EFO"
+            }
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "birth location",
+          "description": "Name of the birth location",
+          "type": "text"
+        },
+        {
+          "mandatory": "optional",
+          "name": "birth location longitude",
+          "description": "Latitude of the birth location in decimal degrees.",
+          "type": "number",
+          "valid_units": [
+            "decimal degrees"
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "birth location latitude",
+          "description": "Longitude of the birth location in decimal degrees",
+          "type": "number",
+          "valid_units": [
+            "decimal degrees"
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "birth weight",
+          "description": "Birth weight, in kilograms or grams",
+          "type": "number",
+          "valid_units": [
+            "kilograms"
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "placental weight",
+          "description": "Placental weight, in kilograms or grams",
+          "type": "number",
+          "valid_units": [
+            "kilograms"
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "pregnancy length",
+          "description": "Pregnancy length of time, in days, weeks or months",
+          "type": "number",
+          "valid_units": [
+            "days",
+            "weeks",
+            "months",
+            "day",
+            "week",
+            "month"
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "delivery timing",
+          "description": "Was pregancy full-term. early or delayed",
+          "type": "text",
+          "valid_values": [
+            "early parturition",
+            "full-term parturition",
+            "delayed parturition"
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "delivery ease",
+          "description": "Did the delivery require assistance",
+          "type": "text",
+          "valid_values": [
+            "normal autonomous delivery",
+            "c-section",
+            "vetinarian assisted"
+          ]
+        },
+        {
+          "allow_multiple": 1,
+          "mandatory": "optional",
+          "name": "Child of",
+          "description": "Sample name or Biosample ID for sire/dam. Required if related animals are part of FAANG, e.g. quads.",
+          "type": "relationship",
+          "condition": {
+            "attribute_value_match": {
+              "Material": [
+                "organism"
+              ]
+            }
+          }
+        },
+        {
+          "mandatory": "optional",
+          "name": "pedigree",
+          "description": "A link to pedigree information for the animal",
+          "type": "uri_value"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "attribute_value_match": {
+          "Material": [
+            "specimen from organism"
+          ]
+        }
+      },
+      "name": "specimen",
+      "imports": [
+        {
+          "rule_prefix": "",
+          "term": {
+            "term_iri": "http://purl.obolibrary.org/obo/VT_0000001",
+            "ontology_name": "VT",
+            "allow_descendants": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        },
+        {
+          "rule_prefix": "",
+          "term": {
+            "term_iri": "http://purl.org/obo/owlATOL_0000002",
+            "ontology_name": "ATOL",
+            "allow_descendants": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        },
+        {
+          "rule_prefix": "",
+          "term": {
+            "term_iri": "http://purl.org/obo/owlEOL_0000001",
+            "ontology_name": "EOL",
+            "allow_descendants": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        },
+        {
+          "rule_prefix": "",
+          "term": {
+            "term_iri": "http://purl.obolibrary.org/obo/MP_0000001",
+            "ontology_name": "MP",
+            "allow_descendants": true,
+            "leaf_only": false,
+            "include_root": false
+          }
+        }
+      ],
+      "rules": [
+        {
+          "mandatory": "recommended",
+          "name": "specimen collection date",
+          "description": "Date at which the specimen was collected",
+          "type": "date",
+          "valid_units": [
+            "YYYY-MM-DD",
+            "YYYY-MM",
+            "YYYY"
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "animal age at collection",
+          "description": "Animal age at the point of collection. An estimate is acceptable where the age is not precisely known.",
+          "type": "number",
+          "valid_units": [
+            "years",
+            "months",
+            "weeks",
+            "days",
+            "year",
+            "month",
+            "week",
+            "day",
+            "hour",
+            "hours"
+          ]
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "developmental stage",
+          "description": "Developmental stage, any child term of EFO_0000399",
+          "type": "ontology_id",
+          "valid_terms": [
+            {
+              "term_iri": "http://www.ebi.ac.uk/efo/EFO_0000399",
+              "ontology_name": "EFO"
+            }
+          ]
+        },
+        {
+          "allow_multiple": 1,
+          "mandatory": "recommended",
+          "name": "health status at collection",
+          "description": "Animal disease / health status at point of collection. Healthy animals should have the term normal, otherwise use the as many disease terms as necessary from EFO",
+          "type": "ontology_id",
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/PATO_0000461",
+              "ontology_name": "PATO"
+            },
+            {
+              "term_iri": "http://www.ebi.ac.uk/efo/EFO_0000408",
+              "ontology_name": "EFO"
+            }
+          ]
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "organism part",
+          "description": "Ontology for part of organism specimen from, UBERON is preferred to BTO",
+          "type": "ontology_id",
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/UBERON_0001062",
+              "ontology_name": "UBERON"
+            },
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/BTO_0000042",
+              "ontology_name": "BTO"
+            }
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "specimen collection protocol",
+          "description": "A link to the protocol for specimen collection",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "optional",
+          "name": "fasted status",
+          "description": "Fed, fasted or unknown.  Criteria for this status must be in your protocol",
+          "type": "enum",
+          "valid_values": [
+            "fed",
+            "fasted",
+            "unknown"
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "number of pieces",
+          "description": "Number of specimen piecies used",
+          "type": "number",
+          "valid_units": [
+            "count"
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "specimen volume",
+          "description": "Specimen volume.  Total sum if using multiple specimen pieces.",
+          "type": "number",
+          "valid_units": [
+            "square centimeters",
+            "liters",
+            "milliliters"
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "specimen size",
+          "description": "Specimen size.  Total sum if using multiple specimen pieces.",
+          "type": "number",
+          "valid_units": [
+            "meters",
+            "centimeters",
+            "millimeters",
+            "square meters",
+            "square centimeters",
+            "square millimeters"
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "specimen weight",
+          "description": "Specimen weight. Total sum if using multiple specimen pieces.",
+          "type": "number",
+          "valid_units": [
+            "grams",
+            "kilograms"
+          ]
+        },
+        {
+          "allow_multiple": 1,
+          "mandatory": "optional",
+          "name": "specimen picture url",
+          "description": "A link a picture of the specimen, multiple links allowed",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "optional",
+          "name": "gestational age at sample collection",
+          "description": "If the animal was pregnant when the specimen was taken, state how long had been pregnant for",
+          "type": "number",
+          "valid_units": [
+            "days",
+            "weeks"
+          ]
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "Derived from",
+          "description": "Sample name or BioSample ID for an animal record",
+          "type": "relationship",
+          "condition": {
+            "attribute_value_match": {
+              "Material": [
+                "organism"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "condition": {
+        "attribute_value_match": {
+          "Material": [
+            "cell specimen"
+          ]
+        }
+      },
+      "name": "purified cells",
+      "rules": [
+        {
+          "mandatory": "optional",
+          "name": "markers",
+          "description": "Markers used to isolate and identify the cell type (e.g. for FACS sorted cells)",
+          "type": "text"
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "cell type",
+          "description": "Provide a cell type from the CL ontology",
+          "type": "ontology_id",
+          "allow_multiple": true,
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/CL_0000000",
+              "ontology_name": "CL"
+            }
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "purification protocol",
+          "description": "Link to protocol describing how the cells were purified",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "Derived from",
+          "description": "Sample name or BioSample ID for a specimen record.",
+          "type": "relationship",
+          "condition": {
+            "attribute_value_match": {
+              "Material": [
+                "specimen from organism"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "condition": {
+        "attribute_value_match": {
+          "Material": [
+            "cell culture"
+          ]
+        }
+      },
+      "name": "cell culture",
+      "rules": [
+        {
+          "mandatory": "mandatory",
+          "name": "culture type",
+          "description": "Provide a child term of BTO_0000214",
+          "type": "ontology_id",
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/BTO_0000214",
+              "ontology_name": "BTO"
+            }
+          ]
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "cell type",
+          "description": "Provide a cell type from the CL ontology",
+          "type": "ontology_id",
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/CL_0000000",
+              "ontology_name": "CL"
+            }
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "cell culture protocol",
+          "description": "Link to protocol describing how the cells were purified",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "culture conditions",
+          "description": "Brief description of culture conditions (e.g. 'on feeder cells', 'E8 media')",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "number of passages",
+          "description": "",
+          "type": "number"
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "Derived from",
+          "description": "Number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures",
+          "type": "relationship",
+          "condition": {
+            "attribute_value_match": {
+              "Material": [
+                "specimen from organism",
+                "cell specimen"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "cell line",
+      "condition": {
+        "attribute_value_match": {
+          "Material": [
+            "cell line"
+          ]
+        }
+      },
+      "rules": [
+        {
+          "mandatory": "mandatory",
+          "name": "Organism",
+          "description": "NCBI taxon ID of organism",
+          "type": "ncbi_taxon",
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/NCBITaxon_1",
+              "ontology_name": "NCBITaxon"
+            }
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "Sex",
+          "description": "Animal sex, described using any child term of PATO_0000047",
+          "type": "ontology_id",
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/PATO_0000047",
+              "ontology_name": "PATO"
+            }
+          ]
+        },
+        
+        {
+          "mandatory": "mandatory",
+          "name": "cell line",
+          "description": "Name of the cell line",
+          "type": "text"
+        },        
+        {
+          "mandatory": "recommended",
+          "name": "biomaterial provider",
+          "description": "Name of company or lab that supplied the cell line",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "catalogue number",
+          "description": "Identifier for the cell line in the suppliers catalogue. E.g. 'ACC 701' for IPEC-J2 from DSMZ.",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "passage number",
+          "description": "The number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures",
+          "type": "number"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "date established",
+          "description": "Date the line was established/re-established",
+          "type": "date",
+          "valid_units": [
+            "YYYY","YYYY-MM", "YYYY-MM-DD"
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "publication",
+          "description": "Link to a publication where the cell line has been fully described including. This should include details such as doubling time and adhesion preference.",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "optional",
+          "name": "breed",
+          "description": "Animal breed, described using the FAANG breed description guidelines(https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+guidelines+for+livestock+breed+nomenclature)",
+          "type": "faang_breed",
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/LBO_0000000",
+              "ontology_name": "LBO",
+              "leaf_only": false
+            }
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "cell type",
+          "description": "Cell type using a child term of either CL_0000000 or BTO_0000000",
+          "type": "ontology_id",
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/CL_0000000",
+              "ontology_name": "CL"
+            },
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/BTO_0000000",
+              "ontology_name": "BTO"
+            }
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "culture conditions",
+          "description": "Brief description of culture conditions (e.g. 'on feeder cells', 'E8 media')",
+          "type": "text"
+        },
+        {
+          "mandatory": "optional",
+          "name": "culture protocol",
+          "description": "Link to protocol describing the maintenance of the culture",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "optional",
+          "name": "disease",
+          "description": "Disease child term of either PATO_0000461 or EFO_0000408",
+          "type": "ontology_id",
+          "valid_terms": [
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/PATO_0000461",
+              "ontology_name": "PATO"
+            },
+            {
+              "term_iri": "http://www.ebi.ac.uk/efo/EFO_0000408",
+              "ontology_name": "EFO"
+            }
+          ]
+        },
+        
+        {
+          "mandatory": "optional",
+          "name": "karyotype",
+          "description": "Karyotype of the cell line",
+          "type": "text"
+        },
+        {
+          "mandatory": "optional",
+          "name": "Derived from",
+          "description": "Sample name or BioSample ID for the sample or animal the cell line was dervived from, where this is known and can be described within the FAANG standards (optional)",
+          "type": "relationship"
+        }         
+      ]
+    }
+  ]
+}
