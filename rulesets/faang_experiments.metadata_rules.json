@@ -108,7 +108,7 @@
           ]
         },
         {
-          "mandatory": "mandatory",
+          "mandatory": "optional",
           "name": "experimental protocol",
           "description": "Link to the description of the experiment protocol, an overview of the full experiment, that can refer to the order in which other protocols were performed and any intermediate steps not covered by the extraction or assay specific protocols.",
           "type": "uri_value"
