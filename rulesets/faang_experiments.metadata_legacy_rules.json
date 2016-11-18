@@ -24,43 +24,6 @@
           ]
         },
         {
-          "mandatory": "mandatory",
-          "name": "experiment target",
-          "description": "What the experiment was trying to find, list the text rather than ontology link e.g. 'chromatin'. ChIP-seq histone modifications: use child term of SO_0001700. ChIP-seq input: use 'input DNA'. RNA-seq: child term of CHEBI_33697. ATAC-seq & DNase-seq: use 'open chromatin region'. Methylation assays: 'DNA methylation. For HiC use 'chromatin'. Please check for stricter rules for this field in the assay specific rules.",
-          "type": "ontology_text",
-          "valid_terms": [
-            {
-              "ontology_name": "SO",
-              "term_iri": "http://purl.obolibrary.org/obo/SO_0001700",
-              "leaf_only": true
-            },
-            {
-              "ontology_name": "EFO",
-              "term_iri": "http://www.ebi.ac.uk/efo/EFO_0005031",
-              "allow_descendants": false
-            },
-            {
-              "ontology_name": "EFO",
-              "term_iri": "http://purl.obolibrary.org/obo/CHEBI_33697"
-            },
-            {
-              "ontology_name": "SO",
-              "term_iri": "http://purl.obolibrary.org/obo/SO_0001747",
-              "allow_descendants": false
-            },
-            {
-              "ontology_name": "OBI",
-              "term_iri": "http://purl.obolibrary.org/obo/GO_0006306",
-              "allow_descendants": false
-            },
-            {
-              "ontology_name": "OBI",
-              "term_iri": "http://purl.obolibrary.org/obo/GO_0000785",
-              "allow_descendants": false
-            }
-          ]
-        },
-        {
           "mandatory": "optional",
           "name": "sample storage",
           "description": "How the sample was stored. Temperatures are in celsius. 'Frozen, vapor phase' refers to storing samples above liquid nitrogen in the vapor.",
@@ -198,6 +161,19 @@
       "name": "WGBS",
       "rules": [
         {
+          "mandatory": "mandatory",
+          "name": "experiment target",
+          "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'DNA methylation'.",
+          "type": "ontology_text",
+          "valid_terms": [
+            {
+              "ontology_name": "OBI",
+              "term_iri": "http://purl.obolibrary.org/obo/GO_0006306",
+              "allow_descendants": false
+            }
+          ]
+        },        
+        {
           "mandatory": "recommended",
           "name": "bisulfite conversion protocol",
           "description": "Link to bisulfite conversion protocol",
@@ -223,17 +199,47 @@
           "assay type": [
             "ChIP-seq"
           ]
-        },
-        "dpath_condition": "/attributes/*/*[key eq 'name' && value eq 'experiment target']/../*[key eq 'value' && value ne 'Input DNA']"
+        }
       },
-      "name": "ChIP-seq",
+      "name": "ChIP-seq standard rules for both histone modifications and input DNA",
       "rules": [
+        {
+          "mandatory": "mandatory",
+          "name": "experiment target",
+          "description": "What the experiment was trying to find, list the text rather than ontology link e.g. 'input DNA'. ChIP-seq histone modifications: use child term of SO_0001700. ChIP-seq input: use 'input DNA'.",
+          "type": "ontology_text",
+          "valid_terms": [
+            {
+              "ontology_name": "SO",
+              "term_iri": "http://purl.obolibrary.org/obo/SO_0001700",
+              "leaf_only": true
+            },
+            {
+              "ontology_name": "EFO",
+              "term_iri": "http://www.ebi.ac.uk/efo/EFO_0005031",
+              "allow_descendants": false
+            }
+          ]
+        }, 
         {
           "mandatory": "recommended",
           "name": "chip protocol",
           "description": "Link to the ChIP protocol used",
           "type": "uri_value"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "attribute_value_match": {
+          "assay type": [
+            "ChIP-seq"
+          ]
         },
+        "dpath_condition": "/attributes/*/*[key eq 'name' && value eq 'experiment target']/../*[key eq 'value' && value ne 'Input DNA']"
+      },
+      "name": "ChIP-seq histone modifications",
+      "rules": [
         {
           "mandatory": "recommended",
           "name": "chip antibody provider",
@@ -277,14 +283,8 @@
           ]
         }
       },
-      "name": "ChIP-seq input",
+      "name": "ChIP-seq input DNA",
       "rules": [
-        {
-          "mandatory": "recommended",
-          "name": "chip protocol",
-          "description": "Link to the ChIP protocol used",
-          "type": "uri_value"
-        },
         {
           "mandatory": "recommended",
           "name": "library generation max fragment size range",
@@ -315,13 +315,13 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
-          "description": "Stricter rules for the experiment target from the standard rules. You only need one experiment target field.",
-          "type": "text",
-          "valid_values": [
-            "polyA RNA",
-            "total RNA",
-            "ncRNA",
-            "microRNA"
+          "description": "What the experiment was trying to find, list the text rather than ontology link, for example 'polyA RNA'",
+          "type": "ontology_text",
+          "valid_terms": [
+            {
+              "ontology_name": "EFO",
+              "term_iri": "http://purl.obolibrary.org/obo/CHEBI_33697"
+            }
           ]
         },
         {
@@ -400,10 +400,14 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
-          "description": "Stricter rules for the experiment target from the standard rules. You only need one experiment target field.",
-          "type": "text",
-          "valid_values": [
-            "open chromatin region"
+          "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'open_chromatin_region'",
+          "type": "ontology_text",
+          "valid_terms": [
+            {
+              "ontology_name": "SO",
+              "term_iri": "http://purl.obolibrary.org/obo/SO_0001747",
+              "allow_descendants": false
+            }
           ]
         },
         {
@@ -427,10 +431,14 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
-          "description": "Stricter rules for the experiment target from the standard rules. You only need one experiment target field.",
-          "type": "text",
-          "valid_values": [
-            "open chromatin region"
+          "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'open_chromatin_region'",
+          "type": "ontology_text",
+          "valid_terms": [
+            {
+              "ontology_name": "SO",
+              "term_iri": "http://purl.obolibrary.org/obo/SO_0001747",
+              "allow_descendants": false
+            }
           ]
         },
         {
@@ -454,10 +462,14 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
-          "description": "Stricter rules for the experiment target from the standard rules. You only need one experiment target field",
-          "type": "text",
-          "valid_values": [
-            "chromatin"
+          "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'chromatin'",
+          "type": "ontology_text",
+          "valid_terms": [
+            {
+              "ontology_name": "GO",
+              "term_iri": "http://purl.obolibrary.org/obo/GO_0000785",
+              "allow_descendants": false
+            }
           ]
         },
         {
