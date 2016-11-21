@@ -380,9 +380,9 @@
           "type": "number"
         },
         {
-          "mandatory": "mandatory",
+          "mandatory": "recommended",
           "name": "rna integrity number",
-          "description": "For more information see Schroeder et al. (2006) http://bmcmolbiol.biomedcentral.com/articles/10.1186/1471-2199-7-3",
+          "description": "It is important to obtain this value, but if you are unable to supply this number (e.g. due to machine failure) then by submitting you are asserting the quality by visual inspection of traces and agreeing that the samples were suitable for sequencing. For more information on RNA Integrity Numbers see Schroeder et al. (2006) http://bmcmolbiol.biomedcentral.com/articles/10.1186/1471-2199-7-3",
           "type": "number"
         }
       ]
