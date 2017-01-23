@@ -117,7 +117,7 @@
         {
           "rule_prefix": "",
           "term": {
-            "term_iri": "http://purl.org/obo/owlATOL_0000002",
+            "term_iri": "http://opendata.inra.fr/ATOL/ATOL_0000002",
             "ontology_name": "ATOL",
             "allow_descendants": true,
             "leaf_only": false,
@@ -127,7 +127,7 @@
         {
           "rule_prefix": "",
           "term": {
-            "term_iri": "http://purl.org/obo/owlEOL_0000001",
+            "term_iri": "http://opendata.inra.fr/EOL/EOL_0000001",
             "ontology_name": "EOL",
             "allow_descendants": true,
             "leaf_only": false,
@@ -334,7 +334,7 @@
         {
           "rule_prefix": "",
           "term": {
-            "term_iri": "http://purl.org/obo/owlATOL_0000002",
+            "term_iri": "http://opendata.inra.fr/ATOL/ATOL_0000002",
             "ontology_name": "ATOL",
             "allow_descendants": true,
             "leaf_only": false,
@@ -344,7 +344,7 @@
         {
           "rule_prefix": "",
           "term": {
-            "term_iri": "http://purl.org/obo/owlEOL_0000001",
+            "term_iri": "http://opendata.inra.fr/EOL/EOL_0000001",
             "ontology_name": "EOL",
             "allow_descendants": true,
             "leaf_only": false,
