@@ -368,13 +368,13 @@
           ]
         },
         {
-          "mandatory": "mandatory",
+          "mandatory": "recommended",
           "name": "rna purity - 260:280 ratio",
           "description": "Sample purity assesed with fluoresence ratio at 260 and 280nm, informative for protein contamination",
           "type": "number"
         },
         {
-          "mandatory": "mandatory",
+          "mandatory": "recommended",
           "name": "rna purity - 260:230 ratio",
           "description": "Sample purity assesed with fluoresence ratio at 260 and 230nm, informative for contamination by phenolate ion, thiocyanates, and other organic compounds",
           "type": "number"
