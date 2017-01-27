@@ -1,6 +1,6 @@
 ##FAANG metadata - experiment specification
 
-This document describes the specification for all experiment metadata. You can find an overview of our metadata and archival plans in [the overview document](faang_metadata_overview.md). The [sample](faang_sample_metadata.md) and [analysis](faang_analysis_metadata.md) documents are also in this [git repo](https://github.com/FAANG/faang-metadata).  Further guidance can be found on the [FAANG wiki pages](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+Archive+Submission+guidelines).
+This document describes the specification for all experiment metadata. You can find an overview of our metadata and archival plans in [the overview document](faang_metadata_overview.md). The [sample](faang_sample_metadata.md) and [analysis](faang_analysis_metadata.md) documents are also in this [git repo](https://github.com/FAANG/faang-metadata).  Further guidance can be found on the [FAANG wiki pages](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+Archive+Submission+guidelines), with specific guidance for submission of [sequencing data](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+sequencing+data).
 
 Experiments are expected to fall into two categories:
 
@@ -25,22 +25,16 @@ Required:
 These following elements must always be present in any experiment metadata
 
  * `sample`  (*BioSample ID*) the BioSamples ID for the specimen, purified cell, cultured cell or cell line the experiment was conducted on. Each experiment must reference one FAANG BioSample
- * `assay type` (*ontology term*) The class of experiment performed. e.g. RNA-Seq or expression array. This should be a child term of [EFO:0002773](http://www.ebi.ac.uk/efo/EFO_0002773)
- * `experiment target` (*ontology term*) What is the experiment trying to find?
-  * ChIP-seq for histone modifications should use a child term of [histone modification](http://purl.obolibrary.org/obo/SO_0001700)
-  * ChIP-seq input should use the term [input DNA](http://www.ebi.ac.uk/efo/EFO_0005031)
-  * RNA-seq should use a child term of [RNA](http://purl.obolibrary.org/obo/CHEBI_33697)
-  * ATAC-seq and DNase-seq should use the term [open chromatin region](http://purl.obolibrary.org/obo/SO_0001747)
-  * Methylation assays should use the term [DNA methylation](http://purl.obolibrary.org/obo/GO_0006306)
- * `sample storage` (*text*) This should document how the sample was stored, from one of these values:
-    * frozen, liquid nitrogen
-    * frozen, -70 freezer
-    * frozen, vapor phase
-    * RNAlater, frozen
-    * paraffin block
-    * cut slide
-    * fresh
-    * ambient temperature
+ * `assay type` (*ontology term*) The class of experiment performed. e.g. RNA-Seq or expression array. This should be one of the following terms:
+    * methylation profiling by high throughput sequencing
+    * ChIP-seq
+    * transcription profiling by high throughput sequencing
+    * RNA-seq of coding RNA
+    * RNA-seq of non coding RNA
+    * microRNA profiling by high throughput sequencing
+    * DNase-Hypersensitivity seq
+    * ATAC-seq
+    * HiC
  * `sample storage processing` (*text*) This should document how the sample was prepared for storage, from one of these values:
      * cryopreservation in liquid nitrogen (dead tissue)
      * cryopreservation in dry ice (dead tissue)
@@ -51,7 +45,6 @@ These following elements must always be present in any experiment metadata
      * formalin fixed and paraffin embedded
      * fresh
  * `sampling to preparation interval` (*number*) This should list how long between the sample being taken and used in the experiment. Units should be specified, and be either 'minutes','hours','days','weeks' or 'years'.
- * `experimental protocol` (*protocol*) a description of the experiment protocol
  * `extraction protocol` (*protocol*) the protocol used to isolate the extract material
 
 Recommended:
@@ -65,26 +58,52 @@ Recommended:
  * `sequencing location longitude` (*number*) longitude of the sequencing location in decimal degrees. Units should be specified as 'decimal degrees'
  * `sequencing date` (*date*) date of sequencing
 
+Optional:
+ * `sample storage` (*text*) This should document how the sample was stored, from one of these values:
+    * frozen, liquid nitrogen
+    * frozen, -70 freezer
+    * frozen, -150 freezer
+    * frozen, vapor phase
+    * RNAlater, frozen
+    * TRIzol, frozen
+    * paraffin block
+    * cut slide
+    * fresh
+    * ambient temperature
+ * `experimental protocol` (*protocol*) a description of the experiment protocol
+
+
 ###Whole-genome bisulfite sequencing
 
 WGBS experiments should have an `assay type` of [methylation profiling by high throughput sequencing](http://www.ebi.ac.uk/efo/EFO_0002761) and an `experiment target`  of  [DNA methylation](http://purl.obolibrary.org/obo/GO_0006306).
 
 Required: 
 
+ * `experiment target` (*ontology term*) Should use the term [DNA methylation](http://purl.obolibrary.org/obo/GO_0006306)
  * `bisulfite conversion protocol` (*protocol*) 
  * `pcr product isolation protocol` (*protocol*) the protocol for isolating PCR products used for library generation
  * `bisulfite conversion percent` (*number*) bisulfite conversion percent (between 0 and 100)
  
 
-###ChIP-seq
+###ChIP-seq standard rules for both histone modifications and input DNA
 
-ChIP-seq experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/efo/EFO_0002692). The `experiment target` is variable. Use a child term of [SO:0001700](http://www.sequenceontology.org/browser/current_svn/term/SO:0001700) for histone modifications.
+ChIP-seq experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/efo/EFO_0002692).
 
-Examples of the antibody information are from the [H3K4me3 antibody from Diagenode](https://www.diagenode.com/p/h3k4me3-polyclonal-antibody-premium-50-ug-50-ul), used by the BLUEPRINT project. 
+Examples of the antibody information are from the [H3K4me3 antibody from Diagenode](https://www.diagenode.com/p/h3k4me3-polyclonal-antibody-premium-50-ug-50-ul), used by the BLUEPRINT project.
 
 Required:
 
+ * `experiment target` (*ontology term*)
+   * ChIP-seq for histone modifications should use a child term of [histone modification](http://purl.obolibrary.org/obo/SO_0001700)
+   * ChIP-seq input should use the term [input DNA](http://www.ebi.ac.uk/efo/EFO_0005031) and 
  * `chip protocol` (*protocol*)  the ChIP protocol used
+
+###ChIP-seq for histone modifications
+
+ChIP-seq histone modification experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/efo/EFO_0002692) and an `experiment target` child term of [SO:0001700](http://www.sequenceontology.org/browser/current_svn/term/SO:0001700) for histone modifications.
+
+Required:
+
  * `chip antibody provider` (*text*) the name of the company, laboratory or person that provided the antibody e.g. Diagneode 
  * `chip antibody catalog` (*text*)  the catalog from which the antibody was purchased e.g. pAb-003-050
  * `chip antibody lot` (*text*) the lot identifier of the antibody e.g. A5051-001P
@@ -93,11 +112,10 @@ Required:
 
 ###ChIP-seq input
 
-ChIP-seq experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/efo/EFO_0002692) and an `experiment target` of [Input DNA](http://www.ebi.ac.uk/efo/EFO_0005031) for ChIP input sequencing.
+ChIP-seq input experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/efo/EFO_0002692) and an `experiment target` of [Input DNA](http://www.ebi.ac.uk/efo/EFO_0005031) for ChIP input sequencing.
 
 Required:
 
- * `chip protocol` (*protocol*)  the ChIP protocol used
  * `library generation max fragment size range` (*number*) the maximum fragment size range of the preparation
  * `library generation min fragment size range` (*number*) the minimum fragment size range of the preparation
  
@@ -118,6 +136,11 @@ The `experiment target` should be one of the following:
 
 Required:
 
+ * `experiment target` (*ontology term*) Shoud be one of the following:
+   * [polyA RNA](http://purl.obolibrary.org/obo/OBI_0000869)
+   * [total RNA](http://www.ebi.ac.uk/efo/EFO_0004964)
+   * [ncRNA](http://purl.obolibrary.org/obo/SO_0000655)
+   * [microRNA](http://purl.obolibrary.org/obo/SBO_0000316)
  * `rna preparation 3' adapter ligation protocol` (*protocol*) the protocol for 3’ adapter ligation used in preparation
  * `rna preparation 5' adapter ligation protocol`*(protocol*) the protocol for 5’ adapter ligation used in preparation
  * `library generation pcr product isolation protocol` (*protocol*) the protocol for isolating pcr products used for library generation
@@ -131,33 +154,39 @@ Required:
     * paired-end sequencing:
          * 'mate 1 sense' if mate 1 should be on the same strand as the transcript
          * 'mate 2 sense' if mate 2 should be on the same strand as the transcript
+ 
+Recommended:
+
  * `rna purity - 260:280 ratio` (*number*) sample purity assesed with fluoresence ratio at 260 and 280nm, informative for protein contamination
  * `rna purity - 260:230 ratio` (*number*) Sample purity assesed with fluoresence ratio at 260 and 230nm, informative for contamination by phenolate ion, thiocyanates, and other organic compounds
- * `rna integrity number` (*number*) See [Schroeder *et al* , 2006](http://www.biomedcentral.com/1471-2199/7/3)
+ * `rna integrity number` (*number*) It is important to obtain this value, but if you are unable to supply this number (e.g. due to machine failure) then by submitting you are asserting the quality by visual inspection of traces and agreeing that the samples were suitable for sequencing. See [Schroeder *et al* , 2006](http://www.biomedcentral.com/1471-2199/7/3)
 
 ###DNase-Hypersensitivity seq
 
-DNase-seq experiments should have an `assay type` of  [DNase-Hypersensitivity seq](http://www.ebi.ac.uk/efo/EFO_0003752) and an `experiment target` of  [open chromatin region](http://purl.obolibrary.org/obo/SO_0001747)
+DNase-seq experiments should have an `assay type` of  [DNase-Hypersensitivity seq](http://www.ebi.ac.uk/efo/EFO_0003752)
 
 Required:
 
+ * `experiment target` (*ontology term*) Should use the term [open chromatin region](http://purl.obolibrary.org/obo/SO_0001747)
  * `dnase protocol` (*protocol*) the protocol used for DNAse treatment
 
 
 ###ATAC-seq
 
-ATAC-seq experiments should have an `assay type` of [ATAC-seq](http://www.ebi.ac.uk/efo/EFO_0007045) (due in release 2.69) and an `experiment target` of  [open chromatin region](http://purl.obolibrary.org/obo/SO_0001747)
+ATAC-seq experiments should have an `assay type` of [ATAC-seq](http://www.ebi.ac.uk/efo/EFO_0007045)
 
 Required:
 
+ * `experiment target` (*ontology term*) Should use the term [open chromatin region](http://purl.obolibrary.org/obo/SO_0001747)
  * `transposase protocol` (*protocol*) the protocol used for transposase treatment
 
 ###HiC
 
-HiC experiments should have an `assay type` of  [HiC](http://purl.obolibrary.org/obo/OBI_0002042)  and an `experiment target` of [chromosome conformation](http://purl.obolibrary.org/obo/OBI_0001917).
+HiC experiments should have an `assay type` of  [HiC](http://purl.obolibrary.org/obo/OBI_0002042)
 
 Required:
 
+ * `experiment target` (*ontology term*) Should use the term of [chromosome conformation](http://purl.obolibrary.org/obo/OBI_0001917)
  * restriction enzyme (*text*)
  * restriction site (*text*)
 
@@ -173,7 +202,7 @@ Dates should be reported in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_860
 
 ###number
 
-A number, with units specified. BioSamples recommends that units are given without abbreviations .For example, a birth weight could have a value of 1.3 and the units specified as 'kilograms'.
+A number, with units specified. BioSamples recommends that units are given without abbreviations. For example, a birth weight could have a value of 1.3 and the units specified as 'kilograms'.
 
 ###protocol
 
