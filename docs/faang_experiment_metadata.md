@@ -75,7 +75,7 @@ Optional:
 
 ###Whole-genome bisulfite sequencing
 
-WGBS experiments should have an `assay type` of [methylation profiling by high throughput sequencing](http://www.ebi.ac.uk/efo/EFO_0002761) and an `experiment target`  of  [DNA methylation](http://purl.obolibrary.org/obo/GO_0006306).
+WGBS experiments should have an `assay type` of [methylation profiling by high throughput sequencing](http://www.ebi.ac.uk/efo/EFO_0002761)
 
 Required: 
 
@@ -100,7 +100,7 @@ Required:
 
 ###ChIP-seq for histone modifications
 
-ChIP-seq histone modification experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/efo/EFO_0002692) and an `experiment target` child term of [SO:0001700](http://www.sequenceontology.org/browser/current_svn/term/SO:0001700) for histone modifications.
+ChIP-seq histone modification experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/efo/EFO_0002692)
 
 Required:
 
@@ -126,13 +126,6 @@ RNA-seq experiemnts should have an `assay type` of one of the following:
  * [RNA-seq of coding RNA](http://www.ebi.ac.uk/efo/EFO_0003738)
  * [RNA-seq of non coding RNA](http://www.ebi.ac.uk/efo/EFO_0003737)
  * [microRNA profiling by high throughput sequencing](http://www.ebi.ac.uk/efo/EFO_0002896) 
- 
-The `experiment target` should be one of the following:
-
- * [polyA RNA](http://purl.obolibrary.org/obo/OBI_0000869)
- * [total RNA](http://www.ebi.ac.uk/efo/EFO_0004964)
- * [ncRNA](http://purl.obolibrary.org/obo/SO_0000655)
- * [microRNA](http://purl.obolibrary.org/obo/SBO_0000316)
 
 Required:
 
@@ -187,8 +180,8 @@ HiC experiments should have an `assay type` of  [HiC](http://purl.obolibrary.org
 Required:
 
  * `experiment target` (*ontology term*) Should use the term of [chromosome conformation](http://purl.obolibrary.org/obo/OBI_0001917)
- * restriction enzyme (*text*)
- * restriction site (*text*)
+ * `restriction enzyme` (*text*)
+ * `restriction site` (*text*)
 
  
 ##Data types for experiment attributes
@@ -267,4 +260,5 @@ Each experiment record should reference a record in BioSamples. These have acces
  * [GEO](http://www.ncbi.nlm.nih.gov/geo/info/submission.html)
  * [DDBJ](http://www.ddbj.nig.ac.jp/submission_general-e.html)
 
- Further guidance can be found on the [FAANG wiki pages](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+Archive+Submission+guidelines).
+
+Further guidance can be found on the [FAANG wiki pages](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+Archive+Submission+guidelines).
