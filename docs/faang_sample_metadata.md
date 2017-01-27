@@ -90,10 +90,6 @@ Required:
  * `developmental stage` (*ontology term*) a child term of [life cycle stage](http://purl.obolibrary.org/obo/UBERON_0000105)
  * `organism part` ([UBERON](http://uberon.github.io/) term preferred)
  * `specimen collection protocol` (*protocol*) a link to the protocol followed when taking the specimen
- * `fasted status` - (*text*) One of the following values, for which the criteria _must_ be specified in the protocol:
-     * fed
-     * fasted
-     * unknown
 
 Recommended:
 
@@ -101,6 +97,10 @@ Recommended:
 
 Optional:
 
+ * `fasted status` - (*text*) One of the following values, for which the criteria _must_ be specified in the protocol:
+    * fed
+    * fasted
+    * unknown
  * `number of pieces` (*number*) Units must be specified as 'count'
  * `specimen volume` (*number*) Units must be specified as either 'square centimeters', 'liters' or 'milliliters'
  * `specimen size`(*number*) Units must be specified as either 'meters', 'centimeters', 'millimeters', 'square meters', 'square centimeters', or 'square millimeters'
@@ -193,7 +193,7 @@ Links to other records:
 
 ## Data types for sample attributes
 
-[BioSamples](http://www.ebi.ac.uk/biosamples) takes sample records with a set of attributes. Each attribute has a name and a value. It can also have 'Units', or a 'Term Source' and a 'Term Source ID'. The Term Source and ID allow us to refer to entries in other databases or ontologies. This is fully described on the [BioSamples help pages](http://www.ebi.ac.uk/biosamples/help/st_scd.html). The following section describe the expectations for each data type within FAANG.
+[BioSamples](http://www.ebi.ac.uk/biosamples) takes sample records with a set of attributes. Each attribute has a name and a value. It can also have 'Units', or a 'Term Source' and a 'Term Source ID'. The Term Source and ID allow us to refer to entries in other databases or ontologies. This is fully described on the [BioSamples help pages](http://www.ebi.ac.uk/biosamples/help/st_scd.html). The following section describes the expectations for each data type within FAANG.
 
 ### date
 
@@ -284,10 +284,14 @@ Short species codes:
 
 ## Submission
 
-Samples should be submitted to [BioSamples@EBI](https://www.ebi.ac.uk/biosamples/). All samples tagged with a `project` of 'FAANG' will be added to the [FAANG BioSamples group](http://www.ebi.ac.uk/biosamples/group/SAMEG307473).  Samples in this group will be synced to [BioSample@NCBI](http://www.ncbi.nlm.nih.gov/biosample/) periodically. Samples in BioSamples@EBI/BioSample@NCBI can be referenced in submissions to SRA at EBI and NCBI.
+Your submission should be prepared following the guidance on the [FAANG wiki pages](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+samples+to+BioSamples). This will guide you through:
+ * Downloading the empty Excel template to record your metadata
+ * Completing the template following the [instructions](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+samples+to+BioSamples) and referring to the [latest metadata rules specification](http://www.ebi.ac.uk/vg/faang/rule_sets/). The rules for each attribute define if it is mandatory or optional, what sort of data is expected (numeric, date, text, etc.), what units are permitted, and whether or not an ontology term is required.
+ * Visiting the [FAANG validation service](http://www.ebi.ac.uk/vg/faang/validate/) where you can validate that your Excel complies with the metadata specifications.
+ * Resolving any errors or warnings that it provides, referring to the [instructions](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+samples+to+BioSamples) and referring to the [latest metadata rules specification](http://www.ebi.ac.uk/vg/faang/rule_sets/) for advice.
+ * Converting your template into SampleTab ready for submission using the [FAANG conversion tool](http://www.ebi.ac.uk/vg/faang/sample_tab/)
+ * Samples should be submitted to [BioSamples@EBI](https://www.ebi.ac.uk/biosamples/). All samples tagged with a `project` of 'FAANG' will be added to the [FAANG BioSamples group](http://www.ebi.ac.uk/biosamples/group/SAMEG307473).  Samples in this group will be synced to [BioSample@NCBI](http://www.ncbi.nlm.nih.gov/biosample/) periodically. Samples in BioSamples@EBI/BioSample@NCBI can be referenced in submissions to SRA at EBI and NCBI.
 
-## Validation
-
-The DCC team at EBI will check the submitted metadata against the specification. Samples that do not meet the minimum requirements will be not be included in FAANG data releases.
+The DCC team at EBI will further check the submitted metadata against the specification. Samples that do not meet the minimum requirements will be not be included in FAANG data releases and will be marked as such in the [FAANG data portal](http://data.faang.org/home)
 
 Further guidance can be found on the [FAANG wiki pages](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+Archive+Submission+guidelines).
