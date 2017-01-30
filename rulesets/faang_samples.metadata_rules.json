@@ -184,7 +184,7 @@
         {
           "mandatory": "mandatory",
           "name": "breed",
-          "description": "Animal breed, described using the FAANG breed description guidelines (https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+guidelines+for+livestock+breed+nomenclature)",
+          "description": "Animal breed, described using the FAANG breed description guidelines (http://bit.ly/FAANGbreed)",
           "type": "faang_breed",
           "valid_terms": [
             {
@@ -725,7 +725,7 @@
         {
           "mandatory": "optional",
           "name": "breed",
-          "description": "Animal breed, described using the FAANG breed description guidelines(https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+guidelines+for+livestock+breed+nomenclature)",
+          "description": "Animal breed, described using the FAANG breed description guidelines(http://bit.ly/FAANGbreed)",
           "type": "faang_breed",
           "valid_terms": [
             {
