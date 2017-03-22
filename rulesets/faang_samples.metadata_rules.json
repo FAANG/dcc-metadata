@@ -719,8 +719,8 @@
         {
           "mandatory": "recommended",
           "name": "publication",
-          "description": "Link to a publication where the cell line has been fully described including. This should include details such as doubling time and adhesion preference.",
-          "type": "uri_value"
+          "description": "Publication Digitial Object Identifier (DOI) e.g. 'doi://10.1139/o09-005'. Publication where the cell line has been fully described and should include details such as doubling time and adhesion preference. You can use pubmed to find your DOI https://www.ncbi.nlm.nih.gov/pubmed",
+          "type": "text"
         },
         {
           "mandatory": "optional",
