@@ -252,9 +252,20 @@ The use of these values will interact with the metadata validation system as fol
    
 ##Submission
 
-Each experiment record should reference a record in BioSamples. These have accessions like SAMEA1234567. As described above, experiments themselves should be submitted to the appropriate EMBL-EBI, NCBI or DDBJ assay archives. Links to the different submission systems can be found below.
+Each experiment record should reference a record in BioSamples. These have accessions like SAMEA1234567. As described above, experiments themselves should be submitted to the appropriate EMBL-EBI, NCBI or DDBJ assay archives. 
 
- * [The European Nucleotide Archive](http://www.ebi.ac.uk/ena/submit/read-submission)
+
+For submissions to the [The European Nucleotide Archive](http://www.ebi.ac.uk/ena/submit/read-submission) you can follow the FAANG supported submission process.  Your submission should be prepared following the guidance on the [FAANG wiki pages](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+sequencing+data). This will guide you through:
+ * Downloading the empty Excel template to record your metadata
+ * Completing the template following the [instructions](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+sequencing+data) and referring to the [latest metadata rules specification](http://www.ebi.ac.uk/vg/faang/rule_sets/). The rules for each attribute define if it is mandatory or optional, what sort of data is expected (numeric, date, text, etc.), what units are permitted, and whether or not an ontology term is required.
+ * Visiting the [FAANG validation service](http://www.ebi.ac.uk/vg/faang/validate/) where you can validate that your template complies with the metadata specifications.
+ * Resolving any errors or warnings that it provides, referring to the [instructions](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+sequencing+data) and referring to the [latest metadata rules specification](http://www.ebi.ac.uk/vg/faang/rule_sets/) for advice.
+ * Converting your template into XML ready for submission using the [FAANG conversion tool](http://www.ebi.ac.uk/vg/faang/convert/)
+ * Follow the [upload and verification instructions for the ENA](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+sequencing+data) 
+
+
+Links to the different submission systems can be found below.
+
  * [ArrayExpress](http://www.ebi.ac.uk/arrayexpress/submit/overview.html)
  * [The Sequence read archive at NCBI](http://www.ncbi.nlm.nih.gov/sra/docs/submit/)
  * [GEO](http://www.ncbi.nlm.nih.gov/geo/info/submission.html)

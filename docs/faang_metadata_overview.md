@@ -20,15 +20,15 @@ Across all categories, descriptive factors should use ontology terms. Our prefer
 
 e.g., tissue specimens can be described using terms from UBERON such as  [lung, UBERON:0002048](http://purl.obolibrary.org/obo/UBERON_0002048)
 
-Protocols will be stored separately from the metadata, with a standardised name and a long term stable URL (DCC FTP site, or a database). The URL/name can be referenced from the metadata. e.g. The  3rd version of the Roslin ChIP Protocol would get a name like this:
+Protocols will be stored separately from the metadata, with a standardised name and stable URL, see the [FAANG wiki](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+samples+to+BioSamples) for guidance on protocol naming. The URL/name can be referenced from the metadata submission files, each protocol recieves a datestamp in its name so that subsequent updates to the protocols can be distinguished. e.g. The November 2016 version of the Roslin protocol for isolation of RNA from frozen tissue would get a name like this:
 
-`ChIP_protocol_roslin_20150511_v3`
+`ROSLIN_SOP_Isolation_of_RNA_from_frozen_tissue_20161108`
 
 Protocols may specify data to record during the experiment. Some of this should be stored as metadata. Where the data is numeric, the unit should be specified.  
 
 e.g. ChIP sonication fragmentation size range (bp), Antibody batch number.
 
-It is best these are hosted in a location which will be available in the long term so locations such as lab pages are inadvisable as web addresses change and hosting goes away.  FAANG is happy to host protocols in the [FAANG FTP site protocols directory](ftp://ftp.faang.ebi.ac.uk/ftp/protocols/).
+It is best these are hosted in a location which will be available in the long term so locations such as lab pages are inadvisable as web addresses change and hosting goes away.  FAANG is happy to host protocols in the [FAANG FTP site protocols directory](ftp://ftp.faang.ebi.ac.uk/ftp/protocols/), see the [FAANG wiki](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+samples+to+BioSamples) for further guidance.
 
 If you wish FAANG to host your protocols, please send pdf copies of your protocols to faang-dcc@ebi.ac.uk.
 

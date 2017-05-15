@@ -30,7 +30,7 @@ Analysis metadata needs to contain the following process attributes
     * Full command line used to run the analysis
     * Link to any VM or containers used, if applicable
 
-The analysis must be reproducible based on the protocol document, as such we strongly recommend any inhouse scripts which are using through the process are made publicly available through github or a similar code repository. FAANG is happy to host people's code under the FAANG github repository if that is needed. 
+The analysis must be reproducible based on the protocol document, as such we strongly recommend any inhouse scripts which are using through the process are made publicly available through github or a similar code repository. FAANG is happy to host people's code under the FAANG github repository if that is needed, please contact faang-dcc@ebi.ac.uk to discuss this. 
 
 ###QC attributes
 

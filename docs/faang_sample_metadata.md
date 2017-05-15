@@ -30,7 +30,7 @@ Required:
 
 Optional:
 
- * `Sample Description` (*text*) a brief description of the sample
+ * `Sample Description` (*text*) a brief description of the sample including the species name
  * `availability` (*URL*) either a link to a web page giving information on sample availability (who to contact and if the sample is available), or a e-mail address to contact about availability. E-mail addresses should be prefixed with 'mailto:', e.g. 'mailto:samples@example.ac.uk'. In either case, long term support of the web page or e-mail address is necessary. Group e-mail addresses are preferable to indiviudal.
 
  Links to other records:
@@ -114,6 +114,26 @@ Phenotypic, physiological and environmental information can be recorded using as
 Links to other records:
 
  * `Derived from` (*sample*) sample name or BioSample ID for an *animal* record (required).
+
+### Pool of specimens
+
+Each specimen within the pool should have its own complete specimen record.  The sample names (if detailed in the same file), or BioSample IDs if they already exists in the BioSamples database, are recorded in multiple 'derived from' fields.  As many 'derived from' fields as are required to record all of the specimens that are part of the pool can be included.
+
+Required:
+
+ * `pool creation date`(*date*) date at which the pool of specimens was created
+ * `pool creation protocol` (*protocol*) a link to the protocol followed when creating the pool
+
+Optional:
+
+* `specimen volume` (*number*) Units must be specified as either 'square centimeters', 'liters' or 'milliliters'
+* `specimen size`(*number*) Units must be specified as either 'meters', 'centimeters', 'millimeters', 'square meters', 'square centimeters', or 'square millimeters'
+* `specimen weight` (*number*) Units must be specified as either 'grams', 'kilograms'
+* `specimen picture url` (*URL*) Link to a picture of the specimen
+
+Links to other records:
+
+ * `Derived from` (*sample*) specimen name or BioSample ID for a *specimen* record (required), multiple allowed.
 
 ### Purified cells
 
@@ -289,9 +309,9 @@ Your submission should be prepared following the guidance on the [FAANG wiki pag
  * Completing the template following the [instructions](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+samples+to+BioSamples) and referring to the [latest metadata rules specification](http://www.ebi.ac.uk/vg/faang/rule_sets/). The rules for each attribute define if it is mandatory or optional, what sort of data is expected (numeric, date, text, etc.), what units are permitted, and whether or not an ontology term is required.
  * Visiting the [FAANG validation service](http://www.ebi.ac.uk/vg/faang/validate/) where you can validate that your Excel complies with the metadata specifications.
  * Resolving any errors or warnings that it provides, referring to the [instructions](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+samples+to+BioSamples) and referring to the [latest metadata rules specification](http://www.ebi.ac.uk/vg/faang/rule_sets/) for advice.
- * Converting your template into SampleTab ready for submission using the [FAANG conversion tool](http://www.ebi.ac.uk/vg/faang/sample_tab/)
+ * Converting your template into SampleTab ready for submission using the [FAANG conversion tool](http://www.ebi.ac.uk/vg/faang/convert/)
  * Samples should be submitted to [BioSamples@EBI](https://www.ebi.ac.uk/biosamples/). All samples tagged with a `project` of 'FAANG' will be added to the [FAANG BioSamples group](http://www.ebi.ac.uk/biosamples/group/SAMEG307473).  Samples in this group will be synced to [BioSample@NCBI](http://www.ncbi.nlm.nih.gov/biosample/) periodically. Samples in BioSamples@EBI/BioSample@NCBI can be referenced in submissions to SRA at EBI and NCBI.
 
-The DCC team at EBI will further check the submitted metadata against the specification. Samples that do not meet the minimum requirements will be not be included in FAANG data releases and will be marked as such in the [FAANG data portal](http://data.faang.org/home)
+The DCC team at EMBL-EBI will further check the submitted metadata against the specification. Samples that do not meet the minimum requirements will be not be included in FAANG data releases and will be marked as such in the [FAANG data portal](http://data.faang.org/home)
 
 Further guidance can be found on the [FAANG wiki pages](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+Archive+Submission+guidelines).
