@@ -534,6 +534,91 @@
       "condition": {
         "attribute_value_match": {
           "Material": [
+            "pool of specimens"
+          ]
+        }
+      },
+      "name": "pool of specimens",
+      "rules": [
+        {
+          "mandatory": "mandatory",
+          "name": "pool creation date",
+          "description": "Date at which the pool was created",
+          "type": "date",
+          "valid_units": [
+            "YYYY-MM-DD",
+            "YYYY-MM",
+            "YYYY"
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "pool creation protocol",
+          "description": "A link to the protocol for pool of specimens creation.",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "optional",
+          "name": "specimen volume",
+          "description": "Pool specimen volume.  Total sum from multiple specimens.",
+          "type": "number",
+          "valid_units": [
+            "square centimeters",
+            "liters",
+            "milliliters"
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "specimen size",
+          "description": "Pool specimen size.  Total sum from multiple specimens.",
+          "type": "number",
+          "valid_units": [
+            "meters",
+            "centimeters",
+            "millimeters",
+            "square meters",
+            "square centimeters",
+            "square millimeters"
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "specimen weight",
+          "description": "Pool specimen weight. Total sum from multiple specimens.",
+          "type": "number",
+          "valid_units": [
+            "grams",
+            "kilograms"
+          ]
+        },
+        {
+          "allow_multiple": 1,
+          "mandatory": "optional",
+          "name": "specimen picture url",
+          "description": "A link a picture of the pooled specimen, multiple links allowed",
+          "type": "uri_value"
+        },
+        {
+          "allow_multiple": 1,
+          "mandatory": "mandatory",
+          "name": "Derived from",
+          "description": "Sample name or BioSample ID for each specimen record that is part of the pool.",
+          "type": "relationship",
+          "condition": {
+            "attribute_value_match": {
+              "Material": [
+                "specimen from organism"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "condition": {
+        "attribute_value_match": {
+          "Material": [
             "cell specimen"
           ]
         }
