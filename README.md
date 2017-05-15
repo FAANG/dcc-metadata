@@ -4,7 +4,7 @@
 
 The objective of the Metadata and Data Sharing committee is to recommend standard methods to record information for all samples, experiments and analyses carried out by FAANG consortium members; recommend best practice for data archiving; and define data sharing methodologies that encourage sharing within the FAANG consortium and rapid public release of raw data and analysis results.
 
-The M&DS committee will meet monthly to discuss these issues and define and update the metadata standards
+The M&DS committee will meet periodically to discuss these issues and define and update the metadata standards
 
 The expected outcomes are:
 
