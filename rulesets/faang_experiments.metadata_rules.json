@@ -1,5 +1,5 @@
 {
-  "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all experiments, and additional groups based on the experiment type.",
+  "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all experiments, and additional groups based on the experiment type",
   "name": "FAANG experiment metadata rules",
   "further_details_iri": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_experiment_metadata.md",
   "rule_groups": [
@@ -20,13 +20,14 @@
             "microRNA profiling by high throughput sequencing",
             "DNase-Hypersensitivity seq",
             "ATAC-seq",
-            "HiC"
+            "HiC",
+            "whole genome sequencing"
           ]
         },
         {
           "mandatory": "optional",
           "name": "sample storage",
-          "description": "How the sample was stored. Temperatures are in celsius. 'Frozen, vapor phase' refers to storing samples above liquid nitrogen in the vapor.",
+          "description": "How the sample was stored. Temperatures are in celsius. 'Frozen, vapor phase' refers to storing samples above liquid nitrogen in the vapor",
           "type": "text",
           "valid_values": [
             "frozen, liquid nitrogen",
@@ -73,7 +74,7 @@
         {
           "mandatory": "optional",
           "name": "experimental protocol",
-          "description": "Link to the description of the experiment protocol, an overview of the full experiment, that can refer to the order in which other protocols were performed and any intermediate steps not covered by the extraction or assay specific protocols.",
+          "description": "Link to the description of the experiment protocol, an overview of the full experiment, that can refer to the order in which other protocols were performed and any intermediate steps not covered by the extraction or assay specific protocols",
           "type": "uri_value"
         },
         {
@@ -158,12 +159,12 @@
           ]
         }
       },
-      "name": "WGBS",
+      "name": "BS-Seq",
       "rules": [
         {
           "mandatory": "mandatory",
           "name": "experiment target",
-          "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'DNA methylation'.",
+          "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'DNA methylation'",
           "type": "ontology_text",
           "valid_terms": [
             {
@@ -171,6 +172,16 @@
               "term_iri": "http://purl.obolibrary.org/obo/GO_0006306",
               "allow_descendants": false
             }
+          ]
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "library selection",
+          "description": "Library selection is Whole Genome Bisulfite sequencing or Reduced representation bisulfite sequencing",
+          "type": "text",
+          "valid_values": [
+            "WGBS",
+            "RBBS"
           ]
         },        
         {
@@ -190,6 +201,24 @@
           "name": "bisulfite conversion percent",
           "description": "Bisulfite conversion percentage",
           "type": "number"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "restriction enzyme",
+          "description": "Restriction enzyme used for Reduced representation bisulfite sequencing",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "max fragment size selection range",
+          "description": "The maximum fragment size range of the fragment selection range",
+          "type": "number"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "min fragment size selection range",
+          "description": "The minimum fragment size of the fragment selection range",
+          "type": "number"
         }
       ]
     },
@@ -206,7 +235,7 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
-          "description": "What the experiment was trying to find, list the text rather than ontology link e.g. 'input DNA'. ChIP-seq histone modifications: use child term of SO_0001700. ChIP-seq input: use 'input DNA'.",
+          "description": "What the experiment was trying to find, list the text rather than ontology link e.g. 'input DNA'. ChIP-seq histone modifications: use child term of SO_0001700. ChIP-seq input: use 'input DNA'",
           "type": "ontology_text",
           "valid_terms": [
             {
@@ -483,6 +512,53 @@
           "name": "restriction site",
           "description": "Restriction site targeted",
           "type": "text"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "attribute_value_match": {
+          "assay type": [
+            "whole genome sequencing"
+          ]
+        }
+      },
+      "name": "WGS",
+      "rules": [
+        {
+          "mandatory": "mandatory",
+          "name": "experiment target",
+          "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'input DNA'",
+          "type": "ontology_text",
+          "valid_terms": [
+            {
+              "ontology_name": "EFO",
+              "term_iri": "http://www.ebi.ac.uk/efo/EFO_0005031",
+              "allow_descendants": false
+            }
+          ]
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "library generation pcr product isolation protocol",
+          "description": "Link to the protocol for isolating PCR products used for library generation",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "library generation protocol",
+          "description": "Link to the protocol used to generate the library",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "optional",
+          "name": "library selection",
+          "description": "State whether reduced representation was used in the protocol",
+          "type": "text",
+          "valid_values": [
+            "reduced representation",
+            "none"
+          ]
         }
       ]
     }
