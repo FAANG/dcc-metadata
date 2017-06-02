@@ -93,6 +93,9 @@ Required:
  * `bisulfite conversion protocol` (*protocol*) 
  * `pcr product isolation protocol` (*protocol*) the protocol for isolating PCR products used for library generation
  * `bisulfite conversion percent` (*number*) bisulfite conversion percent (between 0 and 100)
+
+Recommended:
+
  * `restriction enzyme` (*text*) Restriction enzyme used for Reduced representation bisulfite sequencing
  * `max fragment size selection range` (*number*) The maximum fragment size of the fragment selection range
  * `min fragment size selection range` (*number*) The minimum fragment size of the fragment selection range
