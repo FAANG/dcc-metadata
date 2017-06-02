@@ -12,15 +12,15 @@
           "description": "The type of experiment performed",
           "type": "text",
           "valid_values": [
-            "methylation profiling by high throughput sequencing",
+            "ATAC-seq",
             "ChIP-seq",
-            "transcription profiling by high throughput sequencing",
+            "DNase-Hypersensitivity seq",
+            "HiC",
+            "methylation profiling by high throughput sequencing",
+            "microRNA profiling by high throughput sequencing",
             "RNA-seq of coding RNA",
             "RNA-seq of non coding RNA",
-            "microRNA profiling by high throughput sequencing",
-            "DNase-Hypersensitivity seq",
-            "ATAC-seq",
-            "HiC",
+            "transcription profiling by high throughput sequencing",
             "whole genome sequencing"
           ]
         },
@@ -30,16 +30,16 @@
           "description": "How the sample was stored. Temperatures are in celsius. 'Frozen, vapor phase' refers to storing samples above liquid nitrogen in the vapor",
           "type": "text",
           "valid_values": [
-            "frozen, liquid nitrogen",
-            "frozen, -70 freezer",
-            "frozen, -150 freezer",
-            "frozen, vapor phase",
-            "RNAlater, frozen",
-            "TRIzol, frozen",
-            "paraffin block",
+            "ambient temperature",
             "cut slide",
             "fresh",
-            "ambient temperature"
+            "frozen, -70 freezer",
+            "frozen, -150 freezer",
+            "frozen, liquid nitrogen",
+            "frozen, vapor phase",
+            "paraffin block",
+            "RNAlater, frozen",
+            "TRIzol, frozen"
           ]
         },
         {
@@ -211,8 +211,8 @@
           "description": "Library selection is Whole Genome Bisulfite Sequencing or Reduced Representation Bisulfite Sequencing",
           "type": "text",
           "valid_values": [
-            "WGBS",
-            "RBBS"
+            "RBBS",
+            "WGBS"
           ]
         },        
         {
@@ -431,10 +431,10 @@
       "condition": {
         "attribute_value_match": {
           "assay type": [
-            "transcription profiling by high throughput sequencing",
+            "microRNA profiling by high throughput sequencing",
             "RNA-seq of coding RNA",
             "RNA-seq of non coding RNA",
-            "microRNA profiling by high throughput sequencing"
+            "transcription profiling by high throughput sequencing"
           ]
         }
       },

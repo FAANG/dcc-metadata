@@ -26,15 +26,16 @@ These following elements must always be present in any experiment metadata
 
  * `sample`  (*BioSample ID*) the BioSamples ID for the specimen, purified cell, cultured cell or cell line the experiment was conducted on. Each experiment must reference one FAANG BioSample
  * `assay type` (*ontology term*) The class of experiment performed. e.g. RNA-Seq or expression array. This should be one of the following terms:
-    * methylation profiling by high throughput sequencing
+    * ATAC-seq
     * ChIP-seq
-    * transcription profiling by high throughput sequencing
+    * DNase-Hypersensitivity seq
+    * HiC
+    * methylation profiling by high throughput sequencing
+    * microRNA profiling by high throughput sequencing
     * RNA-seq of coding RNA
     * RNA-seq of non coding RNA
-    * microRNA profiling by high throughput sequencing
-    * DNase-Hypersensitivity seq
-    * ATAC-seq
-    * HiC
+    * transcription profiling by high throughput sequencing
+    * WGS
  * `sample storage processing` (*text*) This should document how the sample was prepared for storage, from one of these values:
      * cryopreservation in liquid nitrogen (dead tissue)
      * cryopreservation in dry ice (dead tissue)
@@ -60,22 +61,31 @@ Recommended:
 
 Optional:
  * `sample storage` (*text*) This should document how the sample was stored, from one of these values:
-    * frozen, liquid nitrogen
+    * ambient temperature
+    * cut slide
+    * fresh
     * frozen, -70 freezer
     * frozen, -150 freezer
+    * frozen, liquid nitrogen
     * frozen, vapor phase
     * RNAlater, frozen
     * TRIzol, frozen
-    * paraffin block
-    * cut slide
-    * fresh
-    * ambient temperature
+    * paraffin block   
  * `experimental protocol` (*protocol*) a description of the experiment protocol
 
 
-###Whole-genome bisulfite sequencing
+###ATAC-seq
 
-WGBS experiments should have an `assay type` of [methylation profiling by high throughput sequencing](http://www.ebi.ac.uk/efo/EFO_0002761)
+ATAC-seq experiments should have an `assay type` of [ATAC-seq](http://www.ebi.ac.uk/efo/EFO_0007045)
+
+Required:
+
+ * `experiment target` (*ontology term*) Should use the term [open chromatin region](http://purl.obolibrary.org/obo/SO_0001747)
+ * `transposase protocol` (*protocol*) the protocol used for transposase treatment
+
+###Bisulfite sequencing
+
+WGBS and RBBS experiments should have an `assay type` of [methylation profiling by high throughput sequencing](http://www.ebi.ac.uk/efo/EFO_0002761)
 
 Required: 
 
@@ -83,7 +93,9 @@ Required:
  * `bisulfite conversion protocol` (*protocol*) 
  * `pcr product isolation protocol` (*protocol*) the protocol for isolating PCR products used for library generation
  * `bisulfite conversion percent` (*number*) bisulfite conversion percent (between 0 and 100)
- 
+ * `restriction enzyme` (*text*) Restriction enzyme used for Reduced representation bisulfite sequencing
+ * `max fragment size selection range` (*number*) The maximum fragment size of the fragment selection range
+ * `min fragment size selection range` (*number*) The minimum fragment size of the fragment selection range
 
 ###ChIP-seq standard rules for both histone modifications and input DNA
 
@@ -95,7 +107,7 @@ Required:
 
  * `experiment target` (*ontology term*)
    * ChIP-seq for histone modifications should use a child term of [histone modification](http://purl.obolibrary.org/obo/SO_0001700)
-   * ChIP-seq input should use the term [input DNA](http://www.ebi.ac.uk/efo/EFO_0005031) and 
+   * ChIP-seq input should use the term [input DNA](http://www.ebi.ac.uk/efo/EFO_0005031) 
  * `chip protocol` (*protocol*)  the ChIP protocol used
 
 ###ChIP-seq for histone modifications
@@ -118,7 +130,26 @@ Required:
 
  * `library generation max fragment size range` (*number*) the maximum fragment size range of the preparation
  * `library generation min fragment size range` (*number*) the minimum fragment size range of the preparation
- 
+
+###DNase-Hypersensitivity seq
+
+DNase-seq experiments should have an `assay type` of  [DNase-Hypersensitivity seq](http://www.ebi.ac.uk/efo/EFO_0003752)
+
+Required:
+
+ * `experiment target` (*ontology term*) Should use the term [open chromatin region](http://purl.obolibrary.org/obo/SO_0001747)
+ * `dnase protocol` (*protocol*) the protocol used for DNAse treatment
+
+###HiC
+
+HiC experiments should have an `assay type` of [HiC](http://purl.obolibrary.org/obo/OBI_0002042)
+
+Required:
+
+ * `experiment target` (*ontology term*) Should use the term of [chromosome conformation](http://purl.obolibrary.org/obo/OBI_0001917)
+ * `restriction enzyme` (*text*)
+ * `restriction site` (*text*)
+
 ###RNA-seq
 
 RNA-seq experiemnts should have an `assay type` of one of the following: 
@@ -154,36 +185,22 @@ Recommended:
  * `rna purity - 260:230 ratio` (*number*) Sample purity assesed with fluoresence ratio at 260 and 230nm, informative for contamination by phenolate ion, thiocyanates, and other organic compounds
  * `rna integrity number` (*number*) It is important to obtain this value, but if you are unable to supply this number (e.g. due to machine failure) then by submitting you are asserting the quality by visual inspection of traces and agreeing that the samples were suitable for sequencing. See [Schroeder *et al* , 2006](http://www.biomedcentral.com/1471-2199/7/3)
 
-###DNase-Hypersensitivity seq
+###WGS
 
-DNase-seq experiments should have an `assay type` of  [DNase-Hypersensitivity seq](http://www.ebi.ac.uk/efo/EFO_0003752)
-
-Required:
-
- * `experiment target` (*ontology term*) Should use the term [open chromatin region](http://purl.obolibrary.org/obo/SO_0001747)
- * `dnase protocol` (*protocol*) the protocol used for DNAse treatment
-
-
-###ATAC-seq
-
-ATAC-seq experiments should have an `assay type` of [ATAC-seq](http://www.ebi.ac.uk/efo/EFO_0007045)
+Whole Genome Sequencing should have an `assay type` of [whole genome sequencing](http://purl.obolibrary.org/obo/ERO_0002016)
 
 Required:
 
- * `experiment target` (*ontology term*) Should use the term [open chromatin region](http://purl.obolibrary.org/obo/SO_0001747)
- * `transposase protocol` (*protocol*) the protocol used for transposase treatment
+ * `experiment target` should use the term [input DNA](http://www.ebi.ac.uk/efo/EFO_0005031)
+ * `library generation pcr product isolation protocol` (*protocol*) the protocol for isolating pcr products used for library generation
+ * `library generation protocol` (*protocol*) link to the protocol used to generate the library
 
-###HiC
+Optional:
+ * `library selection` (*text*) State whether reduced representation was used in the protocol from one of these values:
+    * reduced representation
+    * none
 
-HiC experiments should have an `assay type` of  [HiC](http://purl.obolibrary.org/obo/OBI_0002042)
 
-Required:
-
- * `experiment target` (*ontology term*) Should use the term of [chromosome conformation](http://purl.obolibrary.org/obo/OBI_0001917)
- * `restriction enzyme` (*text*)
- * `restriction site` (*text*)
-
- 
 ##Data types for experiment attributes
 
 SRA databases (ENA , NCBI, DDBJ) takes experiment records with a set of attributes. Each attribute has a name and a value, and can also have units. In contrast with the [BioSamples](www.ebi.ac.uk/biosamples) database, they do not have direct support for ontology terms.
