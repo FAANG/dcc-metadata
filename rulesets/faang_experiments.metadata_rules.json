@@ -155,6 +155,37 @@
       "condition": {
         "attribute_value_match": {
           "assay type": [
+            "ATAC-seq"
+          ]
+        }
+      },
+      "name": "ATAC-seq",
+      "rules": [
+        {
+          "mandatory": "mandatory",
+          "name": "experiment target",
+          "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'open_chromatin_region'",
+          "type": "ontology_text",
+          "valid_terms": [
+            {
+              "ontology_name": "SO",
+              "term_iri": "http://purl.obolibrary.org/obo/SO_0001747",
+              "allow_descendants": false
+            }
+          ]
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "transposase protocol",
+          "description": "Link to the protocol used for transposase treatment",
+          "type": "uri_value"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "attribute_value_match": {
+          "assay type": [
             "methylation profiling by high throughput sequencing"
           ]
         }
@@ -177,7 +208,7 @@
         {
           "mandatory": "mandatory",
           "name": "library selection",
-          "description": "Library selection is Whole Genome Bisulfite sequencing or Reduced representation bisulfite sequencing",
+          "description": "Library selection is Whole Genome Bisulfite Sequencing or Reduced Representation Bisulfite Sequencing",
           "type": "text",
           "valid_values": [
             "WGBS",
@@ -211,7 +242,7 @@
         {
           "mandatory": "recommended",
           "name": "max fragment size selection range",
-          "description": "The maximum fragment size range of the fragment selection range",
+          "description": "The maximum fragment size of the fragment selection range",
           "type": "number"
         },
         {
@@ -332,6 +363,74 @@
       "condition": {
         "attribute_value_match": {
           "assay type": [
+            "DNase-Hypersensitivity seq"
+          ]
+        }
+      },
+      "name": "DNase-seq",
+      "rules": [
+        {
+          "mandatory": "mandatory",
+          "name": "experiment target",
+          "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'open_chromatin_region'",
+          "type": "ontology_text",
+          "valid_terms": [
+            {
+              "ontology_name": "SO",
+              "term_iri": "http://purl.obolibrary.org/obo/SO_0001747",
+              "allow_descendants": false
+            }
+          ]
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "dnase protocol",
+          "description": "Link to the protocol used for transposase treatment",
+          "type": "uri_value"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "attribute_value_match": {
+          "assay type": [
+            "HiC"
+          ]
+        }
+      },
+      "name": "HiC",
+      "rules": [
+        {
+          "mandatory": "mandatory",
+          "name": "experiment target",
+          "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'chromatin'",
+          "type": "ontology_text",
+          "valid_terms": [
+            {
+              "ontology_name": "GO",
+              "term_iri": "http://purl.obolibrary.org/obo/GO_0000785",
+              "allow_descendants": false
+            }
+          ]
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "restriction enzyme",
+          "description": "Restriction enzyme used",
+          "type": "text"
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "restriction site",
+          "description": "Restriction site targeted",
+          "type": "text"
+        }
+      ]
+    },
+        {
+      "condition": {
+        "attribute_value_match": {
+          "assay type": [
             "transcription profiling by high throughput sequencing",
             "RNA-seq of coding RNA",
             "RNA-seq of non coding RNA",
@@ -413,105 +512,6 @@
           "name": "rna integrity number",
           "description": "It is important to obtain this value, but if you are unable to supply this number (e.g. due to machine failure) then by submitting you are asserting the quality by visual inspection of traces and agreeing that the samples were suitable for sequencing. For more information on RNA Integrity Numbers see Schroeder et al. (2006) http://bmcmolbiol.biomedcentral.com/articles/10.1186/1471-2199-7-3",
           "type": "number"
-        }
-      ]
-    },
-    {
-      "condition": {
-        "attribute_value_match": {
-          "assay type": [
-            "DNase-Hypersensitivity seq"
-          ]
-        }
-      },
-      "name": "DNase-seq",
-      "rules": [
-        {
-          "mandatory": "mandatory",
-          "name": "experiment target",
-          "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'open_chromatin_region'",
-          "type": "ontology_text",
-          "valid_terms": [
-            {
-              "ontology_name": "SO",
-              "term_iri": "http://purl.obolibrary.org/obo/SO_0001747",
-              "allow_descendants": false
-            }
-          ]
-        },
-        {
-          "mandatory": "mandatory",
-          "name": "dnase protocol",
-          "description": "Link to the protocol used for transposase treatment",
-          "type": "uri_value"
-        }
-      ]
-    },
-    {
-      "condition": {
-        "attribute_value_match": {
-          "assay type": [
-            "ATAC-seq"
-          ]
-        }
-      },
-      "name": "ATAC-seq",
-      "rules": [
-        {
-          "mandatory": "mandatory",
-          "name": "experiment target",
-          "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'open_chromatin_region'",
-          "type": "ontology_text",
-          "valid_terms": [
-            {
-              "ontology_name": "SO",
-              "term_iri": "http://purl.obolibrary.org/obo/SO_0001747",
-              "allow_descendants": false
-            }
-          ]
-        },
-        {
-          "mandatory": "mandatory",
-          "name": "transposase protocol",
-          "description": "Link to the protocol used for transposase treatment",
-          "type": "uri_value"
-        }
-      ]
-    },
-    {
-      "condition": {
-        "attribute_value_match": {
-          "assay type": [
-            "HiC"
-          ]
-        }
-      },
-      "name": "HiC",
-      "rules": [
-        {
-          "mandatory": "mandatory",
-          "name": "experiment target",
-          "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'chromatin'",
-          "type": "ontology_text",
-          "valid_terms": [
-            {
-              "ontology_name": "GO",
-              "term_iri": "http://purl.obolibrary.org/obo/GO_0000785",
-              "allow_descendants": false
-            }
-          ]
-        },
-        {
-          "mandatory": "mandatory",
-          "name": "restriction enzyme",
-          "description": "Restriction enzyme used",
-          "type": "text"
-        },
-        {
-          "mandatory": "mandatory",
-          "name": "restriction site",
-          "description": "Restriction site targeted",
-          "type": "text"
         }
       ]
     },
