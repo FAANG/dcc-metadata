@@ -113,7 +113,9 @@
           "description": "Date on which the library was prepared",
           "type": "date",
           "valid_units": [
-            "YYYY-MM-DD"
+            "YYYY-MM-DD",
+            "YYYY-MM",
+            "YYYY"
           ]
         },
         {
@@ -146,7 +148,9 @@
           "description": "Date sequencing was performed",
           "type": "date",
           "valid_units": [
-            "YYYY-MM-DD"
+            "YYYY-MM-DD",
+            "YYYY-MM",
+            "YYYY"
           ]
         }
       ]
@@ -485,14 +489,15 @@
         {
           "mandatory": "mandatory",
           "name": "read strand",
-          "description": "For strand specific protocol, specify which mate pair maps to the transcribed strand or Report 'not applicable' if the protocol is not strand specific. For single-ended sequencing: use 'sense' if the reads should be on the same strand as the transcript, 'antisense' if on opposite strand. For paired-end sequencing: 'mate 1 sense' if mate 1 should be on the same strand as the transcript, 'mate 2 sense' if mate 2 should be on the same strand as the transcript",
+          "description": "For strand specific protocol, specify which mate pair maps to the transcribed strand or Report 'non-stranded' if the protocol is not strand specific. For single-ended sequencing: use 'sense' if the reads should be on the same strand as the transcript, 'antisense' if on opposite strand. For paired-end sequencing: 'mate 1 sense' if mate 1 should be on the same strand as the transcript, 'mate 2 sense' if mate 2 should be on the same strand as the transcript",
           "type": "text",
           "valid_values": [
             "not applicable",
             "sense",
             "antisense",
             "mate 1 sense",
-            "mate 2 sense"
+            "mate 2 sense",
+            "non-stranded"
           ]
         },
         {
