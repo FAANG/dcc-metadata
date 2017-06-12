@@ -20,7 +20,8 @@
             "microRNA profiling by high throughput sequencing",
             "RNA-seq of coding RNA",
             "RNA-seq of non coding RNA",
-            "transcription profiling by high throughput sequencing"
+            "transcription profiling by high throughput sequencing",
+            "whole genome sequencing"
           ]
         },
         {
@@ -32,9 +33,9 @@
             "ambient temperature",
             "cut slide",
             "fresh",
-            "frozen, liquid nitrogen",
             "frozen, -70 freezer",
             "frozen, -150 freezer",
+            "frozen, liquid nitrogen",
             "frozen, vapor phase",
             "paraffin block",
             "RNAlater, frozen",
@@ -112,7 +113,9 @@
           "description": "Date on which the library was prepared",
           "type": "date",
           "valid_units": [
-            "YYYY-MM-DD"
+            "YYYY-MM-DD",
+            "YYYY-MM",
+            "YYYY"
           ]
         },
         {
@@ -145,7 +148,9 @@
           "description": "Date sequencing was performed",
           "type": "date",
           "valid_units": [
-            "YYYY-MM-DD"
+            "YYYY-MM-DD",
+            "YYYY-MM",
+            "YYYY"
           ]
         }
       ]
@@ -189,7 +194,7 @@
           ]
         }
       },
-      "name": "BS-Seq",
+      "name": "BS-seq",
       "rules": [
         {
           "mandatory": "mandatory",
@@ -484,14 +489,15 @@
         {
           "mandatory": "recommended",
           "name": "read strand",
-          "description": "For strand specific protocol, specify which mate pair maps to the transcribed strand or Report 'not applicable' if the protocol is not strand specific. For single-ended sequencing: use 'sense' if the reads should be on the same strand as the transcript, 'antisense' if on opposite strand. For paired-end sequencing: 'mate 1 sense' if mate 1 should be on the same strand as the transcript, 'mate 2 sense' if mate 2 should be on the same strand as the transcript",
+          "description": "For strand specific protocol, specify which mate pair maps to the transcribed strand or Report 'non-stranded' if the protocol is not strand specific. For single-ended sequencing: use 'sense' if the reads should be on the same strand as the transcript, 'antisense' if on opposite strand. For paired-end sequencing: 'mate 1 sense' if mate 1 should be on the same strand as the transcript, 'mate 2 sense' if mate 2 should be on the same strand as the transcript",
           "type": "text",
           "valid_values": [
             "not applicable",
             "sense",
             "antisense",
             "mate 1 sense",
-            "mate 2 sense"
+            "mate 2 sense",
+            "non-stranded"
           ]
         },
         {
@@ -509,7 +515,7 @@
         {
           "mandatory": "recommended",
           "name": "rna integrity number",
-          "description": "For more information see Schroeder et al. (2006) http://bmcmolbiol.biomedcentral.com/articles/10.1186/1471-2199-7-3",
+          "description": "It is important to obtain this value, but if you are unable to supply this number (e.g. due to machine failure) then by submitting you are asserting the quality by visual inspection of traces and agreeing that the samples were suitable for sequencing. For more information on RNA Integrity Numbers see Schroeder et al. (2006) http://bmcmolbiol.biomedcentral.com/articles/10.1186/1471-2199-7-3",
           "type": "number"
         }
       ]

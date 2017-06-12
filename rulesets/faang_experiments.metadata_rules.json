@@ -194,7 +194,7 @@
           ]
         }
       },
-      "name": "BS-Seq",
+      "name": "BS-seq",
       "rules": [
         {
           "mandatory": "mandatory",
