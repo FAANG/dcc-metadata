@@ -788,7 +788,7 @@
         },
         {
           "mandatory": "recommended",
-          "name": "passage number",
+          "name": "number of passages",
           "description": "The number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures",
           "type": "number"
         },
@@ -874,7 +874,7 @@
         {
           "mandatory": "optional",
           "name": "Derived from",
-          "description": "Sample name or BioSample ID for the sample or animal the cell line was dervived from, where this is known and can be described within the FAANG standards (optional)",
+          "description": "Sample name or BioSample ID for the sample or animal the cell line was derived from, where this is known and can be described within the FAANG standards (optional)",
           "type": "relationship"
         }         
       ]
