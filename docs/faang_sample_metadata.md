@@ -68,7 +68,7 @@ Optional:
  * `delivery ease` (*text*) possible values
      * normal autonomous delivery
      * c-section
-     * vetinarian assisted
+     * veterinarian assisted
  * `pedigree` (*URL*) a link to pedigree information for the animal
  
  
