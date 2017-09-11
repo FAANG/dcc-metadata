@@ -1,8 +1,8 @@
-## FAANG metadata - sample specification
+# FAANG metadata - sample specification
 
 This document describes the specification for all sample metadata. You can find an overview of our metadata and archival plans in [the overview document](faang_metadata_overview.md). The [experiment](faang_experiment_metadata.md) and [analysis](faang_analysis_metadata.md) documents are also in this [git repo](https://github.com/FAANG/faang-metadata).  Further guidance can be found on the [FAANG wiki pages](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+Archive+Submission+guidelines).
 
-In the sample context, we consider donor animals, tissue samples, primary cells or other biological material to be samples. All Samples must be registered in BioSamples at EMBL-EBI as this samples archive has the best support for 'child of' and 'derived from' sample relationships. The NCBI BioSample database is a peer of the EMBL-EBI BioSamples, and they exchange data regularly. FAANG samples should be registered in the EMBL-EBI BioSamples prior to data submission. This document describes the attributes which must be associated with any BioSamples submission.
+In the sample context, we consider donor animals, tissue samples, primary cells or any other biological material to be samples. All samples must be registered in BioSamples at EMBL-EBI as this sample archive has the best support for 'child of' and 'derived from' sample relationships. The NCBI BioSample database is a peer of the EMBL-EBI BioSamples, and they exchange data regularly. FAANG samples should be registered in the EMBL-EBI BioSamples prior to data submission. This document describes the attributes which must be associated with any BioSamples submission as well as optional fields.
 
 ## Sample metadata requirements
 
@@ -19,19 +19,19 @@ These attributes should be present on every sample record.
 Required:
 
   * `Sample name` (*text*) sample names should follow the naming rules listed below. Each name must be unique.
-  * `Material` (*ontology term*) the type of material being described. This will be used to decide what metadata are required and must be one of the expected terms:
+  * `Material` (*ontology term*) the type of sample being described. This will be used to decide what metadata are required and must be one of the expected terms:
     * [organism](http://purl.obolibrary.org/obo/OBI_0100026)
     * [specimen from organism](http://purl.obolibrary.org/obo/OBI_0001479)
     * [cell specimen](http://purl.obolibrary.org/obo/OBI_0001468)
     * [cell culture](http://purl.obolibrary.org/obo/OBI_0001876)
     * [pool of specimens](http://purl.obolibrary.org/obo/OBI_0302716)
     * [cell line](http://purl.obolibrary.org/obo/CLO_0000031)
-  * `project` (*text*) project name - this should always be 'FAANG'. This will allow the DCC to identify FAANG samples
+  * `project` (*text*) project name - this should always be 'FAANG'. This will allow the FAANG Data Coordination Centre (DCC) to identify FAANG samples
 
 Optional:
 
  * `Sample Description` (*text*) a brief description of the sample including the species name
- * `availability` (*URL*) either a link to a web page giving information on sample availability (who to contact and if the sample is available), or a e-mail address to contact about availability. E-mail addresses should be prefixed with 'mailto:', e.g. 'mailto:samples@example.ac.uk'. In either case, long term support of the web page or e-mail address is necessary. Group e-mail addresses are preferable to indiviudal.
+ * `availability` (*URL*) either a link to a web page giving information on sample availability (who to contact and whether the sample is available), or an e-mail address to contact about availability. E-mail addresses should be prefixed with 'mailto:', e.g. 'mailto:samples@example.ac.uk'. In either case, long term support of the web page or e-mail address is necessary. Group e-mail addresses are preferable to individuals.
 
  Links to other records:
 
@@ -46,12 +46,12 @@ Required:
 
  * `Organism` (*NCBI taxon ID*)
  * `Sex`  (*ontology term*) animal sex, described using any child term of [PATO_0000047](http://purl.obolibrary.org/obo/PATO_0000047)
- * `breed` (*ontology term*) animal breed, described using the [FAANG breed description guidelines](http://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+guidelines+for+livestock+breed+nomenclature) and [Livestock Breed Ontology](http://www.ebi.ac.uk/ols/ontologies/lbo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FLBO_0000000)
+ * `breed` (*ontology term*) animal breed, described using [Livestock Breed Ontology](http://www.ebi.ac.uk/ols/ontologies/lbo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FLBO_0000000) according to the [FAANG breed description guidelines](http://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+guidelines+for+livestock+breed+nomenclature).
 
 Recommended:
 
- * `birth date` (*date*) birth date, in the format YYYY-MM-DD, or YYYY-MM where only the month is known. For embryo samples, record 'not applicable'
- * `health status` (*ontology term*) Healthy animals should have the term [normal](http://purl.obolibrary.org/obo/PATO_0000461), otherwise use the as many [disease](http://www.ebi.ac.uk/efo/EFO_0000408) terms as necessary from EFO
+ * `birth date` (*date*) birth date, in the format of YYYY-MM-DD, or YYYY-MM where only the month is known. For embryo samples, record 'not applicable'
+ * `health status` (*ontology term*) Healthy animals should have the term [normal](http://purl.obolibrary.org/obo/PATO_0000461), otherwise use the as many [disease](http://www.ebi.ac.uk/efo/EFO_0000408) terms as necessary from [EFO](http://www.ebi.ac.uk/ols/ontologies/efo).
  
 Optional:
 
@@ -72,8 +72,7 @@ Optional:
  * `pedigree` (*URL*) a link to pedigree information for the animal
  
  
-Phenotypic, physiological and environmental information can be recorded using as many terms as necessary from the
- [VT](http://www.ebi.ac.uk/ols/beta/ontologies/vt), [ATOL](http://www.ebi.ac.uk/ols/beta/ontologies/atol),  [EOL](http://www.ebi.ac.uk/ols/beta/ontologies/eol) and [MP](http://www.ebi.ac.uk/ols/beta/ontologies/mp) ontologies. Select an appropriate term and units for the information you wish to record. For example, for growth rate you could use the attribute name `post natal growth rate` and units of 'grams per day'.
+Phenotypic, physiological and environmental information can be recorded using as many terms as necessary from the [VT](http://www.ebi.ac.uk/ols/ontologies/vt), [ATOL](http://www.ebi.ac.uk/ols/ontologies/atol),  [EOL](http://www.ebi.ac.uk/ols/ontologies/eol) and [MP](http://www.ebi.ac.uk/ols/ontologies/mp) ontologies. Select an appropriate term and units for the information you wish to record. For example, for growth rate you could use the attribute name `post natal growth rate` and units of 'grams per day'.
  
 Links to other records:
 
@@ -85,10 +84,10 @@ A piece of tissue taken from an animal. The following attributes are in addition
 
 Required:
 
- * `specimen collection date`(*date*) date at which the  specimen was collected
+ * `specimen collection date`(*date*) date when the  specimen was collected
  * `animal age at collection` (*number*) animal age at the point of collection, in years, months, weeks or days. Units must be specified. An estimate is acceptable where the age is not precisely known.
- * `developmental stage` (*ontology term*) a child term of [life cycle stage](http://purl.obolibrary.org/obo/UBERON_0000105)
- * `organism part` ([UBERON](http://uberon.github.io/) term preferred)
+ * `developmental stage` (*ontology term*) Developmental stage, any child term of [EFO_0000399](http://purl.obolibrary.org/obo/UBERON_0000399)
+ * `organism part` ([UBERON](http://www.ebi.ac.uk/ols/ontologies/uberon) term preferred)
  * `specimen collection protocol` (*protocol*) a link to the protocol followed when taking the specimen
 
 Recommended:
@@ -108,20 +107,17 @@ Optional:
  * `specimen picture url` (*URL*) Link to a picture of the specimen
  * `gestational age at sample collection` (*number*)  If the animal was pregnant when the specimen was taken, state how long had it been pregnant for. Units must be specified as 'days' or 'weeks'.
 
-Phenotypic, physiological and environmental information can be recorded using as many terms as necessary from the
- [VT](http://www.ebi.ac.uk/ols/beta/ontologies/vt), [ATOL](http://www.ebi.ac.uk/ols/beta/ontologies/atol),  [EOL](http://www.ebi.ac.uk/ols/beta/ontologies/eol) and [MP](http://www.ebi.ac.uk/ols/beta/ontologies/mp) ontologies. Select an appropriate term and units for the information you wish to record. For example, for growth rate you could use the attribute name `post natal growth rate` and units of 'grams per day'.
-
 Links to other records:
 
  * `Derived from` (*sample*) sample name or BioSample ID for an *animal* record (required).
 
 ### Pool of specimens
 
-Each specimen within the pool should have its own complete specimen record.  The sample names (if detailed in the same file), or BioSample IDs if they already exists in the BioSamples database, are recorded in multiple 'derived from' fields.  As many 'derived from' fields as are required to record all of the specimens that are part of the pool can be included.
+Each specimen within the pool should have its own complete specimen record.  The sample names (if detailed in the same file), or BioSample IDs if they already exist in the BioSamples database, are recorded in multiple 'derived from' fields.  As many 'derived from' fields as are required to record all of the specimens that are part of the pool can be included.
 
 Required:
 
- * `pool creation date`(*date*) date at which the pool of specimens was created
+ * `pool creation date`(*date*) date when the pool of specimens was created
  * `pool creation protocol` (*protocol*) a link to the protocol followed when creating the pool
 
 Optional:
@@ -141,7 +137,7 @@ Cells purified from a specimen. The following attributes are in addition to the 
 
 Required:
 
- * `cell type` (*ontology term*) as many terms as necessary from the  [CL ontology](http://www.ontobee.org/browser/index.php?o=CL)
+ * `cell type` (*ontology term*) as many terms as necessary from the  [CL ontology](http://www.ebi.ac.uk/ols/ontologies/cl)
  * `purification protocol` (*protocol*) protocol describing how the cells were purified
 
 Optional:
@@ -159,7 +155,7 @@ Cells cultured from a specimen or purified cells. The following attributes are i
 Required:
 
  * `culture type`(*ontology term*) a child term of [BTO_0000214](http://purl.obolibrary.org/obo/BTO_0000214)
- * `cell type` (*ontology term*) a term from the [CL ontology](http://www.ontobee.org/browser/index.php?o=CL)
+ * `cell type` (*ontology term*) a term from the [CL ontology](http://www.ebi.ac.uk/ols/ontologies/cl)
  * `cell culture protocol` (*protocol*) protocol describing how the cells were purified
  * `culture conditions` (*text*) brief description of culture conditions (e.g. 'on feeder cells', 'E8 media')
  * `number of passages` (*number*)  number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures
@@ -181,14 +177,14 @@ Required:
 
 Recommended:
 
- * `catalogue number` (*text*) Identifier for the cell line in the suppliers catalogue. E.g. 'ACC 701' for IPEC-J2 from DSMZ.  
- * `passage number` (*number*) The number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures.
+ * `catalogue number` (*text*) Identifier for the cell line in the biomaterial provider's catalogue. E.g. 'ACC 701' for IPEC-J2 from DSMZ.  
+ * `number of passages` (*number*) The number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures.
  * `date established` (*date*) date the line was established/re-established
  * `publication` (*URL*) a publication where the cell line has been fully described including. This should include details such as  doubling time and adhesion  preference.
 
 Optional:
 
- * `breed` (*ontology term*) animal breed, described using the [FAANG breed description guidelines](http://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+guidelines+for+livestock+breed+nomenclature) and [Livestock Breed Ontology](http://www.ebi.ac.uk/ols/ontologies/lbo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FLBO_0000000)
+ * `breed` (*ontology term*) animal breed, described using [Livestock Breed Ontology](http://www.ebi.ac.uk/ols/ontologies/lbo) according to the [FAANG breed description guidelines](http://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+guidelines+for+livestock+breed+nomenclature)
  * `disease` (*ontology term*) a child term of either [PATO_0000461](http://purl.obolibrary.org/obo/PATO_0000461) or [EFO_0000408](http://www.ebi.ac.uk/efo/EFO_0000408)
  * `cell type`(*ontology term*) a child term of either [CL_0000000](http://purl.obolibrary.org/obo/CL_0000000) or [BTO_0000000](http://purl.obolibrary.org/obo/BTO_0000000)
  * `culture conditions` (*text*) brief description of culture conditions (e.g. 'on feeder cells', 'E8 media')
@@ -198,18 +194,7 @@ Optional:
 
 Links to other records:
 
- * `Derived from` (*sample*) sample name or BioSample ID for the sample or animal  the cell line was dervived from, where this is known and  can be described within the FAANG standards (optional).
-
-### Pooled samples
-
-Where samples are pooled, a new sample record should be created, containing
-
- * `pooling protocol` (*protocol*)
-
-Links to other records:
- 
-  * `Derived from` (*sample*) sample name or BioSample ID for a *specimen*, *purified cells* or *cell culture* record (required).
-  
+ * `Derived from` (*sample*) sample name or BioSample ID for the sample or animal  the cell line was derived from, where this is known and  can be described within the FAANG standards (optional).
 
 ## Data types for sample attributes
 
@@ -221,7 +206,7 @@ Dates should be reported in an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601
 
 ### NCBI taxon ID
 
-A species name and identifier from the [NCBI Taxonomy database](http://www.ncbi.nlm.nih.gov/taxonomy). For example, a [human](http://www.ncbi.nlm.nih.gov/taxonomy/9606) would be described with a value of 'Homo sapiens', a term source of  'NCBI Taxonomy' and a term source ID of 9606.
+A species name and identifier from the [NCBI Taxonomy database](http://www.ncbi.nlm.nih.gov/taxonomy). For example, [human](http://www.ncbi.nlm.nih.gov/taxonomy/9606) would be described in the term with value of 'Homo sapiens', term source as 'NCBI Taxonomy' and term source ID as 9606.
 
 ### number
 
@@ -306,12 +291,12 @@ Short species codes:
 
 Your submission should be prepared following the guidance on the [FAANG wiki pages](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+samples+to+BioSamples). This will guide you through:
  * Downloading the empty Excel template to record your metadata
- * Completing the template following the [instructions](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+samples+to+BioSamples) and referring to the [latest metadata rules specification](http://www.ebi.ac.uk/vg/faang/rule_sets/). The rules for each attribute define if it is mandatory or optional, what sort of data is expected (numeric, date, text, etc.), what units are permitted, and whether or not an ontology term is required.
+ * Completing the template following the [instructions](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+samples+to+BioSamples) and referring to the [latest metadata rules specification](http://www.ebi.ac.uk/vg/faang/rule_sets/). The rules for each attribute define if it is mandatory (required type) or optional (recommended and optional type), what sort of data is expected (numeric, date, text, etc.), what units are permitted, and whether or not an ontology term is required.
  * Visiting the [FAANG validation service](http://www.ebi.ac.uk/vg/faang/validate/) where you can validate that your Excel complies with the metadata specifications.
  * Resolving any errors or warnings that it provides, referring to the [instructions](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+samples+to+BioSamples) and referring to the [latest metadata rules specification](http://www.ebi.ac.uk/vg/faang/rule_sets/) for advice.
  * Converting your template into SampleTab ready for submission using the [FAANG conversion tool](http://www.ebi.ac.uk/vg/faang/convert/)
  * Samples should be submitted to [BioSamples@EBI](https://www.ebi.ac.uk/biosamples/). All samples tagged with a `project` of 'FAANG' will be added to the [FAANG BioSamples group](http://www.ebi.ac.uk/biosamples/group/SAMEG307473).  Samples in this group will be synced to [BioSample@NCBI](http://www.ncbi.nlm.nih.gov/biosample/) periodically. Samples in BioSamples@EBI/BioSample@NCBI can be referenced in submissions to SRA at EBI and NCBI.
 
-The DCC team at EMBL-EBI will further check the submitted metadata against the specification. Samples that do not meet the minimum requirements will be not be included in FAANG data releases and will be marked as such in the [FAANG data portal](http://data.faang.org/home)
+The DCC team at EMBL-EBI will further check the submitted metadata against the specification. Samples that do not meet the minimum requirements will not be included in FAANG data releases and will be marked as such in the [FAANG data portal](http://data.faang.org/home)
 
 Further guidance can be found on the [FAANG wiki pages](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+Archive+Submission+guidelines).

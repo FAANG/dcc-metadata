@@ -1,14 +1,14 @@
-##FAANG metadata - experiment specification
+# FAANG metadata - experiment specification
 
 This document describes the specification for all experiment metadata. You can find an overview of our metadata and archival plans in [the overview document](faang_metadata_overview.md). The [sample](faang_sample_metadata.md) and [analysis](faang_analysis_metadata.md) documents are also in this [git repo](https://github.com/FAANG/faang-metadata).  Further guidance can be found on the [FAANG wiki pages](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+Archive+Submission+guidelines), with specific guidance for submission of [sequencing data](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+sequencing+data).
 
 Experiments are expected to fall into two categories:
 
- 1. sequencing experiments, archived in an SRA database (hosted at [EMBL-EBI](https://www.ebi.ac.uk/ena), [NCBI](http://www.ncbi.nlm.nih.gov/sra/) and [DDBJ](http://trace.ddbj.nig.ac.jp/dra/index_e.html)). Some of these submissions may be brokered by specialist services such as [ArrayExpress](https://www.ebi.ac.uk/arrayexpress/) and [GEO](http://www.ncbi.nlm.nih.gov/geo/)
+ 1. sequencing experiments, archived in an SRA (Sequence Read Archive) database (hosted at [EMBL-EBI](https://www.ebi.ac.uk/ena), [NCBI](http://www.ncbi.nlm.nih.gov/sra/) and [DDBJ](http://trace.ddbj.nig.ac.jp/dra/index_e.html)). Some of these submissions may be brokered by specialist services such as [ArrayExpress](https://www.ebi.ac.uk/arrayexpress/) and [GEO](http://www.ncbi.nlm.nih.gov/geo/)
  2. array experiments, archived in [ArrayExpress](https://www.ebi.ac.uk/arrayexpress/) or [GEO](http://www.ncbi.nlm.nih.gov/geo/).
 
 
-##Experiment metadata requirements
+## Experiment metadata requirements
 
 Requirements are laid out like this:  
 
@@ -18,14 +18,14 @@ The data types will be described later in this document. The metadata & data sha
 
 Each assay type will require metadata in addition to the core set of common attributes. The initial set proposed is based upon the [IHEC metadata standards](http://ihec-epigenomes.org/research/reference-epigenome-standards/)
 
-###Common
+### Common
 
 Required:
 
 These following elements must always be present in any experiment metadata
 
- * `sample`  (*BioSample ID*) the BioSamples ID for the specimen, purified cell, cultured cell or cell line the experiment was conducted on. Each experiment must reference one FAANG BioSample
- * `assay type` (*ontology term*) The class of experiment performed. e.g. RNA-Seq or expression array. This should be one of the following terms:
+ * `sample`  (*BioSample ID*) the BioSamples ID for the specimen (specimen from organism, cell specimen, cell cultur etc.) the experiment was conducted on. Each experiment must reference at least one FAANG BioSample
+ * `assay type` (*ontology term*) The class of experiment performed. e.g. RNA-seq of coding RNA. This should be one of the following terms:
     * ATAC-seq
     * ChIP-seq
     * DNase-Hypersensitivity seq
@@ -51,9 +51,9 @@ These following elements must always be present in any experiment metadata
 Recommended:
 
  * `library preparation location` (*text*) name of the library preparation location
- * `library preparation location latitude` (*number*) latitude of the library prep. location in decimal degrees. Units should be specified as 'decimal degrees'
- * `library preparation location longitude` (*number*) longitude of the library prep. location in decimal degrees. Units should be specified as 'decimal degrees'
- * `library preparation date`  (*date*) Date on which the library was prepared, formatted as YYYY-MM-DD. Units should be specified as 'YYYY-MM-DD' 
+ * `library preparation location latitude` (*number*) latitude of the library preparation location in decimal degrees. Units should be specified as 'decimal degrees'
+ * `library preparation location longitude` (*number*) longitude of the library preparation location in decimal degrees. Units should be specified as 'decimal degrees'
+ * `library preparation date`  (*date*) Date on which the library was prepared, in the format of YYYY-MM-DD, or YYYY-MM, or YYYY.  
  * `sequencing location` (*text*) name of the sequencing location
  * `sequencing location latitude` (*number*) latitude of the sequencing location in decimal degrees. Units should be specified as 'decimal degrees'
  * `sequencing location longitude` (*number*) longitude of the sequencing location in decimal degrees. Units should be specified as 'decimal degrees'
@@ -74,7 +74,7 @@ Optional:
  * `experimental protocol` (*protocol*) a description of the experiment protocol
 
 
-###ATAC-seq
+### ATAC-seq
 
 ATAC-seq experiments should have an `assay type` of [ATAC-seq](http://www.ebi.ac.uk/efo/EFO_0007045)
 
