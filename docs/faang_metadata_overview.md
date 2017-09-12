@@ -2,7 +2,7 @@
 
 This document describes the principles and structure for the FAANG metadata guidance. 
 
-The main goal of the [FAANG](http://www.faang.org) standards is to ensure all FAANG experiments, samples and analyses are well described and that description is well structured. This will ensure as many potentially confounding factors as possible are recorded. We support the MIAME and MINSEQE guidelines, and aim to convert them to a concrete specification.
+The main goal of the [FAANG](http://www.faang.org) standards is to ensure all FAANG experiments, samples and analyses are well described and that description is well structured. This will ensure as many potentially confounding factors as possible are recorded. We support the [MIAME](http://fged.org/projects/miame/) and [MINSEQE](http://www.fged.org/projects/minseqe/) guidelines, and aim to convert them to a concrete specification.
 
 We divide the metadata into 3 related categories
 
@@ -18,7 +18,7 @@ Where multiple records are related, data should not be duplicated between them, 
 
 Across all categories, descriptive factors should use ontology terms. Our preferred ontologies are EFO and the ontologies it imports, although we will use others where necessary. Where appropriate terms are not available in the ontology, we will work with that ontology to have the term added, please contact faang-dcc@ebi.ac.uk for help with this.
 
-e.g., tissue specimens can be described using terms from UBERON such as [lung, UBERON:0002048](http://purl.obolibrary.org/obo/UBERON_0002048)
+e.g., tissue specimens can be described using terms from UBERON such as [lung, UBERON:0002048](http://www.ebi.ac.uk/ols/ontologies/uberon/terms?short_form=UBERON_0002048)
 
 Protocols will be stored separately from the metadata, with a standardised name and stable URL, see the [FAANG wiki](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+samples+to+BioSamples) for guidance on protocol naming. The URL/name can be referenced from the metadata submission files, each protocol receives a datestamp in its name (the date when FAANG Data Coordination Centre receives the protocol) so that subsequent updates to the protocols can be distinguished. e.g. The November 2016 version of the Roslin protocol for isolation of RNA from frozen tissue would get a name like this:
 

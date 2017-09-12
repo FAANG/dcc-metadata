@@ -76,20 +76,20 @@ Optional:
 
 ### ATAC-seq
 
-ATAC-seq experiments should have an `assay type` of [ATAC-seq](http://www.ebi.ac.uk/efo/EFO_0007045)
+ATAC-seq experiments should have an `assay type` of [ATAC-seq](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0007045)
 
 Required:
 
- * `experiment target` (*ontology term*) Should use the term [open chromatin region](http://purl.obolibrary.org/obo/SO_0001747)
+ * `experiment target` (*ontology term*) Should use the term [open chromatin region](http://www.ebi.ac.uk/ols/ontologies/so/terms?short_form=SO_0001747)
  * `transposase protocol` (*protocol*) the protocol used for transposase treatment
 
 ###Bisulfite sequencing
 
-WGBS and RBBS experiments should have an `assay type` of [methylation profiling by high throughput sequencing](http://www.ebi.ac.uk/efo/EFO_0002761)
+WGBS and RBBS experiments should have an `assay type` of [methylation profiling by high throughput sequencing](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0002761)
 
 Required: 
 
- * `experiment target` (*ontology term*) Should use the term [DNA methylation](http://purl.obolibrary.org/obo/GO_0006306)
+ * `experiment target` (*ontology term*) Should use the term [DNA methylation](http://www.ebi.ac.uk/ols/ontologies/go/terms?short_form=GO_0006306)
  * `bisulfite conversion protocol` (*protocol*) 
  * `pcr product isolation protocol` (*protocol*) the protocol for isolating PCR products used for library generation
  * `bisulfite conversion percent` (*number*) bisulfite conversion percent (between 0 and 100)
@@ -102,20 +102,20 @@ Recommended:
 
 ###ChIP-seq standard rules for both histone modifications and input DNA
 
-ChIP-seq experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/efo/EFO_0002692).
+ChIP-seq experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0002692).
 
 Examples of the antibody information are from the [H3K4me3 antibody from Diagenode](https://www.diagenode.com/p/h3k4me3-polyclonal-antibody-premium-50-ug-50-ul), used by the BLUEPRINT project.
 
 Required:
 
  * `experiment target` (*ontology term*)
-   * ChIP-seq for histone modifications should use a child term of [histone modification](http://purl.obolibrary.org/obo/SO_0001700)
-   * ChIP-seq input should use the term [input DNA](http://www.ebi.ac.uk/efo/EFO_0005031) 
+   * ChIP-seq for histone modifications should use a child term of [histone modification](http://www.ebi.ac.uk/ols/ontologies/so/terms?short_form=SO_0001700)
+   * ChIP-seq input should use the term [input DNA](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0005031) 
  * `chip protocol` (*protocol*)  the ChIP protocol used
 
 ###ChIP-seq for histone modifications
 
-ChIP-seq histone modification experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/efo/EFO_0002692)
+ChIP-seq histone modification experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0002692)
 
 Required:
 
@@ -127,7 +127,7 @@ Required:
 
 ###ChIP-seq input
 
-ChIP-seq input experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/efo/EFO_0002692) and an `experiment target` of [Input DNA](http://www.ebi.ac.uk/efo/EFO_0005031) for ChIP input sequencing.
+ChIP-seq input experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0002692) and an `experiment target` of [Input DNA](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0005031) for ChIP input sequencing.
 
 Required:
 
@@ -136,20 +136,20 @@ Required:
 
 ###DNase-Hypersensitivity seq
 
-DNase-seq experiments should have an `assay type` of  [DNase-Hypersensitivity seq](http://www.ebi.ac.uk/efo/EFO_0003752)
+DNase-seq experiments should have an `assay type` of  [DNase-Hypersensitivity seq](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0003752)
 
 Required:
 
- * `experiment target` (*ontology term*) Should use the term [open chromatin region](http://purl.obolibrary.org/obo/SO_0001747)
+ * `experiment target` (*ontology term*) Should use the term [open chromatin region](http://www.ebi.ac.uk/ols/ontologies/so/terms?short_form=SO_0001747)
  * `dnase protocol` (*protocol*) the protocol used for DNAse treatment
 
 ###HiC
 
-HiC experiments should have an `assay type` of [HiC](http://purl.obolibrary.org/obo/OBI_0002042)
+HiC experiments should have an `assay type` of [HiC](http://www.ebi.ac.uk/ols/ontologies/obi/terms?short_form=OBI_0002042)
 
 Required:
 
- * `experiment target` (*ontology term*) Should use the term of [chromosome conformation](http://purl.obolibrary.org/obo/OBI_0001917)
+ * `experiment target` (*ontology term*) Should use the term of [chromosome conformation](http://www.ebi.ac.uk/ols/ontologies/obi/terms?short_form=OBI_0001917)
  * `restriction enzyme` (*text*)
  * `restriction site` (*text*)
 
@@ -157,17 +157,17 @@ Required:
 
 RNA-seq experiemnts should have an `assay type` of one of the following: 
 
- * [RNA-seq of coding RNA](http://www.ebi.ac.uk/efo/EFO_0003738)
- * [RNA-seq of non coding RNA](http://www.ebi.ac.uk/efo/EFO_0003737)
- * [microRNA profiling by high throughput sequencing](http://www.ebi.ac.uk/efo/EFO_0002896) 
+ * [RNA-seq of coding RNA](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0003738)
+ * [RNA-seq of non coding RNA](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0003737)
+ * [microRNA profiling by high throughput sequencing](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0002896) 
 
 Required:
 
  * `experiment target` (*ontology term*) Shoud be one of the following:
-   * [polyA RNA](http://purl.obolibrary.org/obo/OBI_0000869)
-   * [total RNA](http://www.ebi.ac.uk/efo/EFO_0004964)
-   * [ncRNA](http://purl.obolibrary.org/obo/SO_0000655)
-   * [microRNA](http://purl.obolibrary.org/obo/SBO_0000316)
+   * [polyA RNA](http://www.ebi.ac.uk/ols/ontologies/obi/terms?short_form=OBI_0000869)
+   * [total RNA](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0004964)
+   * [ncRNA](http://www.ebi.ac.uk/ols/ontologies/so/terms?short_form=SO_0000655)
+   * [microRNA](http://www.ebi.ac.uk/ols/ontologies/sbo/terms?short_form=SBO_0000316)
  * `rna preparation 3' adapter ligation protocol` (*protocol*) the protocol for 3’ adapter ligation used in preparation
  * `rna preparation 5' adapter ligation protocol`*(protocol*) the protocol for 5’ adapter ligation used in preparation
  * `library generation pcr product isolation protocol` (*protocol*) the protocol for isolating pcr products used for library generation
@@ -190,11 +190,11 @@ Recommended:
 
 ###WGS
 
-Whole Genome Sequencing should have an `assay type` of [whole genome sequencing](http://purl.obolibrary.org/obo/ERO_0002016)
+Whole Genome Sequencing should have an `assay type` of [whole genome sequencing](http://www.ebi.ac.uk/ols/ontologies/ero/terms?short_form=ERO_0002016)
 
 Required:
 
- * `experiment target` should use the term [input DNA](http://www.ebi.ac.uk/efo/EFO_0005031)
+ * `experiment target` should use the term [input DNA](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0005031)
  * `library generation pcr product isolation protocol` (*protocol*) the protocol for isolating pcr products used for library generation
  * `library generation protocol` (*protocol*) link to the protocol used to generate the library
 
@@ -277,7 +277,7 @@ Each experiment record should reference a record in BioSamples. These have acces
 
 For submissions to the [The European Nucleotide Archive](http://www.ebi.ac.uk/ena/submit/read-submission) you can follow the FAANG supported submission process.  Your submission should be prepared following the guidance on the [FAANG wiki pages](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+sequencing+data). This will guide you through:
  * Downloading the empty Excel template to record your metadata
- * Completing the template following the [instructions](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+sequencing+data) and referring to the [latest metadata rules specification](http://www.ebi.ac.uk/vg/faang/rule_sets/). The rules for each attribute define if it is mandatory or optional, what sort of data is expected (numeric, date, text, etc.), what units are permitted, and whether or not an ontology term is required.
+ * Completing the template following the [instructions](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+sequencing+data) and referring to the [latest experiment ruleset specification](http://www.ebi.ac.uk/vg/faang/rule_sets/FAANG%20Experiments). The rules for each attribute define if it is mandatory or optional, what sort of data is expected (numeric, date, text, etc.), what units are permitted, and whether or not an ontology term is required.
  * Visiting the [FAANG validation service](http://www.ebi.ac.uk/vg/faang/validate/) where you can validate that your template complies with the metadata specifications.
  * Resolving any errors or warnings that it provides, referring to the [instructions](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+sequencing+data) and referring to the [latest metadata rules specification](http://www.ebi.ac.uk/vg/faang/rule_sets/) for advice.
  * Converting your template into XML ready for submission using the [FAANG conversion tool](http://www.ebi.ac.uk/vg/faang/convert/)

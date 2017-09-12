@@ -20,16 +20,16 @@ Required:
 
   * `Sample name` (*text*) sample names should follow the naming rules listed below. Each name must be unique.
   * `Material` (*ontology term*) the type of sample being described. This will be used to decide what metadata are required and must be one of the expected terms:
-    * [organism](http://purl.obolibrary.org/obo/OBI_0100026)
-    * [specimen from organism](http://purl.obolibrary.org/obo/OBI_0001479)
-    * [cell specimen](http://purl.obolibrary.org/obo/OBI_0001468)
-    * [cell culture](http://purl.obolibrary.org/obo/OBI_0001876)
-    * [pool of specimens](http://purl.obolibrary.org/obo/OBI_0302716)
-    * [cell line](http://purl.obolibrary.org/obo/CLO_0000031)
+    * [organism](http://www.ebi.ac.uk/ols/ontologies/obi/terms?short_form=OBI_0100026)
+    * [specimen from organism](http://www.ebi.ac.uk/ols/ontologies/obi/terms?short_form=OBI_0001479)
+    * [cell specimen](http://www.ebi.ac.uk/ols/ontologies/obi/terms?short_form=OBI_0001468)
+    * [cell culture](http://www.ebi.ac.uk/ols/ontologies/obi/terms?short_form=OBI_0001876)
+    * [pool of specimens](http://www.ebi.ac.uk/ols/ontologies/obi/terms?short_form=OBI_0302716)
+    * [cell line](http://www.ebi.ac.uk/ols/ontologies/clo/terms?short_form=CLO_0000031)
   * `project` (*text*) project name - this should always be 'FAANG'. This will allow the FAANG Data Coordination Centre (DCC) to identify FAANG samples
 
 Optional:
-
+  
  * `Sample Description` (*text*) a brief description of the sample including the species name
  * `availability` (*URL*) either a link to a web page giving information on sample availability (who to contact and whether the sample is available), or an e-mail address to contact about availability. E-mail addresses should be prefixed with 'mailto:', e.g. 'mailto:samples@example.ac.uk'. In either case, long term support of the web page or e-mail address is necessary. Group e-mail addresses are preferable to individuals.
 
@@ -40,18 +40,18 @@ Optional:
 
 ### Animal
 
-An animal sampled for FAANG. The following attributes are in addition to the  attributes listed in the 'Common' section above. The `material` should be reported as [organism](http://purl.obolibrary.org/obo/OBI_0100026).
+An animal sampled for FAANG. The following attributes are in addition to the  attributes listed in the 'Common' section above. The `material` should be reported as [organism](http://www.ebi.ac.uk/ols/ontologies/obi/terms?short_form=OBI_0100026).
 
 Required:
 
  * `Organism` (*NCBI taxon ID*)
- * `Sex`  (*ontology term*) animal sex, described using any child term of [PATO_0000047](http://purl.obolibrary.org/obo/PATO_0000047)
- * `breed` (*ontology term*) animal breed, described using [Livestock Breed Ontology](http://www.ebi.ac.uk/ols/ontologies/lbo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FLBO_0000000) according to the [FAANG breed description guidelines](http://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+guidelines+for+livestock+breed+nomenclature).
+ * `Sex`  (*ontology term*) animal sex, described using any child term of [PATO_0000047](http://www.ebi.ac.uk/ols/ontologies/pato/terms?short_form=PATO_0000047)
+ * `breed` (*ontology term*) animal breed, described using [Livestock Breed Ontology](http://www.ebi.ac.uk/ols/ontologies/lbo) according to the [FAANG breed description guidelines](http://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+guidelines+for+livestock+breed+nomenclature).
 
 Recommended:
 
  * `birth date` (*date*) birth date, in the format of YYYY-MM-DD, or YYYY-MM where only the month is known. For embryo samples, record 'not applicable'
- * `health status` (*ontology term*) Healthy animals should have the term [normal](http://purl.obolibrary.org/obo/PATO_0000461), otherwise use the as many [disease](http://www.ebi.ac.uk/efo/EFO_0000408) terms as necessary from [EFO](http://www.ebi.ac.uk/ols/ontologies/efo).
+ * `health status` (*ontology term*) Healthy animals should have the term [normal](http://www.ebi.ac.uk/ols/ontologies/pato/terms?short_form=PATO_0000461), otherwise use the as many [disease](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0000408) terms as necessary from [EFO](http://www.ebi.ac.uk/ols/ontologies/efo).
  
 Optional:
 
@@ -80,19 +80,19 @@ Links to other records:
  
 ### Specimen
 
-A piece of tissue taken from an animal. The following attributes are in addition to the attributes listed in the 'Common' section above. The `material` should be reported as [specimen from organism](http://purl.obolibrary.org/obo/OBI_0001479).
+A piece of tissue taken from an animal. The following attributes are in addition to the attributes listed in the 'Common' section above. The `material` should be reported as [specimen from organism](http://www.ebi.ac.uk/ols/ontologies/obi/terms?short_form=OBI_0001479).
 
 Required:
 
  * `specimen collection date`(*date*) date when the  specimen was collected
  * `animal age at collection` (*number*) animal age at the point of collection, in years, months, weeks or days. Units must be specified. An estimate is acceptable where the age is not precisely known.
- * `developmental stage` (*ontology term*) Developmental stage, any child term of [EFO_0000399](http://purl.obolibrary.org/obo/UBERON_0000399)
+ * `developmental stage` (*ontology term*) Developmental stage, any child term of [EFO_0000399](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0000399)
  * `organism part` ([UBERON](http://www.ebi.ac.uk/ols/ontologies/uberon) term preferred)
  * `specimen collection protocol` (*protocol*) a link to the protocol followed when taking the specimen
 
 Recommended:
 
- * `health status at collection` (*ontology term*) Animal disease / health status at point of collection. Healthy animals should have the term [normal](http://purl.obolibrary.org/obo/PATO_0000461), otherwise use the as many [disease](http://www.ebi.ac.uk/efo/EFO_0000408) terms as necessary from EFO
+ * `health status at collection` (*ontology term*) Animal disease / health status at point of collection. Healthy animals should have the term [normal](http://www.ebi.ac.uk/ols/ontologies/pato/terms?short_form=PATO_0000461), otherwise use the as many [disease](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0000408) terms as necessary from EFO
 
 Optional:
 
@@ -133,7 +133,7 @@ Links to other records:
 
 ### Purified cells
 
-Cells purified from a specimen. The following attributes are in addition to the  attributes listed in the 'Common' section above. The `material` should be reported as [cell specimen](http://purl.obolibrary.org/obo/OBI_0001468).
+Cells purified from a specimen. The following attributes are in addition to the  attributes listed in the 'Common' section above. The `material` should be reported as [cell specimen](http://www.ebi.ac.uk/ols/ontologies/obi/terms?short_form=OBI_0001468).
 
 Required:
 
@@ -150,11 +150,11 @@ Links to other records:
 
 ### Cell culture
 
-Cells cultured from a specimen or purified cells. The following attributes are in addition to the  attributes listed in the 'Common' section above.  The `material` should be reported as [cell culture](http://purl.obolibrary.org/obo/OBI_0001876).
+Cells cultured from a specimen or purified cells. The following attributes are in addition to the  attributes listed in the 'Common' section above.  The `material` should be reported as [cell culture](http://www.ebi.ac.uk/ols/ontologies/obi/terms?short_form=OBI_0001876).
 
 Required:
 
- * `culture type`(*ontology term*) a child term of [BTO_0000214](http://purl.obolibrary.org/obo/BTO_0000214)
+ * `culture type`(*ontology term*) a child term of [BTO_0000214](http://www.ebi.ac.uk/ols/ontologies/bto/terms?short_form=BTO_0000214)
  * `cell type` (*ontology term*) a term from the [CL ontology](http://www.ebi.ac.uk/ols/ontologies/cl)
  * `cell culture protocol` (*protocol*) protocol describing how the cells were purified
  * `culture conditions` (*text*) brief description of culture conditions (e.g. 'on feeder cells', 'E8 media')
@@ -166,12 +166,12 @@ Links to other records:
 
 ### Cell line
 
-A cultured cell population that represents a genetically stable and homogenous population of cultured cells that shares a common propagation history. The metadata requirements for this sample type are less stringent than for others, to allow for the level of detail normally available for established cell lines. The following attributes are in addition to the  attributes listed in the 'Common' section above. The `material` should be reported as [cell line](http://purl.obolibrary.org/obo/CLO_0000031)
+A cultured cell population that represents a genetically stable and homogenous population of cultured cells that shares a common propagation history. The metadata requirements for this sample type are less stringent than for others, to allow for the level of detail normally available for established cell lines. The following attributes are in addition to the  attributes listed in the 'Common' section above. The `material` should be reported as [cell line](http://www.ebi.ac.uk/ols/ontologies/clo/terms?short_form=CLO_0000031)
 
 Required:
 
  * `Organism` (*NCBI taxon ID*)
- * `Sex`  (*ontology term*) animal sex, described using any child term of [PATO_0000047](http://purl.obolibrary.org/obo/PATO_0000047)
+ * `Sex`  (*ontology term*) animal sex, described using any child term of [PATO_0000047](http://www.ebi.ac.uk/ols/ontologies/pato/terms?short_form=PATO_0000047)
  * `cell line` (*text*) name of the cell line
  * `biomaterial provider` (*text*) name of company or lab that supplied the cell line
 
@@ -185,8 +185,8 @@ Recommended:
 Optional:
 
  * `breed` (*ontology term*) animal breed, described using [Livestock Breed Ontology](http://www.ebi.ac.uk/ols/ontologies/lbo) according to the [FAANG breed description guidelines](http://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+guidelines+for+livestock+breed+nomenclature)
- * `disease` (*ontology term*) a child term of either [PATO_0000461](http://purl.obolibrary.org/obo/PATO_0000461) or [EFO_0000408](http://www.ebi.ac.uk/efo/EFO_0000408)
- * `cell type`(*ontology term*) a child term of either [CL_0000000](http://purl.obolibrary.org/obo/CL_0000000) or [BTO_0000000](http://purl.obolibrary.org/obo/BTO_0000000)
+ * `disease` (*ontology term*) a child term of either [PATO_0000461](http://www.ebi.ac.uk/ols/ontologies/pato/terms?short_form=PATO_0000461) or [EFO_0000408](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0000408)
+ * `cell type`(*ontology term*) a child term of either [CL_0000000](http://www.ebi.ac.uk/ols/ontologies/cl/terms?short_form=CL_0000000) or [BTO_0000000](http://www.ebi.ac.uk/ols/ontologies/bto/terms?short_form=BTO_0000000)
  * `culture conditions` (*text*) brief description of culture conditions (e.g. 'on feeder cells', 'E8 media')
  * `culture protocol` (*protocol*) protocol describing the maintenance of the culture
  * `karyotype` (*text*) karyotype of the cell line
@@ -280,22 +280,23 @@ Short species codes:
 
  * _Bubalus bubalis_ BBU
  * _Bos taurus_ BTA
- * _Sus scrofa_ SSC
- * _Ovis aries_ OAR
- * _Gallus gallus_ GGA
- * _Equus caballus_ ECA
+ * _Bos indicus_ BIN
  * _Capra hircus_ CHR
+ * _Equus caballus_ ECA
+ * _Gallus gallus_ GGA
+ * _Ovis aries_ OAR
+ * _Sus scrofa_ SSC
 
 
 ## Submission
 
 Your submission should be prepared following the guidance on the [FAANG wiki pages](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+samples+to+BioSamples). This will guide you through:
  * Downloading the empty Excel template to record your metadata
- * Completing the template following the [instructions](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+samples+to+BioSamples) and referring to the [latest metadata rules specification](http://www.ebi.ac.uk/vg/faang/rule_sets/). The rules for each attribute define if it is mandatory (required type) or optional (recommended and optional type), what sort of data is expected (numeric, date, text, etc.), what units are permitted, and whether or not an ontology term is required.
+ * Completing the template following the instructions and referring to the [latest sample ruleset specification](http://www.ebi.ac.uk/vg/faang/rule_sets/FAANG%20Samples). The rules for each attribute define if it is mandatory (required type) or optional (recommended and optional type), what sort of data is expected (numeric, date, text, etc.), what units are permitted, and whether or not an ontology term is required.
  * Visiting the [FAANG validation service](http://www.ebi.ac.uk/vg/faang/validate/) where you can validate that your Excel complies with the metadata specifications.
- * Resolving any errors or warnings that it provides, referring to the [instructions](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/Submission+of+samples+to+BioSamples) and referring to the [latest metadata rules specification](http://www.ebi.ac.uk/vg/faang/rule_sets/) for advice.
+ * Resolving any errors or warnings that it provides, referring to the instruction and the latest sample ruleset specification or contacting [FAANG data coordination centre](mailto:faang-dcc@ebi.ac.uk) for advice.
  * Converting your template into SampleTab ready for submission using the [FAANG conversion tool](http://www.ebi.ac.uk/vg/faang/convert/)
- * Samples should be submitted to [BioSamples@EBI](https://www.ebi.ac.uk/biosamples/). All samples tagged with a `project` of 'FAANG' will be added to the [FAANG BioSamples group](http://www.ebi.ac.uk/biosamples/group/SAMEG307473).  Samples in this group will be synced to [BioSample@NCBI](http://www.ncbi.nlm.nih.gov/biosample/) periodically. Samples in BioSamples@EBI/BioSample@NCBI can be referenced in submissions to SRA at EBI and NCBI.
+ * Samples should be submitted to [BioSamples@EBI](https://www.ebi.ac.uk/biosamples/help/submit). All samples tagged with a `project` of 'FAANG' will be added to the [FAANG BioSamples group](http://www.ebi.ac.uk/biosamples/group/SAMEG307473).  Samples in this group are synced to [BioSample@NCBI](http://www.ncbi.nlm.nih.gov/biosample/) periodically. Samples in BioSamples@EBI/BioSample@NCBI can be referenced in submissions to SRA at EBI and NCBI.
 
 The DCC team at EMBL-EBI will further check the submitted metadata against the specification. Samples that do not meet the minimum requirements will not be included in FAANG data releases and will be marked as such in the [FAANG data portal](http://data.faang.org/home)
 
