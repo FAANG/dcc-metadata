@@ -14,7 +14,10 @@ Requirements are laid out like this:
 
  * `attribute name` (*data type*) a brief description
 
-The data types will be described later in this document. The metadata & data sharing (M&DS) group will seek guidance from the animals, samples and assays (ASA) group on what needs to be recorded here for each assay type.
+The details of data types can be found [here](faang_data_type.md).
+
+SRA databases (ENA , NCBI, DDBJ) takes experiment records with a set of attributes. Each attribute has a name and a value, and can also have units. In contrast with the [BioSamples](www.ebi.ac.uk/biosamples) database, they do not have direct support for ontology terms. 
+The metadata & data sharing (M&DS) group will seek guidance from the animals, samples and assays (ASA) group on what needs to be recorded here for each assay type.
 
 Each assay type will require metadata in addition to the core set of common attributes. The initial set proposed is based upon the [IHEC metadata standards](http://ihec-epigenomes.org/research/reference-epigenome-standards/)
 
@@ -203,52 +206,6 @@ Optional:
     * reduced representation
     * none
 
-
-##Data types for experiment attributes
-
-SRA databases (ENA , NCBI, DDBJ) takes experiment records with a set of attributes. Each attribute has a name and a value, and can also have units. In contrast with the [BioSamples](www.ebi.ac.uk/biosamples) database, they do not have direct support for ontology terms.
-The following section describe the expectations for each data type within FAANG.
-
-###date
-
-Dates should be reported in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format,  YYYY-MM-DD. To ensure clarity, the format should be reported as the 'units'.
-
-###number
-
-A number, with units specified. BioSamples recommends that units are given without abbreviations. For example, a birth weight could have a value of 1.3 and the units specified as 'kilograms'.
-
-###protocol
-
-A URL link to a protocol document on the FAANG FTP site. Please contact the [FAANG data coordination centre](mailto:faang-dcc@ebi.ac.uk) to have your protocol documents added to the FTP site.
-
-###text
-
-Text, using US English spellings.
-
-###URL
-
-A URL,  such as 'http://faang.org/'. Depending on the context, http, ftp, mailto links may be appropriate. Examples:
-
- * ftp, ftp://ftp.faang.ebi.ac.uk/ftp/README
- * http,  http://faang.org/
- * mailto, mailto:bob@example.org
- 
-###location
-
- A location should be reported as using three attributes:
-
-  * `location` (*text*) name of the location
-  * `location latitude` (*number*) latitude in decimal degrees. Units should be reported as 'decimal degrees'
-  * `location longitude`(*number*) longitude in decimal degrees. Units should be reported as 'decimal degrees'
-
-
-###ontology term
-
-The text label of a term from an ontology. The attribute value should be the term label. Unlike for sample submissions, direct links to ontologies cannot be submitted as attributes. The attribute value should exactly match the term name in the ontology. 
-
-###BioSample ID
-
-BioSample IDs are in the form SAMEA2821491. They must be used when linking the experiment to the sample record.
 
 ##Missing data
 
