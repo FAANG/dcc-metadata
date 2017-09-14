@@ -215,7 +215,7 @@
           "description": "Library selection is Whole Genome Bisulfite Sequencing or Reduced Representation Bisulfite Sequencing",
           "type": "text",
           "valid_values": [
-            "RBBS",
+            "RRBS",
             "WGBS"
           ]
         },        

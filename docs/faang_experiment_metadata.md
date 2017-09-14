@@ -86,9 +86,9 @@ Required:
  * `experiment target` (*ontology term*) Should use the term [open chromatin region](http://www.ebi.ac.uk/ols/ontologies/so/terms?short_form=SO_0001747)
  * `transposase protocol` (*protocol*) the protocol used for transposase treatment
 
-###Bisulfite sequencing
+### Bisulfite sequencing
 
-WGBS and RBBS experiments should have an `assay type` of [methylation profiling by high throughput sequencing](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0002761)
+Whole Genome Bisulfite Sequencing (WGBS) and Reduced Representation Bisulfite Sequencing (RRBS) experiments should have an `assay type` of [methylation profiling by high throughput sequencing](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0002761)
 
 Required: 
 
@@ -103,7 +103,7 @@ Recommended:
  * `max fragment size selection range` (*number*) The maximum fragment size of the fragment selection range
  * `min fragment size selection range` (*number*) The minimum fragment size of the fragment selection range
 
-###ChIP-seq standard rules for both histone modifications and input DNA
+### ChIP-seq standard rules for both histone modifications and input DNA
 
 ChIP-seq experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0002692).
 
@@ -116,7 +116,7 @@ Required:
    * ChIP-seq input should use the term [input DNA](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0005031) 
  * `chip protocol` (*protocol*)  the ChIP protocol used
 
-###ChIP-seq for histone modifications
+### ChIP-seq for histone modifications
 
 ChIP-seq histone modification experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0002692)
 
@@ -128,7 +128,7 @@ Required:
  * `library generation max fragment size range` (*number*) the maximum fragment size range of the preparation
  * `library generation min fragment size range` (*number*) the minimum fragment size range of the preparation
 
-###ChIP-seq input
+### ChIP-seq input DNA
 
 ChIP-seq input experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0002692) and an `experiment target` of [Input DNA](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0005031) for ChIP input sequencing.
 
@@ -137,7 +137,7 @@ Required:
  * `library generation max fragment size range` (*number*) the maximum fragment size range of the preparation
  * `library generation min fragment size range` (*number*) the minimum fragment size range of the preparation
 
-###DNase-Hypersensitivity seq
+### DNase-Hypersensitivity seq
 
 DNase-seq experiments should have an `assay type` of  [DNase-Hypersensitivity seq](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0003752)
 
@@ -146,7 +146,7 @@ Required:
  * `experiment target` (*ontology term*) Should use the term [open chromatin region](http://www.ebi.ac.uk/ols/ontologies/so/terms?short_form=SO_0001747)
  * `dnase protocol` (*protocol*) the protocol used for DNAse treatment
 
-###HiC
+### HiC
 
 HiC experiments should have an `assay type` of [HiC](http://www.ebi.ac.uk/ols/ontologies/obi/terms?short_form=OBI_0002042)
 
@@ -156,7 +156,7 @@ Required:
  * `restriction enzyme` (*text*)
  * `restriction site` (*text*)
 
-###RNA-seq
+### RNA-seq
 
 RNA-seq experiemnts should have an `assay type` of one of the following: 
 
@@ -191,7 +191,7 @@ Recommended:
  * `rna purity - 260:230 ratio` (*number*) Sample purity assesed with fluoresence ratio at 260 and 230nm, informative for contamination by phenolate ion, thiocyanates, and other organic compounds
  * `rna integrity number` (*number*) It is important to obtain this value, but if you are unable to supply this number (e.g. due to machine failure) then by submitting you are asserting the quality by visual inspection of traces and agreeing that the samples were suitable for sequencing. See [Schroeder *et al* , 2006](http://www.biomedcentral.com/1471-2199/7/3)
 
-###WGS
+### WGS
 
 Whole Genome Sequencing should have an `assay type` of [whole genome sequencing](http://www.ebi.ac.uk/ols/ontologies/ero/terms?short_form=ERO_0002016)
 
@@ -207,7 +207,7 @@ Optional:
     * none
 
 
-##Missing data
+## Missing data
 
 Where data cannot be included in a submission, submit one of these text values instead
 
@@ -227,7 +227,7 @@ The use of these values will interact with the metadata validation system as fol
  * attribute is optional
    * validation will pass with any of missing values terms
    
-##Submission
+## Submission
 
 Each experiment record should reference a record in BioSamples. These have accessions like SAMEA1234567. As described above, experiments themselves should be submitted to the appropriate EMBL-EBI, NCBI or DDBJ assay archives. 
 
