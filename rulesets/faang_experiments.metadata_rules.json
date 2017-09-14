@@ -389,7 +389,7 @@
         {
           "mandatory": "mandatory",
           "name": "dnase protocol",
-          "description": "Link to the protocol used for transposase treatment",
+          "description": "Link to the protocol used for DNase treatment",
           "type": "uri_value"
         }
       ]

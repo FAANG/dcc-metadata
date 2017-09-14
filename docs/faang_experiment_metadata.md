@@ -144,7 +144,7 @@ DNase-seq experiments should have an `assay type` of  [DNase-Hypersensitivity se
 Required:
 
  * `experiment target` (*ontology term*) Should use the term [open chromatin region](http://www.ebi.ac.uk/ols/ontologies/so/terms?short_form=SO_0001747)
- * `dnase protocol` (*protocol*) the protocol used for DNAse treatment
+ * `dnase protocol` (*protocol*) the protocol used for DNase treatment
 
 ### Hi-C
 
