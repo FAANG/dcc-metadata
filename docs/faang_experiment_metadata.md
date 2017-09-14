@@ -146,9 +146,9 @@ Required:
  * `experiment target` (*ontology term*) Should use the term [open chromatin region](http://www.ebi.ac.uk/ols/ontologies/so/terms?short_form=SO_0001747)
  * `dnase protocol` (*protocol*) the protocol used for DNAse treatment
 
-### HiC
+### Hi-C
 
-HiC experiments should have an `assay type` of [HiC](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0007693)
+Hi-C experiments should have an `assay type` of [Hi-C](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0007693)
 
 Required:
 
@@ -193,7 +193,7 @@ Recommended:
 
 ### WGS
 
-Whole Genome Sequencing should have an `assay type` of [whole genome sequencing](http://www.ebi.ac.uk/ols/ontologies/obi/terms?short_form=OBI_0002117)
+Whole Genome Sequencing should have an `assay type` of [whole genome sequencing assay](http://www.ebi.ac.uk/ols/ontologies/obi/terms?short_form=OBI_0002117)
 
 Required:
 
