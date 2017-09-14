@@ -148,7 +148,7 @@ Required:
 
 ### HiC
 
-HiC experiments should have an `assay type` of [HiC](http://www.ebi.ac.uk/ols/ontologies/obi/terms?short_form=OBI_0002042)
+HiC experiments should have an `assay type` of [HiC](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0007693)
 
 Required:
 
@@ -193,7 +193,7 @@ Recommended:
 
 ### WGS
 
-Whole Genome Sequencing should have an `assay type` of [whole genome sequencing](http://www.ebi.ac.uk/ols/ontologies/ero/terms?short_form=ERO_0002016)
+Whole Genome Sequencing should have an `assay type` of [whole genome sequencing](http://www.ebi.ac.uk/ols/ontologies/obi/terms?short_form=OBI_0002117)
 
 Required:
 
