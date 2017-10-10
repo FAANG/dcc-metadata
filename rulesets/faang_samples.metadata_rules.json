@@ -241,7 +241,8 @@
           "description": "Birth weight, in kilograms or grams",
           "type": "number",
           "valid_units": [
-            "kilograms"
+            "kilograms",
+            "grams"
           ]
         },
         {
@@ -250,7 +251,8 @@
           "description": "Placental weight, in kilograms or grams",
           "type": "number",
           "valid_units": [
-            "kilograms"
+            "kilograms",
+            "grams"
           ]
         },
         {
@@ -512,7 +514,9 @@
           "type": "number",
           "valid_units": [
             "days",
-            "weeks"
+            "weeks",
+            "day",
+            "week"
           ]
         },
         {
