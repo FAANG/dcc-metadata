@@ -78,7 +78,7 @@
           "mandatory": "optional",
           "name": "availability",
           "description": "Either a link to a web page giving information on sample availability (who to contact and if the sample is available), or a e-mail address to contact about availability. E-mail addresses should be prefixed with 'mailto:', e.g. 'mailto:samples@example.ac.uk'. In either case, long term support of the web page or e-mail address is necessary. Group e-mail addresses are preferable to indiviudal.",
-          "type": "uri_value"
+          "type": "text"
         },
         {
           "mandatory": "optional",
@@ -162,54 +162,26 @@
           "mandatory": "recommended",
           "name": "Sex",
           "description": "Animal sex, described using any child term of PATO_0000047",
-          "type": "ontology_id",
-          "valid_terms": [
-            {
-              "term_iri": "http://purl.obolibrary.org/obo/PATO_0000047",
-              "ontology_name": "PATO"
-            }
-          ]
+          "type": "text"
         },
         {
           "mandatory": "recommended",
           "name": "birth date",
           "description": "Birth date, in the format YYYY-MM-DD, or YYYY-MM where only the month is known. For embryo samples record 'not applicable'",
-          "type": "date",
-          "valid_units": [
-            "YYYY-MM-DD",
-            "YYYY-MM",
-            "YYYY"
-          ]
+          "type": "text"
         },
         {
           "mandatory": "recommended",
           "name": "breed",
           "description": "Animal breed, described using the FAANG breed description guidelines (http://bit.ly/FAANGbreed)",
-          "type": "faang_breed",
-          "valid_terms": [
-            {
-              "term_iri": "http://purl.obolibrary.org/obo/LBO_0000000",
-              "ontology_name": "LBO",
-              "leaf_only": false
-            }
-          ]
+          "type": "text"
         },
         {
           "mandatory": "recommended",
           "allow_multiple": 1,
           "name": "health status",
           "description": "Healthy animals should have the term normal, otherwise use the as many disease terms as necessary from EFO",
-          "type": "ontology_id",
-          "valid_terms": [
-            {
-              "term_iri": "http://purl.obolibrary.org/obo/PATO_0000461",
-              "ontology_name": "PATO"
-            },
-            {
-              "term_iri": "http://www.ebi.ac.uk/efo/EFO_0000408",
-              "ontology_name": "EFO"
-            }
-          ]
+          "type": "text"
         },
         {
           "mandatory": "optional",
@@ -221,51 +193,31 @@
           "mandatory": "optional",
           "name": "birth location longitude",
           "description": "Latitude of the birth location in decimal degrees.",
-          "type": "number",
-          "valid_units": [
-            "decimal degrees"
-          ]
+          "type": "text"
         },
         {
           "mandatory": "optional",
           "name": "birth location latitude",
           "description": "Longitude of the birth location in decimal degrees",
-          "type": "number",
-          "valid_units": [
-            "decimal degrees"
-          ]
+          "type": "text"
         },
         {
           "mandatory": "optional",
           "name": "birth weight",
           "description": "Birth weight, in kilograms or grams",
-          "type": "number",
-          "valid_units": [
-            "kilograms"
-          ]
+          "type": "text"
         },
         {
           "mandatory": "optional",
           "name": "placental weight",
           "description": "Placental weight, in kilograms or grams",
-          "type": "number",
-          "valid_units": [
-            "kilograms"
-          ]
+          "type": "text"
         },
         {
           "mandatory": "optional",
           "name": "pregnancy length",
           "description": "Pregnancy length of time, in days, weeks or months",
-          "type": "number",
-          "valid_units": [
-            "days",
-            "weeks",
-            "months",
-            "day",
-            "week",
-            "month"
-          ]
+          "type": "text"
         },
         {
           "mandatory": "optional",
@@ -286,7 +238,7 @@
           "valid_values": [
             "normal autonomous delivery",
             "c-section",
-            "vetinarian assisted"
+            "veterinarian assisted"
           ]
         },
         {
@@ -307,7 +259,7 @@
           "mandatory": "optional",
           "name": "pedigree",
           "description": "A link to pedigree information for the animal",
-          "type": "uri_value"
+          "type": "text"
         }
       ]
     },
@@ -367,30 +319,13 @@
           "mandatory": "recommended",
           "name": "specimen collection date",
           "description": "Date at which the specimen was collected",
-          "type": "date",
-          "valid_units": [
-            "YYYY-MM-DD",
-            "YYYY-MM",
-            "YYYY"
-          ]
+          "type": "text"
         },
         {
           "mandatory": "recommended",
           "name": "animal age at collection",
           "description": "Animal age at the point of collection. An estimate is acceptable where the age is not precisely known.",
-          "type": "number",
-          "valid_units": [
-            "years",
-            "months",
-            "weeks",
-            "days",
-            "year",
-            "month",
-            "week",
-            "day",
-            "hour",
-            "hours"
-          ]
+          "type": "text"
         },
         {
           "mandatory": "mandatory",
@@ -409,17 +344,7 @@
           "mandatory": "recommended",
           "name": "health status at collection",
           "description": "Animal disease / health status at point of collection. Healthy animals should have the term normal, otherwise use the as many disease terms as necessary from EFO",
-          "type": "ontology_id",
-          "valid_terms": [
-            {
-              "term_iri": "http://purl.obolibrary.org/obo/PATO_0000461",
-              "ontology_name": "PATO"
-            },
-            {
-              "term_iri": "http://www.ebi.ac.uk/efo/EFO_0000408",
-              "ontology_name": "EFO"
-            }
-          ]
+          "type": "text"
         },
         {
           "mandatory": "mandatory",
@@ -441,7 +366,7 @@
           "mandatory": "recommended",
           "name": "specimen collection protocol",
           "description": "A link to the protocol for specimen collection",
-          "type": "uri_value"
+          "type": "text"
         },
         {
           "mandatory": "optional",
@@ -458,62 +383,38 @@
           "mandatory": "optional",
           "name": "number of pieces",
           "description": "Number of specimen piecies used",
-          "type": "number",
-          "valid_units": [
-            "count"
-          ]
+          "type": "text"
         },
         {
           "mandatory": "optional",
           "name": "specimen volume",
           "description": "Specimen volume.  Total sum if using multiple specimen pieces.",
-          "type": "number",
-          "valid_units": [
-            "square centimeters",
-            "liters",
-            "milliliters"
-          ]
+          "type": "text"
         },
         {
           "mandatory": "optional",
           "name": "specimen size",
           "description": "Specimen size.  Total sum if using multiple specimen pieces.",
-          "type": "number",
-          "valid_units": [
-            "meters",
-            "centimeters",
-            "millimeters",
-            "square meters",
-            "square centimeters",
-            "square millimeters"
-          ]
+          "type": "text"
         },
         {
           "mandatory": "optional",
           "name": "specimen weight",
           "description": "Specimen weight. Total sum if using multiple specimen pieces.",
-          "type": "number",
-          "valid_units": [
-            "grams",
-            "kilograms"
-          ]
+          "type": "text"
         },
         {
           "allow_multiple": 1,
           "mandatory": "optional",
           "name": "specimen picture url",
           "description": "A link a picture of the specimen, multiple links allowed",
-          "type": "uri_value"
+          "type": "text"
         },
         {
           "mandatory": "optional",
           "name": "gestational age at sample collection",
           "description": "If the animal was pregnant when the specimen was taken, state how long had been pregnant for",
-          "type": "number",
-          "valid_units": [
-            "days",
-            "weeks"
-          ]
+          "type": "text"
         },
         {
           "mandatory": "mandatory",
@@ -544,60 +445,38 @@
           "mandatory": "mandatory",
           "name": "pool creation date",
           "description": "Date at which the pool was created",
-          "type": "date",
-          "valid_units": [
-            "YYYY-MM-DD",
-            "YYYY-MM",
-            "YYYY"
-          ]
+          "type": "text"
         },
         {
           "mandatory": "recommended",
           "name": "pool creation protocol",
           "description": "A link to the protocol for pool of specimens creation.",
-          "type": "uri_value"
+          "type": "text"
         },
         {
           "mandatory": "optional",
           "name": "specimen volume",
           "description": "Pool specimen volume.  Total sum from multiple specimens.",
-          "type": "number",
-          "valid_units": [
-            "square centimeters",
-            "liters",
-            "milliliters"
-          ]
+          "type": "text"
         },
         {
           "mandatory": "optional",
           "name": "specimen size",
           "description": "Pool specimen size.  Total sum from multiple specimens.",
-          "type": "number",
-          "valid_units": [
-            "meters",
-            "centimeters",
-            "millimeters",
-            "square meters",
-            "square centimeters",
-            "square millimeters"
-          ]
+          "type": "text"
         },
         {
           "mandatory": "optional",
           "name": "specimen weight",
           "description": "Pool specimen weight. Total sum from multiple specimens.",
-          "type": "number",
-          "valid_units": [
-            "grams",
-            "kilograms"
-          ]
+          "type": "text"
         },
         {
           "allow_multiple": 1,
           "mandatory": "optional",
           "name": "specimen picture url",
           "description": "A link a picture of the pooled specimen, multiple links allowed",
-          "type": "uri_value"
+          "type": "text"
         },
         {
           "allow_multiple": 1,
@@ -635,20 +514,14 @@
           "mandatory": "mandatory",
           "name": "cell type",
           "description": "Provide a cell type from the CL ontology",
-          "type": "ontology_id",
           "allow_multiple": true,
-          "valid_terms": [
-            {
-              "term_iri": "http://purl.obolibrary.org/obo/CL_0000000",
-              "ontology_name": "CL"
-            }
-          ]
+          "type": "text"
         },
         {
           "mandatory": "recommended",
           "name": "purification protocol",
           "description": "Link to protocol describing how the cells were purified",
-          "type": "uri_value"
+          "type": "text"
         },
         {
           "mandatory": "mandatory",
@@ -703,7 +576,7 @@
           "mandatory": "recommended",
           "name": "cell culture protocol",
           "description": "Link to protocol describing how the cells were purified",
-          "type": "uri_value"
+          "type": "text"
         },
         {
           "mandatory": "recommended",
@@ -759,13 +632,7 @@
           "mandatory": "recommended",
           "name": "Sex",
           "description": "Animal sex, described using any child term of PATO_0000047",
-          "type": "ontology_id",
-          "valid_terms": [
-            {
-              "term_iri": "http://purl.obolibrary.org/obo/PATO_0000047",
-              "ontology_name": "PATO"
-            }
-          ]
+          "type": "text"
         },
         
         {
@@ -788,7 +655,7 @@
         },
         {
           "mandatory": "recommended",
-          "name": "passage number",
+          "name": "number of passages",
           "description": "The number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures",
           "type": "number"
         },
@@ -796,10 +663,7 @@
           "mandatory": "recommended",
           "name": "date established",
           "description": "Date the line was established/re-established",
-          "type": "date",
-          "valid_units": [
-            "YYYY","YYYY-MM", "YYYY-MM-DD"
-          ]
+          "type": "text"
         },
         {
           "mandatory": "recommended",
@@ -811,30 +675,13 @@
           "mandatory": "optional",
           "name": "breed",
           "description": "Animal breed, described using the FAANG breed description guidelines (http://bit.ly/FAANGbreed)",
-          "type": "faang_breed",
-          "valid_terms": [
-            {
-              "term_iri": "http://purl.obolibrary.org/obo/LBO_0000000",
-              "ontology_name": "LBO",
-              "leaf_only": false
-            }
-          ]
+          "type": "text"
         },
         {
           "mandatory": "optional",
           "name": "cell type",
           "description": "Cell type using a child term of either CL_0000000 or BTO_0000000",
-          "type": "ontology_id",
-          "valid_terms": [
-            {
-              "term_iri": "http://purl.obolibrary.org/obo/CL_0000000",
-              "ontology_name": "CL"
-            },
-            {
-              "term_iri": "http://purl.obolibrary.org/obo/BTO_0000000",
-              "ontology_name": "BTO"
-            }
-          ]
+          "type": "text"
         },
         {
           "mandatory": "optional",
@@ -846,25 +693,14 @@
           "mandatory": "optional",
           "name": "culture protocol",
           "description": "Link to protocol describing the maintenance of the culture",
-          "type": "uri_value"
+          "type": "text"
         },
         {
           "mandatory": "optional",
           "name": "disease",
           "description": "Disease child term of either PATO_0000461 or EFO_0000408",
-          "type": "ontology_id",
-          "valid_terms": [
-            {
-              "term_iri": "http://purl.obolibrary.org/obo/PATO_0000461",
-              "ontology_name": "PATO"
-            },
-            {
-              "term_iri": "http://www.ebi.ac.uk/efo/EFO_0000408",
-              "ontology_name": "EFO"
-            }
-          ]
+          "type": "text"
         },
-        
         {
           "mandatory": "optional",
           "name": "karyotype",
@@ -874,7 +710,7 @@
         {
           "mandatory": "optional",
           "name": "Derived from",
-          "description": "Sample name or BioSample ID for the sample or animal the cell line was dervived from, where this is known and can be described within the FAANG standards (optional)",
+          "description": "Sample name or BioSample ID for the sample or animal the cell line was derived from, where this is known and can be described within the FAANG standards (optional)",
           "type": "relationship"
         }         
       ]
