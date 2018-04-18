@@ -15,13 +15,13 @@
             "ATAC-seq",
             "ChIP-seq",
             "DNase-Hypersensitivity seq",
-            "HiC",
+            "Hi-C",
             "methylation profiling by high throughput sequencing",
             "microRNA profiling by high throughput sequencing",
             "RNA-seq of coding RNA",
             "RNA-seq of non coding RNA",
             "transcription profiling by high throughput sequencing",
-            "whole genome sequencing"
+            "whole genome sequencing assay"
           ]
         },
         {
@@ -68,7 +68,12 @@
             "hours",
             "days",
             "weeks",
-            "years"
+            "years",
+            "minute",
+            "hour",
+            "day",
+            "week",
+            "year"
           ]
         },
         {
@@ -215,7 +220,7 @@
           "description": "Library selection is Whole Genome Bisulfite Sequencing or Reduced Representation Bisulfite Sequencing",
           "type": "text",
           "valid_values": [
-            "RBBS",
+            "RRBS",
             "WGBS"
           ]
         },        
@@ -389,7 +394,7 @@
         {
           "mandatory": "recommended",
           "name": "dnase protocol",
-          "description": "Link to the protocol used for transposase treatment",
+          "description": "Link to the protocol used for DNase treatment",
           "type": "uri_value"
         }
       ]
@@ -398,11 +403,11 @@
       "condition": {
         "attribute_value_match": {
           "assay type": [
-            "HiC"
+            "Hi-C"
           ]
         }
       },
-      "name": "HiC",
+      "name": "Hi-C",
       "rules": [
         {
           "mandatory": "mandatory",
@@ -524,7 +529,7 @@
       "condition": {
         "attribute_value_match": {
           "assay type": [
-            "whole genome sequencing"
+            "whole genome sequencing assay"
           ]
         }
       },
