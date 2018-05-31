@@ -68,11 +68,13 @@
             "hours",
             "days",
             "weeks",
+            "months",
             "years",
             "minute",
             "hour",
             "day",
             "week",
+            "month",
             "year"
           ]
         },

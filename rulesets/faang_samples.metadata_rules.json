@@ -382,16 +382,18 @@
           "description": "Animal age at the point of collection. An estimate is acceptable where the age is not precisely known.",
           "type": "number",
           "valid_units": [
-            "years",
-            "months",
-            "weeks",
+            "minutes",
+            "hours",
             "days",
-            "year",
-            "month",
-            "week",
-            "day",
+            "weeks",
+            "months",
+            "years",
+            "minute",
             "hour",
-            "hours"
+            "day",
+            "week",
+            "month",
+            "year"
           ]
         },
         {
