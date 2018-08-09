@@ -399,12 +399,17 @@
         {
           "mandatory": "mandatory",
           "name": "developmental stage",
-          "description": "Developmental stage, any child term of EFO_0000399",
+          "description": "Ontology for Developmental stage, UBERON is preferred to EFO",
           "type": "ontology_id",
           "valid_terms": [
             {
               "term_iri": "http://www.ebi.ac.uk/efo/EFO_0000399",
               "ontology_name": "EFO"
+            },
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/UBERON_0000105",
+              "ontology_name": "UBERON",
+              "leaf_only": 1
             }
           ]
         },

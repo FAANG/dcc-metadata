@@ -336,6 +336,11 @@
             {
               "term_iri": "http://www.ebi.ac.uk/efo/EFO_0000399",
               "ontology_name": "EFO"
+            },
+            {
+              "term_iri": "http://purl.obolibrary.org/obo/UBERON_0000105",
+              "ontology_name": "UBERON",
+              "leaf_only": 1
             }
           ]
         },
