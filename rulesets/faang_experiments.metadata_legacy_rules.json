@@ -277,7 +277,7 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
-          "description": "What the experiment was trying to find, list the text rather than ontology link e.g. 'input DNA'. ChIP-seq histone modifications: use child term of SO_0001700. ChIP-seq input: use 'input DNA'",
+          "description": "What the experiment was trying to find, list the text rather than ontology link e.g. 'input DNA'. If the target is unknown, use 'Unknown'. ChIP-seq histone modifications: use child term of SO_0001700. ChIP-seq input: use 'input DNA'",
           "type": "ontology_text",
           "valid_terms": [
             {
@@ -288,6 +288,11 @@
             {
               "ontology_name": "EFO",
               "term_iri": "http://www.ebi.ac.uk/efo/EFO_0005031",
+              "allow_descendants": false
+            },
+            {
+              "ontology_name": "NCIT",
+              "term_iri": "http://purl.obolibrary.org/obo/NCIT_C17998",
               "allow_descendants": false
             }
           ]
@@ -454,12 +459,17 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
-          "description": "What the experiment was trying to find, list the text rather than ontology link, for example 'polyA RNA'",
+          "description": "What the experiment was trying to find, list the text rather than ontology link, for example 'polyA RNA'. If the target is uncertain, use 'Unknown'",
           "type": "ontology_text",
           "valid_terms": [
             {
               "ontology_name": "EFO",
               "term_iri": "http://purl.obolibrary.org/obo/CHEBI_33697"
+            },
+            {
+              "ontology_name": "NCIT",
+              "term_iri": "http://purl.obolibrary.org/obo/NCIT_C17998",
+              "allow_descendants": false
             }
           ]
         },
