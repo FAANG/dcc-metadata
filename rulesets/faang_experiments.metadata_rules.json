@@ -435,6 +435,12 @@
           "name": "restriction site",
           "description": "Restriction site targeted",
           "type": "text"
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "Hi-C protocol",
+          "description": "Link to the protocol used for Hi-C experiment",
+          "type": "uri_value"
         }
       ]
     },
