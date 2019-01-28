@@ -1,0 +1,75 @@
+{
+  "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all analyses, and additional groups based on the analysis type",
+  "name": "FAANG analysis metadata rules",
+  "further_details_iri": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_analysis_metadata.md",
+  "rule_groups": [
+    {
+      "name": "standard",
+      "rules": [
+        {
+          "mandatory": "mandatory",
+          "name": "project",
+          "description": "State that the project is 'FAANG'",
+          "type": "text",
+          "valid_values": [
+            "FAANG"
+          ]
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "assay type",
+          "description": "The type of experiment analysis data was derived from",
+          "type": "text",
+          "valid_values": [
+            "ATAC-seq",
+            "ChIP-seq",
+            "DNase-Hypersensitivity seq",
+            "Hi-C",
+            "methylation profiling by high throughput sequencing",
+            "microRNA profiling by high throughput sequencing",
+            "RNA-seq of coding RNA",
+            "RNA-seq of non coding RNA",
+            "transcription profiling by high throughput sequencing",
+            "whole genome sequencing assay"
+          ]
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "analysis type",
+          "description": "The type of analysis performed. Contact FAANG DCC to add a new analysis type",
+          "type": "text",
+          "valid_values": [
+            "alignment",
+            "varient effect prediction",
+          ]
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "analysis protocol",
+          "description": "Link to the description of the analysis protocol, an overview of the full analysis including names, references and versions of any software employed. The protocol can refer to the order in which other protocols were performed and any intermediate steps not covered by any analysis specific protocols",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "analysis code",
+          "description": "Link to the repository that contains the code used in the analysis. Ideally this would be formatted and documented for use by others, but even raw or undocumented code is encouraged as it will assist with reproducability",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "reference genome",
+          "description": "The reference genome used in the analysis. Use 'not applicable' if a reference genome was not required for this analysis type. Contact FAANG DCC to add new reference assembly",
+          "type": "text",
+          "valid_values": [
+            "Sscrofa11.1",
+            "EquCab3.0",
+            "Oar_v3.1",
+            "ARS-UCD1.2",
+            "GRCg6a",
+            "ARS1",
+          ]
+        },     
+      ]
+    }
+  ]
+}
