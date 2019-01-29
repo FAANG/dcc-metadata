@@ -40,7 +40,7 @@
           "type": "text",
           "valid_values": [
             "alignment",
-            "varient effect prediction",
+            "varient effect prediction"
           ]
         },
         {
@@ -66,9 +66,9 @@
             "Oar_v3.1",
             "ARS-UCD1.2",
             "GRCg6a",
-            "ARS1",
+            "ARS1"
           ]
-        },     
+        }     
       ]
     }
   ]
