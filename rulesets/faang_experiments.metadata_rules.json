@@ -18,6 +18,7 @@
             "Hi-C",
             "methylation profiling by high throughput sequencing",
             "microRNA profiling by high throughput sequencing",
+            "RNA-seq of total RNA",
             "RNA-seq of coding RNA",
             "RNA-seq of non coding RNA",
             "transcription profiling by high throughput sequencing",
@@ -449,6 +450,7 @@
         "attribute_value_match": {
           "assay type": [
             "microRNA profiling by high throughput sequencing",
+            "RNA-seq of total RNA",
             "RNA-seq of coding RNA",
             "RNA-seq of non coding RNA",
             "transcription profiling by high throughput sequencing"
