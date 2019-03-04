@@ -313,7 +313,7 @@
             "ChIP-seq"
           ]
         },
-        "dpath_condition": "/attributes/*/*[key eq 'name' && value eq 'experiment target']/../*[key eq 'value' && value ne 'Input DNA']"
+        "dpath_condition": "/attributes/*/*[key eq 'name' && value eq 'experiment target']/../*[key eq 'value' && value ne 'input DNA']"
       },
       "name": "ChIP-seq histone modifications",
       "rules": [
@@ -356,7 +356,7 @@
             "ChIP-seq"
           ],
           "experiment target": [
-            "Input DNA"
+            "input DNA"
           ]
         }
       },
