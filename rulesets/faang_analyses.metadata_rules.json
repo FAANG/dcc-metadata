@@ -4,7 +4,8 @@
   "further_details_iri": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_analysis_metadata.md",
   "rule_groups": [
     {
-      "name": "standard",
+      "name": "faang",
+      "description": "faang-specific rule sets",
       "rules": [
         {
           "mandatory": "mandatory",
@@ -36,16 +37,6 @@
         },
         {
           "mandatory": "mandatory",
-          "name": "analysis type",
-          "description": "The type of analysis performed. Contact FAANG DCC to add a new analysis type",
-          "type": "text",
-          "valid_values": [
-            "alignment",
-            "varient effect prediction"
-          ]
-        },
-        {
-          "mandatory": "mandatory",
           "name": "analysis protocol",
           "description": "Link to the description of the analysis protocol, an overview of the full analysis including names, references and versions of any software employed. The protocol can refer to the order in which other protocols were performed and any intermediate steps not covered by any analysis specific protocols",
           "type": "uri_value"
@@ -70,6 +61,28 @@
             "ARS1"
           ]
         }     
+      ]
+    },
+    {
+      "name": "ena",
+      "description": "the fields required by the ENA analysis xsd https://github.com/FAANG/faang-metadata/blob/master/rulesets/faang_analyses.metadata_rules.json",
+      "rules": [
+        {
+          "mandatory": "mandatory",
+          "name": "analysis type",
+          "description": "The type of analysis performed. Contact FAANG DCC to add a new analysis type",
+          "type": "text",
+          "valid_values": [
+            "alignment",
+            "varient effect prediction"
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "title",
+          "type": "text",
+          "description": "the title of the analysis"
+        }
       ]
     }
   ]
