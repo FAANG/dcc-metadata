@@ -68,20 +68,136 @@
       "description": "the fields required by the ENA analysis xsd https://github.com/FAANG/faang-metadata/blob/master/rulesets/faang_analyses.metadata_rules.json",
       "rules": [
         {
+          "mandatory": "recommended",
+          "name": "title",
+          "type": "text",
+          "description": "the title of the analysis"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "description",
+          "type": "text",
+          "description": "Describes the analysis in detail"
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "study",
+          "description": "Identifies the parent study.",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "samples",
+          "description": "One or more samples associated with the analysis.",
+          "type": "text",
+          "allow_multiple": 1
+        },
+        {
+          "mandatory": "recommended",
+          "name": "experiments",
+          "description": "One or more experiments associated with the analysis.",
+          "type": "text",
+          "allow_multiple": 1
+        },
+        {
+          "mandatory": "recommended",
+          "name": "runs",
+          "description": "One or more runs associated with the analysis.",
+          "type": "text",
+          "allow_multiple": 1
+        },
+        {
           "mandatory": "mandatory",
           "name": "analysis type",
           "description": "The type of analysis performed. Contact FAANG DCC to add a new analysis type",
           "type": "text",
           "valid_values": [
-            "alignment",
-            "varient effect prediction"
+            "reference alignment",
+            "sequence variation",
+            "sequence assembly",
+            "sequence flatfile",
+            "sequence annotation",
+            "reference sequence",
+            "sample phenotype",
+            "processed reads",
+            "genome map",
+            "AMR antibiogram",
+            "pathogen analysis",
+            "transcriptome assembly"
           ]
         },
         {
-          "mandatory": "recommended",
-          "name": "title",
+          "mandatory": "mandatory",
+          "name": "file names",
+          "description": "The names of the files associated with this analysis, must have the same number as file types, checksum methods and checksums",
           "type": "text",
-          "description": "the title of the analysis"
+          "allow_multiple": 1
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "file types",
+          "description": "The types of the files associated with this analysis, must have the same number as file names, checksum methods and checksums",
+          "type": "text",
+          "valid_values": [
+            "tab",
+            "bam",
+            "bai",
+            "cram",
+            "crai",
+            "vcf",
+            "vcf_aggregate",
+            "bcf",
+            "tabix",
+            "wig",
+            "bed",
+            "gff",
+            "fasta",
+            "fastq",
+            "flatfile",
+            "chromosome_list",
+            "sample_list",
+            "readme_file",
+            "phenotype_file",
+            "BioNano_native",
+            "Kallisto_native",
+            "agp",
+            "unlocalised_list",
+            "info",
+            "manifest",
+            "other"
+          ],
+          "allow_multiple": 1
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "checksum methods",
+          "description": "The checksum methods used on the files associated with this analysis, must have the same number as file names, file types and checksums",
+          "type": "text",
+          "allow_multiple": 1
+        },
+        {
+          "mandatory": "mandatory",
+          "name": "checksums",
+          "description": "The checksum values of the files associated with this analysis, must have the same number as file names, file types and checksum methods",
+          "type": "text",
+          "allow_multiple": 1
+        },
+        {
+          "mandatory": "optional",
+          "name": "analysis center",
+          "type": "text",
+          "description": "If applicable, the center name of the institution responsible for this analysis."
+        },
+        {
+          "mandatory": "optional",
+          "name": "analysis date",
+          "type": "date",
+          "valid_units": [
+            "YYYY-MM-DD",
+            "YYYY-MM",
+            "YYYY"
+          ],
+          "description": "The date when this analysis was produced."
         }
       ]
     }
