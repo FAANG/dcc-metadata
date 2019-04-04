@@ -592,13 +592,13 @@
         {
           "mandatory": "recommended",
           "name": "number of passages",
-          "description": "",
+          "description": "Number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures",
           "type": "number"
         },
         {
           "mandatory": "mandatory",
           "name": "Derived from",
-          "description": "Number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures",
+          "description": "Sample name or BioSample ID for the sample the cell culture was derived from",
           "type": "relationship",
           "condition": {
             "attribute_value_match": {
