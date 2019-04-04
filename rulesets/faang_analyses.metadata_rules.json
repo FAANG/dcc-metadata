@@ -48,6 +48,27 @@
           "type": "uri_value"
         },
         {
+          "mandatory": "mandatory",
+          "name": "analysis type",
+          "description": "The type of analysis performed. Contact FAANG DCC to add a new analysis type",
+          "type": "text",
+          "valid_values": [
+            "reference alignment",
+            "sequence variation",
+            "sequence assembly",
+            "sequence flatfile",
+            "sequence annotation",
+            "reference sequence",
+            "sample phenotype",
+            "processed reads",
+            "genome map",
+            "AMR antibiogram",
+            "pathogen analysis",
+            "transcriptome assembly",
+            "variant effect prediction"
+          ]
+        },
+        {
           "mandatory": "recommended",
           "name": "reference genome",
           "description": "The reference genome used in the analysis. Use 'not applicable' if a reference genome was not required for this analysis type. Contact FAANG DCC to add new reference assembly",
@@ -105,26 +126,6 @@
           "description": "One or more runs associated with the analysis.",
           "type": "text",
           "allow_multiple": 1
-        },
-        {
-          "mandatory": "mandatory",
-          "name": "analysis type",
-          "description": "The type of analysis performed. Contact FAANG DCC to add a new analysis type",
-          "type": "text",
-          "valid_values": [
-            "reference alignment",
-            "sequence variation",
-            "sequence assembly",
-            "sequence flatfile",
-            "sequence annotation",
-            "reference sequence",
-            "sample phenotype",
-            "processed reads",
-            "genome map",
-            "AMR antibiogram",
-            "pathogen analysis",
-            "transcriptome assembly"
-          ]
         },
         {
           "mandatory": "mandatory",
