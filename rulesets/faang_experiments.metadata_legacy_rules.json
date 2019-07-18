@@ -278,7 +278,7 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
-          "description": "What the experiment was trying to find, list the text rather than ontology link e.g. 'input DNA'. For transcription factor, use TF_binding_site; For chromatin, use histone_modification. ChIP-seq input: use 'input DNA'",
+          "description": "What the experiment was trying to find, list the text rather than ontology link e.g. 'input DNA'. If the target is unknown, use 'Unknown'. For transcription factor, use TF_binding_site; For chromatin, use histone_modification. ChIP-seq input: use 'input DNA'",
           "type": "ontology_text",
           "valid_terms": [
             {
@@ -315,7 +315,7 @@
       "condition": {
         "attribute_value_match": {
           "assay type": [
-          chip  "ChIP-seq"
+            "ChIP-seq"
           ]
         },
         "dpath_condition": "/attributes/*/*[key eq 'name' && value eq 'experiment target']/../*[key eq 'value' && value ne 'input DNA']"
