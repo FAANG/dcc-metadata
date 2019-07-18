@@ -273,18 +273,23 @@
           ]
         }
       },
-      "name": "ChIP-seq standard rules for both histone modifications and input DNA",
+      "name": "ChIP-seq standard rules",
       "rules": [
         {
           "mandatory": "mandatory",
           "name": "experiment target",
-          "description": "What the experiment was trying to find, list the text rather than ontology link e.g. 'input DNA'. ChIP-seq histone modifications: use child term of SO_0001700. ChIP-seq input: use 'input DNA'",
+          "description": "What the experiment was trying to find, list the text rather than ontology link e.g. 'input DNA'. For transcription factor, use TF_binding_site; For chromatin, use histone_modification. ChIP-seq input: use 'input DNA'",
           "type": "ontology_text",
           "valid_terms": [
             {
               "ontology_name": "SO",
               "term_iri": "http://purl.obolibrary.org/obo/SO_0001700",
-              "leaf_only": true
+              "allow_descendants": false
+            },
+            {
+              "ontology_name": "SO",
+              "term_iri": "http://purl.obolibrary.org/obo/SO_0000235",
+              "allow_descendants": false
             },
             {
               "ontology_name": "EFO",
@@ -310,8 +315,49 @@
         },
         "dpath_condition": "/attributes/*/*[key eq 'name' && value eq 'experiment target']/../*[key eq 'value' && value ne 'input DNA']"
       },
-      "name": "ChIP-seq histone modifications",
+      "name": "ChIP-seq DNA-binding proteins",
       "rules": [
+        {
+          "mandatory": "optional",
+          "name": "target protein name",
+          "description": "The name of targeted protein",
+          "type": "ontology_text",
+          "valid_terms": [
+            {
+              "ontology_name": "NCIT",
+              "term_iri": "http://purl.obolibrary.org/obo/NCIT_C16687",
+              "leaf_only": false,
+              "allow_descendants": true
+            },
+            {
+              "ontology_name": "NCIT",
+              "term_iri": "http://purl.obolibrary.org/obo/NCIT_C17207",
+              "leaf_only": false,
+              "allow_descendants": true
+            },
+            {
+              "ontology_name": "NCIT",
+              "term_iri": "http://purl.obolibrary.org/obo/NCIT_C73704",
+              "allow_descendants": false
+            },
+            {
+              "ontology_name": "NCIT",
+              "term_iri": "http://purl.obolibrary.org/obo/NCIT_C17804",
+              "allow_descendants": false
+            },
+            {
+              "ontology_name": "NCIT",
+              "term_iri": "http://purl.obolibrary.org/obo/NCIT_C34071",
+              "allow_descendants": false
+            }
+          ]
+        }, 
+        {
+          "mandatory": "mandatory",
+          "name": "control experiment",
+          "description": "The ChIP-seq input DNA experiment which acts as the control/background for the analysis",
+          "type": "text"
+        },
         {
           "mandatory": "mandatory",
           "name": "chip antibody provider",
