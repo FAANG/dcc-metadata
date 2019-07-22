@@ -35,6 +35,7 @@ These following elements must always be present in any experiment metadata
     * HiC
     * methylation profiling by high throughput sequencing
     * microRNA profiling by high throughput sequencing
+    * RNA-seq of total RNA
     * RNA-seq of coding RNA
     * RNA-seq of non coding RNA
     * transcription profiling by high throughput sequencing
@@ -103,7 +104,7 @@ Recommended:
  * `max fragment size selection range` (*number*) The maximum fragment size of the fragment selection range
  * `min fragment size selection range` (*number*) The minimum fragment size of the fragment selection range
 
-### ChIP-seq standard rules for both histone modifications and input DNA
+### ChIP-seq standard rules
 
 ChIP-seq experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0002692).
 
@@ -112,13 +113,14 @@ Examples of the antibody information are from the [H3K4me3 antibody from Diageno
 Required:
 
  * `experiment target` (*ontology term*)
-   * ChIP-seq for histone modifications should use a child term of [histone modification](http://www.ebi.ac.uk/ols/ontologies/so/terms?short_form=SO_0001700)
+   * ChIP-seq for histone modifications should use [histone modification](http://www.ebi.ac.uk/ols/ontologies/so/terms?short_form=SO_0001700)
+   * ChIP-seq for Transcription factor should use [TF binding site](http://www.ebi.ac.uk/ols/ontologies/so/terms?short_form=SO_0000235)
    * ChIP-seq input should use the term [input DNA](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0005031) 
  * `chip protocol` (*protocol*)  the ChIP protocol used
 
-### ChIP-seq for histone modifications
+### ChIP-seq for DNA-binding proteins
 
-ChIP-seq histone modification experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0002692)
+ChIP-seq DNA-binding proteins experiments should have an `assay type` of  [ChIP-seq](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0002692)
 
 Required:
 
@@ -127,6 +129,13 @@ Required:
  * `chip antibody lot` (*text*) the lot identifier of the antibody e.g. A5051-001P
  * `library generation max fragment size range` (*number*) the maximum fragment size range of the preparation
  * `library generation min fragment size range` (*number*) the minimum fragment size range of the preparation
+ 
+Recommended:
+
+ * `control experiment` (*text*) Experiment alias (in this submission) or ENA experiment accession (if submitted previously) of the ChIP-seq input DNA experiment which acts as the control/background for the analysis. 
+ 
+Optional:
+ * `target protein name` (*ontology term*) State the name of targeted protein
 
 ### ChIP-seq input DNA
 
