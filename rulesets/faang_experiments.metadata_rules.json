@@ -278,7 +278,7 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
-          "description": "What the experiment was trying to find, list the text rather than ontology link e.g. 'input DNA'. For transcription factor, use TF_binding_site; For chromatin, use histone_modification. ChIP-seq input: use 'input DNA'",
+          "description": "What the experiment was trying to find, list the text rather than ontology link e.g. 'input DNA'. For transcription factor, use 'TF_binding_site'; For chromatin, use 'histone_modification'. ChIP-seq input: use 'input DNA'",
           "type": "ontology_text",
           "valid_terms": [
             {
@@ -353,9 +353,9 @@
           ]
         }, 
         {
-          "mandatory": "mandatory",
+          "mandatory": "recommended",
           "name": "control experiment",
-          "description": "The ChIP-seq input DNA experiment which acts as the control/background for the analysis",
+          "description": "The ChIP-seq input DNA experiment which acts as the control/background for the analysis. Experiment alias or ENA experiment accession (if submitted previously) are expected here",
           "type": "text"
         },
         {

@@ -124,13 +124,16 @@ ChIP-seq DNA-binding proteins experiments should have an `assay type` of  [ChIP-
 
 Required:
 
- * `control experiment` (*text*) The ChIP-seq input DNA experiment which acts as the control/background for the analysis 
  * `chip antibody provider` (*text*) the name of the company, laboratory or person that provided the antibody e.g. Diagneode 
  * `chip antibody catalog` (*text*)  the catalog from which the antibody was purchased e.g. pAb-003-050
  * `chip antibody lot` (*text*) the lot identifier of the antibody e.g. A5051-001P
  * `library generation max fragment size range` (*number*) the maximum fragment size range of the preparation
  * `library generation min fragment size range` (*number*) the minimum fragment size range of the preparation
+ 
+Recommended:
 
+ * `control experiment` (*text*) The ChIP-seq input DNA experiment which acts as the control/background for the analysis.  Experiment alias or ENA experiment accession (if submitted previously) are expected here. 
+ 
 Optional:
  * `target protein name` (*ontology term*) State the name of targeted protein
 
