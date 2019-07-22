@@ -355,7 +355,7 @@
         {
           "mandatory": "recommended",
           "name": "control experiment",
-          "description": "The ChIP-seq input DNA experiment which acts as the control/background for the analysis. Experiment alias or ENA experiment accession (if submitted previously) are expected here",
+          "description": "Experiment alias (in this submission) or ENA experiment accession (if submitted previously) of the ChIP-seq input DNA experiment which acts as the control/background for the analysis.",
           "type": "text"
         },
         {

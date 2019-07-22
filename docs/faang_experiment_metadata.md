@@ -132,7 +132,7 @@ Required:
  
 Recommended:
 
- * `control experiment` (*text*) The ChIP-seq input DNA experiment which acts as the control/background for the analysis.  Experiment alias or ENA experiment accession (if submitted previously) are expected here. 
+ * `control experiment` (*text*) Experiment alias (in this submission) or ENA experiment accession (if submitted previously) of the ChIP-seq input DNA experiment which acts as the control/background for the analysis. 
  
 Optional:
  * `target protein name` (*ontology term*) State the name of targeted protein
