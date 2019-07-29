@@ -219,7 +219,7 @@
         },
         {
           "mandatory": "optional",
-          "name": "birth location longitude",
+          "name": "birth location latitude",
           "description": "Latitude of the birth location in decimal degrees.",
           "type": "number",
           "valid_units": [
@@ -228,7 +228,7 @@
         },
         {
           "mandatory": "optional",
-          "name": "birth location latitude",
+          "name": "birth location longitude",
           "description": "Longitude of the birth location in decimal degrees",
           "type": "number",
           "valid_units": [
