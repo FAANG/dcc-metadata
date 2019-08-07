@@ -128,14 +128,14 @@
           "allow_multiple": 1
         },
         {
-          "mandatory": "optional",
+          "mandatory": "mandatory",
           "name": "file names",
           "description": "The names of the files associated with this analysis, must have the same number as file types, checksum methods and checksums",
           "type": "text",
           "allow_multiple": 1
         },
         {
-          "mandatory": "optional",
+          "mandatory": "mandatory",
           "name": "file types",
           "description": "The types of the files associated with this analysis, must have the same number as file names, checksum methods and checksums",
           "type": "text",
@@ -170,14 +170,14 @@
           "allow_multiple": 1
         },
         {
-          "mandatory": "optional",
+          "mandatory": "mandatory",
           "name": "checksum methods",
           "description": "The checksum methods used on the files associated with this analysis, must have the same number as file names, file types and checksums",
           "type": "text",
           "allow_multiple": 1
         },
         {
-          "mandatory": "optional",
+          "mandatory": "mandatory",
           "name": "checksums",
           "description": "The checksum values of the files associated with this analysis, must have the same number as file names, file types and checksum methods",
           "type": "text",
