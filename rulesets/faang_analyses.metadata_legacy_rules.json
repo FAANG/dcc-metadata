@@ -8,7 +8,7 @@
       "description": "faang-specific rule sets",
       "rules": [
         {
-          "mandatory": "mandatory",
+          "mandatory": "optional",
           "name": "project",
           "description": "State that the project is 'FAANG'",
           "type": "text",
@@ -17,7 +17,7 @@
           ]
         },
         {
-          "mandatory": "mandatory",
+          "mandatory": "optional",
           "name": "assay type",
           "description": "The type of experiment analysis data was derived from",
           "type": "text",
@@ -36,19 +36,19 @@
           ]
         },
         {
-          "mandatory": "mandatory",
+          "mandatory": "optional",
           "name": "analysis protocol",
           "description": "Link to the description of the analysis protocol, an overview of the full analysis including names, references and versions of any software employed. The protocol can refer to the order in which other protocols were performed and any intermediate steps not covered by any analysis specific protocols",
           "type": "uri_value"
         },
         {
-          "mandatory": "recommended",
+          "mandatory": "optional",
           "name": "analysis code",
           "description": "Link to the repository that contains the code used in the analysis. Ideally this would be formatted and documented for use by others, but even raw or undocumented code is encouraged as it will assist with reproducability",
           "type": "uri_value"
         },
         {
-          "mandatory": "recommended",
+          "mandatory": "optional",
           "name": "reference genome",
           "description": "The reference genome used in the analysis. Use 'not applicable' if a reference genome was not required for this analysis type. Contact FAANG DCC to add new reference assembly",
           "type": "text",
@@ -68,7 +68,7 @@
       "description": "the fields required by the ENA analysis xsd https://github.com/FAANG/faang-metadata/blob/master/rulesets/faang_analyses.metadata_rules.json",
       "rules": [
         {
-          "mandatory": "recommended",
+          "mandatory": "optional",
           "name": "title",
           "type": "text",
           "description": "the title of the analysis"
@@ -101,7 +101,7 @@
           ]
         },
         {
-          "mandatory": "recommended",
+          "mandatory": "optional",
           "name": "description",
           "type": "text",
           "description": "Describes the analysis in detail"
@@ -113,21 +113,21 @@
           "type": "text"
         },
         {
-          "mandatory": "recommended",
+          "mandatory": "optional",
           "name": "samples",
           "description": "One or more samples associated with the analysis.",
           "type": "text",
           "allow_multiple": 1
         },
         {
-          "mandatory": "recommended",
+          "mandatory": "optional",
           "name": "experiments",
           "description": "One or more experiments associated with the analysis.",
           "type": "text",
           "allow_multiple": 1
         },
         {
-          "mandatory": "recommended",
+          "mandatory": "optional",
           "name": "runs",
           "description": "One or more runs associated with the analysis.",
           "type": "text",
