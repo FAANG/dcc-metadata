@@ -1,6 +1,6 @@
-# The Human Cell Atlas Metadata Standards: Scripts
+# FAANG Metadata Standards: Scripts
 
-This directory contains useful scripts related to exploring the HCA metadata schemas.
+This directory contains useful scripts related to exploring the FAANG metadata schemas.
 
 ### schemas_are_valid_json.py
 
