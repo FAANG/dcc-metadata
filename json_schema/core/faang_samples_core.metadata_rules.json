@@ -3,13 +3,13 @@
   "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all samples, and additional groups based on the sample type. In addition to rules defined individually, attribute names are imported from the VT, ATOL and EOL ontologies.",
   "title": "FAANG sample core metadata rules",
   "name": "faang_sample_core",
+  "$async": true,
   "type": "object",
   "required": ["material", "project"],
   "properties": {
     "sample_description": {
       "type": "object",
       "name": "Sample Description",
-      "user_friendly": "Sample Description",
       "description": "A brief description of the sample including species name",
       "properties": {
         "value": {
@@ -23,7 +23,6 @@
     "material": {
       "type": "object",
       "name": "Material",
-      "user_friendly": "Material",
       "description": "The type of material being described.",
       "properties": {
         "value": {
@@ -37,7 +36,6 @@
     "project": {
       "type": "object",
       "name": "Project",
-      "user_friendly": "Project",
       "description": "State that the project is 'FAANG'",
       "properties": {
         "value": {
@@ -51,7 +49,6 @@
     "availability": {
       "type": "object",
       "name": "Availability",
-      "user_friendly": "Availability",
       "description": "Either a link to a web page giving information on sample availability (who to contact and if the sample is available), or a e-mail address to contact about availability. E-mail addresses should be prefixed with 'mailto:', e.g. 'mailto:samples@example.ac.uk'. In either case, long term support of the web page or e-mail address is necessary. Group e-mail addresses are preferable to indiviudal.",
       "properties": {
         "value": {
@@ -63,7 +60,6 @@
     "same_as": {
       "type": "object",
       "name": "Same as",
-      "user_friendly": "Same as",
       "description": "BioSample ID for an equivalent sample record, created before the FAANG metadata specification was available. This is optional and not intended for general use, please contact the data coordination centre (faang-dcc@ebi.ac.uk) before using it.",
       "properties": {
         "value": {
