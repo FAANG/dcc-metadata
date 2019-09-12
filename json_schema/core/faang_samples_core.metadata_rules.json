@@ -26,10 +26,8 @@
       "description": "The type of material being described.",
       "properties": {
         "value": {
-          "type": "string"
-        },
-        "mandatory": {
-          "const": "mandatory"
+          "type": "string",
+          "enum": ["organism", "specimen from organism", "cell specimen", "pool of specimens", "cell culture", "cell line"]
         }
       }
     },
