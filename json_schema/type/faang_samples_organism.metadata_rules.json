@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": "Ruleset for material is organism sample",
-  "title": "FAANG sample core metadata rules for organism",
-  "name": "faang_sample_organism_core",
+  "title": "FAANG sample metadata rules for organism",
+  "name": "faang_sample_organism_type",
   "$async": true,
   "type": "object",
   "required": ["organism", "sex", "breed"],

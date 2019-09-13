@@ -1,0 +1,247 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Ruleset for material is specimen from organism sample",
+  "title": "FAANG sample metadata rules for 'specimen from organism'",
+  "name": "faang_sample_specimen_type",
+  "$async": true,
+  "type": "object",
+  "required": ["specimen_collection_date", "animal_age_at_collection", "developmental_stage", "organism_part", "specimen_collection_protocol", "derived_from"],
+  "properties": {
+    "specimen_collection_date": {
+      "type": "object",
+      "name": "specimen collection date",
+      "description": "Date at which the specimen was collected",
+      "properties": {
+        "value": {
+          "type": "string",
+          "pattern": "^[12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])|[12]\\d{3}-(0[1-9]|1[0-2])|[12]\\d{3}$"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "animal_age_at_collection": {
+      "type": "object",
+      "name": "animal age at collection",
+      "description": "Animal age at the point of collection. An estimate is acceptable where the age is not precisely known.",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["minutes", "hours", "month", "year", "days", "weeks", "months", "years", "minute", "hour", "day", "week"]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "developmental_stage": {
+      "type": "object",
+      "name": "developmental stage",
+      "description": "Ontology for Developmental stage, UBERON is preferred to EFO",
+      "properties": {
+        "term": {
+          "type": "string",
+          "graph_restriction": {
+            "ontologies": ["obo:efo", "obo:uberon"],
+            "classes": ["EFO:0000399", "UBERON:0007232"],
+            "relations": ["rdfs:subClassOf"],
+            "direct": false,
+            "include_self": true
+          }
+        },
+        "test": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "health_status_at_collection": {
+      "type": "object",
+      "name": "health status at collection",
+      "description": "Animal disease / health status at point of collection. Healthy animals should have the term normal, otherwise use the as many disease terms as necessary from EFO",
+      "properties": {
+        "term": {
+          "type": "string",
+          "graph_restriction": {
+            "ontologies": ["obo:pato", "obo:efo"],
+            "classes": ["PATO:0000461", "EFO:0000408"],
+            "relations": ["rdfs:subClassOf"],
+            "direct": false,
+            "include_self": true
+          }
+        },
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "organism_part": {
+      "type": "object",
+      "name": "organism part",
+      "description": "Ontology for part of organism specimen from, UBERON is preferred to BTO",
+      "properties": {
+        "term": {
+          "type": "string",
+          "graph_restriction": {
+            "ontologies": ["obo:uberon", "obo:bto"],
+            "classes": ["UBERON:0001062", "BTO:0000042"],
+            "relations": ["rdfs:subClassOf"],
+            "direct": false,
+            "include_self": true
+          }
+        },
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "specimen_collection_protocol": {
+      "type": "object",
+      "name": "specimen collection protocol",
+      "description": "A link to the protocol for specimen collection",
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "uri"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "fasted_status": {
+      "type": "object",
+      "name": "fasted status",
+      "description": "Fed, fasted or unknown. Criteria for this status must be in your protocol",
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": ["fed", "fasted", "unknown"]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "number_of_pieces": {
+      "type": "object",
+      "name": "number of pieces",
+      "description": "Number of specimen pieces used",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["count"]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "specimen_volume": {
+      "type": "object",
+      "name": "specimen volume",
+      "description": "Specimen volume. Total sum if using multiple specimen pieces.",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["square centimeters", "liters", "milliliters"]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "specimen_size": {
+      "type": "object",
+      "name": "specimen size",
+      "description": "Specimen size. Total sum if using multiple specimen pieces",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["meters", "centimeters", "millimeters", "square meters", "square centimeters", "square millimeters"]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "specimen_weight": {
+      "type": "object",
+      "name": "specimen weight",
+      "description": "Specimen weight. Total sum if using multiple specimen pieces.",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["grams", "kilograms"]
+        }
+      }
+    },
+    "specimen_picture_url": {
+      "type": "object",
+      "name": "specimen picture url",
+      "description": "A link a picture of the specimen, multiple links allowed",
+      "properties": {
+        "value": {
+          "type": "uri"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "gestational_age_at_sample_collection": {
+      "type": "object",
+      "name": "gestational age at sample collection",
+      "description": "If the animal was pregnant when the specimen was taken, state how long had been pregnant for",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["days", "weeks", "day", "week"]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "derived_from": {
+      "type": "object",
+      "name": "Derived from",
+      "description": "Sample name or BioSample ID for an animal record",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    }
+  }
+}
