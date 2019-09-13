@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Ruleset for material is specimen from organism sample",
+  "description": "Ruleset for material is 'specimen from organism'",
   "title": "FAANG sample metadata rules for 'specimen from organism'",
   "name": "faang_sample_specimen_type",
   "$async": true,
