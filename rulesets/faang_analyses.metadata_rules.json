@@ -214,6 +214,93 @@
           "description": "The date when this analysis was produced."
         }
       ]
+    },
+    {
+      "condition": {
+        "attribute_value_match": {
+          "analysis type": [
+            "SEQUENCE_VARIATION"
+          ],
+          "file types": [
+            "vcf"
+          ]
+        }
+      },
+      "name": "eva",
+      "description": "the ruleset make the analysis compatible to be submitted to EVA",
+      "rules": [
+        {
+          "mandatory": "mandatory",
+          "name": "experiment type",
+          "description": "the type of experiment",
+          "type": "text",
+          "valid_values": [
+            "Whole genome sequencing",
+            "Whole transcriptome sequencing",
+            "Exome sequencing",
+            "Genotyping by array",
+            "transcriptomics",
+            "Curation",
+            "Genotyping by sequencing"
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "program",
+          "description": "the programs/tools used in the analysis separated by commas",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "platform",
+          "description": "The platform(s) used to do the sequencing separated by commas. If a used platform is not listed, please contact eva-helpdesk@ebi.ac.uk directly while cc-ing faang_dcc@ebi.ac.uk",
+          "type": "text",
+          "valid_values": [
+            "Nimblegen 4.2M Probe Custom DNA Microarray",
+            "Illumina NovaSeq 6000",
+            "Illumina HiSeq 3500",
+            "Illumina NextSeq 500",
+            "Illumina HiSeq 4000",
+            "Illumina HiSeq 2000",
+            "Illumina HiSeq 2500",
+            "Illumina HiSeq 1000",
+            "Illumina HiScanSQ",
+            "Illumina NextSeq 500",
+            "Illumina MiSeq",
+            "Illumina Genome Analyzer",
+            "Illumina Genome Analyzer II",
+            "Illumina Genome Analyzer IIx",
+            "AB SOLiD System 2.0","AB SOLiD System 3.0",
+            "AB SOLiD 3 Plus System",
+            "AB SOLiD 4 System",
+            "AB SOLiD 4hq System",
+            "AB SOLiD PI System",
+            "AB 5500 Genetic Analyzer",
+            "AB 5500xl Genetic Analyzer",
+            "AB SOLiD System",
+            "AB 3730xl",
+            "454 GS FLX",
+            "454 GS",
+            "454 GS 20",
+            "454 GS FLX+",
+            "454 GS FLX Titanium",
+            "454 GS Junior",
+            "Complete Genomics",
+            "unspecified",
+            "Affymetrix"
+          ]
+        },
+        {
+          "mandatory": "optional",
+          "name": "special analysis type",
+          "description": "indicates the special type of analysis, e.g. imputation analysis, phasing analysis",
+          "type": "text",
+          "valid_values": [
+            "imputation analysis",
+            "phasing analysis"
+          ]
+        }
+      ]
     }
   ]
 }
