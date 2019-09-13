@@ -1,0 +1,262 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Ruleset for material is organism sample",
+  "title": "FAANG sample core metadata rules for organism",
+  "name": "faang_sample_organism_core",
+  "$async": true,
+  "type": "object",
+  "required": ["organism", "sex", "breed"],
+  "properties": {
+    "organism": {
+      "type": "object",
+      "name": "Organism",
+      "description": "NCBI taxon ID of organism",
+      "properties": {
+        "term": {
+          "type": "string",
+          "format": "uri",
+          "isChildTermOf": {
+            "parentTerm": "http://purl.obolibrary.org/obo/NCBITaxon_1",
+            "ontologyId": "ncbitaxon"
+          }
+        },
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "sex": {
+      "type": "object",
+      "name": "Sex",
+      "description": "Animal sex, described using any child term of PATO_0000047",
+      "properties": {
+        "term": {
+          "type": "string",
+          "format": "uri",
+          "isChildTermOf": {
+            "parentTerm": "http://purl.obolibrary.org/obo/PATO_0000047",
+            "ontologyId": "pato"
+          }
+        },
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "birth_date": {
+      "type": "object",
+      "name": "birth date",
+      "description": "Birth date, in the format YYYY-MM-DD, or YYYY-MM where only the month is known. For embryo samples record 'not applicable'",
+      "properties": {
+        "value": {
+          "type": "string",
+          "pattern": "^[12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])|[12]\\d{3}-(0[1-9]|1[0-2])|[12]\\d{3}$"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "breed": {
+      "type": "object",
+      "name": "breed",
+      "description": "Animal breed, described using the FAANG breed description guidelines (http://bit.ly/FAANGbreed)",
+      "properties": {
+        "term": {
+          "type": "string",
+          "format": "uri",
+          "isChildTermOf": {
+            "parentTerm": "http://purl.obolibrary.org/obo/LBO_0000000",
+            "ontologyId": "lbo"
+          }
+        },
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "health_status": {
+      "type": "object",
+      "name": "health status",
+      "description": "Healthy animals should have the term normal, otherwise use the as many disease terms as necessary from EFO",
+      "properties": {
+        "term": {
+          "type": "string",
+          "graph_restriction": {
+            "ontologies": ["obo:pato", "obo:efo"],
+            "classes": ["PATO_0000461", "EFO_0000408"],
+            "relations": ["rdfs:subClassOf"],
+            "direct": false,
+            "include_self": true
+          }
+        },
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "birth_location": {
+      "type": "object",
+      "name": "birth location",
+      "description": "Name of the birth location",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "birth_location_latitude": {
+      "type": "object",
+      "name": "birth location latitude",
+      "description": "Latitude of the birth location in decimal degrees.",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "decimal degrees"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "birth_location_longitude": {
+      "type": "object",
+      "name": "birth location longitude",
+      "description": "Longitude of the birth location in decimal degrees.",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "decimal degrees"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "birth_weight": {
+      "type": "object",
+      "name": "birth weight",
+      "description": "Birth weight, in kilograms or grams",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["kilograms", "grams"]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "placental_weight": {
+      "type": "object",
+      "name": "placental weight",
+      "description": "Placental weight, in kilograms or grams",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["kilograms", "grams"]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "pregnancy_length": {
+      "type": "object",
+      "name": "pregnancy length",
+      "description": "Pregnancy length of time, in days, weeks or months",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["days", "weeks", "months", "day", "week", "month"]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "delivery_timing": {
+      "type": "object",
+      "name": "delivery timing",
+      "description": "Was pregancy full-term. early or delayed",
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": ["early parturition", "full-term parturition", "delayed parturition"]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "delivery_ease": {
+      "type": "object",
+      "name": "delivery ease",
+      "description": "Did the delivery require assistance",
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": ["normal autonomous delivery", "c-section", "veterinarian assisted"]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "child_of": {
+      "type": "object",
+      "name": "Child of",
+      "description": "Sample name or Biosample ID for sire/dam. Required if related animals are part of FAANG, e.g. quads.",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "pedigree": {
+      "type": "object",
+      "name": "Pedigree",
+      "description": "A link to pedigree information for the animal",
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "uri"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    }
+  }
+}
