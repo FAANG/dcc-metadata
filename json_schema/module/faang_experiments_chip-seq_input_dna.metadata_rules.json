@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Ruleset for assay type is 'ChIP-seq' and experiment target is 'input DNA'",
+  "title": "FAANG experiment metadata rules for 'ChIP-seq'",
+  "name": "faang_experiment_chip-seq_module",
+  "$async": true,
+  "type": "object",
+  "required": [
+    "library_generation_max_fragment_size_range",
+    "library_generation_min_fragment_size_range"
+  ],
+  "properties": {
+    "library_generation_max_fragment_size_range": {
+      "type": "object",
+      "name": "library generation max fragment size range",
+      "description": "The maximum fragment size range of the preparation",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "library_generation_min_fragment_size_range": {
+      "type": "object",
+      "name": "library generation min fragment size range",
+      "description": "The minimum fragment size range of the preparation",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    }
+  }
+}
