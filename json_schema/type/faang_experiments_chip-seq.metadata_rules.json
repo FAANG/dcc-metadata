@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Ruleset for assay type is 'ChIP-seq'",
+  "title": "FAANG experiment metadata rules for 'ChIP-seq'",
+  "name": "faang_experiment_chip-seq_type",
+  "$async": true,
+  "type": "object",
+  "required": [
+    "experiment_target",
+    "chip_protocol"
+  ],
+  "properties": {
+    "experiment_target": {
+      "type": "object",
+      "name": "experiment target",
+      "description": "What the experiment was trying to find, list the text rather than ontology link e.g. 'input DNA'. For transcription factor, use 'TF_binding_site'; For chromatin, use 'histone_modification'. ChIP-seq input: use 'input DNA'",
+      "properties": {
+        "term": {
+          "type": "string",
+          "enum": [
+            "http://purl.obolibrary.org/obo/SO_0001700",
+            "http://purl.obolibrary.org/obo/SO_0000235",
+            "http://www.ebi.ac.uk/efo/EFO_0005031"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "chip_protocol": {
+      "type": "object",
+      "name": "chip protocol",
+      "description": "Link to the ChIP protocol used",
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "uri"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    }
+  }
+}
