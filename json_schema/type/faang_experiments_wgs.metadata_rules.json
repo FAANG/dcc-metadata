@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Ruleset for assay type is 'whole genome sequencing assay'",
+  "title": "FAANG experiment metadata rules for 'whole genome sequencing assay'",
+  "name": "faang_experiment_wgs_type",
+  "$async": true,
+  "type": "object",
+  "required": [
+    "experiment_target",
+    "library_generation_pcr_product_isolation_protocol",
+    "library_generation_protocol",
+    "library_selection"
+  ],
+  "properties": {
+    "experiment_target": {
+      "type": "object",
+      "name": "experiment target",
+      "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'input DNA'",
+      "properties": {
+        "term": {
+          "type": "string",
+          "graph_restriction": {
+            "ontologies": ["obo:efo"],
+            "classes": ["EFO:0005031"],
+            "relations": ["rdfs:subClassOf"],
+            "direct": false,
+            "include_self": true
+          }
+        },
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "library_generation_pcr_product_isolation_protocol": {
+      "type": "object",
+      "name": "library generation pcr product isolation protocol",
+      "description": "Link to the protocol for isolating PCR products used for library generation",
+      "properties": {
+        "value": {
+          "type": "uri"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "library_generation_protocol": {
+      "type": "object",
+      "name": "library generation protocol",
+      "description": "Link to the protocol used to generate the library",
+      "properties": {
+        "value": {
+          "type": "uri"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "library_selection": {
+      "type": "object",
+      "name": "library selection",
+      "description": "State whether reduced representation was used in the protocol",
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "reduced representation",
+            "none"
+          ]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    }
+  }
+}
