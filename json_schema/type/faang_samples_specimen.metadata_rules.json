@@ -53,7 +53,7 @@
             "include_self": true
           }
         },
-        "test": {
+        "text": {
           "type": "string"
         },
         "mandatory": {

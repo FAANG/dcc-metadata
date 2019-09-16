@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Ruleset for material is 'cell culture'",
+  "title": "FAANG sample metadata rules for 'cell culture'",
+  "name": "faang_sample_cell_culture_type",
+  "$async": true,
+  "type": "object",
+  "required": ["culture_type", "cell_type", "cell_culture_protocol", "culture_conditions", "number_of_passages", "derived_from"],
+  "properties": {
+    "culture_type": {
+      "type": "object",
+      "name": "culture type",
+      "description": "Provide a child term of BTO_0000214",
+      "properties": {
+        "term": {
+          "type": "string",
+          "graph_restriction": {
+            "ontologies": ["obo:bto"],
+            "classes": ["BTO:0000214"],
+            "relations": ["rdfs:subClassOf"],
+            "direct": false,
+            "include_self": true
+          }
+        },
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "cell_type": {
+      "type": "object",
+      "name": "cell type",
+      "description": "Provide a cell type from the CL ontology",
+      "properties": {
+        "term": {
+          "type": "string",
+          "graph_restriction": {
+            "ontologies": ["obo:cl"],
+            "classes": ["CL:0000000"],
+            "relations": ["rdfs:subClassOf"],
+            "direct": false,
+            "include_self": true
+          }
+        },
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "cell_culture_protocol": {
+      "type": "object",
+      "name": "cell culture protocol",
+      "description": "Link to protocol describing how the cells were purified",
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "uri"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "number_of_passages": {
+      "type": "object",
+      "name": "number of passages",
+      "description": "Number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "derived_from": {
+      "type": "object",
+      "name": "Derived from",
+      "description": "Sample name or BioSample ID for the sample the cell culture was derived from",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    }
+  }
+}
