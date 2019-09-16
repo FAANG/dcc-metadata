@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Ruleset for material is organism sample",
+  "title": "FAANG sample metadata rules for organism",
+  "name": "faang_sample_organism_type",
+  "$async": true,
+  "type": "object",
+  "required": ["experiment_target", "transposase_protocol"],
+  "properties": {
+    "experiment_target": {
+      "type": "object",
+      "name": "experiment target",
+      "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'open_chromatin_region'",
+      "properties": {
+        "term": {
+          "const": "SO:0001747"
+        },
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "transposase_protocol": {
+      "type": "object",
+      "name": "transposase protocol",
+      "description": "Link to the protocol used for transposase treatment",
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "uri"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    }
+  }
+}
