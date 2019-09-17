@@ -4,7 +4,7 @@
   "name": "animal",
   "$async": true,
   "type": "object",
-  "required": ["organism", "sex", "breed"],
+  "required": ["organism"],
   "properties": {
     "organism": {
       "type": "object",
@@ -48,7 +48,7 @@
           "type": "string"
         },
         "mandatory": {
-          "const": "mandatory"
+          "const": "recommended"
         }
       }
     },
@@ -78,19 +78,11 @@
       "name": "breed",
       "description": "Animal breed, described using the FAANG breed description guidelines (http://bit.ly/FAANGbreed)",
       "properties": {
-        "term": {
-          "type": "string",
-          "format": "uri",
-          "isChildTermOf": {
-            "parentTerm": "http://purl.obolibrary.org/obo/LBO_0000000",
-            "ontologyId": "lbo"
-          }
-        },
         "text": {
           "type": "string"
         },
         "mandatory": {
-          "const": "mandatory"
+          "const": "recommended"
         }
       }
     },
@@ -99,16 +91,6 @@
       "name": "health status",
       "description": "Healthy animals should have the term normal, otherwise use the as many disease terms as necessary from EFO",
       "properties": {
-        "term": {
-          "type": "string",
-          "graph_restriction": {
-            "ontologies": ["obo:pato", "obo:efo"],
-            "classes": ["PATO:0000461", "EFO:0000408"],
-            "relations": ["rdfs:subClassOf"],
-            "direct": false,
-            "include_self": true
-          }
-        },
         "text": {
           "type": "string"
         },
@@ -136,10 +118,7 @@
       "description": "Latitude of the birth location in decimal degrees.",
       "properties": {
         "value": {
-          "type": "number"
-        },
-        "units": {
-          "const": "decimal degrees"
+          "type": "string"
         },
         "mandatory": {
           "const": "optional"
@@ -152,10 +131,7 @@
       "description": "Longitude of the birth location in decimal degrees.",
       "properties": {
         "value": {
-          "type": "number"
-        },
-        "units": {
-          "const": "decimal degrees"
+          "type": "string"
         },
         "mandatory": {
           "const": "optional"
@@ -185,11 +161,7 @@
       "description": "Placental weight, in kilograms or grams",
       "properties": {
         "value": {
-          "type": "number"
-        },
-        "units": {
-          "type": "string",
-          "enum": ["kilograms", "grams"]
+          "type": "string"
         },
         "mandatory": {
           "const": "optional"
@@ -202,11 +174,7 @@
       "description": "Pregnancy length of time, in days, weeks or months",
       "properties": {
         "value": {
-          "type": "number"
-        },
-        "units": {
-          "type": "string",
-          "enum": ["days", "weeks", "months", "day", "week", "month"]
+          "type": "string"
         },
         "mandatory": {
           "const": "optional"
