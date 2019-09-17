@@ -47,7 +47,7 @@
           "type": "string",
           "graph_restriction": {
             "ontologies": ["obo:efo", "obo:uberon"],
-            "classes": ["EFO:0000399", "UBERON:0007232"],
+            "classes": ["EFO:0000399", "UBERON:0000105"],
             "relations": ["rdfs:subClassOf"],
             "direct": false,
             "include_self": true
