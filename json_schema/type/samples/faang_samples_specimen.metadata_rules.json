@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Ruleset for material is 'specimen from organism'",
+  "description": "Ruleset for material is 'specimen from organism'.",
   "title": "FAANG sample metadata rules for 'specimen from organism'",
   "name": "faang_sample_specimen_type",
   "$async": true,
@@ -10,7 +10,7 @@
     "specimen_collection_date": {
       "type": "object",
       "name": "specimen collection date",
-      "description": "Date at which the specimen was collected",
+      "description": "Date at which the specimen was collected.",
       "properties": {
         "value": {
           "type": "string",
@@ -41,7 +41,7 @@
     "developmental_stage": {
       "type": "object",
       "name": "developmental stage",
-      "description": "Ontology for Developmental stage, UBERON is preferred to EFO",
+      "description": "Ontology for Developmental stage, UBERON is preferred to EFO.",
       "properties": {
         "term": {
           "type": "string",
@@ -64,7 +64,7 @@
     "health_status_at_collection": {
       "type": "object",
       "name": "health status at collection",
-      "description": "Animal disease / health status at point of collection. Healthy animals should have the term normal, otherwise use the as many disease terms as necessary from EFO",
+      "description": "Animal disease / health status at point of collection. Healthy animals should have the term normal, otherwise use the as many disease terms as necessary from EFO.",
       "properties": {
         "term": {
           "type": "string",
@@ -87,7 +87,7 @@
     "organism_part": {
       "type": "object",
       "name": "organism part",
-      "description": "Ontology for part of organism specimen from, UBERON is preferred to BTO",
+      "description": "Ontology for part of organism specimen from, UBERON is preferred to BTO.",
       "properties": {
         "term": {
           "type": "string",
@@ -110,7 +110,7 @@
     "specimen_collection_protocol": {
       "type": "object",
       "name": "specimen collection protocol",
-      "description": "A link to the protocol for specimen collection",
+      "description": "A link to the protocol for specimen collection.",
       "properties": {
         "value": {
           "type": "string",
@@ -124,7 +124,7 @@
     "fasted_status": {
       "type": "object",
       "name": "fasted status",
-      "description": "Fed, fasted or unknown. Criteria for this status must be in your protocol",
+      "description": "Fed, fasted or unknown. Criteria for this status must be in your protocol.",
       "properties": {
         "value": {
           "type": "string",
@@ -138,7 +138,7 @@
     "number_of_pieces": {
       "type": "object",
       "name": "number of pieces",
-      "description": "Number of specimen pieces used",
+      "description": "Number of specimen pieces used.",
       "properties": {
         "value": {
           "type": "number"
@@ -172,7 +172,7 @@
     "specimen_size": {
       "type": "object",
       "name": "specimen size",
-      "description": "Specimen size. Total sum if using multiple specimen pieces",
+      "description": "Specimen size. Total sum if using multiple specimen pieces.",
       "properties": {
         "value": {
           "type": "number"
@@ -203,7 +203,7 @@
     "specimen_picture_url": {
       "type": "object",
       "name": "specimen picture url",
-      "description": "A link a picture of the specimen, multiple links allowed",
+      "description": "A link a picture of the specimen, multiple links allowed.",
       "properties": {
         "value": {
           "type": "string",
@@ -217,7 +217,7 @@
     "gestational_age_at_sample_collection": {
       "type": "object",
       "name": "gestational age at sample collection",
-      "description": "If the animal was pregnant when the specimen was taken, state how long had been pregnant for",
+      "description": "If the animal was pregnant when the specimen was taken, state how long had been pregnant for.",
       "properties": {
         "value": {
           "type": "number"
@@ -234,7 +234,7 @@
     "derived_from": {
       "type": "object",
       "name": "Derived from",
-      "description": "Sample name or BioSample ID for an animal record",
+      "description": "Sample name or BioSample ID for an animal record.",
       "properties": {
         "value": {
           "type": "string"

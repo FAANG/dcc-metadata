@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Ruleset for material is 'organism'",
+  "description": "Ruleset for material is 'organism'.",
   "name": "animal",
   "$async": true,
   "type": "object",
@@ -9,7 +9,7 @@
     "organism": {
       "type": "object",
       "name": "Organism",
-      "description": "NCBI taxon ID of organism",
+      "description": "NCBI taxon ID of organism.",
       "properties": {
         "term": {
           "type": "string",
@@ -32,7 +32,7 @@
     "sex": {
       "type": "object",
       "name": "Sex",
-      "description": "Animal sex, described using any child term of PATO_0000047",
+      "description": "Animal sex, described using any child term of PATO_0000047.",
       "properties": {
         "term": {
           "type": "string",
@@ -55,7 +55,7 @@
     "birth_date": {
       "type": "object",
       "name": "birth date",
-      "description": "Birth date, in the format YYYY-MM-DD, or YYYY-MM where only the month is known. For embryo samples record 'not applicable'",
+      "description": "Birth date, in the format YYYY-MM-DD, or YYYY-MM where only the month is known. For embryo samples record 'not applicable'.",
       "properties": {
         "value": {
           "type": "string",
@@ -76,7 +76,7 @@
     "breed": {
       "type": "object",
       "name": "breed",
-      "description": "Animal breed, described using the FAANG breed description guidelines (http://bit.ly/FAANGbreed)",
+      "description": "Animal breed, described using the FAANG breed description guidelines (http://bit.ly/FAANGbreed).",
       "properties": {
         "text": {
           "type": "string"
@@ -89,7 +89,7 @@
     "health_status": {
       "type": "object",
       "name": "health status",
-      "description": "Healthy animals should have the term normal, otherwise use the as many disease terms as necessary from EFO",
+      "description": "Healthy animals should have the term normal, otherwise use the as many disease terms as necessary from EFO.",
       "properties": {
         "text": {
           "type": "string"
@@ -102,7 +102,7 @@
     "birth_location": {
       "type": "object",
       "name": "birth location",
-      "description": "Name of the birth location",
+      "description": "Name of the birth location.",
       "properties": {
         "value": {
           "type": "string"
@@ -141,7 +141,7 @@
     "birth_weight": {
       "type": "object",
       "name": "birth weight",
-      "description": "Birth weight, in kilograms or grams",
+      "description": "Birth weight, in kilograms or grams.",
       "properties": {
         "value": {
           "type": "number"
@@ -158,7 +158,7 @@
     "placental_weight": {
       "type": "object",
       "name": "placental weight",
-      "description": "Placental weight, in kilograms or grams",
+      "description": "Placental weight, in kilograms or grams.",
       "properties": {
         "value": {
           "type": "string"
@@ -171,7 +171,7 @@
     "pregnancy_length": {
       "type": "object",
       "name": "pregnancy length",
-      "description": "Pregnancy length of time, in days, weeks or months",
+      "description": "Pregnancy length of time, in days, weeks or months.",
       "properties": {
         "value": {
           "type": "string"
@@ -184,7 +184,7 @@
     "delivery_timing": {
       "type": "object",
       "name": "delivery timing",
-      "description": "Was pregancy full-term. early or delayed",
+      "description": "Was pregancy full-term. early or delayed.",
       "properties": {
         "value": {
           "type": "string",
@@ -202,7 +202,7 @@
     "delivery_ease": {
       "type": "object",
       "name": "delivery ease",
-      "description": "Did the delivery require assistance",
+      "description": "Did the delivery require assistance.",
       "properties": {
         "value": {
           "type": "string",
@@ -233,7 +233,7 @@
     "pedigree": {
       "type": "object",
       "name": "Pedigree",
-      "description": "A link to pedigree information for the animal",
+      "description": "A link to pedigree information for the animal.",
       "properties": {
         "value": {
           "type": "string",

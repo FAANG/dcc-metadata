@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Ruleset for assay type is 'methylation profiling by high throughput sequencing'",
+  "description": "Ruleset for assay type is 'methylation profiling by high throughput sequencing'.",
   "title": "FAANG experiment metadata rules for 'methylation profiling by high throughput sequencing'",
   "name": "faang_experiment_bs-seq_type",
   "$async": true,
@@ -16,7 +16,7 @@
     "experiment_target": {
       "type": "object",
       "name": "experiment target",
-      "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'DNA methylation'",
+      "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'DNA methylation'.",
       "properties": {
         "term": {
           "const": "GO:0006306"
@@ -32,7 +32,7 @@
     "library_selection": {
       "type": "object",
       "name": "library selection",
-      "description": "Library selection is Whole Genome Bisulfite Sequencing or Reduced Representation Bisulfite Sequencing",
+      "description": "Library selection is Whole Genome Bisulfite Sequencing or Reduced Representation Bisulfite Sequencing.",
       "properties": {
         "value": {
           "type": "string",
@@ -49,7 +49,7 @@
     "bisulfite_conversion_protocol": {
       "type": "object",
       "name": "bisulfite conversion protocol",
-      "description": "Link to bisulfite conversion protocol",
+      "description": "Link to bisulfite conversion protocol.",
       "properties": {
         "value": {
           "type": "string",
@@ -63,7 +63,7 @@
     "pcr_product_isolation_protocol": {
       "type": "object",
       "name": "pcr product isolation protocol",
-      "description": "Link to the protocol for isolating PCR products used for library generation",
+      "description": "Link to the protocol for isolating PCR products used for library generation.",
       "properties": {
         "value": {
           "type": "string",
@@ -77,7 +77,7 @@
     "bisulfite_conversion_percent": {
       "type": "object",
       "name": "bisulfite conversion percent",
-      "description": "Bisulfite conversion percentage",
+      "description": "Bisulfite conversion percentage.",
       "properties": {
         "value": {
           "type": "number"
@@ -90,7 +90,7 @@
     "restriction_enzyme": {
       "type": "object",
       "name": "restriction enzyme",
-      "description": "Restriction enzyme used for Reduced representation bisulfite sequencing",
+      "description": "Restriction enzyme used for Reduced representation bisulfite sequencing.",
       "properties": {
         "value": {
           "type": "string"
@@ -103,7 +103,7 @@
     "max_fragment_size_selection_range": {
       "type": "object",
       "name": "max fragment size selection range",
-      "description": "The maximum fragment size of the fragment selection range",
+      "description": "The maximum fragment size of the fragment selection range.",
       "properties": {
         "value": {
           "type": "number"
@@ -116,7 +116,7 @@
     "min_fragment_size_selection_range": {
       "type": "object",
       "name": "min fragment size selection range",
-      "description": "The minimum fragment size of the fragment selection range",
+      "description": "The minimum fragment size of the fragment selection range.",
       "properties": {
         "value": {
           "type": "number"

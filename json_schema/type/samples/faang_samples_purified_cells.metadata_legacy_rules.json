@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Ruleset for material is 'pool of specimens'",
+  "description": "Ruleset for material is 'pool of specimens'.",
   "title": "FAANG sample metadata rules for 'specimen from organism'",
   "name": "faang_sample_pool_of_specimens_type",
   "$async": true,
@@ -10,7 +10,7 @@
     "markers": {
       "type": "object",
       "name": "markers",
-      "description": "Markers used to isolate and identify the cell type (e.g. for FACS sorted cells)",
+      "description": "Markers used to isolate and identify the cell type (e.g. for FACS sorted cells).",
       "properties": {
         "value": {
           "type": "string"
@@ -23,7 +23,7 @@
     "cell_type": {
       "type": "object",
       "name": "cell type",
-      "description": "Provide a cell type from the CL ontology",
+      "description": "Provide a cell type from the CL ontology.",
       "properties": {
         "text": {
           "type": "string"
@@ -36,7 +36,7 @@
     "purification_protocol": {
       "type": "object",
       "name": "purification protocol",
-      "description": "Link to protocol describing how the cells were purified",
+      "description": "Link to protocol describing how the cells were purified.",
       "properties": {
         "value": {
           "type": "string"
@@ -49,7 +49,7 @@
     "derived_from": {
       "type": "object",
       "name": "Derived from",
-      "description": "Sample name or BioSample ID for a specimen record",
+      "description": "Sample name or BioSample ID for a specimen record.",
       "properties": {
         "value": {
           "type": "string"

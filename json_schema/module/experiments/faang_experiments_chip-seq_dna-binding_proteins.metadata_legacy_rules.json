@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Ruleset for assay type is 'ChIP-seq' and experiment target is leaf node descendant of 'SO_0001700'",
+  "description": "Ruleset for assay type is 'ChIP-seq' and experiment target is leaf node descendant of 'SO_0001700'.",
   "title": "FAANG experiment metadata rules for 'ChIP-seq'",
   "name": "faang_experiment_chip-seq_module",
   "$async": true,
@@ -9,7 +9,7 @@
     "target_protein_name": {
       "type": "object",
       "name": "target protein name",
-      "description": "The name of targeted protein",
+      "description": "The name of targeted protein.",
       "properties": {
         "term": {
           "oneOf": [
@@ -53,7 +53,7 @@
     "chip_antibody_provider": {
       "type": "object",
       "name": "chip antibody provider",
-      "description": "The name of the company, laboratory or person that provided the antibody e.g. Diagneode",
+      "description": "The name of the company, laboratory or person that provided the antibody e.g. Diagneode.",
       "properties": {
         "value": {
           "type": "string"
@@ -66,7 +66,7 @@
     "chip_antibody_catalog": {
       "type": "object",
       "name": "chip antibody catalog",
-      "description": "The catalog from which the antibody was purchased e.g. pAb-003-050",
+      "description": "The catalog from which the antibody was purchased e.g. pAb-003-050.",
       "properties": {
         "value": {
           "type": "string"
@@ -79,7 +79,7 @@
     "chip_antibody_lot": {
       "type": "object",
       "name": "chip antibody lot",
-      "description": "The lot identifier of the antibody e.g. A5051-001P",
+      "description": "The lot identifier of the antibody e.g. A5051-001P.",
       "properties": {
         "value": {
           "type": "string"
@@ -92,7 +92,7 @@
     "library_generation_max_fragment_size_range": {
       "type": "object",
       "name": "library generation max fragment size range",
-      "description": "The maximum fragment size range of the preparation",
+      "description": "The maximum fragment size range of the preparation.",
       "properties": {
         "value": {
           "type": "number"
@@ -105,7 +105,7 @@
     "library_generation_min_fragment_size_range": {
       "type": "object",
       "name": "library generation min fragment size range",
-      "description": "The minimum fragment size range of the preparation",
+      "description": "The minimum fragment size range of the preparation.",
       "properties": {
         "value": {
           "type": "number"

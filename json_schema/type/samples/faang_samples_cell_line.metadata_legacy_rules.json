@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Ruleset for material is 'cell line'",
+  "description": "Ruleset for material is 'cell line'.",
   "title": "FAANG sample metadata rules for 'cell line'",
   "name": "faang_sample_cell_line_type",
   "$async": true,
@@ -10,7 +10,7 @@
     "organism": {
       "type": "object",
       "name": "organism",
-      "description": "NCBI taxon ID of organism",
+      "description": "NCBI taxon ID of organism.",
       "properties": {
         "term": {
           "type": "string",
@@ -33,7 +33,7 @@
     "sex": {
       "type": "object",
       "name": "sex",
-      "description": "Animal sex, described using any child term of PATO_0000047",
+      "description": "Animal sex, described using any child term of PATO_0000047.",
       "properties": {
         "text": {
           "type": "string"
@@ -46,7 +46,7 @@
     "cell_line": {
       "type": "object",
       "name": "cell line",
-      "description": "Name of the cell line",
+      "description": "Name of the cell line.",
       "properties": {
         "value": {
           "type": "string"
@@ -59,7 +59,7 @@
     "biomaterial_provider": {
       "type": "object",
       "name": "biomaterial provider",
-      "description": "Name of company or lab that supplied the cell line",
+      "description": "Name of company or lab that supplied the cell line.",
       "properties": {
         "value": {
           "type": "string"
@@ -85,7 +85,7 @@
     "number_of_passages": {
       "type": "object",
       "name": "number of passages",
-      "description": "The number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures",
+      "description": "The number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures.",
       "properties": {
         "value": {
           "type": "number"
@@ -98,7 +98,7 @@
     "date_established": {
       "type": "object",
       "name": "date established",
-      "description": "Date the line was established/re-established",
+      "description": "Date the line was established/re-established.",
       "properties": {
         "value": {
           "type": "string"
@@ -111,7 +111,7 @@
     "publication": {
       "type": "object",
       "name": "publication",
-      "description": "Publication Digitial Object Identifier (DOI) e.g. 'doi://10.1139/o09-005'. Publication where the cell line has been fully described and should include details such as doubling time and adhesion preference. You can use pubmed to find your DOI https://www.ncbi.nlm.nih.gov/pubmed",
+      "description": "Publication Digitial Object Identifier (DOI) e.g. 'doi://10.1139/o09-005'. Publication where the cell line has been fully described and should include details such as doubling time and adhesion preference. You can use pubmed to find your DOI https://www.ncbi.nlm.nih.gov/pubmed.",
       "properties": {
         "value": {
           "type": "string"
@@ -124,7 +124,7 @@
     "breed": {
       "type": "object",
       "name": "breed",
-      "description": "Animal breed, described using the FAANG breed description guidelines(http://bit.ly/FAANGbreed)",
+      "description": "Animal breed, described using the FAANG breed description guidelines(http://bit.ly/FAANGbreed).",
       "properties": {
         "text": {
           "type": "string"
@@ -137,7 +137,7 @@
     "cell_type": {
       "type": "object",
       "name": "cell type",
-      "description": "Cell type using a child term of either CL_0000000 or BTO_0000000",
+      "description": "Cell type using a child term of either CL_0000000 or BTO_0000000.",
       "properties": {
         "text": {
           "type": "string"
@@ -150,7 +150,7 @@
     "culture_conditions": {
       "type": "object",
       "name": "culture conditions",
-      "description": "Brief description of culture conditions (e.g. 'on feeder cells', 'E8 media')",
+      "description": "Brief description of culture conditions (e.g. 'on feeder cells', 'E8 media').",
       "properties": {
         "value": {
           "type": "string"
@@ -163,7 +163,7 @@
     "culture_protocol": {
       "type": "object",
       "name": "culture protocol",
-      "description": "Link to protocol describing the maintenance of the culture",
+      "description": "Link to protocol describing the maintenance of the culture.",
       "properties": {
         "value": {
           "type": "string"
@@ -176,7 +176,7 @@
     "disease": {
       "type": "object",
       "name": "disease",
-      "description": "Disease child term of either PATO_0000461 or EFO_0000408",
+      "description": "Disease child term of either PATO_0000461 or EFO_0000408.",
       "properties": {
         "text": {
           "type": "string"
@@ -189,7 +189,7 @@
     "karyotype": {
       "type": "object",
       "name": "karyotype",
-      "description": "Karyotype of the cell line",
+      "description": "Karyotype of the cell line.",
       "properties": {
         "value": {
           "type": "string"
@@ -202,7 +202,7 @@
     "derived_from": {
       "type": "object",
       "name": "Derived from",
-      "description": "Sample name or BioSample ID for the sample or animal the cell line was derived from, where this is known and can be described within the FAANG standards (optional)",
+      "description": "Sample name or BioSample ID for the sample or animal the cell line was derived from, where this is known and can be described within the FAANG standards (optional).",
       "properties": {
         "value": {
           "type": "string"

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Ruleset for material is 'cell culture'",
+  "description": "Ruleset for material is 'cell culture'.",
   "title": "FAANG sample metadata rules for 'cell culture'",
   "name": "faang_sample_cell_culture_type",
   "$async": true,
@@ -10,7 +10,7 @@
     "culture_type": {
       "type": "object",
       "name": "culture type",
-      "description": "Provide a child term of BTO_0000214",
+      "description": "Provide a child term of BTO_0000214.",
       "properties": {
         "term": {
           "type": "string",
@@ -33,7 +33,7 @@
     "cell_type": {
       "type": "object",
       "name": "cell type",
-      "description": "Provide a cell type from the CL ontology",
+      "description": "Provide a cell type from the CL ontology.",
       "properties": {
         "term": {
           "type": "string",
@@ -56,7 +56,7 @@
     "cell_culture_protocol": {
       "type": "object",
       "name": "cell culture protocol",
-      "description": "Link to protocol describing how the cells were purified",
+      "description": "Link to protocol describing how the cells were purified.",
       "properties": {
         "value": {
           "type": "string",
@@ -70,7 +70,7 @@
     "culture_conditions": {
       "type": "object",
       "name": "culture conditions",
-      "description": "Brief description of culture conditions (e.g. 'on feeder cells', 'E8 media')",
+      "description": "Brief description of culture conditions (e.g. 'on feeder cells', 'E8 media').",
       "properties": {
         "value": {
           "type": "string"
@@ -83,7 +83,7 @@
     "number_of_passages": {
       "type": "object",
       "name": "number of passages",
-      "description": "Number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures",
+      "description": "Number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures.",
       "properties": {
         "value": {
           "type": "number"
@@ -96,7 +96,7 @@
     "derived_from": {
       "type": "object",
       "name": "Derived from",
-      "description": "Sample name or BioSample ID for the sample the cell culture was derived from",
+      "description": "Sample name or BioSample ID for the sample the cell culture was derived from.",
       "properties": {
         "value": {
           "type": "string"

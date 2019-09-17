@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Ruleset for material is 'pool of specimens'",
+  "description": "Ruleset for material is 'pool of specimens'.",
   "title": "FAANG sample metadata rules for 'specimen from organism'",
   "name": "faang_sample_pool_of_specimens_type",
   "$async": true,
@@ -10,7 +10,7 @@
     "pool_creation_date": {
       "type": "object",
       "name": "pool creation date",
-      "description": "Date at which the pool was created",
+      "description": "Date at which the pool was created.",
       "properties": {
         "value": {
           "type": "string"
@@ -23,7 +23,7 @@
     "pool_creation_protocol": {
       "type": "object",
       "name": "pool creation protocol",
-      "description": "A link to the protocol for pool of specimens creation",
+      "description": "A link to the protocol for pool of specimens creation.",
       "properties": {
         "value": {
           "type": "string"
@@ -36,7 +36,7 @@
     "specimen_volume": {
       "type": "object",
       "name": "specimen volume",
-      "description": "Pool specimen volume. Total sum from multiple specimens",
+      "description": "Pool specimen volume. Total sum from multiple specimens.",
       "properties": {
         "value": {
           "type": "string"
@@ -49,7 +49,7 @@
     "specimen_size": {
       "type": "object",
       "name": "specimen size",
-      "description": "Pool specimen size. Total sum from multiple specimens",
+      "description": "Pool specimen size. Total sum from multiple specimens.",
       "properties": {
         "value": {
           "type": "string"
@@ -62,7 +62,7 @@
     "specimen_weight": {
       "type": "object",
       "name": "specimen weight",
-      "description": "Pool specimen weight. Total sum from multiple specimens",
+      "description": "Pool specimen weight. Total sum from multiple specimens.",
       "properties": {
         "value": {
           "type": "string"
@@ -75,7 +75,7 @@
     "specimen_picture_url": {
       "type": "object",
       "name": "specimen_picture_url",
-      "description": "A link a picture of the pooled specimen, multiple links allowed",
+      "description": "A link a picture of the pooled specimen, multiple links allowed.",
       "properties": {
         "value": {
           "type": "string"

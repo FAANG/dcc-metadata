@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Ruleset for assay type is 'Hi-C'",
+  "description": "Ruleset for assay type is 'Hi-C'.",
   "title": "FAANG experiment metadata rules for 'Hi-C'",
   "name": "faang_experiment_hi-c_type",
   "$async": true,
@@ -12,7 +12,7 @@
     "experiment_target": {
       "type": "object",
       "name": "experiment target",
-      "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'chromatin'",
+      "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'chromatin'.",
       "properties": {
         "term": {
           "type": "string",
@@ -35,7 +35,7 @@
     "restriction_enzyme": {
       "type": "object",
       "name": "restriction enzyme",
-      "description": "Restriction enzyme used",
+      "description": "Restriction enzyme used.",
       "properties": {
         "value": {
           "type": "string"
@@ -48,7 +48,7 @@
     "restriction_site": {
       "type": "object",
       "name": "restriction_site",
-      "description": "Restriction site targeted",
+      "description": "Restriction site targeted.",
       "properties": {
         "value": {
           "type": "string"
@@ -61,7 +61,7 @@
     "hi-c_protocol": {
       "type": "object",
       "name": "hi-c protocol",
-      "description": "Link to the protocol used for Hi-C experiment",
+      "description": "Link to the protocol used for Hi-C experiment.",
       "properties": {
         "value": {
           "type": "string",

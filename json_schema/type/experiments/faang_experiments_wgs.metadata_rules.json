@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Ruleset for assay type is 'whole genome sequencing assay'",
+  "description": "Ruleset for assay type is 'whole genome sequencing assay'.",
   "title": "FAANG experiment metadata rules for 'whole genome sequencing assay'",
   "name": "faang_experiment_wgs_type",
   "$async": true,
@@ -15,7 +15,7 @@
     "experiment_target": {
       "type": "object",
       "name": "experiment target",
-      "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'input DNA'",
+      "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'input DNA'.",
       "properties": {
         "term": {
           "type": "string",
@@ -38,7 +38,7 @@
     "library_generation_pcr_product_isolation_protocol": {
       "type": "object",
       "name": "library generation pcr product isolation protocol",
-      "description": "Link to the protocol for isolating PCR products used for library generation",
+      "description": "Link to the protocol for isolating PCR products used for library generation.",
       "properties": {
         "value": {
           "type": "string",
@@ -52,7 +52,7 @@
     "library_generation_protocol": {
       "type": "object",
       "name": "library generation protocol",
-      "description": "Link to the protocol used to generate the library",
+      "description": "Link to the protocol used to generate the library.",
       "properties": {
         "value": {
           "type": "string",
@@ -66,7 +66,7 @@
     "library_selection": {
       "type": "object",
       "name": "library selection",
-      "description": "State whether reduced representation was used in the protocol",
+      "description": "State whether reduced representation was used in the protocol.",
       "properties": {
         "value": {
           "type": "string",
