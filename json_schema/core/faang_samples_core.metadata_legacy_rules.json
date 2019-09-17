@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Legacy validation rules for the FAANG project. Rules are divided into one group that is applied to all samples, and additional groups based on the sample type. In addition to rules defined individually, attribute names are imported from the VT, ATOL and EOL ontologies. Legacy samples have less strict metadata requirements, and should only be used for projects that existed prior to FAANGs existence that cannot be brought up to the FAANG metadata standard.  Legacy samples will be clearly marked in the FAANG portal and it may not be possible to include them in all downstream analyses and releases.",
+  "title": "FAANG legacy sample metadata rules",
+  "name": "faang_sample_core_legacy",
+  "$async": true,
+  "type": "object",
+  "required": ["material", "project"],
+  "properties": {
+    "describedBy": {
+      "description": "The URL reference to the schema.",
+      "type": "string",
+      "pattern" : "^(http|https)://schema.(.*?)humancellatlas.org/core/biomaterial/(([0-9]{1,}.[0-9]{1,}.[0-9]{1,})|([a-zA-Z]*?))/biomaterial_core",
+    },
+    "schema_version": {
+      "description": "The version number of the schema in major.minor.patch format.",
+      "type": "string",
+      "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
+      "example": "4.6.1"
+    },
+    "sample_description": {
+      "type": "object",
+      "name": "Sample Description",
+      "description": "A brief description of the sample including species name",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "material": {
+      "type": "object",
+      "name": "Material",
+      "description": "The type of material being described.",
+      "properties": {
+        "term": {
+          "type": "string",
+          "enum": [
+            "OBI:0100026",
+            "OBI:0001479",
+            "OBI:0001468",
+            "OBI:0302716",
+            "OBI:0001876",
+            "CLO:0000031"
+          ]
+        },
+        "text": {
+          "type": "string",
+          "enum": [
+            "organism",
+            "specimen from organism",
+            "cell specimen",
+            "pool of specimens",
+            "cell culture",
+            "cell line"
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "project": {
+      "type": "object",
+      "name": "Project",
+      "description": "State that the project is 'FAANG'",
+      "properties": {
+        "value": {
+          "const": "FAANG"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "availability": {
+      "type": "object",
+      "name": "Availability",
+      "description": "Either a link to a web page giving information on sample availability (who to contact and if the sample is available), or a e-mail address to contact about availability. E-mail addresses should be prefixed with 'mailto:', e.g. 'mailto:samples@example.ac.uk'. In either case, long term support of the web page or e-mail address is necessary. Group e-mail addresses are preferable to indiviudal.",
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "uri"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "same_as": {
+      "type": "object",
+      "name": "Same as",
+      "description": "BioSample ID for an equivalent sample record, created before the FAANG metadata specification was available. This is optional and not intended for general use, please contact the data coordination centre (faang-dcc@ebi.ac.uk) before using it.",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    }
+  }
+}
