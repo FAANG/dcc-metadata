@@ -1,0 +1,216 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Ruleset for material is 'cell line'",
+  "title": "FAANG sample metadata rules for 'cell line'",
+  "name": "faang_sample_cell_line_type",
+  "$async": true,
+  "type": "object",
+  "required": ["organism", "cell_line"],
+  "properties": {
+    "organism": {
+      "type": "object",
+      "name": "organism",
+      "description": "NCBI taxon ID of organism",
+      "properties": {
+        "term": {
+          "type": "string",
+          "graph_restriction": {
+            "ontologies": ["obo:ncbitaxon"],
+            "classes": ["NCBITaxon:1"],
+            "relations": ["rdfs:subClassOf"],
+            "direct": false,
+            "include_self": false
+          }
+        },
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "sex": {
+      "type": "object",
+      "name": "sex",
+      "description": "Animal sex, described using any child term of PATO_0000047",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "cell_line": {
+      "type": "object",
+      "name": "cell line",
+      "description": "Name of the cell line",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "biomaterial_provider": {
+      "type": "object",
+      "name": "biomaterial provider",
+      "description": "Name of company or lab that supplied the cell line",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "catalogue_number": {
+      "type": "object",
+      "name": "catalogue number",
+      "description": "Identifier for the cell line in the suppliers catalogue. E.g. 'ACC 701' for IPEC-J2 from DSMZ.",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "number_of_passages": {
+      "type": "object",
+      "name": "number of passages",
+      "description": "The number of times the cell line has been re-plated and allowed to grow back to confluency or to some maximum density if using suspension cultures",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "date_established": {
+      "type": "object",
+      "name": "date established",
+      "description": "Date the line was established/re-established",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "publication": {
+      "type": "object",
+      "name": "publication",
+      "description": "Publication Digitial Object Identifier (DOI) e.g. 'doi://10.1139/o09-005'. Publication where the cell line has been fully described and should include details such as doubling time and adhesion preference. You can use pubmed to find your DOI https://www.ncbi.nlm.nih.gov/pubmed",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "breed": {
+      "type": "object",
+      "name": "breed",
+      "description": "Animal breed, described using the FAANG breed description guidelines(http://bit.ly/FAANGbreed)",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "cell_type": {
+      "type": "object",
+      "name": "cell type",
+      "description": "Cell type using a child term of either CL_0000000 or BTO_0000000",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "culture_conditions": {
+      "type": "object",
+      "name": "culture conditions",
+      "description": "Brief description of culture conditions (e.g. 'on feeder cells', 'E8 media')",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "culture_protocol": {
+      "type": "object",
+      "name": "culture protocol",
+      "description": "Link to protocol describing the maintenance of the culture",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "disease": {
+      "type": "object",
+      "name": "disease",
+      "description": "Disease child term of either PATO_0000461 or EFO_0000408",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "karyotype": {
+      "type": "object",
+      "name": "karyotype",
+      "description": "Karyotype of the cell line",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "derived_from": {
+      "type": "object",
+      "name": "Derived from",
+      "description": "Sample name or BioSample ID for the sample or animal the cell line was derived from, where this is known and can be described within the FAANG standards (optional)",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    }
+  }
+}
