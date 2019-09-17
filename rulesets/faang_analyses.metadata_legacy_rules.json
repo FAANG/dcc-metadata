@@ -230,7 +230,7 @@
       "description": "the ruleset make the analysis compatible to be submitted to EVA",
       "rules": [
         {
-          "mandatory": "mandatory",
+          "mandatory": "recommended",
           "name": "experiment type",
           "description": "the type of experiment",
           "type": "text",
