@@ -5,7 +5,7 @@
   "name": "faang_sample_cell_culture_type",
   "$async": true,
   "type": "object",
-  "required": ["culture_type", "cell_type", "cell_culture_protocol", "culture_conditions", "number_of_passages", "derived_from"],
+  "required": ["culture_type", "cell_type", "derived_from"],
   "properties": {
     "culture_type": {
       "type": "object",
@@ -59,11 +59,10 @@
       "description": "Link to protocol describing how the cells were purified",
       "properties": {
         "value": {
-          "type": "string",
-          "format": "uri"
+          "type": "string"
         },
         "mandatory": {
-          "const": "mandatory"
+          "const": "recommended"
         }
       }
     },
@@ -76,7 +75,7 @@
           "type": "string"
         },
         "mandatory": {
-          "const": "mandatory"
+          "const": "recommended"
         }
       }
     },
@@ -89,7 +88,7 @@
           "type": "number"
         },
         "mandatory": {
-          "const": "mandatory"
+          "const": "recommended"
         }
       }
     },
