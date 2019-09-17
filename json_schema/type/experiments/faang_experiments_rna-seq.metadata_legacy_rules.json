@@ -1,0 +1,161 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Ruleset for assay type is 'rna-seq'",
+  "title": "FAANG experiment metadata rules for 'rna-seq'",
+  "name": "faang_experiment_hi-c_type",
+  "$async": true,
+  "type": "object",
+  "required": [
+    "experiment_target"
+  ],
+  "properties": {
+    "experiment_target": {
+      "type": "object",
+      "name": "experiment target",
+      "description": "What the experiment was trying to find, list the text rather than ontology link, for example 'polyA RNA'",
+      "properties": {
+        "term": {
+          "type": "string",
+          "graph_restriction": {
+            "ontologies": ["obo:efo", "obo:ncit"],
+            "classes": ["CHEBI:33697", "NCIT:C17998"],
+            "relations": ["rdfs:subClassOf"],
+            "direct": false,
+            "include_self": true
+          }
+        },
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "rna_preparation_3_adapter_ligation_protocol": {
+      "type": "object",
+      "name": "rna preparation 3' adapter ligation protocol",
+      "description": "Link to the protocol for 3’ adapter ligation used in preparation",
+      "properties": {
+        "value": {
+          "type": "uri"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "rna_preparation_5_adapter_ligation_protocol": {
+      "type": "object",
+      "name": "rna preparation 5' adapter ligation protocol",
+      "description": "Link to the protocol for 5’ adapter ligation used in preparation",
+      "properties": {
+        "value": {
+          "type": "uri"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "library_generation_pcr_product_isolation_protocol": {
+      "type": "object",
+      "name": "library generation pcr product isolation protocol",
+      "description": "Link to the protocol for isolating pcr products used for library generation",
+      "properties": {
+        "value": {
+          "type": "uri"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "preparation_reverse_transcription_protocol": {
+      "type": "object",
+      "name": "preparation reverse transcription protocol",
+      "description": "Link to the protocol for reverse transcription used in preparation",
+      "properties": {
+        "value": {
+          "type": "uri"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "library_generation_protocol": {
+      "type": "object",
+      "name": "library generation protocol",
+      "description": "Link to the protocol used to generate the library",
+      "properties": {
+        "value": {
+          "type": "uri"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "read_strand": {
+      "type": "object",
+      "name": "read strand",
+      "description": "For strand specific protocol, specify which mate pair maps to the transcribed strand or Report 'non-stranded' if the protocol is not strand specific. For single-ended sequencing: use 'sense' if the reads should be on the same strand as the transcript, 'antisense' if on opposite strand. For paired-end sequencing: 'mate 1 sense' if mate 1 should be on the same strand as the transcript, 'mate 2 sense' if mate 2 should be on the same strand as the transcript",
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "not applicable",
+            "sense",
+            "antisense",
+            "mate 1 sense",
+            "mate 2 sense",
+            "non-stranded"
+          ]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "rna_purity_260-280_ratio": {
+      "type": "object",
+      "name": "rna purity 260:280 ratio",
+      "description": "Sample purity assesed with fluoresence ratio at 260 and 280nm, informative for protein contamination",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "rna_purity_260-230_ratio": {
+      "type": "object",
+      "name": "rna purity 260:230 ratio",
+      "description": "Sample purity assesed with fluoresence ratio at 260 and 230nm, informative for contamination by phenolate ion, thiocyanates, and other organic compounds",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "rna_integrity_number": {
+      "type": "object",
+      "name": "rna integrity number",
+      "description": "It is important to obtain this value, but if you are unable to supply this number (e.g. due to machine failure) then by submitting you are asserting the quality by visual inspection of traces and agreeing that the samples were suitable for sequencing. For more information on RNA Integrity Numbers see Schroeder et al. (2006) http://bmcmolbiol.biomedcentral.com/articles/10.1186/1471-2199-7-3",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    }
+  }
+}
