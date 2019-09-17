@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Ruleset for assay type is 'DNase-Hypersensitivity seq'",
+  "title": "FAANG experiment metadata rules for 'DNase-Hypersensitivity seq'",
+  "name": "faang_experiment_dnase-seq_type",
+  "$async": true,
+  "type": "object",
+  "required": ["experiment_target"],
+  "properties": {
+    "experiment_target": {
+      "type": "object",
+      "name": "experiment target",
+      "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'open_chromatin_region'",
+      "properties": {
+        "term": {
+          "type": "string",
+          "graph_restriction": {
+            "ontologies": ["obo:so"],
+            "classes": ["SO:0001747"],
+            "relations": ["rdfs:subClassOf"],
+            "direct": false,
+            "include_self": true
+          }
+        },
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "dnase_protocol": {
+      "type": "object",
+      "name": "dnase protocol",
+      "description": "Link to the protocol used for DNase treatment",
+      "properties": {
+        "value": {
+          "type": "uri"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    }
+  }
+}
