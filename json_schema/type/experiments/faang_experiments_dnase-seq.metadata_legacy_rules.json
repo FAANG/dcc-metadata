@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": "Ruleset for assay type is 'DNase-Hypersensitivity seq'.",
   "title": "FAANG experiment metadata rules for 'DNase-Hypersensitivity seq'",
-  "name": "faang_experiment_dnase-seq_type",
+  "name": "faang_experiments_dnase-seq",
   "$async": true,
   "type": "object",
   "required": ["experiment_target"],

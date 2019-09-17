@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": "Legacy validation rules for the FAANG project. Rules are divided into one group that is applied to all samples, and additional groups based on the sample type. In addition to rules defined individually, attribute names are imported from the VT, ATOL and EOL ontologies. Legacy samples have less strict metadata requirements, and should only be used for projects that existed prior to FAANGs existence that cannot be brought up to the FAANG metadata standard.  Legacy samples will be clearly marked in the FAANG portal and it may not be possible to include them in all downstream analyses and releases.",
   "title": "FAANG legacy sample metadata rules",
-  "name": "faang_sample_core_legacy",
+  "name": "faang_samples_core",
   "$async": true,
   "type": "object",
   "required": ["material", "project"],

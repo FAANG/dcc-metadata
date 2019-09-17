@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": "Ruleset for material is 'organism'.",
-  "name": "animal",
+  "name": "faang_samples_organism",
   "$async": true,
   "type": "object",
   "required": ["organism"],

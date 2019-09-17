@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": "Ruleset for assay type is 'Hi-C'.",
   "title": "FAANG experiment metadata rules for 'Hi-C'",
-  "name": "faang_experiment_hi-c_type",
+  "name": "faang_experiments_hi-c",
   "$async": true,
   "type": "object",
   "required": [

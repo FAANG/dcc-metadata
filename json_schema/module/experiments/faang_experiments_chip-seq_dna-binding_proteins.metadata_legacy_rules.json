@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": "Ruleset for assay type is 'ChIP-seq' and experiment target is leaf node descendant of 'SO_0001700'.",
   "title": "FAANG experiment metadata rules for 'ChIP-seq'",
-  "name": "faang_experiment_chip-seq_module",
+  "name": "faang_experiments_chip-seq_dna-binding_proteins",
   "$async": true,
   "type": "object",
   "properties": {
