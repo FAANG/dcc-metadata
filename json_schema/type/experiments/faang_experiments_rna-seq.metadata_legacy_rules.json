@@ -38,7 +38,8 @@
       "description": "Link to the protocol for 3’ adapter ligation used in preparation",
       "properties": {
         "value": {
-          "type": "uri"
+          "type": "string",
+          "format": "uri"
         },
         "mandatory": {
           "const": "recommended"
@@ -51,7 +52,8 @@
       "description": "Link to the protocol for 5’ adapter ligation used in preparation",
       "properties": {
         "value": {
-          "type": "uri"
+          "type": "string",
+          "format": "uri"
         },
         "mandatory": {
           "const": "recommended"
@@ -64,7 +66,8 @@
       "description": "Link to the protocol for isolating pcr products used for library generation",
       "properties": {
         "value": {
-          "type": "uri"
+          "type": "string",
+          "format": "uri"
         },
         "mandatory": {
           "const": "recommended"
@@ -77,7 +80,8 @@
       "description": "Link to the protocol for reverse transcription used in preparation",
       "properties": {
         "value": {
-          "type": "uri"
+          "type": "string",
+          "format": "uri"
         },
         "mandatory": {
           "const": "recommended"
@@ -90,7 +94,8 @@
       "description": "Link to the protocol used to generate the library",
       "properties": {
         "value": {
-          "type": "uri"
+          "type": "string",
+          "format": "uri"
         },
         "mandatory": {
           "const": "recommended"

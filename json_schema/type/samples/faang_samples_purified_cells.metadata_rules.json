@@ -49,7 +49,8 @@
       "description": "Link to protocol describing how the cells were purified",
       "properties": {
         "value": {
-          "type": "uri"
+          "type": "string",
+          "format": "uri"
         },
         "mandatory": {
           "const": "mandatory"

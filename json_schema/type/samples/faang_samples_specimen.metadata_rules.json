@@ -206,7 +206,8 @@
       "description": "A link a picture of the specimen, multiple links allowed",
       "properties": {
         "value": {
-          "type": "uri"
+          "type": "string",
+          "format": "uri"
         },
         "mandatory": {
           "const": "optional"

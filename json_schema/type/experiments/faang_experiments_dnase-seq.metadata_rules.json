@@ -36,7 +36,8 @@
       "description": "Link to the protocol used for DNase treatment",
       "properties": {
         "value": {
-          "type": "uri"
+          "type": "string",
+          "format": "uri"
         },
         "mandatory": {
           "const": "mandatory"

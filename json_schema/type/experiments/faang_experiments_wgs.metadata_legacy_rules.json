@@ -38,7 +38,8 @@
       "description": "Link to the protocol for isolating PCR products used for library generation",
       "properties": {
         "value": {
-          "type": "uri"
+          "type": "string",
+          "format": "uri"
         },
         "mandatory": {
           "const": "recommended"
@@ -51,7 +52,8 @@
       "description": "Link to the protocol used to generate the library",
       "properties": {
         "value": {
-          "type": "uri"
+          "type": "string",
+          "format": "uri"
         },
         "mandatory": {
           "const": "recommended"

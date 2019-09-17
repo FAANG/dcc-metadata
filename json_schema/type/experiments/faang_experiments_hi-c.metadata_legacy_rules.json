@@ -64,7 +64,8 @@
       "description": "Link to the protocol used for Hi-C experiment",
       "properties": {
         "value": {
-          "type": "uri"
+          "type": "string",
+          "format": "uri"
         },
         "mandatory": {
           "const": "recommended"
