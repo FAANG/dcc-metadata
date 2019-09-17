@@ -1,0 +1,275 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all samples, and additional groups based on the sample type. In addition to rules defined individually, attribute names are imported from the VT, ATOL and EOL ontologies.",
+  "title": "FAANG experiments core metadata rules",
+  "name": "faang_experiment_core",
+  "$async": true,
+  "type": "object",
+  "required": [
+    "assay_type"
+  ],
+  "properties": {
+    "assay_type": {
+      "type": "object",
+      "name": "assay type",
+      "description": "The type of experiment performed",
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "ATAC-seq",
+            "ChIP-seq",
+            "whole genome sequencing assay",
+            "DNase-Hypersensitivity seq",
+            "Hi-C",
+            "methylation profiling by high throughput sequencing",
+            "microRNA profiling by high throughput sequencing",
+            "RNA-seq of total RNA",
+            "RNA-seq of coding RNA",
+            "RNA-seq of non coding RNA",
+            "transcription profiling by high throughput sequencing"
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "sample_storage": {
+      "type": "object",
+      "name": "sample storage",
+      "description": "How the sample was stored. Temperatures are in celsius. 'Frozen, vapor phase' refers to storing samples above liquid nitrogen in the vapor",
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "ambient temperature",
+            "cut slide",
+            "fresh",
+            "frozen, -70 freezer",
+            "frozen, -150 freezer",
+            "frozen, liquid nitrogen",
+            "frozen, vapor phase",
+            "paraffin block",
+            "RNAlater, frozen",
+            "TRIzol, frozen"
+          ]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "sample_storage_processing": {
+      "type": "object",
+      "name": "sample storage processing",
+      "description": "How the sample was prepared for storage",
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "cryopreservation in liquid nitrogen (dead tissue)",
+            "cryopreservation in dry ice (dead tissue)",
+            "cryopreservation of live cells in liquid nitrogen",
+            "cryopreservation, other",
+            "formalin fixed, unbuffered",
+            "formalin fixed, buffered",
+            "formalin fixed and paraffin embedded",
+            "fresh"
+          ]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "sampling_to_preparation_interval": {
+      "type": "object",
+      "name": "sampling to preparation interval",
+      "description": "How long between the sample being taken and the assay experiment preperations commencing. If sample preperations were then left in intermediate stages after preperation commenced, for example as sheared chromatin, then this should be made clear in your protocols",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": [
+            "minutes",
+            "hours",
+            "days",
+            "weeks",
+            "months",
+            "years",
+            "minute",
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year"
+          ]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "experimental_protocol": {
+      "type": "object",
+      "name": "experimental protocol",
+      "description": "Link to the description of the experiment protocol, an overview of the full experiment, that can refer to the order in which other protocols were performed and any intermediate steps not covered by the extraction or assay specific protocols",
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "uri"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "extraction_protocol": {
+      "type": "object",
+      "name": "extraction protocol",
+      "description": "Link to the protocol used to isolate the extract material",
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "uri"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "library_preparation_location": {
+      "type": "object",
+      "name": "library preparation location",
+      "description": "Location where library preperation was performed",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "library_preparation_location_longitude": {
+      "type": "object",
+      "name": "library preparation location longitude",
+      "description": "Longitude of the library prep location in decimal degrees",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": [
+            "decimal degrees"
+          ]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "library_preparation_location_latitude": {
+      "type": "object",
+      "name": "library preparation location latitude",
+      "description": "Latitude of the library prep location in decimal degrees",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": [
+            "decimal degrees"
+          ]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "library_preparation_date": {
+      "type": "object",
+      "name": "library preparation date",
+      "description": "Date on which the library was prepared",
+      "properties": {
+        "value": {
+          "type": "string",
+          "pattern": "^[12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])|[12]\\d{3}-(0[1-9]|1[0-2])|[12]\\d{3}$"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "sequencing_location": {
+      "type": "object",
+      "name": "sequencing location",
+      "description": "Location of where the sequencing was performed",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "sequencing_location_longitude": {
+      "type": "object",
+      "name": "sequencing location longitude",
+      "description": "Longitude of the sequencing location in decimal degrees",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": [
+            "decimal degrees"
+          ]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "sequencing_location_latitude": {
+      "type": "object",
+      "name": "sequencing location latitude",
+      "description": "Latitude of the sequencing location in decimal degrees",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": [
+            "decimal degrees"
+          ]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "sequencing_date": {
+      "type": "object",
+      "name": "sequencing date",
+      "description": "Date sequencing was performed",
+      "properties": {
+        "value": {
+          "type": "string",
+          "pattern": "^[12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])|[12]\\d{3}-(0[1-9]|1[0-2])|[12]\\d{3}$"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    }
+  }
+}
