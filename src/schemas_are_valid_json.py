@@ -12,6 +12,7 @@ NOTE: until jsonschema v3 goes into proper release, do `pip install jsonschema==
 
 """
 
+
 def get_validator(filename, base_uri=''):
     """Load schema from JSON file;
     Check whether it's a valid schema;
@@ -37,7 +38,7 @@ def get_validator(filename, base_uri=''):
                            resolver=resolver)
 
 
-def get_json_from_file(filename, warn = False):
+def get_json_from_file(filename, warn=False):
     """Loads json from a file.
     Optionally specify warn = True to warn, rather than
     fail if file not found."""

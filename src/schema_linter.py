@@ -300,7 +300,7 @@ class SchemaLinter:
                     # 'false' or 'true'
                     include_self_attribute = properties['ontology'][
                         'graph_restriction']['include_self']
-                    if not isinstance (include_self_attribute, bool):
+                    if not isinstance(include_self_attribute, bool):
                         errors.append(f"{schema_filename}.json: Keyword "
                                       f"'include_self' must be set to 'false' "
                                       f"or 'true', "

@@ -6,12 +6,11 @@ from version_update import VersionUpdater
 import human_readable_json
 
 
-
 class ReleasePrepare:
     def __init__(self):
         self.srcfolder = os.getcwd()
         foldername = os.path.basename(self.srcfolder)
-        self.schemafolder = self.srcfolder.replace(foldername,"json_schema")
+        self.schemafolder = self.srcfolder.replace(foldername, "json_schema")
 
     def openUpdateLog(self):
         update_log = self.schemafolder + "/update_log.csv"
@@ -37,7 +36,6 @@ class ReleasePrepare:
             elif h == 'Change message':
                 self.message_column = index
 
-
     def updateVersions(self, log_content):
         # find any row where the version column is empty and increment the version number
         # using the version_update script and log parameters
@@ -45,7 +43,7 @@ class ReleasePrepare:
         migrationUpdates = {}
 
         for val in range(1, len(log_content)):
-            #generate a list of independent schemas from the update log
+            # generate a list of independent schemas from the update log
             independent_schemas = []
             for v in range(1, len(log_content)):
                 independent_schemas.append(log_content[v][self.schema_column])
@@ -53,21 +51,25 @@ class ReleasePrepare:
             if not log_content[val][self.version_column]:
                 schema = log_content[val][self.schema_column]
                 change_type = log_content[val][self.type_column]
-                version_options = options(self.schemafolder, schema,change_type,independent_schemas)
+                version_options = options(self.schemafolder, schema,
+                                          change_type, independent_schemas)
                 versionUpdater = VersionUpdater(version_options)
                 versionUpdates = versionUpdater.updateVersions(True)
 
                 for key in versionUpdates.keys():
                     if key == schema:
-                        log_content[val][self.version_column] = versionUpdates[key]
-                        migrationUpdates[schema.split("/")[-1]] = versionUpdates[key]
+                        log_content[val][self.version_column] = versionUpdates[
+                            key]
+                        migrationUpdates[schema.split("/")[-1]] = \
+                        versionUpdates[key]
                     else:
                         # add dependeny updates to the update log
                         new_row = log_content[val].copy()
                         new_row[self.version_column] = versionUpdates[key]
                         new_row[self.schema_column] = key
                         log_content.append(new_row)
-                        migrationUpdates[key.split("/")[-1]] = versionUpdates[key]
+                        migrationUpdates[key.split("/")[-1]] = versionUpdates[
+                            key]
 
         versionUpdater.updateMigrations(migrationUpdates)
 
@@ -88,17 +90,17 @@ class ReleasePrepare:
                 version = log_content[val][self.version_column]
                 type = change_message.split(' ')[0]
 
-                markdown_message = "### [" + schema + ".json - v" + version + "] - " + update_date + "\n" + "### " + type  + "\n" + change_message  + "\n"
-                log_insert = log_insert + markdown_message  + "\n"
+                markdown_message = "### [" + schema + ".json - v" + version + "] - " + update_date + "\n" + "### " + type + "\n" + change_message + "\n"
+                log_insert = log_insert + markdown_message + "\n"
 
         output = self._buildLogOutput(log_insert)
         self._saveChangeLog(output)
         self._saveUpdateLog(log_content)
 
-
     # build the actual changelog.md file by putting the change log statements in log_insert below the [Unreleased]... line
     def _buildLogOutput(self, log_insert):
-        change_log_file = self.schemafolder.replace("json_schema", "") + "/changelog.md"
+        change_log_file = self.schemafolder.replace("json_schema",
+                                                    "") + "/changelog.md"
         output = ""
         with open(change_log_file, 'r') as readChangeLog:
             log = readChangeLog.readlines()
@@ -117,7 +119,8 @@ class ReleasePrepare:
         return output
 
     def _saveChangeLog(self, output):
-        change_log_file = self.schemafolder.replace("json_schema", "") + "/changelog.md"
+        change_log_file = self.schemafolder.replace("json_schema",
+                                                    "") + "/changelog.md"
         with open(change_log_file, 'w') as writeChangeLog:
             writeChangeLog.write(output)
         writeChangeLog.close()
@@ -135,10 +138,12 @@ class ReleasePrepare:
         for val in range(1, len(update_log)):
             change_message = update_log[val][self.message_column]
             type = change_message.split(' ')[0]
-            if type not in ['Added', 'Changed', 'Removed', 'Fixed', 'Deprecated', 'Security']:
+            if type not in ['Added', 'Changed', 'Removed', 'Fixed',
+                            'Deprecated', 'Security']:
                 print(
                     "WARNING: Change type in log message does not match one of 'Added', 'Changed', 'Removed', 'Fixed', 'Deprecated', 'Security'")
                 exit(2)
+
 
 class options:
     def __init__(self, p, s, i, e):
@@ -149,7 +154,6 @@ class options:
 
 
 if __name__ == '__main__':
-
     releasePrep = ReleasePrepare()
 
     content_log = releasePrep.openUpdateLog()
@@ -159,8 +163,3 @@ if __name__ == '__main__':
     updated_versions = releasePrep.updateVersions(content_log)
 
     updated_dates = releasePrep.buildChangeLog(updated_versions)
-
-
-
-
-

@@ -85,7 +85,6 @@ class VersionUpdater:
         if not isinstance(latest, dict):
             return latest
 
-
     def _getJson(self, path):
         f = open(path, 'r')
         return json.loads(f.read())
@@ -93,7 +92,6 @@ class VersionUpdater:
     def _saveJson(self, path, data, sort):
         with open(path, 'w') as outfile:
             json.dump(data, outfile, indent=4, sort_keys=sort)
-
 
     def find(self, key, dictionary):
         for k, v in dictionary.items():
@@ -107,7 +105,6 @@ class VersionUpdater:
                     if isinstance(d, dict):
                         for result in self.find(key, d):
                             yield result
-
 
     def incrementVersion(self, version, increment_type):
 
@@ -139,7 +136,8 @@ class VersionUpdater:
     def _findDependentSchemas(self, ref):
         schemas = [os.path.join(dirpath, f)
                    for dirpath, dirnames, files in os.walk(self.path)
-                   for f in files if f.endswith('.json') and not f.endswith('versions.json')]
+                   for f in files if
+                   f.endswith('.json') and not f.endswith('versions.json')]
 
         dependencies = []
 
@@ -149,7 +147,7 @@ class VersionUpdater:
 
             for item in self.find("$ref", json):
                 if ref == item:
-                    d = s.replace(self.path+"/", "")
+                    d = s.replace(self.path + "/", "")
                     d = d.replace(".json", "")
                     if d not in dependencies and d not in self.exclude:
                         dependencies.append(d)
@@ -157,26 +155,33 @@ class VersionUpdater:
 
     # update any empty version numbers in the property_migrations.json file
     def updateMigrations(self, updatedVersions):
-        migrationJson =  self._getJson(self.path + "/property_migrations.json")
+        migrationJson = self._getJson(self.path + "/property_migrations.json")
 
         for migration in migrationJson['migrations']:
-            if 'effective_from' in migration and migration['effective_from'] == '':
+            if 'effective_from' in migration and migration[
+                'effective_from'] == '':
                 if migration['source_schema'] in updatedVersions.keys():
-                    migration['effective_from'] = updatedVersions[migration['source_schema']]
+                    migration['effective_from'] = updatedVersions[
+                        migration['source_schema']]
 
-            elif 'effective_from_source' in migration and migration['effective_from_source'] == '':
+            elif 'effective_from_source' in migration and migration[
+                'effective_from_source'] == '':
                 if migration['source_schema'] in updatedVersions.keys():
-                    migration['effective_from_source'] = updatedVersions[migration['source_schema']]
+                    migration['effective_from_source'] = updatedVersions[
+                        migration['source_schema']]
                 if migration['target_schema'] in updatedVersions.keys():
-                    migration['effective_from_target'] = updatedVersions[migration['target_schema']]
+                    migration['effective_from_target'] = updatedVersions[
+                        migration['target_schema']]
 
-        self._saveJson(self.path + "/property_migrations.json", migrationJson, False)
+        self._saveJson(self.path + "/property_migrations.json", migrationJson,
+                       False)
 
 
 if __name__ == '__main__':
     parser = OptionParser()
     parser.add_option("-p", "--path", dest="path",
-                      help="Base path to the HCA metadata schemas", metavar="FILE")
+                      help="Base path to the HCA metadata schemas",
+                      metavar="FILE")
     parser.add_option("-s", "--schema", dest="schema",
                       help="Schemas that were changed")
     parser.add_option("-i", "--increment_type", dest="increment_type",
@@ -192,17 +197,13 @@ if __name__ == '__main__':
     if not options.schema:
         print("You must supply a schema to update")
         exit(2)
-    if not options.increment_type or options.increment_type not in ["patch", "minor", "major"]:
-        print("You must supply the type of change that was made and it must be one of patch, minor or major.")
+    if not options.increment_type or options.increment_type not in ["patch",
+                                                                    "minor",
+                                                                    "major"]:
+        print(
+            "You must supply the type of change that was made and it must be one of patch, minor or major.")
         exit(2)
 
     versionUpdater = VersionUpdater(options)
 
     versionUpdater.updateVersions()
-
-
-
-
-
-
-
