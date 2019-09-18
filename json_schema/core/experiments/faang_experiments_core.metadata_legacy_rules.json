@@ -23,7 +23,7 @@
     "assay_type": {
       "type": "object",
       "name": "assay type",
-      "description": "The type of experiment performed",
+      "description": "The type of experiment performed.",
       "properties": {
         "value": {
           "type": "string",
@@ -49,7 +49,7 @@
     "sample_storage": {
       "type": "object",
       "name": "sample storage",
-      "description": "How the sample was stored. Temperatures are in celsius. 'Frozen, vapor phase' refers to storing samples above liquid nitrogen in the vapor",
+      "description": "How the sample was stored. Temperatures are in celsius. 'Frozen, vapor phase' refers to storing samples above liquid nitrogen in the vapor.",
       "properties": {
         "value": {
           "type": "string",
@@ -74,7 +74,7 @@
     "sample_storage_processing": {
       "type": "object",
       "name": "sample storage processing",
-      "description": "How the sample was prepared for storage",
+      "description": "How the sample was prepared for storage.",
       "properties": {
         "value": {
           "type": "string",
@@ -97,7 +97,7 @@
     "sampling_to_preparation_interval": {
       "type": "object",
       "name": "sampling to preparation interval",
-      "description": "How long between the sample being taken and the assay experiment preperations commencing. If sample preperations were then left in intermediate stages after preperation commenced, for example as sheared chromatin, then this should be made clear in your protocols",
+      "description": "How long between the sample being taken and the assay experiment preperations commencing. If sample preperations were then left in intermediate stages after preperation commenced, for example as sheared chromatin, then this should be made clear in your protocols.",
       "properties": {
         "value": {
           "type": "number"
@@ -127,7 +127,7 @@
     "experimental_protocol": {
       "type": "object",
       "name": "experimental protocol",
-      "description": "Link to the description of the experiment protocol, an overview of the full experiment, that can refer to the order in which other protocols were performed and any intermediate steps not covered by the extraction or assay specific protocols",
+      "description": "Link to the description of the experiment protocol, an overview of the full experiment, that can refer to the order in which other protocols were performed and any intermediate steps not covered by the extraction or assay specific protocols.",
       "properties": {
         "value": {
           "type": "string",
@@ -141,7 +141,7 @@
     "extraction_protocol": {
       "type": "object",
       "name": "extraction protocol",
-      "description": "Link to the protocol used to isolate the extract material",
+      "description": "Link to the protocol used to isolate the extract material.",
       "properties": {
         "value": {
           "type": "string",
@@ -155,7 +155,7 @@
     "library_preparation_location": {
       "type": "object",
       "name": "library preparation location",
-      "description": "Location where library preperation was performed",
+      "description": "Location where library preperation was performed.",
       "properties": {
         "value": {
           "type": "string"
@@ -168,7 +168,7 @@
     "library_preparation_location_longitude": {
       "type": "object",
       "name": "library preparation location longitude",
-      "description": "Longitude of the library prep location in decimal degrees",
+      "description": "Longitude of the library prep location in decimal degrees.",
       "properties": {
         "value": {
           "type": "number"
@@ -187,7 +187,7 @@
     "library_preparation_location_latitude": {
       "type": "object",
       "name": "library preparation location latitude",
-      "description": "Latitude of the library prep location in decimal degrees",
+      "description": "Latitude of the library prep location in decimal degrees.",
       "properties": {
         "value": {
           "type": "number"
@@ -206,7 +206,7 @@
     "library_preparation_date": {
       "type": "object",
       "name": "library preparation date",
-      "description": "Date on which the library was prepared",
+      "description": "Date on which the library was prepared.",
       "properties": {
         "value": {
           "type": "string",
@@ -220,7 +220,7 @@
     "sequencing_location": {
       "type": "object",
       "name": "sequencing location",
-      "description": "Location of where the sequencing was performed",
+      "description": "Location of where the sequencing was performed.",
       "properties": {
         "value": {
           "type": "string"
@@ -233,7 +233,7 @@
     "sequencing_location_longitude": {
       "type": "object",
       "name": "sequencing location longitude",
-      "description": "Longitude of the sequencing location in decimal degrees",
+      "description": "Longitude of the sequencing location in decimal degrees.",
       "properties": {
         "value": {
           "type": "number"
@@ -252,7 +252,7 @@
     "sequencing_location_latitude": {
       "type": "object",
       "name": "sequencing location latitude",
-      "description": "Latitude of the sequencing location in decimal degrees",
+      "description": "Latitude of the sequencing location in decimal degrees.",
       "properties": {
         "value": {
           "type": "number"
@@ -271,7 +271,7 @@
     "sequencing_date": {
       "type": "object",
       "name": "sequencing date",
-      "description": "Date sequencing was performed",
+      "description": "Date sequencing was performed.",
       "properties": {
         "value": {
           "type": "string",

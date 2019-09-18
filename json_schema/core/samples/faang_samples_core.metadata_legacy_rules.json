@@ -21,7 +21,7 @@
     "sample_description": {
       "type": "object",
       "name": "Sample Description",
-      "description": "A brief description of the sample including species name",
+      "description": "A brief description of the sample including species name.",
       "properties": {
         "value": {
           "type": "string"
@@ -66,7 +66,7 @@
     "project": {
       "type": "object",
       "name": "Project",
-      "description": "State that the project is 'FAANG'",
+      "description": "State that the project is 'FAANG'.",
       "properties": {
         "value": {
           "const": "FAANG"
