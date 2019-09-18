@@ -6,6 +6,17 @@
   "$async": true,
   "type": "object",
   "properties": {
+    "describedBy": {
+      "description": "The URL reference to the schema.",
+      "type": "string",
+      "pattern" : "^(http|https)://schema.(.*?)humancellatlas.org/core/biomaterial/(([0-9]{1,}.[0-9]{1,}.[0-9]{1,})|([a-zA-Z]*?))/biomaterial_core"
+    },
+    "schema_version": {
+      "description": "The version number of the schema in major.minor.patch format.",
+      "type": "string",
+      "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
+      "example": "4.6.1"
+    },
     "target_protein_name": {
       "type": "object",
       "name": "target protein name",
