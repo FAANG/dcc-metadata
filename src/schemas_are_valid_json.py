@@ -36,6 +36,7 @@ def get_validator(filename, base_uri=''):
     return Draft4Validator(schema=schema,
                            resolver=resolver)
 
+
 def get_json_from_file(filename, warn = False):
     """Loads json from a file.
     Optionally specify warn = True to warn, rather than
