@@ -7,9 +7,7 @@
   "required": ["organism", "sex", "breed"],
   "properties": {
     "describedBy": {
-      "description": "The URL reference to the schema.",
-      "type": "string",
-      "pattern" : "^(http|https)://schema.(.*?)humancellatlas.org/core/biomaterial/(([0-9]{1,}.[0-9]{1,}.[0-9]{1,})|([a-zA-Z]*?))/biomaterial_core"
+      "const": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_sample_metadata.md"
     },
     "schema_version": {
       "description": "The version number of the schema in major.minor.patch format.",
@@ -17,10 +15,16 @@
       "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
       "example": "4.6.1"
     },
+    "samples_core": {
+      "description": "Core samples-level information",
+      "type": "object",
+      "$ref": "core/samples/faang_samples_core.metadata_rules.json"
+    },
     "organism": {
       "type": "object",
       "name": "Organism",
       "description": "NCBI taxon ID of organism.",
+      "required": ["term", "text"],
       "properties": {
         "term": {
           "type": "string",
@@ -37,6 +41,9 @@
         },
         "mandatory": {
           "const": "mandatory"
+        },
+        "ontology_name": {
+          "const": "NCBITaxon"
         }
       }
     },
@@ -44,6 +51,7 @@
       "type": "object",
       "name": "Sex",
       "description": "Animal sex, described using any child term of PATO_0000047.",
+      "required": ["term", "text"],
       "properties": {
         "term": {
           "type": "string",
@@ -60,6 +68,9 @@
         },
         "mandatory": {
           "const": "mandatory"
+        },
+        "ontology_name": {
+          "const": "PATO"
         }
       }
     },
@@ -67,6 +78,7 @@
       "type": "object",
       "name": "birth date",
       "description": "Birth date, in the format YYYY-MM-DD, or YYYY-MM where only the month is known. For embryo samples record 'not applicable'.",
+      "required": ["value", "units"],
       "properties": {
         "value": {
           "type": "string",
@@ -81,6 +93,10 @@
         },
         "mandatory": {
           "const": "recommended"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["YYYY-MM-DD", "YYYY-MM", "YYYY"]
         }
       }
     },
@@ -88,13 +104,16 @@
       "type": "object",
       "name": "breed",
       "description": "Animal breed, described using the FAANG breed description guidelines (http://bit.ly/FAANGbreed).",
+      "required": ["term", "text"],
       "properties": {
         "term": {
           "type": "string",
-          "format": "uri",
-          "isChildTermOf": {
-            "parentTerm": "http://purl.obolibrary.org/obo/LBO_0000000",
-            "ontologyId": "lbo"
+          "graph_restriction": {
+            "ontologies": ["obo:lbo"],
+            "classes": ["LBO:0000000"],
+            "relations": ["rdfs:subClassOf"],
+            "direct": false,
+            "include_self": false
           }
         },
         "text": {
@@ -102,29 +121,40 @@
         },
         "mandatory": {
           "const": "mandatory"
+        },
+        "ontology_name": {
+          "const": "LBO"
         }
       }
     },
     "health_status": {
-      "type": "object",
+      "type": "array",
       "name": "health status",
       "description": "Healthy animals should have the term normal, otherwise use the as many disease terms as necessary from EFO.",
-      "properties": {
-        "term": {
-          "type": "string",
-          "graph_restriction": {
-            "ontologies": ["obo:pato", "obo:efo"],
-            "classes": ["PATO:0000461", "EFO:0000408"],
-            "relations": ["rdfs:subClassOf"],
-            "direct": false,
-            "include_self": true
+      "items": {
+        "type": "object",
+        "required": ["term", "text"],
+        "properties": {
+          "term": {
+            "type": "string",
+            "graph_restriction": {
+              "ontologies": ["obo:pato", "obo:efo"],
+              "classes": ["PATO:0000461", "EFO:0000408"],
+              "relations": ["rdfs:subClassOf"],
+              "direct": false,
+              "include_self": true
+            }
+          },
+          "text": {
+            "type": "string"
+          },
+          "mandatory": {
+            "const": "recommended"
+          },
+          "ontology_name": {
+            "type": "string",
+            "enum": ["PATO", "EFO"]
           }
-        },
-        "text": {
-          "type": "string"
-        },
-        "mandatory": {
-          "const": "recommended"
         }
       }
     },
@@ -132,6 +162,7 @@
       "type": "object",
       "name": "birth location",
       "description": "Name of the birth location.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
@@ -145,6 +176,7 @@
       "type": "object",
       "name": "birth location latitude",
       "description": "Latitude of the birth location in decimal degrees.",
+      "required": ["value", "units"],
       "properties": {
         "value": {
           "type": "number"
@@ -161,6 +193,7 @@
       "type": "object",
       "name": "birth location longitude",
       "description": "Longitude of the birth location in decimal degrees.",
+      "required": ["value", "units"],
       "properties": {
         "value": {
           "type": "number"
@@ -177,6 +210,7 @@
       "type": "object",
       "name": "birth weight",
       "description": "Birth weight, in kilograms or grams.",
+      "required": ["value", "units"],
       "properties": {
         "value": {
           "type": "number"
@@ -194,6 +228,7 @@
       "type": "object",
       "name": "placental weight",
       "description": "Placental weight, in kilograms or grams.",
+      "required": ["value", "units"],
       "properties": {
         "value": {
           "type": "number"
@@ -211,6 +246,7 @@
       "type": "object",
       "name": "pregnancy length",
       "description": "Pregnancy length of time, in days, weeks or months.",
+      "required": ["value", "units"],
       "properties": {
         "value": {
           "type": "number"
@@ -227,7 +263,8 @@
     "delivery_timing": {
       "type": "object",
       "name": "delivery timing",
-      "description": "Was pregancy full-term. early or delayed.",
+      "description": "Was pregnancy full-term. early or delayed.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -246,6 +283,7 @@
       "type": "object",
       "name": "delivery ease",
       "description": "Did the delivery require assistance.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -261,15 +299,19 @@
       }
     },
     "child_of": {
-      "type": "object",
+      "type": "array",
       "name": "Child of",
       "description": "Sample name or Biosample ID for sire/dam. Required if related animals are part of FAANG, e.g. quads.",
-      "properties": {
-        "value": {
-          "type": "string"
-        },
-        "mandatory": {
-          "const": "optional"
+      "items": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "mandatory": {
+            "const": "optional"
+          }
         }
       }
     },
@@ -277,6 +319,7 @@
       "type": "object",
       "name": "Pedigree",
       "description": "A link to pedigree information for the animal.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
