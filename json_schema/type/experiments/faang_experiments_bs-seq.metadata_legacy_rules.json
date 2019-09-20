@@ -10,9 +10,7 @@
   ],
   "properties": {
     "describedBy": {
-      "description": "The URL reference to the schema.",
-      "type": "string",
-      "pattern" : "^(http|https)://schema.(.*?)humancellatlas.org/core/biomaterial/(([0-9]{1,}.[0-9]{1,}.[0-9]{1,})|([a-zA-Z]*?))/biomaterial_core"
+      "const": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_experiment_metadata.md"
     },
     "schema_version": {
       "description": "The version number of the schema in major.minor.patch format.",
@@ -20,10 +18,16 @@
       "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
       "example": "4.6.1"
     },
+    "experiments_core": {
+      "description": "Core samples-level information",
+      "type": "object",
+      "$ref": "core/experiments/faang_experiments_core.metadata_legacy_rules.json"
+    },
     "experiment_target": {
       "type": "object",
       "name": "experiment target",
       "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'DNA methylation'.",
+      "required": ["term", "text"],
       "properties": {
         "term": {
           "const": "GO:0006306"
@@ -33,6 +37,9 @@
         },
         "mandatory": {
           "const": "mandatory"
+        },
+        "ontology_name": {
+          "const": "OBI"
         }
       }
     },
@@ -40,6 +47,7 @@
       "type": "object",
       "name": "library selection",
       "description": "Library selection is Whole Genome Bisulfite Sequencing or Reduced Representation Bisulfite Sequencing.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -57,6 +65,7 @@
       "type": "object",
       "name": "bisulfite conversion protocol",
       "description": "Link to bisulfite conversion protocol.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -71,6 +80,7 @@
       "type": "object",
       "name": "pcr product isolation protocol",
       "description": "Link to the protocol for isolating PCR products used for library generation.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -85,6 +95,7 @@
       "type": "object",
       "name": "bisulfite conversion percent",
       "description": "Bisulfite conversion percentage.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "number"
@@ -98,6 +109,7 @@
       "type": "object",
       "name": "restriction enzyme",
       "description": "Restriction enzyme used for Reduced representation bisulfite sequencing.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
@@ -111,6 +123,7 @@
       "type": "object",
       "name": "max fragment size selection range",
       "description": "The maximum fragment size of the fragment selection range.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "number"
@@ -124,6 +137,7 @@
       "type": "object",
       "name": "min fragment size selection range",
       "description": "The minimum fragment size of the fragment selection range.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "number"
