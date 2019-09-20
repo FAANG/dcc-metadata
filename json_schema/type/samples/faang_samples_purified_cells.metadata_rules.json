@@ -8,9 +8,7 @@
   "required": ["cell_type", "purification_protocol", "derived_from"],
   "properties": {
     "describedBy": {
-      "description": "The URL reference to the schema.",
-      "type": "string",
-      "pattern" : "^(http|https)://schema.(.*?)humancellatlas.org/core/biomaterial/(([0-9]{1,}.[0-9]{1,}.[0-9]{1,})|([a-zA-Z]*?))/biomaterial_core"
+      "const": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_sample_metadata.md"
     },
     "schema_version": {
       "description": "The version number of the schema in major.minor.patch format.",
@@ -18,10 +16,16 @@
       "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
       "example": "4.6.1"
     },
+    "samples_core": {
+      "description": "Core samples-level information",
+      "type": "object",
+      "$ref": "core/samples/faang_samples_core.metadata_rules.json"
+    },
     "markers": {
       "type": "object",
       "name": "markers",
       "description": "Markers used to isolate and identify the cell type (e.g. for FACS sorted cells).",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
@@ -32,25 +36,29 @@
       }
     },
     "cell_type": {
-      "type": "object",
+      "type": "array",
       "name": "cell type",
       "description": "Provide a cell type from the CL ontology.",
-      "properties": {
-        "term": {
-          "type": "string",
-          "graph_restriction": {
-            "ontologies": ["obo:cl"],
-            "classes": ["CL:0000000"],
-            "relations": ["rdfs:subClassOf"],
-            "direct": false,
-            "include_self": true
+      "items": {
+        "type": "object",
+        "required": ["term", "text"],
+        "properties": {
+          "term": {
+            "type": "string",
+            "graph_restriction": {
+              "ontologies": ["obo:cl"],
+              "classes": ["CL:0000000"],
+              "relations": ["rdfs:subClassOf"],
+              "direct": false,
+              "include_self": true
+            }
+          },
+          "text": {
+            "type": "string"
+          },
+          "mandatory": {
+            "const": "mandatory"
           }
-        },
-        "text": {
-          "type": "string"
-        },
-        "mandatory": {
-          "const": "mandatory"
         }
       }
     },
@@ -58,6 +66,7 @@
       "type": "object",
       "name": "purification protocol",
       "description": "Link to protocol describing how the cells were purified.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -72,6 +81,7 @@
       "type": "object",
       "name": "Derived from",
       "description": "Sample name or BioSample ID for a specimen record.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
