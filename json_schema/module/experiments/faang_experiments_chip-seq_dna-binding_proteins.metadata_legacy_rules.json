@@ -7,9 +7,7 @@
   "type": "object",
   "properties": {
     "describedBy": {
-      "description": "The URL reference to the schema.",
-      "type": "string",
-      "pattern" : "^(http|https)://schema.(.*?)humancellatlas.org/core/biomaterial/(([0-9]{1,}.[0-9]{1,}.[0-9]{1,})|([a-zA-Z]*?))/biomaterial_core"
+      "const": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_experiment_metadata.md"
     },
     "schema_version": {
       "description": "The version number of the schema in major.minor.patch format.",
@@ -45,6 +43,9 @@
         },
         "mandatory": {
           "const": "optional"
+        },
+        "ontology_name": {
+          "const": "NCIT"
         }
       }
     },
@@ -52,6 +53,7 @@
       "type": "object",
       "name": "control experiment",
       "description": "Experiment alias (in this submission) or ENA experiment accession (if submitted previously) of the ChIP-seq input DNA experiment which acts as the control/background for the analysis.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
@@ -65,6 +67,7 @@
       "type": "object",
       "name": "chip antibody provider",
       "description": "The name of the company, laboratory or person that provided the antibody e.g. Diagneode.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
@@ -78,6 +81,7 @@
       "type": "object",
       "name": "chip antibody catalog",
       "description": "The catalog from which the antibody was purchased e.g. pAb-003-050.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
@@ -91,6 +95,7 @@
       "type": "object",
       "name": "chip antibody lot",
       "description": "The lot identifier of the antibody e.g. A5051-001P.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
@@ -104,6 +109,7 @@
       "type": "object",
       "name": "library generation max fragment size range",
       "description": "The maximum fragment size range of the preparation.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "number"
@@ -117,6 +123,7 @@
       "type": "object",
       "name": "library generation min fragment size range",
       "description": "The minimum fragment size range of the preparation.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "number"
