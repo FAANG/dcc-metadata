@@ -70,6 +70,10 @@
         },
         "mandatory": {
           "const": "mandatory"
+        },
+        "ontology_name": {
+          "type": "string",
+          "enum": ["EFO", "UBERON"]
         }
       }
     },
@@ -111,6 +115,10 @@
         },
         "mandatory": {
           "const": "mandatory"
+        },
+        "ontology_name": {
+          "type": "string",
+          "enum": ["UBERON", "BTO"]
         }
       }
     },
