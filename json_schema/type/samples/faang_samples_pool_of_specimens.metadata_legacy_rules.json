@@ -8,9 +8,7 @@
   "required": ["pool_creation_date", "derived_from"],
   "properties": {
     "describedBy": {
-      "description": "The URL reference to the schema.",
-      "type": "string",
-      "pattern" : "^(http|https)://schema.(.*?)humancellatlas.org/core/biomaterial/(([0-9]{1,}.[0-9]{1,}.[0-9]{1,})|([a-zA-Z]*?))/biomaterial_core"
+      "const": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_sample_metadata.md"
     },
     "schema_version": {
       "description": "The version number of the schema in major.minor.patch format.",
@@ -18,10 +16,16 @@
       "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
       "example": "4.6.1"
     },
+    "samples_core": {
+      "description": "Core samples-level information",
+      "type": "object",
+      "$ref": "core/samples/faang_samples_core.metadata_rules.json"
+    },
     "pool_creation_date": {
       "type": "object",
       "name": "pool creation date",
       "description": "Date at which the pool was created.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
@@ -35,6 +39,7 @@
       "type": "object",
       "name": "pool creation protocol",
       "description": "A link to the protocol for pool of specimens creation.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
@@ -48,6 +53,7 @@
       "type": "object",
       "name": "specimen volume",
       "description": "Pool specimen volume. Total sum from multiple specimens.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
@@ -61,6 +67,7 @@
       "type": "object",
       "name": "specimen size",
       "description": "Pool specimen size. Total sum from multiple specimens.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
@@ -74,6 +81,7 @@
       "type": "object",
       "name": "specimen weight",
       "description": "Pool specimen weight. Total sum from multiple specimens.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
@@ -84,28 +92,36 @@
       }
     },
     "specimen_picture_url": {
-      "type": "object",
+      "type": "array",
       "name": "specimen_picture_url",
       "description": "A link a picture of the pooled specimen, multiple links allowed.",
-      "properties": {
-        "value": {
-          "type": "string"
-        },
-        "mandatory": {
-          "const": "optional"
+      "items": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "mandatory": {
+            "const": "optional"
+          }
         }
       }
     },
     "derived_from": {
-      "type": "object",
+      "type": "array",
       "name": "Derived from",
       "description": "Sample name or BioSample ID for each specimen record that is part of the pool.",
-      "properties": {
-        "value": {
-          "type": "string"
-        },
-        "mandatory": {
-          "const": "mandatory"
+      "items": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "mandatory": {
+            "const": "mandatory"
+          }
         }
       }
     }
