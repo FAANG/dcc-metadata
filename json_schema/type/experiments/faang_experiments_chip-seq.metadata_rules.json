@@ -11,9 +11,7 @@
   ],
   "properties": {
     "describedBy": {
-      "description": "The URL reference to the schema.",
-      "type": "string",
-      "pattern" : "^(http|https)://schema.(.*?)humancellatlas.org/core/biomaterial/(([0-9]{1,}.[0-9]{1,}.[0-9]{1,})|([a-zA-Z]*?))/biomaterial_core"
+      "const": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_experiment_metadata.md"
     },
     "schema_version": {
       "description": "The version number of the schema in major.minor.patch format.",
@@ -21,17 +19,23 @@
       "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
       "example": "4.6.1"
     },
+    "experiments_core": {
+      "description": "Core samples-level information",
+      "type": "object",
+      "$ref": "core/experiments/faang_experiments_core.metadata_rules.json"
+    },
     "experiment_target": {
       "type": "object",
       "name": "experiment target",
       "description": "What the experiment was trying to find, list the text rather than ontology link e.g. 'input DNA'. For transcription factor, use 'TF_binding_site'; For chromatin, use 'histone_modification'. ChIP-seq input: use 'input DNA'.",
+      "required": ["term", "text"],
       "properties": {
         "term": {
           "type": "string",
           "enum": [
-            "http://purl.obolibrary.org/obo/SO_0001700",
-            "http://purl.obolibrary.org/obo/SO_0000235",
-            "http://www.ebi.ac.uk/efo/EFO_0005031"
+            "SO:0001700",
+            "SO:0000235",
+            "EFO:0005031"
           ]
         },
         "text": {
@@ -39,6 +43,10 @@
         },
         "mandatory": {
           "const": "mandatory"
+        },
+        "ontology_name": {
+          "type": "string",
+          "enum": ["SO", "SO", "EFO"]
         }
       }
     },
@@ -46,6 +54,7 @@
       "type": "object",
       "name": "chip protocol",
       "description": "Link to the ChIP protocol used.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
