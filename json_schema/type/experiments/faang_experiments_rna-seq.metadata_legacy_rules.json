@@ -10,9 +10,7 @@
   ],
   "properties": {
     "describedBy": {
-      "description": "The URL reference to the schema.",
-      "type": "string",
-      "pattern" : "^(http|https)://schema.(.*?)humancellatlas.org/core/biomaterial/(([0-9]{1,}.[0-9]{1,}.[0-9]{1,})|([a-zA-Z]*?))/biomaterial_core"
+      "const": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_experiment_metadata.md"
     },
     "schema_version": {
       "description": "The version number of the schema in major.minor.patch format.",
@@ -20,26 +18,43 @@
       "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
       "example": "4.6.1"
     },
+    "experiments_core": {
+      "description": "Core samples-level information",
+      "type": "object",
+      "$ref": "core/experiments/faang_experiments_core.metadata_legacy_rules.json"
+    },
     "experiment_target": {
       "type": "object",
       "name": "experiment target",
       "description": "What the experiment was trying to find, list the text rather than ontology link, for example 'polyA RNA'.",
+      "required": ["term", "text"],
       "properties": {
         "term": {
-          "type": "string",
-          "graph_restriction": {
-            "ontologies": ["obo:efo", "obo:ncit"],
-            "classes": ["CHEBI:33697", "NCIT:C17998"],
-            "relations": ["rdfs:subClassOf"],
-            "direct": false,
-            "include_self": true
-          }
+          "oneOf": [
+            {
+              "const": "NCIT:C17998"
+            },
+            {
+              "type": "string",
+              "graph_restriction": {
+                "ontologies": ["obo:efo"],
+                "classes": ["CHEBI:33697"],
+                "relations": ["rdfs:subClassOf"],
+                "direct": false,
+                "include_self": true
+              }
+            }
+          ]
         },
         "text": {
           "type": "string"
         },
         "mandatory": {
           "const": "mandatory"
+        },
+        "ontology_name":{
+          "type": "string",
+          "enum": ["NCIT", "EFO"]
         }
       }
     },
@@ -47,6 +62,7 @@
       "type": "object",
       "name": "rna preparation 3' adapter ligation protocol",
       "description": "Link to the protocol for 3’ adapter ligation used in preparation.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -61,6 +77,7 @@
       "type": "object",
       "name": "rna preparation 5' adapter ligation protocol",
       "description": "Link to the protocol for 5’ adapter ligation used in preparation.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -75,6 +92,7 @@
       "type": "object",
       "name": "library generation pcr product isolation protocol",
       "description": "Link to the protocol for isolating pcr products used for library generation.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -89,6 +107,7 @@
       "type": "object",
       "name": "preparation reverse transcription protocol",
       "description": "Link to the protocol for reverse transcription used in preparation.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -103,6 +122,7 @@
       "type": "object",
       "name": "library generation protocol",
       "description": "Link to the protocol used to generate the library.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -117,6 +137,7 @@
       "type": "object",
       "name": "read strand",
       "description": "For strand specific protocol, specify which mate pair maps to the transcribed strand or Report 'non-stranded' if the protocol is not strand specific. For single-ended sequencing: use 'sense' if the reads should be on the same strand as the transcript, 'antisense' if on opposite strand. For paired-end sequencing: 'mate 1 sense' if mate 1 should be on the same strand as the transcript, 'mate 2 sense' if mate 2 should be on the same strand as the transcript.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -138,6 +159,7 @@
       "type": "object",
       "name": "rna purity 260:280 ratio",
       "description": "Sample purity assesed with fluoresence ratio at 260 and 280nm, informative for protein contamination.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "number"
@@ -151,6 +173,7 @@
       "type": "object",
       "name": "rna purity 260:230 ratio",
       "description": "Sample purity assesed with fluoresence ratio at 260 and 230nm, informative for contamination by phenolate ion, thiocyanates, and other organic compounds.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "number"
@@ -164,6 +187,7 @@
       "type": "object",
       "name": "rna integrity number",
       "description": "It is important to obtain this value, but if you are unable to supply this number (e.g. due to machine failure) then by submitting you are asserting the quality by visual inspection of traces and agreeing that the samples were suitable for sequencing. For more information on RNA Integrity Numbers see Schroeder et al. (2006) http://bmcmolbiol.biomedcentral.com/articles/10.1186/1471-2199-7-3.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "number"
