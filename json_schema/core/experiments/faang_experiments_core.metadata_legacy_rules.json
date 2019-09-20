@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all samples, and additional groups based on the sample type. In addition to rules defined individually, attribute names are imported from the VT, ATOL and EOL ontologies.",
+  "description": "Validation legacy rules for the FAANG project. Rules are divided into one group that is applied to all experiments, and additional groups based on the experiment type. Legacy experiments have less strict metadata requirements, and should only be used for projects that existed prior to FAANGs existence that cannot be brought up to the FAANG metadata standard. Legacy experiments will be clearly marked in the FAANG portal and it may not be possible to include them in all downstream analyses and releases",
   "title": "FAANG experiments core metadata rules",
   "name": "faang_experiments_core",
   "$async": true,
@@ -10,9 +10,7 @@
   ],
   "properties": {
     "describedBy": {
-      "description": "The URL reference to the schema.",
-      "type": "string",
-      "pattern" : "^(http|https)://schema.(.*?)humancellatlas.org/core/biomaterial/(([0-9]{1,}.[0-9]{1,}.[0-9]{1,})|([a-zA-Z]*?))/biomaterial_core"
+      "const": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_experiment_metadata.md"
     },
     "schema_version": {
       "description": "The version number of the schema in major.minor.patch format.",
@@ -24,6 +22,7 @@
       "type": "object",
       "name": "assay type",
       "description": "The type of experiment performed.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -50,6 +49,7 @@
       "type": "object",
       "name": "sample storage",
       "description": "How the sample was stored. Temperatures are in celsius. 'Frozen, vapor phase' refers to storing samples above liquid nitrogen in the vapor.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -75,6 +75,7 @@
       "type": "object",
       "name": "sample storage processing",
       "description": "How the sample was prepared for storage.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -98,6 +99,7 @@
       "type": "object",
       "name": "sampling to preparation interval",
       "description": "How long between the sample being taken and the assay experiment preperations commencing. If sample preperations were then left in intermediate stages after preperation commenced, for example as sheared chromatin, then this should be made clear in your protocols.",
+      "required": ["value", "units"],
       "properties": {
         "value": {
           "type": "number"
@@ -128,6 +130,7 @@
       "type": "object",
       "name": "experimental protocol",
       "description": "Link to the description of the experiment protocol, an overview of the full experiment, that can refer to the order in which other protocols were performed and any intermediate steps not covered by the extraction or assay specific protocols.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -142,6 +145,7 @@
       "type": "object",
       "name": "extraction protocol",
       "description": "Link to the protocol used to isolate the extract material.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -156,6 +160,7 @@
       "type": "object",
       "name": "library preparation location",
       "description": "Location where library preperation was performed.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
@@ -169,15 +174,13 @@
       "type": "object",
       "name": "library preparation location longitude",
       "description": "Longitude of the library prep location in decimal degrees.",
+      "required": ["value", "units"],
       "properties": {
         "value": {
           "type": "number"
         },
         "units": {
-          "type": "string",
-          "enum": [
-            "decimal degrees"
-          ]
+          "const": "decimal degrees"
         },
         "mandatory": {
           "const": "recommended"
@@ -188,15 +191,13 @@
       "type": "object",
       "name": "library preparation location latitude",
       "description": "Latitude of the library prep location in decimal degrees.",
+      "required": ["value", "units"],
       "properties": {
         "value": {
           "type": "number"
         },
         "units": {
-          "type": "string",
-          "enum": [
-            "decimal degrees"
-          ]
+          "const": "decimal degrees"
         },
         "mandatory": {
           "const": "recommended"
@@ -207,6 +208,7 @@
       "type": "object",
       "name": "library preparation date",
       "description": "Date on which the library was prepared.",
+      "required": ["value", "units"],
       "properties": {
         "value": {
           "type": "string",
@@ -214,6 +216,10 @@
         },
         "mandatory": {
           "const": "recommended"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["YYYY-MM-DD", "YYYY-MM", "YYYY"]
         }
       }
     },
@@ -221,6 +227,7 @@
       "type": "object",
       "name": "sequencing location",
       "description": "Location of where the sequencing was performed.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
@@ -234,15 +241,13 @@
       "type": "object",
       "name": "sequencing location longitude",
       "description": "Longitude of the sequencing location in decimal degrees.",
+      "required": ["value", "units"],
       "properties": {
         "value": {
           "type": "number"
         },
         "units": {
-          "type": "string",
-          "enum": [
-            "decimal degrees"
-          ]
+          "const": "decimal degrees"
         },
         "mandatory": {
           "const": "recommended"
@@ -253,15 +258,13 @@
       "type": "object",
       "name": "sequencing location latitude",
       "description": "Latitude of the sequencing location in decimal degrees.",
+      "required": ["value", "units"],
       "properties": {
         "value": {
           "type": "number"
         },
         "units": {
-          "type": "string",
-          "enum": [
-            "decimal degrees"
-          ]
+          "const": "decimal degrees"
         },
         "mandatory": {
           "const": "recommended"
@@ -272,6 +275,7 @@
       "type": "object",
       "name": "sequencing date",
       "description": "Date sequencing was performed.",
+      "required": ["value", "units"],
       "properties": {
         "value": {
           "type": "string",
@@ -279,6 +283,10 @@
         },
         "mandatory": {
           "const": "recommended"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["YYYY-MM-DD", "YYYY-MM", "YYYY"]
         }
       }
     }
