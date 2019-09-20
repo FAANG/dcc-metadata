@@ -28,6 +28,11 @@
       "type": "object",
       "$ref": "module/experiments/faang_experiments_chip-seq_dna-binding_proteins.metadata_legacy_rules.json"
     },
+    "input_dna": {
+      "description": "Input DNA information",
+      "type": "object",
+      "$ref": "module/experiments/faang_experiments_chip-seq_input_dna.metadata_legacy_rules.json"
+    },
     "experiment_target": {
       "type": "object",
       "name": "experiment target",
