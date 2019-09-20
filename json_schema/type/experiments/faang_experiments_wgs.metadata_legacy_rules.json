@@ -10,9 +10,7 @@
   ],
   "properties": {
     "describedBy": {
-      "description": "The URL reference to the schema.",
-      "type": "string",
-      "pattern" : "^(http|https)://schema.(.*?)humancellatlas.org/core/biomaterial/(([0-9]{1,}.[0-9]{1,}.[0-9]{1,})|([a-zA-Z]*?))/biomaterial_core"
+      "const": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_experiment_metadata.md"
     },
     "schema_version": {
       "description": "The version number of the schema in major.minor.patch format.",
@@ -20,20 +18,18 @@
       "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
       "example": "4.6.1"
     },
+    "experiments_core": {
+      "description": "Core samples-level information",
+      "type": "object",
+      "$ref": "core/experiments/faang_experiments_core.metadata_legacy_rules.json"
+    },
     "experiment_target": {
       "type": "object",
       "name": "experiment target",
       "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'input DNA'.",
       "properties": {
         "term": {
-          "type": "string",
-          "graph_restriction": {
-            "ontologies": ["obo:efo"],
-            "classes": ["EFO:0005031"],
-            "relations": ["rdfs:subClassOf"],
-            "direct": false,
-            "include_self": true
-          }
+          "const": "EFO:0005031"
         },
         "text": {
           "type": "string"
@@ -47,6 +43,7 @@
       "type": "object",
       "name": "library generation pcr product isolation protocol",
       "description": "Link to the protocol for isolating PCR products used for library generation.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -61,6 +58,7 @@
       "type": "object",
       "name": "library generation protocol",
       "description": "Link to the protocol used to generate the library.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -75,6 +73,7 @@
       "type": "object",
       "name": "library selection",
       "description": "State whether reduced representation was used in the protocol.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
