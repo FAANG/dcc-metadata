@@ -13,9 +13,8 @@ ALLOWED_SCHEMA_FIELDS = ['$schema', 'description', 'title', 'name', '$async',
 
 # Properties
 REQUIRED_PROPERTIES = ['describedBy', 'schema_version']
-required_ontology_properties = ['text', 'ontology', 'ontology_label']
-system_supplied_properties = ['describedBy', 'schema_version', 'schema_type',
-                              'provenance']
+
+VALID_TYPES = ['string', 'number', 'boolean', 'array', 'object', 'integer']
 
 # The following properties are exempt from needing examples
 # because an example might bias what value a contributor supplies
@@ -94,6 +93,15 @@ class SchemaLinter:
         self.properties_must_have_required_properties(properties,
                                                       schema_filename,
                                                       schema_errors)
+
+        # Per property checks
+        for my_property in properties:
+            self.property_name_should_be_valid(my_property, schema_filename,
+                                               schema_warnings)
+            self.property_must_have_description(my_property, properties,
+                                                schema_filename, schema_errors)
+            self.property_must_have_type(my_property, properties,
+                                         schema_filename, schema_errors)
 
         return schema_warnings, schema_errors
 
@@ -184,6 +192,56 @@ class SchemaLinter:
             if my_property not in properties:
                 errors.append(f"'{schema_filename}': Missing required property "
                               f"'{my_property}'.")
+
+    @staticmethod
+    def property_name_should_be_valid(my_property, schema_filename, warnings):
+        """Property name should contain only lowercase letters, numbers, and
+        underscores"""
+        if not re.match("^[a-z0-9_-]+$", my_property) and my_property not in \
+                ['describedBy']:
+            warnings.append(f"'{schema_filename}': Property '{my_property}' "
+                            f"contains non-lowercase/underscore characters.")
+
+    @staticmethod
+    def property_must_have_description(my_property, properties,
+                                       schema_filename, errors):
+        """Property must contain description attribute"""
+        if 'description' not in properties[my_property] and my_property not in \
+                ['describedBy']:
+            errors.append(f"'{schema_filename}': Keyword 'description' missing "
+                          f"from property '{my_property}'")
+
+    @staticmethod
+    def property_must_have_type(my_property, properties, schema_filename,
+                                errors):
+        """Property must contain type attribute"""
+        if 'type' not in properties[my_property] and my_property not in \
+                ['describedBy']:
+            errors.append(f"'{schema_filename}': Keyword 'type' missing from "
+                          f"property '{my_property}'.")
+        elif 'type' in properties[my_property] and my_property not in \
+                ['describedBy']:
+            # type attribute must be set to one of the valid JSON types
+            if properties[my_property]['type'] not in VALID_TYPES:
+                errors.append(f"'{schema_filename}': Type "
+                              f"'{properties[my_property]['type']}' is not a "
+                              f"valid JSON type.")
+
+            # Property of type array must contain the attribute items
+            if properties[my_property]['type'] == "array" and 'items' not in \
+                    properties[my_property]:
+                errors.append(f"'{schema_filename}': Property '{my_property}' "
+                              f"is type array but doesn't contain items.")
+
+            # Property of type array must contains the attribute items
+            # items must have either type or $ref attribute
+            if properties[my_property]['type'] == "array" and 'items' in \
+                    properties[my_property] and '$ref' not in \
+                    properties[my_property]['items'] and 'type' not in \
+                    properties[my_property]['items']:
+                errors.append(f"'{schema_filename}': Property '{my_property}' "
+                              f"is type array but items attribute doesn't "
+                              f"contain type of $ref attribute")
 
     @staticmethod
     def get_json_from_file(filename):
