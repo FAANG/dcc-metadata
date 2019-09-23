@@ -6,7 +6,7 @@ from urllib.error import HTTPError
 import os
 
 # Schema fields
-required_schema_fields = ['$schema', 'description', 'name', 'type',
+REQUIRED_SCHEMA_FIELDS = ['$schema', 'description', 'name', '$async', 'type',
                           'properties']
 ALLOWED_SCHEMA_FIELDS = ['$schema', 'description', 'title', 'name', '$async',
                          'type', 'required', 'properties']
@@ -73,16 +73,103 @@ class SchemaLinter:
         # Schema level checks
         self.schema_has_only_allowed_fields(schema, schema_filename,
                                             schema_errors)
+        self.required_fields_should_be_in_schema(schema, schema_filename,
+                                                 schema_errors)
+        self.schema_mast_be_set_to_proper_draft(schema, schema_filename,
+                                                schema_errors)
+        self.description_is_sentence(schema, schema_filename, schema_warnings)
+        # TODO uncomment this method when everything is ready
+        # self.schema_should_describe_itself(properties, schema_filename,
+        #                                    schema_errors)
+        self.name_should_be_equal_to_filename(schema, schema_filename,
+                                              schema_errors)
+        self.schema_type_must_be_object(schema, schema_filename, schema_errors)
+        self.schema_must_have_required_properties(schema, properties,
+                                                  schema_filename,
+                                                  schema_errors)
+        self.schema_title_should_be_sentence_case(schema, schema_filename,
+                                                  schema_warnings)
 
         return schema_warnings, schema_errors
 
     @staticmethod
     def schema_has_only_allowed_fields(schema, schema_filename, errors):
+        """Check that schema has only allowed fields"""
         for key in schema:
             if key not in ALLOWED_SCHEMA_FIELDS:
                 errors.append(
                     f"Schema field '{key}' in '{schema_filename}' not in list "
                     f"of ALLOWED_SCHEMA_FIELDS.")
+
+    @staticmethod
+    def required_fields_should_be_in_schema(schema, schema_filename, errors):
+        """Check that all required fields are present in schema"""
+        for field in REQUIRED_SCHEMA_FIELDS:
+            if field not in schema:
+                errors.append(f"'{schema_filename}': Missing required schema "
+                              f"field '{field}'.")
+
+    @staticmethod
+    def schema_mast_be_set_to_proper_draft(schema, schema_filename, errors):
+        """Check that schema points to proper draft"""
+        if schema['$schema'] != SCHEMA_URL:
+            errors.append(f"'{schema_filename}': Must have $schema set to "
+                          f"'{SCHEMA_URL}'.")
+
+    @staticmethod
+    def description_is_sentence(schema, schema_filename, warnings):
+        """Check that description is a sentence - starts with capital letter
+        and ends with full stop
+        """
+        if not re.match('^[A-Z][^?!]*[.]$', schema['description']):
+            warnings.append(f"'{schema_filename}': The 'description' of the "
+                            f"schema is not a sentence.")
+
+    @staticmethod
+    def schema_should_describe_itself(properties, schema_filename, errors):
+        """
+        Schema must describe itself
+        """
+        described_by = properties['describedBy']['const'].split('/')[-1]
+        if described_by != schema_filename:
+            errors.append(f"'{schema_filename}': describedBy URL "
+                          f"({described_by}) must match schema filename "
+                          f"({schema_filename}).")
+
+    @staticmethod
+    def name_should_be_equal_to_filename(schema, schema_filename, errors):
+        """Schema filename must match schema name"""
+        if schema['name'] != schema_filename:
+            errors.append(f"'{schema_filename}': The 'name' attribute "
+                          f"({schema['name']}) must match the schema filename "
+                          f"({schema_filename}).")
+
+    @staticmethod
+    def schema_type_must_be_object(schema, schema_filename, errors):
+        """Schema type must be set to object"""
+        if schema['type'] != 'object':
+            errors.append(f"'{schema_filename}': The 'type' attribute must be "
+                          f"set to 'object'.")
+
+    @staticmethod
+    def schema_must_have_required_properties(schema, properties,
+                                             schema_filename, errors):
+        """All required properties should be present in properties field"""
+        req_props = schema.get('required', [])
+        for req_prop in req_props:
+            if req_prop not in properties:
+                errors.append(f"'{schema_filename}': Property '{req_prop}' is "
+                              f"required but is missing under properties.")
+
+    @staticmethod
+    def schema_title_should_be_sentence_case(schema, schema_filename, warnings):
+        """Schema titles should be sentence-case (begin with uppercase letter,
+        no underscores)"""
+        if 'title' in schema:
+            if not schema['title'][0].isupper() or "_" in schema['title']:
+                warnings.append(f"'{schema_filename}': title "
+                                f"'{schema['title']}' doesn't start with "
+                                f"uppercase char or contains an underscore.")
 
     @staticmethod
     def get_json_from_file(filename):

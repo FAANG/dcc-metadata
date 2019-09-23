@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": "Ruleset for assay type is 'methylation profiling by high throughput sequencing'.",
   "title": "FAANG experiment metadata rules for 'methylation profiling by high throughput sequencing'",
-  "name": "faang_experiments_bs-seq",
+  "name": "faang_experiments_bs-seq.metadata_rules",
   "$async": true,
   "type": "object",
   "required": [

@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": "Ruleset for material is organism sample.",
   "title": "FAANG sample metadata rules for organism",
-  "name": "faang_experiments_atac-seq",
+  "name": "faang_experiments_atac-seq.metadata_legacy_rules",
   "$async": true,
   "type": "object",
   "required": ["experiment_target"],

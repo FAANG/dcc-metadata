@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": "Ruleset for assay type is 'whole genome sequencing assay'.",
   "title": "FAANG experiment metadata rules for 'whole genome sequencing assay'",
-  "name": "faang_experiments_wgs",
+  "name": "faang_experiments_wgs.metadata_rules",
   "$async": true,
   "type": "object",
   "required": [

@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": "Ruleset for material is 'pool of specimens'.",
   "title": "FAANG sample metadata rules for 'specimen from organism'",
-  "name": "faang_samples_pool_of_specimens",
+  "name": "faang_samples_pool_of_specimens.metadata_legacy_rules",
   "$async": true,
   "type": "object",
   "required": ["pool_creation_date", "derived_from"],

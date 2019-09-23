@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": "Ruleset for material is 'cell culture'.",
   "title": "FAANG sample metadata rules for 'cell culture'",
-  "name": "faang_samples_cell_culture",
+  "name": "faang_samples_cell_culture.metadata_legacy_rules",
   "$async": true,
   "type": "object",
   "required": ["culture_type", "cell_type", "derived_from"],

@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all samples, and additional groups based on the sample type. In addition to rules defined individually, attribute names are imported from the VT, ATOL and EOL ontologies.",
   "title": "FAANG sample core metadata rules",
-  "name": "faang_samples_core",
+  "name": "faang_samples_core.metadata_rules",
   "$async": true,
   "type": "object",
   "required": ["material", "project"],

@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": "Ruleset for assay type is 'rna-seq'.",
   "title": "FAANG experiment metadata rules for 'rna-seq'",
-  "name": "faang_experiments_rna-seq",
+  "name": "faang_experiments_rna-seq.metadata_legacy_rules",
   "$async": true,
   "type": "object",
   "required": [

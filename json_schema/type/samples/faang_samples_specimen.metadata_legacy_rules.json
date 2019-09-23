@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": "Ruleset for material is 'specimen from organism'.",
   "title": "FAANG sample metadata rules for 'specimen from organism'",
-  "name": "faang_samples_specimen",
+  "name": "faang_samples_specimen.metadata_legacy_rules",
   "$async": true,
   "type": "object",
   "required": ["developmental_stage", "organism_part", "derived_from"],
