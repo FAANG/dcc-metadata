@@ -12,7 +12,7 @@ ALLOWED_SCHEMA_FIELDS = ['$schema', 'description', 'title', 'name', '$async',
                          'type', 'required', 'properties']
 
 # Properties
-required_properties = ['describedBy', 'schema_version']
+REQUIRED_PROPERTIES = ['describedBy', 'schema_version']
 required_ontology_properties = ['text', 'ontology', 'ontology_label']
 system_supplied_properties = ['describedBy', 'schema_version', 'schema_type',
                               'provenance']
@@ -89,6 +89,11 @@ class SchemaLinter:
                                                   schema_errors)
         self.schema_title_should_be_sentence_case(schema, schema_filename,
                                                   schema_warnings)
+
+        # Property level checks
+        self.properties_must_have_required_properties(properties,
+                                                      schema_filename,
+                                                      schema_errors)
 
         return schema_warnings, schema_errors
 
@@ -170,6 +175,15 @@ class SchemaLinter:
                 warnings.append(f"'{schema_filename}': title "
                                 f"'{schema['title']}' doesn't start with "
                                 f"uppercase char or contains an underscore.")
+
+    @staticmethod
+    def properties_must_have_required_properties(properties, schema_filename,
+                                                 errors):
+        """properties should have REQUIRED_PROPERTIES"""
+        for my_property in REQUIRED_PROPERTIES:
+            if my_property not in properties:
+                errors.append(f"'{schema_filename}': Missing required property "
+                              f"'{my_property}'.")
 
     @staticmethod
     def get_json_from_file(filename):
