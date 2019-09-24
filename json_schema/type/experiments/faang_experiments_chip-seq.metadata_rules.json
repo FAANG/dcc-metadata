@@ -20,17 +20,17 @@
       "example": "4.6.1"
     },
     "experiments_core": {
-      "description": "Core samples-level information",
+      "description": "Core experiments-level information.",
       "type": "object",
       "$ref": "core/experiments/faang_experiments_core.metadata_rules.json"
     },
     "dna-binding_proteins": {
-      "description": "Dna-binding proteins information",
+      "description": "Dna-binding proteins information.",
       "type": "object",
       "$ref": "module/experiments/faang_experiments_chip-seq_dna-binding_proteins.metadata_rules.json"
     },
     "input_dna": {
-      "description": "Input DNA information",
+      "description": "Input DNA information.",
       "type": "object",
       "$ref": "module/experiments/faang_experiments_chip-seq_input_dna.metadata_rules.json"
     },

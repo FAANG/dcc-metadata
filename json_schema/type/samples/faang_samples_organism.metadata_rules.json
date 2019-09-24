@@ -16,7 +16,7 @@
       "example": "4.6.1"
     },
     "samples_core": {
-      "description": "Core samples-level information",
+      "description": "Core samples-level information.",
       "type": "object",
       "$ref": "core/samples/faang_samples_core.metadata_rules.json"
     },

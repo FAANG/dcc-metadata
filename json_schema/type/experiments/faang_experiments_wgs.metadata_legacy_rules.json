@@ -19,7 +19,7 @@
       "example": "4.6.1"
     },
     "experiments_core": {
-      "description": "Core samples-level information",
+      "description": "Core experiments-level information.",
       "type": "object",
       "$ref": "core/experiments/faang_experiments_core.metadata_legacy_rules.json"
     },
