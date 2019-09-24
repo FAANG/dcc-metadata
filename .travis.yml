@@ -1,0 +1,9 @@
+jobs:
+  include:
+  - stage: Schema linter
+    language: python
+    python: 3.6
+    script:
+       - cd src
+       - python schemas_are_valid_json.py
+       - python schema_linter.py
