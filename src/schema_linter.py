@@ -15,27 +15,10 @@ ALLOWED_SCHEMA_FIELDS = ['$schema', 'description', 'title', 'name', '$async',
 REQUIRED_PROPERTIES = ['describedBy', 'schema_version']
 
 VALID_TYPES = ['string', 'number', 'boolean', 'array', 'object', 'integer']
+VALID_JSON_FORMATS = ['date', 'date-time', 'email', 'uri']
 
-# The following properties are exempt from needing examples
-# because an example might bias what value a contributor supplies
-example_exempt_properties = ['biomaterial_id', 'biomaterial_name',
-                             'biomaterial_description', 'process_id',
-                             'process_name', 'process_description',
-                             'protocol_id', 'protocol_name',
-                             'protocol_description', 'project_description',
-                             'parent', 'sibling', 'child']
-
-# Property attributes
-
-property_attributes = ['description', 'type', 'pattern', 'example', 'enum',
-                       '$ref', 'user_friendly', 'items', 'guidelines',
-                       'format', 'comment', 'maximum', 'minimum', 'oneOf',
-                       'mandatory', 'value', 'text', 'term', 'name',
-                       'properties', 'units']
-ontology_attributes = ['graph_restriction', 'ontologies', 'classes',
-                       'relations', 'direct', 'include_self']
-graph_restriction_attributes = ['ontologies', 'classes', 'relations', 'direct',
-                                'include_self']
+GRAPH_RESTRICTION_ATTRIBUTES = ['ontologies', 'classes', 'relations',
+                                'direct', 'include_self']
 
 OLS_API_DEFAULT = 'https://ontology.dev.data.humancellatlas.org/api'
 
@@ -43,8 +26,10 @@ SCHEMA_URL = "http://json-schema.org/draft-07/schema#"
 
 
 class SchemaLinter:
-    def __init__(self, schemas):
+    def __init__(self, schemas, schema_path, jsons):
         self.schemas = schemas
+        self.schema_path = schema_path
+        self.jsons = jsons
         self.warnings = list()
         self.errors = list()
 
@@ -101,6 +86,19 @@ class SchemaLinter:
             self.property_must_have_description(my_property, properties,
                                                 schema_filename, schema_errors)
             self.property_must_have_type(my_property, properties,
+                                         schema_filename, schema_errors)
+            self.format_must_be_valid_json(my_property, properties,
+                                           schema_filename, schema_errors)
+            self.property_description_should_be_sentence(my_property,
+                                                         properties,
+                                                         schema_filename,
+                                                         schema_warnings)
+            self.pattern_must_be_valid_regex(my_property, properties,
+                                             schema_filename, schema_errors)
+            self.ref_schemas_must_exist(my_property, properties,
+                                        schema_filename, schema_errors)
+            # Ontology checks
+            self.check_graph_restriction(my_property, properties,
                                          schema_filename, schema_errors)
 
         return schema_warnings, schema_errors
@@ -244,6 +242,159 @@ class SchemaLinter:
                               f"contain type of $ref attribute")
 
     @staticmethod
+    def format_must_be_valid_json(my_property, properties, schema_filename,
+                                  errors):
+        """format in properties must be a valid JSON format"""
+        my_object = properties[my_property]
+        if 'type' in my_object and my_object['type'] == 'object' and \
+                'properties' in my_object:
+            my_properties = my_object['properties']
+            for _, v in my_properties.items():
+                if 'format' in v and v['format'] not in VALID_JSON_FORMATS:
+                    errors.append(
+                        f"'{schema_filename}': Format '{v['format']}' is not "
+                        f"a valid JSON format.")
+
+
+    @staticmethod
+    def property_description_should_be_sentence(my_property, properties,
+                                                schema_filename, warnings):
+        """description should be a sentence - start with capital letter and end
+        with full stop"""
+        if 'description' in properties[my_property]:
+            my_description = properties[my_property]['description']
+            if not re.match('^[A-Z][^?!]*[.]$', my_description):
+                warnings.append(f"'{schema_filename}': The 'description' for "
+                                f"property '{my_property}' is not a sentence")
+
+    @staticmethod
+    def pattern_must_be_valid_regex(my_property, properties, schema_filename,
+                                    errors):
+        """pattern must be a valid regex"""
+        if 'pattern' in properties[my_property]:
+            my_pattern = properties[my_property]['pattern']
+            try:
+                re.compile(my_pattern)
+                is_valid_regex = True
+            except re.error:
+                is_valid_regex = False
+            if not is_valid_regex:
+                errors.append(f"'{schema_filename}': The 'pattern' for "
+                              f"property '{my_property}' is not a valid regex "
+                              f"pattern")
+
+    def ref_schemas_must_exist(self, my_property, properties, schema_filename,
+                               errors):
+        """All $ref referenced schemas must exist"""
+        if '$ref' in properties[my_property]:
+            my_ref = properties[my_property]['$ref']
+            if f"{self.schema_path}/{my_ref}" not in self.jsons:
+                errors.append(f"'{schema_filename}': $ref schema ({my_ref}) "
+                              f"in property {my_property} doesn't exist.")
+
+    def check_graph_restriction(self, my_property, properties, schema_filename,
+                                errors):
+        """graph_restriction checks"""
+        my_object = properties[my_property]
+        if 'type' in my_object and my_object['type'] == 'object' and \
+                'properties' in my_object and \
+                'term' in my_object['properties'] and \
+                'graph_restriction' in my_object['properties']['term']:
+            my_graph_restriction = my_object['properties']['term'][
+                'graph_restriction']
+            self.graph_restriction_must_have_required_attributes(
+                my_graph_restriction, schema_filename, errors)
+            self.graph_restriction_must_have_only_allowed_attributes(
+                my_graph_restriction, schema_filename, errors)
+            self.graph_restriction_direct_must_be_false(my_graph_restriction,
+                                                        schema_filename, errors)
+            self.graph_restriction_include_self_must_be_bool(
+                my_graph_restriction, schema_filename, errors)
+            self.graph_restriction_relations_must_be_list(my_graph_restriction,
+                                                          schema_filename,
+                                                          errors)
+            self.graph_restriction_classes_must_be_list(my_graph_restriction,
+                                                        schema_filename, errors)
+            self.graph_restriction_ontologies_must_be_list(my_graph_restriction,
+                                                           schema_filename,
+                                                           errors)
+            self.graph_restriction_relations_must_have_subclassof(
+                my_graph_restriction, schema_filename, errors)
+
+    @staticmethod
+    def graph_restriction_must_have_required_attributes(graph_restriction,
+                                                        schema_filename,
+                                                        errors):
+        """graph_restriction property must contain all required attributes"""
+        for gra in GRAPH_RESTRICTION_ATTRIBUTES:
+            if gra not in graph_restriction:
+                errors.append(f"'{schema_filename}': 'graph_restriction' "
+                              f"missing a required attribute: '{gra}'.")
+
+    @staticmethod
+    def graph_restriction_must_have_only_allowed_attributes(graph_restriction,
+                                                            schema_filename,
+                                                            errors):
+        """graph_restriction property must contain only allowed attributes"""
+        for ga in graph_restriction:
+            if ga not in GRAPH_RESTRICTION_ATTRIBUTES:
+                errors.append(f"'{schema_filename}': Keyword '{ga}' is not "
+                              f"acceptable graph_restriction keyword property.")
+
+    @staticmethod
+    def graph_restriction_direct_must_be_false(graph_restriction,
+                                               schema_filename, errors):
+        """graph_restriction 'direct' attribute must be 'false'"""
+        if graph_restriction['direct'] is not False:
+            errors.append(f"'{schema_filename}': Keyword 'direct' must be set "
+                          f"to false, not '{graph_restriction['direct']}'.")
+
+    @staticmethod
+    def graph_restriction_include_self_must_be_bool(graph_restriction,
+                                                    schema_filename, errors):
+        """graph_restriction 'include_self' attribute must be 'false' or
+        'true'"""
+        if not isinstance(graph_restriction['include_self'], bool):
+            errors.append(f"'{schema_filename}': Keyword 'include_self' "
+                          f"must be set to 'false' or 'true' not "
+                          f"'{graph_restriction['include_self']}'")
+
+    @staticmethod
+    def graph_restriction_relations_must_be_list(graph_restriction,
+                                                 schema_filename, errors):
+        """graph_restriction 'relations' attribute must be a list"""
+        if not isinstance(graph_restriction['relations'], list):
+            errors.append(f"'{schema_filename}': Keyword 'realtions' must be a "
+                          f"list")
+
+    @staticmethod
+    def graph_restriction_classes_must_be_list(graph_restriction,
+                                               schema_filename, errors):
+        """graph_restriction 'classes' attribute must be a list"""
+        if not isinstance(graph_restriction['classes'], list):
+            errors.append(f"'{schema_filename}': Keyword 'classes' must be a "
+                          f"list")
+
+    @staticmethod
+    def graph_restriction_ontologies_must_be_list(graph_restriction,
+                                                  schema_filename, errors):
+        """graph_restriction 'ontologies' attribute must be a list"""
+        if not isinstance(graph_restriction['ontologies'], list):
+            errors.append(f"'{schema_filename}': Keyword 'ontologies' must be "
+                          f"a list")
+
+    @staticmethod
+    def graph_restriction_relations_must_have_subclassof(graph_restriction,
+                                                         schema_filename,
+                                                         errors):
+        """graph_restriction 'relations' must at least contain item
+        rdfs:subClassOf"""
+        if 'rdfs:subClassOf' not in graph_restriction['relations']:
+            errors.append(f"'{schema_filename}': Keyword 'relations' must "
+                          f"contain item 'rdfs:subClassOf'.")
+
+
+    @staticmethod
     def get_json_from_file(filename):
         """Loads json from a file."""
         f = open(filename, 'r')
@@ -268,7 +419,7 @@ if __name__ == "__main__":
                                 ("core", "module", "type"))]
 
     print(f"Linting {len(my_schemas)} schemas")
-    linter = SchemaLinter(my_schemas)
+    linter = SchemaLinter(my_schemas, schema_path, jsons)
     warnings, errors = linter.lint_schemas()
 
     # Print error and warning messages. If any error is found,
