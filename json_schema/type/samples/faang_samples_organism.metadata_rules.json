@@ -4,7 +4,7 @@
   "name": "faang_samples_organism.metadata_rules",
   "$async": true,
   "type": "object",
-  "required": ["organism", "sex", "breed"],
+  "required": ["samples_core", "organism", "sex", "breed"],
   "properties": {
     "describedBy": {
       "const": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_sample_metadata.md"
@@ -300,6 +300,8 @@
     },
     "child_of": {
       "type": "array",
+      "minItems": 1,
+      "maxItems": 2,
       "name": "Child of",
       "description": "Sample name or Biosample ID for sire/dam. Required if related animals are part of FAANG, e.g. quads.",
       "items": {
