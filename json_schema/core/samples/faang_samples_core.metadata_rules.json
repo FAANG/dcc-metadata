@@ -34,19 +34,8 @@
       "type": "object",
       "name": "Material",
       "description": "The type of material being described.",
-      "required": ["term", "text"],
+      "required": ["text", "term"],
       "properties": {
-        "term": {
-          "type": "string",
-          "enum": [
-            "OBI:0100026",
-            "OBI:0001479",
-            "OBI:0001468",
-            "OBI:0302716",
-            "OBI:0001876",
-            "CLO:0000031"
-          ]
-        },
         "text": {
           "type": "string",
           "enum": [
@@ -56,6 +45,17 @@
             "pool of specimens",
             "cell culture",
             "cell line"
+          ]
+        },
+        "term": {
+          "type": "string",
+          "enum": [
+            "OBI:0100026",
+            "OBI:0001479",
+            "OBI:0001468",
+            "OBI:0302716",
+            "OBI:0001876",
+            "CLO:0000031"
           ]
         },
         "mandatory": {

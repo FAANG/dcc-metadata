@@ -24,8 +24,11 @@
       "type": "object",
       "name": "Organism",
       "description": "NCBI taxon ID of organism.",
-      "required": ["term", "text"],
+      "required": ["text", "term"],
       "properties": {
+        "text": {
+          "type": "string"
+        },
         "term": {
           "type": "string",
           "graph_restriction": {
@@ -35,9 +38,6 @@
             "direct": false,
             "include_self": false
           }
-        },
-        "text": {
-          "type": "string"
         },
         "mandatory": {
           "const": "mandatory"
@@ -51,8 +51,11 @@
       "type": "object",
       "name": "Sex",
       "description": "Animal sex, described using any child term of PATO_0000047.",
-      "required": ["term", "text"],
+      "required": ["text", "term"],
       "properties": {
+        "text": {
+          "type": "string"
+        },
         "term": {
           "type": "string",
           "graph_restriction": {
@@ -62,9 +65,6 @@
             "direct": false,
             "include_self": false
           }
-        },
-        "text": {
-          "type": "string"
         },
         "mandatory": {
           "const": "mandatory"
@@ -104,8 +104,11 @@
       "type": "object",
       "name": "breed",
       "description": "Animal breed, described using the FAANG breed description guidelines (http://bit.ly/FAANGbreed).",
-      "required": ["term", "text"],
+      "required": ["text", "term"],
       "properties": {
+        "text": {
+          "type": "string"
+        },
         "term": {
           "type": "string",
           "graph_restriction": {
@@ -115,9 +118,6 @@
             "direct": false,
             "include_self": false
           }
-        },
-        "text": {
-          "type": "string"
         },
         "mandatory": {
           "const": "mandatory"
@@ -133,8 +133,11 @@
       "description": "Healthy animals should have the term normal, otherwise use the as many disease terms as necessary from EFO.",
       "items": {
         "type": "object",
-        "required": ["term", "text"],
+        "required": ["text", "term"],
         "properties": {
+          "text": {
+            "type": "string"
+          },
           "term": {
             "type": "string",
             "graph_restriction": {
@@ -144,9 +147,6 @@
               "direct": false,
               "include_self": true
             }
-          },
-          "text": {
-            "type": "string"
           },
           "mandatory": {
             "const": "recommended"
