@@ -25,8 +25,11 @@
       "type": "object",
       "name": "organism",
       "description": "NCBI taxon ID of organism.",
-      "required": ["term", "text"],
+      "required": ["text", "term"],
       "properties": {
+        "text": {
+          "type": "string"
+        },
         "term": {
           "type": "string",
           "graph_restriction": {
@@ -36,9 +39,6 @@
             "direct": false,
             "include_self": false
           }
-        },
-        "text": {
-          "type": "string"
         },
         "mandatory": {
           "const": "mandatory"
@@ -52,8 +52,11 @@
       "type": "object",
       "name": "sex",
       "description": "Animal sex, described using any child term of PATO_0000047.",
-      "required": ["term", "text"],
+      "required": ["text", "term"],
       "properties": {
+        "text": {
+          "type": "string"
+        },
         "term": {
           "type": "string",
           "graph_restriction": {
@@ -63,9 +66,6 @@
             "direct": false,
             "include_self": false
           }
-        },
-        "text": {
-          "type": "string"
         },
         "mandatory": {
           "const": "mandatory"
@@ -168,8 +168,11 @@
       "type": "object",
       "name": "breed",
       "description": "Animal breed, described using the FAANG breed description guidelines(http://bit.ly/FAANGbreed).",
-      "required": ["term", "text"],
+      "required": ["text", "term"],
       "properties": {
+        "text": {
+          "type": "string"
+        },
         "term": {
           "type": "string",
           "graph_restriction": {
@@ -179,9 +182,6 @@
             "direct": false,
             "include_self": false
           }
-        },
-        "text": {
-          "type": "string"
         },
         "mandatory": {
           "const": "optional"
@@ -195,8 +195,11 @@
       "type": "object",
       "name": "cell type",
       "description": "Cell type using a child term of either CL_0000000 or BTO_0000000.",
-      "required": ["term", "text"],
+      "required": ["text", "term"],
       "properties": {
+        "text": {
+          "type": "string"
+        },
         "term": {
           "type": "string",
           "graph_restriction": {
@@ -206,9 +209,6 @@
             "direct": false,
             "include_self": false
           }
-        },
-        "text": {
-          "type": "string"
         },
         "mandatory": {
           "const": "optional"
@@ -252,8 +252,11 @@
       "type": "object",
       "name": "disease",
       "description": "Disease child term of either PATO_0000461 or EFO_0000408.",
-      "required": ["term", "text"],
+      "required": ["text", "term"],
       "properties": {
+        "text": {
+          "type": "string"
+        },
         "term": {
           "type": "string",
           "graph_restriction": {
@@ -263,9 +266,6 @@
             "direct": false,
             "include_self": false
           }
-        },
-        "text": {
-          "type": "string"
         },
         "mandatory": {
           "const": "optional"
