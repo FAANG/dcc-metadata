@@ -53,8 +53,11 @@
       "type": "object",
       "name": "developmental stage",
       "description": "Ontology for Developmental stage, UBERON is preferred to EFO.",
-      "required": ["term", "text"],
+      "required": ["text", "term"],
       "properties": {
+        "text": {
+          "type": "string"
+        },
         "term": {
           "type": "string",
           "graph_restriction": {
@@ -64,9 +67,6 @@
             "direct": false,
             "include_self": true
           }
-        },
-        "text": {
-          "type": "string"
         },
         "mandatory": {
           "const": "mandatory"
@@ -98,8 +98,11 @@
       "type": "object",
       "name": "organism part",
       "description": "Ontology for part of organism specimen from, UBERON is preferred to BTO.",
-      "required": ["term", "text"],
+      "required": ["text", "term"],
       "properties": {
+        "text": {
+          "type": "string"
+        },
         "term": {
           "type": "string",
           "graph_restriction": {
@@ -109,9 +112,6 @@
             "direct": false,
             "include_self": true
           }
-        },
-        "text": {
-          "type": "string"
         },
         "mandatory": {
           "const": "mandatory"

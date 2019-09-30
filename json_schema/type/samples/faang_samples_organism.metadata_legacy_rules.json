@@ -24,8 +24,11 @@
       "type": "object",
       "name": "Organism",
       "description": "NCBI taxon ID of organism.",
-      "required": ["term", "text"],
+      "required": ["text", "term"],
       "properties": {
+        "text": {
+          "type": "string"
+        },
         "term": {
           "type": "string",
           "graph_restriction": {
@@ -35,9 +38,6 @@
             "direct": false,
             "include_self": false
           }
-        },
-        "text": {
-          "type": "string"
         },
         "mandatory": {
           "const": "mandatory"

@@ -20,6 +20,7 @@
       "type": "object",
       "name": "Sample Description",
       "description": "A brief description of the sample including species name.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
@@ -33,18 +34,8 @@
       "type": "object",
       "name": "Material",
       "description": "The type of material being described.",
+      "required": ["text", "term"],
       "properties": {
-        "term": {
-          "type": "string",
-          "enum": [
-            "OBI:0100026",
-            "OBI:0001479",
-            "OBI:0001468",
-            "OBI:0302716",
-            "OBI:0001876",
-            "CLO:0000031"
-          ]
-        },
         "text": {
           "type": "string",
           "enum": [
@@ -54,6 +45,17 @@
             "pool of specimens",
             "cell culture",
             "cell line"
+          ]
+        },
+        "term": {
+          "type": "string",
+          "enum": [
+            "OBI:0100026",
+            "OBI:0001479",
+            "OBI:0001468",
+            "OBI:0302716",
+            "OBI:0001876",
+            "CLO:0000031"
           ]
         },
         "mandatory": {
@@ -71,6 +73,7 @@
       "type": "object",
       "name": "Project",
       "description": "State that the project is 'FAANG'.",
+      "required": ["value"],
       "properties": {
         "value": {
           "const": "FAANG"
@@ -84,6 +87,7 @@
       "type": "object",
       "name": "Availability",
       "description": "Either a link to a web page giving information on sample availability (who to contact and if the sample is available), or a e-mail address to contact about availability. E-mail addresses should be prefixed with 'mailto:', e.g. 'mailto:samples@example.ac.uk'. In either case, long term support of the web page or e-mail address is necessary. Group e-mail addresses are preferable to indiviudal.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -98,6 +102,7 @@
       "type": "object",
       "name": "Same as",
       "description": "BioSample ID for an equivalent sample record, created before the FAANG metadata specification was available. This is optional and not intended for general use, please contact the data coordination centre (faang-dcc@ebi.ac.uk) before using it.",
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
