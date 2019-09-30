@@ -41,8 +41,11 @@
       "description": "Provide a cell type from the CL ontology.",
       "items": {
         "type": "object",
-        "required": ["term", "text"],
+        "required": ["text", "term"],
         "properties": {
+          "text": {
+            "type": "string"
+          },
           "term": {
             "type": "string",
             "graph_restriction": {
@@ -52,9 +55,6 @@
               "direct": false,
               "include_self": true
             }
-          },
-          "text": {
-            "type": "string"
           },
           "mandatory": {
             "const": "mandatory"
