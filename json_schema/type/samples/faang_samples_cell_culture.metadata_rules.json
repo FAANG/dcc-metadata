@@ -31,8 +31,11 @@
       "type": "object",
       "name": "culture type",
       "description": "Provide a child term of BTO_0000214.",
-      "required": ["term", "text"],
+      "required": ["text", "term"],
       "properties": {
+        "text": {
+          "type": "string"
+        },
         "term": {
           "type": "string",
           "graph_restriction": {
@@ -42,9 +45,6 @@
             "direct": false,
             "include_self": true
           }
-        },
-        "text": {
-          "type": "string"
         },
         "mandatory": {
           "const": "mandatory"
@@ -58,8 +58,11 @@
       "type": "object",
       "name": "cell type",
       "description": "Provide a cell type from the CL ontology.",
-      "required": ["term", "text"],
+      "required": ["text", "term"],
       "properties": {
+        "text": {
+          "type": "string"
+        },
         "term": {
           "type": "string",
           "graph_restriction": {
@@ -69,9 +72,6 @@
             "direct": false,
             "include_self": true
           }
-        },
-        "text": {
-          "type": "string"
         },
         "mandatory": {
           "const": "mandatory"
