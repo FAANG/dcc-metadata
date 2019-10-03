@@ -201,6 +201,9 @@
       "properties": {
         "value": {
           "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
         }
       }
     },

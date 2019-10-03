@@ -264,6 +264,9 @@
         "units": {
           "type": "string",
           "enum": ["grams", "kilograms"]
+        },
+        "mandatory": {
+          "const": "optional"
         }
       }
     },
