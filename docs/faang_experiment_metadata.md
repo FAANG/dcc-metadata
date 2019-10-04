@@ -40,6 +40,7 @@ These following elements must always be present in any experiment metadata
     * RNA-seq of non coding RNA
     * transcription profiling by high throughput sequencing
     * WGS
+    * CAGE-Seq
  * `sample storage processing` (*text*) This should document how the sample was prepared for storage, from one of these values:
      * cryopreservation in liquid nitrogen (dead tissue)
      * cryopreservation in dry ice (dead tissue)
@@ -181,7 +182,7 @@ Required:
    * [ncRNA](http://www.ebi.ac.uk/ols/ontologies/so/terms?short_form=SO_0000655)
    * [microRNA](http://www.ebi.ac.uk/ols/ontologies/sbo/terms?short_form=SBO_0000316)
  * `rna preparation 3' adapter ligation protocol` (*protocol*) the protocol for 3’ adapter ligation used in preparation
- * `rna preparation 5' adapter ligation protocol`*(protocol*) the protocol for 5’ adapter ligation used in preparation
+ * `rna preparation 5' adapter ligation protocol` (*protocol*) the protocol for 5’ adapter ligation used in preparation
  * `library generation pcr product isolation protocol` (*protocol*) the protocol for isolating pcr products used for library generation
  * `preparation reverse transcription protocol` (*protocol*) the protocol for reverse transcription used in preparation
  * `library generation protocol` (*protocol*)  the protocol used to generate the library
@@ -206,7 +207,7 @@ Whole Genome Sequencing should have an `assay type` of [whole genome sequencing 
 
 Required:
 
- * `experiment target` should use the term [input DNA](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0005031)
+ * `experiment target` (*ontology term*) should use the term [input DNA](http://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0005031)
  * `library generation pcr product isolation protocol` (*protocol*) the protocol for isolating pcr products used for library generation
  * `library generation protocol` (*protocol*) link to the protocol used to generate the library
 
@@ -215,6 +216,21 @@ Optional:
     * reduced representation
     * none
 
+### CAGE-Seq
+
+CAGE-Seq (Cap analysis gene expression sequencing) should have `assay type` of [CAGE-Seq](http://purl.obolibrary.org/obo/FBcv_0003051)
+
+Required:
+ * `experiment target` (*ontology term*) should use the term [ribonucleic acid](http://purl.obolibrary.org/obo/CHEBI_33697)
+ * `restrict enzyme target sequence` (*protocol*) the DNA sequence targeted by the restrict enzyme
+
+Recommended:
+ * `sequencing primer provider` (*text*) The name of the company, laboratory or person that provided the sequencing primer library
+ * `sequencing primer catalog` (*text*) The catalog from which the sequencing primer library was purchased
+ * `sequencing primer lot` (*text*) The lot identifier of the sequencing primer library
+ * `rna purity - 260:280 ratio` (*number*) sample purity assesed with fluoresence ratio at 260 and 280nm, informative for protein contamination
+ * `rna purity - 260:230 ratio` (*number*) Sample purity assesed with fluoresence ratio at 260 and 230nm, informative for contamination by phenolate ion, thiocyanates, and other organic compounds
+ * `rna integrity number` (*number*) It is important to obtain this value, but if you are unable to supply this number (e.g. due to machine failure) then by submitting you are asserting the quality by visual inspection of traces and agreeing that the samples were suitable for sequencing. See [Schroeder *et al* , 2006](http://www.biomedcentral.com/1471-2199/7/3)
 
 ## Missing data
 
