@@ -22,7 +22,8 @@
             "RNA-seq of coding RNA",
             "RNA-seq of non coding RNA",
             "transcription profiling by high throughput sequencing",
-            "whole genome sequencing assay"
+            "whole genome sequencing assay",
+            "CAGE-seq"
           ]
         },
         {
@@ -574,13 +575,13 @@
         {
           "mandatory": "recommended",
           "name": "rna purity - 260:280 ratio",
-          "description": "Sample purity assesed with fluoresence ratio at 260 and 280nm, informative for protein contamination",
+          "description": "Sample purity assessed with fluorescence ratio at 260 and 280nm, informative for protein contamination",
           "type": "number"
         },
         {
           "mandatory": "recommended",
           "name": "rna purity - 260:230 ratio",
-          "description": "Sample purity assesed with fluoresence ratio at 260 and 230nm, informative for contamination by phenolate ion, thiocyanates, and other organic compounds",
+          "description": "Sample purity assessed with fluorescence ratio at 260 and 230nm, informative for contamination by phenolate ion, thiocyanates, and other organic compounds",
           "type": "number"
         },
         {
@@ -635,6 +636,78 @@
             "reduced representation",
             "none"
           ]
+        }
+      ]
+    },
+    {
+      "condition": {
+        "attribute_value_match": {
+          "assay type": [
+            "CAGE-seq"
+          ]
+        }
+      },
+      "name": "CAGE-seq",
+      "rules": [
+        {
+          "mandatory": "mandatory",
+          "name": "experiment target",
+          "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'ribonucleic acid'",
+          "type": "ontology_text",
+          "valid_terms": [
+            {
+              "ontology_name": "EFO",
+              "term_iri": "http://purl.obolibrary.org/obo/CHEBI_33697"
+            }
+          ]
+        },
+        {
+          "mandatory": "recommended",
+          "name": "cage protocol",
+          "description": "Link to the protocol for CAGE-seq experiments",
+          "type": "uri_value"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "sequencing primer provider",
+          "description": "The name of the company, laboratory or person that provided the sequencing primer library",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "sequencing primer catalog",
+          "description": "The catalog from which the sequencing primer library was purchased",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "sequencing primer lot",
+          "description": "The lot identifier of the sequencing primer library",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "restrict enzyme target sequence",
+          "description": "the DNA sequence targeted by the restrict enzyme",
+          "type": "text"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "rna purity - 260:280 ratio",
+          "description": "Sample purity assessed with fluorescence ratio at 260 and 280nm, informative for protein contamination",
+          "type": "number"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "rna purity - 260:230 ratio",
+          "description": "Sample purity assessed with fluorescence ratio at 260 and 230nm, informative for contamination by phenolate ion, thiocyanates, and other organic compounds",
+          "type": "number"
+        },
+        {
+          "mandatory": "recommended",
+          "name": "rna integrity number",
+          "description": "It is important to obtain this value, but if you are unable to supply this number (e.g. due to machine failure) then by submitting you are asserting the quality by visual inspection of traces and agreeing that the samples were suitable for sequencing. For more information on RNA Integrity Numbers see Schroeder et al. (2006) http://bmcmolbiol.biomedcentral.com/articles/10.1186/1471-2199-7-3",
+          "type": "number"
         }
       ]
     }
