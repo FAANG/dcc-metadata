@@ -40,7 +40,7 @@ These following elements must always be present in any experiment metadata
     * RNA-seq of non coding RNA
     * transcription profiling by high throughput sequencing
     * WGS
-    * CAGE-Seq
+    * CAGE-seq
  * `sample storage processing` (*text*) This should document how the sample was prepared for storage, from one of these values:
      * cryopreservation in liquid nitrogen (dead tissue)
      * cryopreservation in dry ice (dead tissue)
@@ -216,9 +216,9 @@ Optional:
     * reduced representation
     * none
 
-### CAGE-Seq
+### CAGE-seq
 
-CAGE-Seq (Cap analysis gene expression sequencing) should have `assay type` of [CAGE-Seq](http://purl.obolibrary.org/obo/FBcv_0003051)
+CAGE-seq (Cap analysis gene expression sequencing) should have `assay type` of CAGE-seq
 
 Required:
  * `experiment target` (*ontology term*) should use the term [ribonucleic acid](http://purl.obolibrary.org/obo/CHEBI_33697)
