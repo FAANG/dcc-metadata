@@ -23,7 +23,7 @@
             "RNA-seq of non coding RNA",
             "transcription profiling by high throughput sequencing",
             "whole genome sequencing assay",
-            "CAGE-Seq"
+            "CAGE-seq"
           ]
         },
         {
@@ -633,11 +633,11 @@
       "condition": {
         "attribute_value_match": {
           "assay type": [
-            "CAGE-Seq"
+            "CAGE-seq"
           ]
         }
       },
-      "name": "CAGE-Seq",
+      "name": "CAGE-seq",
       "rules": [
         {
           "mandatory": "mandatory",
@@ -654,7 +654,7 @@
         {
           "mandatory": "mandatory",
           "name": "cage protocol",
-          "description": "Link to the protocol for CAGE-Seq experiments",
+          "description": "Link to the protocol for CAGE-seq experiments",
           "type": "uri_value"
         },
         {
