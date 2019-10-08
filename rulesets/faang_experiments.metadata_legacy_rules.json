@@ -652,12 +652,12 @@
         {
           "mandatory": "mandatory",
           "name": "experiment target",
-          "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'ribonucleic acid'",
+          "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'TSS'",
           "type": "ontology_text",
           "valid_terms": [
             {
-              "ontology_name": "EFO",
-              "term_iri": "http://purl.obolibrary.org/obo/CHEBI_33697"
+              "ontology_name": "SO",
+              "term_iri": "http://purl.obolibrary.org/obo/SO_0000315"
             }
           ]
         },

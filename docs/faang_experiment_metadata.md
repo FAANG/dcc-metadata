@@ -221,7 +221,7 @@ Optional:
 CAGE-seq (Cap analysis gene expression sequencing) should have `assay type` of CAGE-seq
 
 Required:
- * `experiment target` (*ontology term*) should use the term [ribonucleic acid](http://purl.obolibrary.org/obo/CHEBI_33697)
+ * `experiment target` (*ontology term*) should use the term [TSS](http://purl.obolibrary.org/obo/SO_0000315)
  * `restrict enzyme target sequence` (*protocol*) the DNA sequence targeted by the restrict enzyme
 
 Recommended:
