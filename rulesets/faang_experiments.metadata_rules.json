@@ -647,7 +647,8 @@
           "valid_terms": [
             {
               "ontology_name": "SO",
-              "term_iri": "http://purl.obolibrary.org/obo/SO_0000315"
+              "term_iri": "http://purl.obolibrary.org/obo/SO_0000315",
+              "allow_descendants": false
             }
           ]
         },
