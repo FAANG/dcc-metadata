@@ -44,7 +44,8 @@
             "cell specimen",
             "pool of specimens",
             "cell culture",
-            "cell line"
+            "cell line",
+            "restricted access"
           ]
         },
         "term": {
@@ -55,7 +56,8 @@
             "OBI:0001468",
             "OBI:0302716",
             "OBI:0001876",
-            "CLO:0000031"
+            "CLO:0000031",
+            "restricted access"
           ]
         },
         "mandatory": {
