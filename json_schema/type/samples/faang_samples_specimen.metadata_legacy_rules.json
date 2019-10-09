@@ -59,14 +59,21 @@
           "type": "string"
         },
         "term": {
-          "type": "string",
-          "graph_restriction": {
-            "ontologies": ["obo:efo", "obo:uberon"],
-            "classes": ["EFO:0000399", "UBERON:0000105"],
-            "relations": ["rdfs:subClassOf"],
-            "direct": false,
-            "include_self": true
-          }
+          "oneOf": [
+            {
+              "type": "string",
+              "graph_restriction": {
+                "ontologies": ["obo:efo", "obo:uberon"],
+                "classes": ["EFO:0000399", "UBERON:0000105"],
+                "relations": ["rdfs:subClassOf"],
+                "direct": false,
+                "include_self": true
+              }
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -104,14 +111,21 @@
           "type": "string"
         },
         "term": {
-          "type": "string",
-          "graph_restriction": {
-            "ontologies": ["obo:uberon", "obo:bto"],
-            "classes": ["UBERON:0001062", "BTO:0000042"],
-            "relations": ["rdfs:subClassOf"],
-            "direct": false,
-            "include_self": true
-          }
+          "oneOf": [
+            {
+              "type": "string",
+              "graph_restriction": {
+                "ontologies": ["obo:uberon", "obo:bto"],
+                "classes": ["UBERON:0001062", "BTO:0000042"],
+                "relations": ["rdfs:subClassOf"],
+                "direct": false,
+                "include_self": true
+              }
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
         },
         "mandatory": {
           "const": "mandatory"
