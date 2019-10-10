@@ -222,7 +222,8 @@
             "SEQUENCE_VARIATION"
           ],
           "file types": [
-            "vcf"
+            "vcf",
+            "tabix"
           ]
         }
       },
