@@ -235,13 +235,14 @@
           "description": "the type of experiment",
           "type": "text",
           "valid_values": [
-            "Whole genome sequencing",
-            "Whole transcriptome sequencing",
-            "Exome sequencing",
-            "Genotyping by array",
-            "transcriptomics",
+            "Whole Genome Sequencing",
+            "Whole Transcriptome Sequencing",
+            "Exome Sequencing",
+            "Genotyping By Array",
+            "Transcriptomics",
             "Curation",
-            "Genotyping by sequencing"
+            "Genotyping By Sequencing",
+            "Target Sequencing"
           ]
         },
         {
