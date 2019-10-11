@@ -30,14 +30,21 @@
           "type": "string"
         },
         "term": {
-          "type": "string",
-          "graph_restriction": {
-            "ontologies": ["obo:ncbitaxon"],
-            "classes": ["NCBITaxon:1"],
-            "relations": ["rdfs:subClassOf"],
-            "direct": false,
-            "include_self": false
-          }
+          "oneOf": [
+            {
+              "type": "string",
+              "graph_restriction": {
+                "ontologies": ["obo:ncbitaxon"],
+                "classes": ["NCBITaxon:1"],
+                "relations": ["rdfs:subClassOf"],
+                "direct": false,
+                "include_self": false
+              }
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -57,14 +64,21 @@
           "type": "string"
         },
         "term": {
-          "type": "string",
-          "graph_restriction": {
-            "ontologies": ["obo:pato"],
-            "classes": ["PATO:0000047"],
-            "relations": ["rdfs:subClassOf"],
-            "direct": false,
-            "include_self": false
-          }
+          "oneOf": [
+            {
+              "type": "string",
+              "graph_restriction": {
+                "ontologies": ["obo:pato"],
+                "classes": ["PATO:0000047"],
+                "relations": ["rdfs:subClassOf"],
+                "direct": false,
+                "include_self": false
+              }
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -87,7 +101,12 @@
               "pattern": "^[12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])|[12]\\d{3}-(0[1-9]|1[0-2])|[12]\\d{3}$"
             },
             {
-              "const": "not applicable"
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
             }
           ]
         },
@@ -96,7 +115,15 @@
         },
         "units": {
           "type": "string",
-          "enum": ["YYYY-MM-DD", "YYYY-MM", "YYYY"]
+          "enum": [
+            "YYYY-MM-DD",
+            "YYYY-MM",
+            "YYYY",
+            "not applicable",
+            "not collected",
+            "not provided",
+            "restricted access"
+          ]
         }
       }
     },
@@ -110,14 +137,21 @@
           "type": "string"
         },
         "term": {
-          "type": "string",
-          "graph_restriction": {
-            "ontologies": ["obo:lbo"],
-            "classes": ["LBO:0000000"],
-            "relations": ["rdfs:subClassOf"],
-            "direct": false,
-            "include_self": false
-          }
+          "oneOf": [
+            {
+              "type": "string",
+              "graph_restriction": {
+                "ontologies": ["obo:lbo"],
+                "classes": ["LBO:0000000"],
+                "relations": ["rdfs:subClassOf"],
+                "direct": false,
+                "include_self": false
+              }
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -139,14 +173,27 @@
             "type": "string"
           },
           "term": {
-            "type": "string",
-            "graph_restriction": {
-              "ontologies": ["obo:pato", "obo:efo"],
-              "classes": ["PATO:0000461", "EFO:0000408"],
-              "relations": ["rdfs:subClassOf"],
-              "direct": false,
-              "include_self": true
-            }
+            "oneOf": [
+              {
+                "type": "string",
+                "graph_restriction": {
+                  "ontologies": ["obo:pato", "obo:efo"],
+                  "classes": ["PATO:0000461", "EFO:0000408"],
+                  "relations": ["rdfs:subClassOf"],
+                  "direct": false,
+                  "include_self": true
+                }
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "not applicable",
+                  "not collected",
+                  "not provided",
+                  "restricted access"
+                ]
+              }
+            ]
           },
           "mandatory": {
             "const": "recommended"
