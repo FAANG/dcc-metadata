@@ -28,12 +28,19 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "string",
-          "pattern": "^[12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])|[12]\\d{3}-(0[1-9]|1[0-2])|[12]\\d{3}$"
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])|[12]\\d{3}-(0[1-9]|1[0-2])|[12]\\d{3}$"
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
         },
         "units": {
           "type": "string",
-          "enum": ["YYYY-MM-DD", "YYYY-MM", "YYYY"]
+          "enum": ["YYYY-MM-DD", "YYYY-MM", "YYYY", "restricted access"]
         },
         "mandatory": {
           "const": "mandatory"
@@ -47,8 +54,15 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
         },
         "mandatory": {
           "const": "mandatory"
