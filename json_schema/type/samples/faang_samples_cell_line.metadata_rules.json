@@ -31,14 +31,21 @@
           "type": "string"
         },
         "term": {
-          "type": "string",
-          "graph_restriction": {
-            "ontologies": ["obo:ncbitaxon"],
-            "classes": ["NCBITaxon:1"],
-            "relations": ["rdfs:subClassOf"],
-            "direct": false,
-            "include_self": false
-          }
+          "oneOf": [
+            {
+              "type": "string",
+              "graph_restriction": {
+                "ontologies": ["obo:ncbitaxon"],
+                "classes": ["NCBITaxon:1"],
+                "relations": ["rdfs:subClassOf"],
+                "direct": false,
+                "include_self": false
+              }
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -58,14 +65,21 @@
           "type": "string"
         },
         "term": {
-          "type": "string",
-          "graph_restriction": {
-            "ontologies": ["obo:pato"],
-            "classes": ["PATO:0000047"],
-            "relations": ["rdfs:subClassOf"],
-            "direct": false,
-            "include_self": false
-          }
+          "oneOf": [
+            {
+              "type": "string",
+              "graph_restriction": {
+                "ontologies": ["obo:pato"],
+                "classes": ["PATO:0000047"],
+                "relations": ["rdfs:subClassOf"],
+                "direct": false,
+                "include_self": false
+              }
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -124,7 +138,20 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"
@@ -138,15 +165,36 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "string",
-          "pattern": "^[12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])|[12]\\d{3}-(0[1-9]|1[0-2])|[12]\\d{3}$"
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])|[12]\\d{3}-(0[1-9]|1[0-2])|[12]\\d{3}$"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"
         },
         "units": {
           "type": "string",
-          "enum": ["YYYY-MM-DD", "YYYY-MM", "YYYY"]
+          "enum": [
+            "YYYY-MM-DD",
+            "YYYY-MM",
+            "YYYY",
+            "not applicable",
+            "not collected",
+            "not provided",
+            "restricted access"
+          ]
         }
       }
     },
