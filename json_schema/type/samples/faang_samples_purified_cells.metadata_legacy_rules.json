@@ -44,7 +44,14 @@
         "required": ["text"],
         "properties": {
           "text": {
-            "type": "string"
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "const": "restricted access"
+              }
+            ]
           },
           "mandatory": {
             "const": "mandatory"
@@ -73,7 +80,14 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string"
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
         },
         "mandatory": {
           "const": "mandatory"
