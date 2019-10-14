@@ -233,6 +233,7 @@
         {
           "mandatory": "recommended",
           "name": "experiment type",
+          "allow_multiple": 1,
           "description": "the type of experiment",
           "type": "text",
           "valid_values": [
@@ -255,6 +256,7 @@
         {
           "mandatory": "optional",
           "name": "platform",
+          "allow_multiple": 1,
           "description": "The platform(s) used to do the sequencing separated by commas. If a used platform is not listed, please contact eva-helpdesk@ebi.ac.uk directly while cc-ing faang_dcc@ebi.ac.uk",
           "type": "text",
           "valid_values": [
