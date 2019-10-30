@@ -688,8 +688,8 @@
         },
         {
           "mandatory": "recommended",
-          "name": "restrict enzyme target sequence",
-          "description": "the DNA sequence targeted by the restrict enzyme",
+          "name": "restriction enzyme target sequence",
+          "description": "the DNA sequence targeted by the restriction enzyme",
           "type": "text"
         },
         {
