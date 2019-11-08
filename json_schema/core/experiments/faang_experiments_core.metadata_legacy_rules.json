@@ -37,7 +37,8 @@
             "RNA-seq of total RNA",
             "RNA-seq of coding RNA",
             "RNA-seq of non coding RNA",
-            "transcription profiling by high throughput sequencing"
+            "transcription profiling by high throughput sequencing",
+            "restricted access"
           ]
         },
         "mandatory": {
@@ -87,7 +88,11 @@
             "formalin fixed, unbuffered",
             "formalin fixed, buffered",
             "formalin fixed and paraffin embedded",
-            "fresh"
+            "fresh",
+            "not applicable",
+            "not collected",
+            "not provided",
+            "restricted access"
           ]
         },
         "mandatory": {
@@ -102,7 +107,18 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "units": {
           "type": "string",
@@ -118,7 +134,11 @@
             "day",
             "week",
             "month",
-            "year"
+            "year",
+            "not applicable",
+            "not collected",
+            "not provided",
+            "restricted access"
           ]
         },
         "mandatory": {
@@ -148,8 +168,21 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"
@@ -177,10 +210,32 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "units": {
-          "const": "decimal degrees"
+          "oneOf": [
+            {"const": "decimal degrees"},
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"
@@ -194,10 +249,32 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "units": {
-          "const": "decimal degrees"
+          "oneOf": [
+            {"const": "decimal degrees"},
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"
@@ -211,15 +288,36 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "string",
-          "pattern": "^[12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])|[12]\\d{3}-(0[1-9]|1[0-2])|[12]\\d{3}$"
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])|[12]\\d{3}-(0[1-9]|1[0-2])|[12]\\d{3}$"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"
         },
         "units": {
           "type": "string",
-          "enum": ["YYYY-MM-DD", "YYYY-MM", "YYYY"]
+          "enum": [
+            "YYYY-MM-DD",
+            "YYYY-MM",
+            "YYYY",
+            "not applicable",
+            "not collected",
+            "not provided",
+            "restricted access"
+          ]
         }
       }
     },
@@ -244,10 +342,32 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "units": {
-          "const": "decimal degrees"
+          "oneOf": [
+            {"const": "decimal degrees"},
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"
@@ -261,10 +381,32 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "units": {
-          "const": "decimal degrees"
+          "oneOf": [
+            {"const": "decimal degrees"},
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"
@@ -278,15 +420,36 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "string",
-          "pattern": "^[12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])|[12]\\d{3}-(0[1-9]|1[0-2])|[12]\\d{3}$"
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])|[12]\\d{3}-(0[1-9]|1[0-2])|[12]\\d{3}$"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"
         },
         "units": {
           "type": "string",
-          "enum": ["YYYY-MM-DD", "YYYY-MM", "YYYY"]
+          "enum": [
+            "YYYY-MM-DD",
+            "YYYY-MM",
+            "YYYY",
+            "not applicable",
+            "not collected",
+            "not provided",
+            "restricted access"
+          ]
         }
       }
     }
