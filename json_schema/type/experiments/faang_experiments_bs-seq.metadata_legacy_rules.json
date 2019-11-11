@@ -30,7 +30,10 @@
       "required": ["term", "text"],
       "properties": {
         "term": {
-          "const": "GO:0006306"
+          "oneOf": [
+            {"const": "GO:0006306"},
+            {"const": "restricted access"}
+          ]
         },
         "text": {
           "type": "string"
@@ -53,7 +56,11 @@
           "type": "string",
           "enum": [
             "RRBS",
-            "WGBS"
+            "WGBS",
+            "not applicable",
+            "not collected",
+            "not provided",
+            "restricted access"
           ]
         },
         "mandatory": {
@@ -68,8 +75,21 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"
@@ -83,8 +103,21 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"
@@ -98,7 +131,18 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"
@@ -126,7 +170,18 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"
@@ -140,7 +195,18 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"
