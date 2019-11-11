@@ -28,7 +28,10 @@
       "required": ["term", "text"],
       "properties": {
         "term": {
-          "const": "SO:0001747"
+          "oneOf": [
+            {"const": "SO:0001747"},
+            {"const": "restricted access"}
+          ]
         },
         "text": {
           "type": "string"
@@ -48,8 +51,13 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {"const": "restricted access"}
+          ]
         },
         "mandatory": {
           "const": "mandatory"
