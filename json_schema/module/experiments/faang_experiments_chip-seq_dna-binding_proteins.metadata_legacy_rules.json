@@ -112,7 +112,18 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"
@@ -126,7 +137,18 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"

@@ -120,7 +120,10 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {"const": "restricted access"}
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -134,7 +137,10 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {"const": "restricted access"}
+          ]
         },
         "mandatory": {
           "const": "mandatory"
