@@ -36,17 +36,27 @@
       "required": ["term", "text"],
       "properties": {
         "term": {
-          "type": "string",
-          "graph_restriction": {
-            "ontologies": ["obo:efo"],
-            "classes": ["CHEBI:33697"],
-            "relations": ["rdfs:subClassOf"],
-            "direct": false,
-            "include_self": true
-          }
+          "oneOf": [
+            {
+              "type": "string",
+              "graph_restriction": {
+                "ontologies": ["obo:efo"],
+                "classes": ["CHEBI:33697"],
+                "relations": ["rdfs:subClassOf"],
+                "direct": false,
+                "include_self": true
+              }
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
         },
         "text": {
-          "type": "string"
+          "oneOf": [
+            {"type": "string"},
+            {"const": "restricted access"}
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -63,8 +73,13 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {"const": "restricted access"}
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -78,8 +93,13 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {"const": "restricted access"}
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -93,8 +113,13 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {"const": "restricted access"}
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -108,8 +133,13 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {"const": "restricted access"}
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -123,8 +153,13 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {"const": "restricted access"}
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -145,7 +180,8 @@
             "antisense",
             "mate 1 sense",
             "mate 2 sense",
-            "non-stranded"
+            "non-stranded",
+            "restricted access"
           ]
         },
         "mandatory": {
@@ -160,7 +196,18 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"
@@ -174,7 +221,18 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"
@@ -188,7 +246,18 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"
