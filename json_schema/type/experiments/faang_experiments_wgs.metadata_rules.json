@@ -32,10 +32,17 @@
       "required": ["term", "text"],
       "properties": {
         "term": {
-          "const": "EFO:0005031"
+          "type": "string",
+          "enum": [
+            "EFO:0005031",
+            "restricted access"
+          ]
         },
         "text": {
-          "type": "string"
+          "oneOf": [
+            {"type": "string"},
+            {"const": "restricted access"}
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -49,8 +56,15 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -64,8 +78,15 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
         },
         "mandatory": {
           "const": "mandatory"
