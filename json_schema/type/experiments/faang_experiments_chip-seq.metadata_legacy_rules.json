@@ -42,10 +42,11 @@
         "term": {
           "type": "string",
           "enum": [
-            "http://purl.obolibrary.org/obo/SO_0001700",
-            "http://purl.obolibrary.org/obo/SO_0000235",
-            "http://www.ebi.ac.uk/efo/EFO_0005031",
-            "http://purl.obolibrary.org/obo/NCIT_C17998"
+            "SO:0001700",
+            "SO:0000235",
+            "EFO:0005031",
+            "NCIT:C17998",
+            "restricted access"
           ]
         },
         "text": {
@@ -67,8 +68,21 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "mandatory": {
           "const": "recommended"

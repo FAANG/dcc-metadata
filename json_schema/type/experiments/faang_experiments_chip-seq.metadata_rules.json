@@ -45,7 +45,8 @@
           "enum": [
             "SO:0001700",
             "SO:0000235",
-            "EFO:0005031"
+            "EFO:0005031",
+            "restricted access"
           ]
         },
         "text": {
@@ -67,8 +68,15 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
         },
         "mandatory": {
           "const": "mandatory"
