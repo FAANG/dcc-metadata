@@ -29,19 +29,19 @@
       "type": "object",
       "name": "experiment target",
       "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'input DNA'.",
-      "required": ["term", "text"],
+      "required": ["text", "term"],
       "properties": {
+        "text": {
+          "oneOf": [
+            {"type": "string"},
+            {"const": "restricted access"}
+          ]
+        },
         "term": {
           "type": "string",
           "enum": [
             "EFO:0005031",
             "restricted access"
-          ]
-        },
-        "text": {
-          "oneOf": [
-            {"type": "string"},
-            {"const": "restricted access"}
           ]
         },
         "mandatory": {

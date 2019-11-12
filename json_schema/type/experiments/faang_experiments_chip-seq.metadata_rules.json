@@ -38,8 +38,11 @@
       "type": "object",
       "name": "experiment target",
       "description": "What the experiment was trying to find, list the text rather than ontology link e.g. 'input DNA'. For transcription factor, use 'TF_binding_site'; For chromatin, use 'histone_modification'. ChIP-seq input: use 'input DNA'.",
-      "required": ["term", "text"],
+      "required": ["text", "term"],
       "properties": {
+        "text": {
+          "type": "string"
+        },
         "term": {
           "type": "string",
           "enum": [
@@ -48,9 +51,6 @@
             "EFO:0005031",
             "restricted access"
           ]
-        },
-        "text": {
-          "type": "string"
         },
         "mandatory": {
           "const": "mandatory"

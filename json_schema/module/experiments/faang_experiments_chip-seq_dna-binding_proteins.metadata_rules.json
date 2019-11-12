@@ -26,8 +26,11 @@
       "type": "object",
       "name": "target protein name",
       "description": "The name of targeted protein.",
-      "required": ["term", "text"],
+      "required": ["text", "term"],
       "properties": {
+        "text": {
+          "type": "string"
+        },
         "term": {
           "oneOf": [
             {
@@ -45,9 +48,6 @@
               }
             }
           ]
-        },
-        "text": {
-          "type": "string"
         },
         "mandatory": {
           "const": "optional"

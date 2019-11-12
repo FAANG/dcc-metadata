@@ -30,16 +30,16 @@
       "type": "object",
       "name": "experiment target",
       "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'chromatin'.",
-      "required": ["term", "text"],
+      "required": ["text", "term"],
       "properties": {
+        "text": {
+          "type": "string"
+        },
         "term": {
           "oneOf": [
             {"const": "GO:0000785"},
             {"const": "restricted access"}
           ]
-        },
-        "text": {
-          "type": "string"
         },
         "mandatory": {
           "const": "mandatory"

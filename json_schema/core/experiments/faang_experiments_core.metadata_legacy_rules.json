@@ -304,9 +304,6 @@
             }
           ]
         },
-        "mandatory": {
-          "const": "recommended"
-        },
         "units": {
           "type": "string",
           "enum": [
@@ -318,6 +315,9 @@
             "not provided",
             "restricted access"
           ]
+        },
+        "mandatory": {
+          "const": "recommended"
         }
       }
     },
@@ -436,9 +436,6 @@
             }
           ]
         },
-        "mandatory": {
-          "const": "recommended"
-        },
         "units": {
           "type": "string",
           "enum": [
@@ -450,6 +447,9 @@
             "not provided",
             "restricted access"
           ]
+        },
+        "mandatory": {
+          "const": "recommended"
         }
       }
     }
