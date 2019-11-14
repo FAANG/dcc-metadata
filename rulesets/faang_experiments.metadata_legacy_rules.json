@@ -317,6 +317,10 @@
         "attribute_value_match": {
           "assay type": [
             "ChIP-seq"
+           ],
+          "experiment target": [
+            "TF_binding_site",
+            "histone_modification"
           ]
         },
         "dpath_condition": "/attributes/*/*[key eq 'name' && value eq 'experiment target']/../*[key eq 'value' && value ne 'input DNA']"
@@ -326,7 +330,7 @@
         {
           "mandatory": "optional",
           "name": "target protein name",
-          "description": "The name of targeted protein",
+          "description": "The name of the antibody-targeted protein. For histone modification experiment, please use 'Histone' in this field and use the separate histone modification type field to describe the modification type, e.g. 'H3K27_trimethylation_site'",
           "type": "ontology_text",
           "valid_terms": [
             {
@@ -358,6 +362,20 @@
             }
           ]
         }, 
+        {
+          "mandatory": "optional",
+          "name": "histone modification type",
+          "description": "The type of histone modification, use the text rather than ontology link e.g. 'H3K27_trimethylation_site'",
+          "type": "ontology_text",
+          "valid_terms": [
+            {
+              "ontology_name": "SO",
+              "term_iri": "http://purl.obolibrary.org/obo/SO_0001700",
+              "leaf_only": false,
+              "allow_descendants": true
+            }
+          ]
+        },
         {
           "mandatory": "recommended",
           "name": "control experiment",
