@@ -365,7 +365,7 @@
         {
           "mandatory": "optional",
           "name": "histone modification type",
-          "description": "The type of histone modification, use the text rather than ontology link e.g. 'H3K27_trimethylation_site'",
+          "description": "The type of histone modification, use the specific histone modification text e.g. 'H3K27_trimethylation_site' instead of just the ontology text of 'histone_modification'. Be aware that this will generate a warning in the FAANG validator that can be safely ignored.",
           "type": "ontology_text",
           "valid_terms": [
             {
