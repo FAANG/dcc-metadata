@@ -125,7 +125,7 @@ ChIP-seq DNA-binding proteins experiments should have an `assay type` of  [ChIP-
 
 Required:
 
- * `target protein name` (*ontology term*) the name of the antibody-targeted protein e.g. Histone
+ * `chip target` (*ontology term*) The target of the ChIP-seq experiment e.g. H3K4Me3, H3K4Me1, H3K27Me3, H3K27Ac, CTCF.
  * `chip antibody provider` (*text*) the name of the company, laboratory or person that provided the antibody e.g. Diagneode 
  * `chip antibody catalog` (*text*)  the catalog from which the antibody was purchased e.g. pAb-003-050
  * `chip antibody lot` (*text*) the lot identifier of the antibody e.g. A5051-001P
@@ -136,8 +136,6 @@ Recommended:
 
  * `control experiment` (*text*) Experiment alias (in this submission) or ENA experiment accession (if submitted previously) of the ChIP-seq input DNA experiment which acts as the control/background for the analysis. 
  
-Optional:
- * `histone modification type` (*ontology term*) The type of histone modification, e.g. H3K27_trimethylation_site
 
 ### ChIP-seq input DNA
 
