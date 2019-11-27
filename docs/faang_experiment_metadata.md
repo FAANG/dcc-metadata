@@ -125,7 +125,7 @@ ChIP-seq DNA-binding proteins experiments should have an `assay type` of  [ChIP-
 
 Required:
 
- * `chip target` (*ontology term*) The particular target which the ChIP-seq is aiming for e.g. H3K27me3
+ * `chip target` (*ontology term*) The target of the ChIP-seq experiment e.g. H3K4Me3, H3K4Me1, H3K27Me3, H3K27Ac, CTCF.
  * `chip antibody provider` (*text*) the name of the company, laboratory or person that provided the antibody e.g. Diagneode 
  * `chip antibody catalog` (*text*)  the catalog from which the antibody was purchased e.g. pAb-003-050
  * `chip antibody lot` (*text*) the lot identifier of the antibody e.g. A5051-001P
