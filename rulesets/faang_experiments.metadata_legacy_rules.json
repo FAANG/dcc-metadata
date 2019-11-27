@@ -329,7 +329,7 @@
       "rules": [
         {
           "mandatory": "optional",
-          "name": "target protein name",
+          "name": "chip target",
           "description": "The name of the antibody-targeted protein. For histone modification experiment, please use 'Histone' in this field and use the separate histone modification type field to describe the modification type, e.g. 'H3K27_trimethylation_site'",
           "type": "ontology_text",
           "valid_terms": [
