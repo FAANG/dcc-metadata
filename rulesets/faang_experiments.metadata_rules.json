@@ -325,7 +325,7 @@
         {
           "mandatory": "mandatory",
           "name": "chip target",
-          "description": "The particular target the ChIP-seq is looking for. If your target is not in the list, please contact faang-dcc to add them",
+          "description": "The particular target which the ChIP-seq is aiming for. If your target is not in the list, please contact faang-dcc to add them",
           "type": "ontology_text",
           "valid_terms": [
             {
