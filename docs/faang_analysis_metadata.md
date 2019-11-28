@@ -11,14 +11,6 @@ This document describes the specification for all analysis metadata. You can fin
 
 Steps 2-4 produce analysis results. For each of these analysis results we should record which data, reference data and protocol were used to produce them. 
 
-### Analysis metadata requirements
-
-Requirements are laid out like this:  
-
- * `attribute name` (*data type*) a brief description
-
-The data types will be described later in this document. The metadata & data sharing (M&DS) group will seek guidance from the bioinformatics and data analysis (B&DA) group on what needs to be recorded here for each analysis type.
-
 ### Process attributes
 
 Analysis metadata needs to contain the following process attributes
@@ -68,3 +60,38 @@ OAR3_1.OA_Roslin001.liver.ChIP-seq.H3K27ac.ERX053278.FAANGUK_chipv3.peaks.201506
 So this hypothetical example represents a liver H3K27ac ChIP-Seq experiment for the Roslin's first Sheep sample using the FAANG v3 peak calling pipeline on the Sheep Assembly OAR_v3.1
 
 Further guidance can be found on the [FAANG wiki pages](https://www.ebi.ac.uk/seqdb/confluence/display/FAANG/FAANG+Archive+Submission+guidelines).
+
+### Analysis metadata requirements
+
+Requirements are laid out like this:  
+
+ * `attribute name` (*data type*) a brief description
+
+The details of data types can be found [here](faang_data_type.md). The metadata & data sharing (M&DS) group will seek guidance from the bioinformatics and data analysis (B&DA) group on what needs to be recorded here for each analysis type.
+
+### faang
+
+Required:
+
+These following elements must always be present in any experiment metadata
+
+ * `project` (*text*) project name - this should always be 'FAANG'. This will allow the FAANG Data Coordination Centre (DCC) to identify FAANG analyses
+ * `assay type` (*ontology term*) The type of experiment analysis data was derived from. This should be one of the following terms:
+    * ATAC-seq
+    * ChIP-seq
+    * CAGE-seq
+    * DNase-Hypersensitivity seq
+    * HiC
+    * methylation profiling by high throughput sequencing
+    * microRNA profiling by high throughput sequencing
+    * RNA-seq of total RNA
+    * RNA-seq of coding RNA
+    * RNA-seq of non coding RNA
+    * transcription profiling by high throughput sequencing
+    * WGS
+
+Optional:
+ * `Secondary project` (*text*) State the secondary project(s), multiple allowed. If your secondary project is not in the list, please contact the faang-dcc helpdesk to have it added. If your project uses the FAANG data portal project slices (https://data.faang.org/projects) then this field is required to ensure that your data appears in the data slice. Currently allowed values:
+    * AQUA-FAANG
+    * GENE-SWitCH
+    * BovReg
