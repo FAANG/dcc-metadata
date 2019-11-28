@@ -55,6 +55,7 @@ These following elements must always be present in any experiment metadata
 
 Recommended:
 
+ * `project` (*text*) project name - this should always be 'FAANG'. This will allow the FAANG Data Coordination Centre (DCC) to identify FAANG experiments
  * `library preparation location` (*text*) name of the library preparation location
  * `library preparation location latitude` (*number*) latitude of the library preparation location in decimal degrees. Units should be specified as 'decimal degrees'
  * `library preparation location longitude` (*number*) longitude of the library preparation location in decimal degrees. Units should be specified as 'decimal degrees'
@@ -65,6 +66,10 @@ Recommended:
  * `sequencing date` (*date*) date of sequencing
 
 Optional:
+ * `Secondary project` (*text*) State the secondary project(s), multiple allowed. If your secondary project is not in the list, please contact the faang-dcc helpdesk to have it added. If your project uses the FAANG data portal project slices (https://data.faang.org/projects) then this field is required to ensure that your data appears in the data slice. Currently allowed values:
+    * AQUA-FAANG
+    * GENE-SWitCH
+    * BovReg
  * `sample storage` (*text*) This should document how the sample was stored, from one of these values:
     * ambient temperature
     * cut slide

@@ -76,6 +76,18 @@
         },
         {
           "mandatory": "optional",
+          "name": "secondary project",
+          "description": "State the secondary project(s) that this data belongs to e.g. 'AQUA-FAANG', 'GENE-SWitCH' or 'BovReg'. Please use your official consortium shortened acronym if available. If your secondary project is not in the list, please contact the faang-dcc helpdesk to have it added. If your project uses the FAANG data portal project slices (https://data.faang.org/projects) then this field is required to ensure that your data appears in the data slice.",
+          "allow_multiple": 1,
+          "type": "text",
+          "valid_values": [
+            "AQUA-FAANG",
+            "GENE-SWitCH",
+            "BovReg"
+          ]
+        },
+        {
+          "mandatory": "optional",
           "name": "availability",
           "description": "Either a link to a web page giving information on sample availability (who to contact and if the sample is available), or a e-mail address to contact about availability. E-mail addresses should be prefixed with 'mailto:', e.g. 'mailto:samples@example.ac.uk'. In either case, long term support of the web page or e-mail address is necessary. Group e-mail addresses are preferable to indiviudal.",
           "type": "uri_value"
