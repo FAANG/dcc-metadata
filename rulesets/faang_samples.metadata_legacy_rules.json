@@ -77,8 +77,8 @@
         {
           "mandatory": "optional",
           "name": "secondary project",
-          "description": "State the secondary project(s) that this data belongs to e.g. AQUA-FAANG, GENE-SWitCH, BovReg. Please use your official consortium shortened acronym if available, or ensure you match previous submissions by the same secondary project. If your secondary project is not in the list, e.g. new grant, please contact the faang-dcc helpdesk.",
-          "allow_multiple": 1,
+          "description": "State the secondary project(s) that this data belongs to e.g. 'AQUA-FAANG', 'GENE-SWitCH' or 'BovReg'. Please use your official consortium shortened acronym if available. If your secondary project is not in the list, please contact the faang-dcc helpdesk to have it added. If your project uses the FAANG data portal project slices (https://data.faang.org/projects) then this field is required to ensure that your data appears in the data slice.",
+          "allow_multiple",: 1,
           "type": "text",
           "valid_values": [
             "AQUA-FAANG",
