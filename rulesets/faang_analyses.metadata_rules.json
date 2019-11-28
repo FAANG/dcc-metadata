@@ -36,6 +36,7 @@
           "valid_values": [
             "ATAC-seq",
             "ChIP-seq",
+            "CAGE-seq",
             "DNase-Hypersensitivity seq",
             "Hi-C",
             "methylation profiling by high throughput sequencing",
