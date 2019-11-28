@@ -7,7 +7,7 @@
       "name": "standard",
       "rules": [
         {
-          "mandatory": "mandatory",
+          "mandatory": "recommended",
           "name": "project",
           "description": "State that the project is 'FAANG'",
           "type": "text",

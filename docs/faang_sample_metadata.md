@@ -32,6 +32,10 @@ Required:
 
 Optional:
   
+ * `Secondary project` (*text*) State the secondary project(s), multiple allowed. If your secondary project is not in the list, please contact the faang-dcc helpdesk to have it added. If your project uses the FAANG data portal project slices (https://data.faang.org/projects) then this field is required to ensure that your data appears in the data slice. Currently allowed values:
+    * AQUA-FAANG
+    * GENE-SWitCH
+    * BovReg
  * `Sample Description` (*text*) a brief description of the sample including the species name
  * `availability` (*URL*) either a link to a web page giving information on sample availability (who to contact and whether the sample is available), or an e-mail address to contact about availability. E-mail addresses should be prefixed with 'mailto:', e.g. 'mailto:samples@example.ac.uk'. In either case, long term support of the web page or e-mail address is necessary. Group e-mail addresses are preferable to individuals.
 
