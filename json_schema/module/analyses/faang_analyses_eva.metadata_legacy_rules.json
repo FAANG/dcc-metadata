@@ -1,0 +1,147 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all analyses, and additional groups based on the analysis type.",
+  "title": "FAANG analyses legacy metadata rules for 'eva'",
+  "name": "faang_analyses_eva.metadata_legacy_rules",
+  "$async": true,
+  "type": "object",
+  "properties": {
+    "describedBy": {
+      "const": "https://github.com/FAANG/dcc-metadata/blob/master/docs/faang_analysis_metadata.md"
+    },
+    "schema_version": {
+      "description": "The version number of the schema in major.minor.patch format.",
+      "type": "string",
+      "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
+      "example": "4.6.1"
+    },
+    "experiment_type": {
+      "type": "array",
+      "name": "experiment type",
+      "description": "The type of experiment.",
+      "items": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "value": {
+            "type": "string",
+            "enum": [
+              "Whole Genome Sequencing",
+              "Whole Transcriptome Sequencing",
+              "Exome Sequencing",
+              "Genotyping By Array",
+              "Transcriptomics",
+              "Curation",
+              "Genotyping By Sequencing",
+              "Target Sequencing",
+              "not applicable",
+              "not collected",
+              "not provided",
+              "restricted access"
+            ]
+          },
+          "mandatory": {
+            "const": "recommended"
+          }
+        }
+      }
+    },
+    "program": {
+      "type": "object",
+      "name": "program",
+      "description": "The programs/tools used in the analysis separated by commas.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "platform": {
+      "type": "array",
+      "name": "platform",
+      "description": "The platform(s) used to do the sequencing separated by commas. If a used platform is not listed, please contact eva-helpdesk@ebi.ac.uk directly while cc-ing faang_dcc@ebi.ac.uk.",
+      "items": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "value": {
+            "type": "string",
+            "enum": [
+              "Nimblegen 4.2M Probe Custom DNA Microarray",
+              "Illumina NovaSeq 6000",
+              "Illumina Genome Analyzer",
+              "Illumina Genome Analyzer II",
+              "Illumina Genome Analyzer IIx",
+              "AB SOLiD System 2.0",
+              "AB SOLiD System 3.0",
+              "AB SOLiD 3 Plus System",
+              "AB SOLiD 4 System",
+              "AB SOLiD 4hq System",
+              "AB SOLiD PI System",
+              "AB 5500 Genetic Analyzer",
+              "Illumina HiSeq 3500",
+              "AB 5500xl Genetic Analyzer",
+              "AB SOLiD System",
+              "AB 3730xl",
+              "454 GS FLX",
+              "454 GS",
+              "454 GS 20",
+              "454 GS FLX+",
+              "454 GS FLX Titanium",
+              "454 GS Junior",
+              "Complete Genomics",
+              "Illumina NextSeq 500",
+              "unspecified",
+              "Affymetrix",
+              "Illumina",
+              "Ion Torrent PGM",
+              "Ion Torrent Proton",
+              "Illumina HiSeq X Ten",
+              "Ion S5XL",
+              "Ion Personal Genome Machine (PGM) System v2",
+              "Ilumina NovaSeq 6000",
+              "AB 3300 Genetic Analyzer",
+              "Illumina HiSeq 4000",
+              "Oxford Nanopore PromethION",
+              "ABI PRISM 310 Genetic Analyzer",
+              "Illumina Hiseq Xten",
+              "Illumina MiniSeq",
+              "MGISEQ-2000",
+              "Illumina CanineHD",
+              "Illumina HiSeq 2000",
+              "Illumina HiSeq 2500",
+              "Illumina HiSeq 1000",
+              "Illumina HiScanSQ",
+              "Illumina MiSeq"
+            ]
+          },
+          "mandatory": {
+            "const": "optional"
+          }
+        }
+      }
+    },
+    "special_analysis_type": {
+      "type": "object",
+      "name": "special analysis type",
+      "description": "Indicates the special type of analysis, e.g. imputation analysis, phasing analysis.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "imputation analysis",
+            "phasing analysis"
+          ]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    }
+  }
+}

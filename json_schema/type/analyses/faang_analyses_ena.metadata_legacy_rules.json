@@ -24,6 +24,11 @@
       "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
       "example": "4.6.1"
     },
+    "eva": {
+      "description": "EVA analysis information.",
+      "type": "object",
+      "$ref": "module/analyses/faang_analyses_eva.metadata_legacy_rules.json"
+    },
     "title": {
       "type": "object",
       "name": "title",
