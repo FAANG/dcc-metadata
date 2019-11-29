@@ -293,7 +293,7 @@
               ]
             }
           ]
-        }},
+        },
         "mandatory": {
           "const": "recommended"
         }

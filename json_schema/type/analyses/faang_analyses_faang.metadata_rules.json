@@ -1,0 +1,169 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all analyses, and additional groups based on the analysis type.",
+  "title": "FAANG analyses metadata rules for 'faang'",
+  "name": "faang_analyses_faang.metadata_rules",
+  "$async": true,
+  "type": "object",
+  "required": [
+    "project",
+    "assay_type",
+    "analysis_protocol"
+  ],
+  "properties": {
+    "describedBy": {
+      "const": "https://github.com/FAANG/dcc-metadata/blob/master/docs/faang_analysis_metadata.md"
+    },
+    "schema_version": {
+      "description": "The version number of the schema in major.minor.patch format.",
+      "type": "string",
+      "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
+      "example": "4.6.1"
+    },
+    "project": {
+      "type": "object",
+      "name": "project",
+      "description": "State that the project is 'FAANG'.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "FAANG",
+            "restricted access"
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "secondary_project": {
+      "type": "array",
+      "name": "secondary project",
+      "description": "State the secondary project(s) that this data belongs to e.g. 'AQUA-FAANG', 'GENE-SWitCH' or 'BovReg'. Please use your official consortium shortened acronym if available. If your secondary project is not in the list, please contact the faang-dcc helpdesk to have it added. If your project uses the FAANG data portal project slices (https://data.faang.org/projects) then this field is required to ensure that your data appears in the data slice.",
+      "items": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "value": {
+            "type": "string",
+            "enum": [
+              "AQUA-FAANG",
+              "GENE-SWitCH",
+              "BovReg"
+            ]
+          },
+          "mandatory": {
+            "const": "optional"
+          }
+        }
+      }
+    },
+    "assay_type": {
+      "type": "object",
+      "name": "assay type",
+      "description": "The type of experiment analysis data was derived from.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "ATAC-seq",
+            "ChIP-seq",
+            "transcription profiling by high throughput sequencing",
+            "whole genome sequencing assay",
+            "CAGE-seq",
+            "DNase-Hypersensitivity seq",
+            "Hi-C",
+            "methylation profiling by high throughput sequencing",
+            "microRNA profiling by high throughput sequencing",
+            "RNA-seq of total RNA",
+            "RNA-seq of coding RNA",
+            "RNA-seq of non coding RNA",
+            "restricted access"
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "analysis_protocol": {
+      "type": "object",
+      "name": "analysis protocol",
+      "description": "Link to the description of the analysis protocol, an overview of the full analysis including names, references and versions of any software employed. The protocol can refer to the order in which other protocols were performed and any intermediate steps not covered by any analysis specific protocols.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "analysis_code": {
+      "type": "object",
+      "name": "analysis code",
+      "description": "Link to the repository that contains the code used in the analysis. Ideally this would be formatted and documented for use by others, but even raw or undocumented code is encouraged as it will assist with reproducability.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "reference_genome": {
+      "type": "object",
+      "name": "reference genome",
+      "description": "The reference genome used in the analysis. Use 'not applicable' if a reference genome was not required for this analysis type. Contact FAANG DCC to add new reference assembly.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "Sscrofa11.1",
+            "EquCab3.0",
+            "Oar_v3.1",
+            "ARS-UCD1.2",
+            "GRCg6a",
+            "ARS1",
+            "not applicable",
+            "not collected",
+            "not provided",
+            "restricted access"
+          ]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    }
+  }
+}
