@@ -1,0 +1,316 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all analyses, and additional groups based on the analysis type.",
+  "title": "FAANG analyses metadata rules for 'ena'",
+  "name": "faang_analyses_ena.metadata_rules",
+  "$async": true,
+  "type": "object",
+  "required": [
+    "alias",
+    "analysis_type",
+    "study",
+    "file_names",
+    "file_types",
+    "checksum_methods",
+    "checksums"
+  ],
+  "properties": {
+    "describedBy": {
+      "const": "https://github.com/FAANG/dcc-metadata/blob/master/docs/faang_analysis_metadata.md"
+    },
+    "schema_version": {
+      "description": "The version number of the schema in major.minor.patch format.",
+      "type": "string",
+      "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
+      "example": "4.6.1"
+    },
+    "title": {
+      "type": "object",
+      "name": "title",
+      "description": "The title of the analysis.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "alias": {
+      "type": "object",
+      "name": "alias",
+      "description": "The alias of the analysis.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "analysis_type": {
+      "type": "object",
+      "name": "analysis type",
+      "description": "The type of analysis performed. Contact FAANG DCC to add a new analysis type.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "REFERENCE_ALIGNMENT",
+            "SEQUENCE_VARIATION",
+            "PATHOGEN_ANALYSIS",
+            "TRANSCRIPTOME_ASSEMBLY",
+            "TAXONOMIC_REFERENCE_SET",
+            "SEQUENCE_ASSEMBLY",
+            "SEQUENCE_FLATFILE",
+            "SEQUENCE_ANNOTATION",
+            "REFERENCE_SEQUENCE",
+            "SAMPLE_PHENOTYPE",
+            "PROCESSED_READS",
+            "GENOME_MAP",
+            "AMR_ANTIBIOGRAM",
+            "restricted access"
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "description": {
+      "type": "object",
+      "name": "description",
+      "description": "Describes the analysis in detail.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "study": {
+      "type": "object",
+      "name": "study",
+      "description": "Identifies the parent study.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "samples": {
+      "type": "array",
+      "name": "samples",
+      "description": "One or more samples associated with the analysis.",
+      "items": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "mandatory": {
+            "const": "recommended"
+          }
+        }
+      }
+    },
+    "experiments": {
+      "type": "array",
+      "name": "experiments",
+      "description": "One or more experiments associated with the analysis.",
+      "items": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "mandatory": {
+            "const": "recommended"
+          }
+        }
+      }
+    },
+    "runs": {
+      "type": "array",
+      "name": "runs",
+      "description": "One or more runs associated with the analysis.",
+      "items": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "mandatory": {
+            "const": "recommended"
+          }
+        }
+      }
+    },
+    "related_analyses": {
+      "type": "array",
+      "name": "related analyses",
+      "description": "One or more analyses associated with the analysis.",
+      "items": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "mandatory": {
+            "const": "optional"
+          }
+        }
+      }
+    },
+    "file_names": {
+      "type": "array",
+      "name": "file names",
+      "description": "The names of the files associated with this analysis, must have the same number as file types, checksum methods and checksums.",
+      "items": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "mandatory": {
+            "const": "mandatory"
+          }
+        }
+      }
+    },
+    "file_types": {
+      "type": "array",
+      "name": "file types",
+      "description": "The types of the files associated with this analysis, must have the same number as file types, checksum methods and checksums.",
+      "items": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "value": {
+            "type": "string",
+            "enum": [
+              "tab",
+              "bam",
+              "bed",
+              "gff",
+              "fasta",
+              "fastq",
+              "flatfile",
+              "chromosome_list",
+              "sample_list",
+              "readme_file",
+              "phenotype_file",
+              "BioNano_native",
+              "bai",
+              "Kallisto_native",
+              "agp",
+              "unlocalised_list",
+              "info",
+              "manifest",
+              "other",
+              "cram",
+              "crai",
+              "vcf",
+              "vcf_aggregate",
+              "bcf",
+              "tabix",
+              "wig",
+              "restricted access"
+            ]
+          },
+          "mandatory": {
+            "const": "mandatory"
+          }
+        }
+      }
+    },
+    "checksum_methods": {
+      "type": "array",
+      "name": "checksum methods",
+      "description": "The checksum methods used on the files associated with this analysis, must have the same number as file names, file types and checksums.",
+      "items": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "mandatory": {
+            "const": "mandatory"
+          }
+        }
+      }
+    },
+    "checksums": {
+      "type": "array",
+      "name": "checksums",
+      "description": "The checksum values of the files associated with this analysis, must have the same number as file names, file types and checksum methods.",
+      "items": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "mandatory": {
+            "const": "mandatory"
+          }
+        }
+      }
+    },
+    "analysis_center": {
+      "type": "object",
+      "name": "analysis center",
+      "description": "If applicable, the center name of the institution responsible for this analysis.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "analysis_date": {
+      "type": "object",
+      "name": "analysis date",
+      "description": "The date when this analysis was produced.",
+      "required": ["value", "units"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "pattern": "^[12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])|[12]\\d{3}-(0[1-9]|1[0-2])|[12]\\d{3}$"
+        },
+        "units": {
+          "type": "string",
+          "enum": [
+            "YYYY-MM-DD",
+            "YYYY-MM",
+            "YYYY"
+          ]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    }
+  }
+}
