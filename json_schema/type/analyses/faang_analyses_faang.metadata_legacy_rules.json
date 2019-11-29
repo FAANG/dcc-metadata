@@ -15,6 +15,20 @@
       "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
       "example": "4.6.1"
     },
+    "alias": {
+      "type": "object",
+      "name": "alias",
+      "description": "The alias of the analysis.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
     "project": {
       "type": "object",
       "name": "project",
