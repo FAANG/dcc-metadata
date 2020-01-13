@@ -1,0 +1,212 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Ruleset for assay type is CAGE-seq.",
+  "title": "FAANG experiments metadata rules for CAGE-seq",
+  "name": "faang_experiments_cage-seq.metadata_rules",
+  "$async": true,
+  "type": "object",
+  "required": ["experiment_target", "cage_protocol", "restriction_enzyme_target_sequence"],
+  "properties": {
+    "describedBy": {
+      "const": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_experiment_metadata.md"
+    },
+    "schema_version": {
+      "description": "The version number of the schema in major.minor.patch format.",
+      "type": "string",
+      "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
+      "example": "4.6.1"
+    },
+    "experiments_core": {
+      "description": "Core experiments-level information.",
+      "type": "object",
+      "$ref": "core/experiments/faang_experiments_core.metadata_rules.json"
+    },
+    "experiment_target": {
+      "type": "object",
+      "name": "experiment target",
+      "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'TSS'.",
+      "required": [
+        "text",
+        "term"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "term": {
+          "oneOf": [
+            {
+              "const": "SO:0000315"
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        },
+        "ontology_name": {
+          "const": "SO"
+        }
+      }
+    },
+    "cage_protocol": {
+      "type": "object",
+      "name": "cage protocol",
+      "description": "Link to the protocol used for CAGE-seq treatments.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {"const": "restricted access"}
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "sequencing_primer_provider": {
+      "type": "object",
+      "name": "sequencing primer provider",
+      "description": "The name of the company, laboratory or person that provided the sequencing primer library.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "sequencing_primer_catalog": {
+      "type": "object",
+      "name": "sequencing primer catalog",
+      "description": "The catalog from which the sequencing primer library was purchased.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "sequencing_primer_lot": {
+      "type": "object",
+      "name": "sequencing primer lot",
+      "description": "The lot identifier of the sequencing primer library.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "restriction_enzyme_target_sequence": {
+      "type": "object",
+      "name": "restriction enzyme target sequence",
+      "description": "The DNA sequence targeted by the restriction enzyme.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "rna_purity-260:280_ratio": {
+      "type": "object",
+      "name": "rna purity - 260:280 ratio",
+      "description": "Sample purity assessed with fluorescence ratio at 260 and 280nm, informative for protein contamination.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "rna_purity-260:230_ratio": {
+      "type": "object",
+      "name": "rna purity - 260:230 ratio",
+      "description": "Sample purity assessed with fluorescence ratio at 260 and 230nm, informative for contamination by phenolate ion, thiocyanates, and other organic compounds.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "rna_integrity_number": {
+      "type": "object",
+      "name": "rna integrity number",
+      "description": "It is important to obtain this value, but if you are unable to supply this number (e.g. due to machine failure) then by submitting you are asserting the quality by visual inspection of traces and agreeing that the samples were suitable for sequencing. For more information on RNA Integrity Numbers see Schroeder et al. (2006) http://bmcmolbiol.biomedcentral.com/articles/10.1186/1471-2199-7-3.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    }
+  }
+}
