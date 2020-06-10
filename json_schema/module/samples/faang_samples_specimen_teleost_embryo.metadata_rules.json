@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Ruleset for specimens from teleost fish embryos",
+  "title": "FAANG sample metadata rules for Teleostei",
+  "name": "faang_samples_specimen_teleost_embryo.metadata_rules",
+  "$async": true,
+  "type": "object",
+  "required": [
+    "hathcing",
+    "time_post_fertilisation",
+    "pre-hatching_water_temperature_average",
+    "degree days"
+  ],
+  "properties": {
+    "describedBy": {
+      "const": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_sample_metadata.md"
+    },
+    "schema_version": {
+      "description": "The version number of the schema in major.minor.patch format.",
+      "type": "string",
+      "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
+      "example": "4.6.1"
+    },
+    "hatching": {
+      "type": "object",
+      "name": "hatching",
+      "description": "Sampled organism is pre- or post-hatching",
+      "required": ["text"],
+      "properties": {
+        "text": {
+          "type": "string",
+          "enum": [
+            "pre",
+            "post",
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "time_post_fertilisation": {
+      "type": "object",
+      "name": "Time post fertilisation",
+      "description": "The time passed since fertilisation.",
+      "required": ["value", "units"],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["hours", "days", "months", "years"]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "pre-hatching_water_temperature_average": {
+      "type": "object",
+      "name": "Pre-hatching water temperature average",
+      "description": "The average measured water temperature recoded post-hatching in degrees Celsius",
+      "required": ["value", "units"],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["Degrees celsius"]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "degree_days": {
+      "type": "object",
+      "name": "Degree days",
+      "description": "Degree days",
+      "required": ["value", "units"],
+      "properties": {
+        "value": {
+          "type": "integer"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["Days"]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    }
+  }
+}
