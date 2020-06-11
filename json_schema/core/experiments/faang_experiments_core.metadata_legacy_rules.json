@@ -29,6 +29,7 @@
           "enum": [
             "ATAC-seq",
             "ChIP-seq",
+            "CAGE-seq",
             "whole genome sequencing assay",
             "DNase-Hypersensitivity seq",
             "Hi-C",
