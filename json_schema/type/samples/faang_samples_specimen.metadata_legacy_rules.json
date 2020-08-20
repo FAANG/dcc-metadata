@@ -290,7 +290,7 @@
     },
     "embryonic_stage": {
       "type": "object",
-      "name": "incubtation humidity at sample collection",
+      "name": "embryonic stage",
       "description": "The embryonic stage. Using the 1951 Hamburger Hamilton Stages (https://doi.org/10.1002/jmor.1050880104), contact FAANG DCC to add other stagings.",
       "required": ["value", "units"],
       "properties": {
