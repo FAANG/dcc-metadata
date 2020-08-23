@@ -353,36 +353,34 @@
         }
       }
     },
-    "average_incubtation_temperature": {
+    "average_incubation_temperature": {
       "type": "object",
       "name": "incubation temperature",
-      "description": "For relevent samples (in particular chicken eggs), state the average incubation temperature in degrees celsius.",
+      "description": "For relevant samples (in particular chicken eggs), state the average incubation temperature in degrees celsius.",
       "required": ["value", "units"],
       "properties": {
         "value": {
           "type": "number"
         },
         "units": {
-          "type": "string",
-          "enum": ["degrees celsius"]
+          "const": "degrees celsius"
         },
         "mandatory": {
           "const": "optional"
         }
       }
     },
-    "average_incubtation_humidity": {
+    "average_incubation_humidity": {
       "type": "object",
-      "name": "incubtation humidity at sample collection",
-      "description": "For relevent samples (in particular chicken eggs), state the average incubation humidity as a percentage.",
+      "name": "incubation humidity at sample collection",
+      "description": "For relevant samples (in particular chicken eggs), state the average incubation humidity as a percentage.",
       "required": ["value", "units"],
       "properties": {
         "value": {
           "type": "number"
         },
         "units": {
-          "type": "string",
-          "enum": ["%"]
+          "const": "%"
         },
         "mandatory": {
           "const": "optional"
@@ -397,11 +395,19 @@
       "properties": {
         "value": {
           "type": "string",
-          "enum": ["Early cleavage", "During cleavage", "Late cleavage", "1", "2", "3", "4", "5", "6", "7", "7 to 8-", "8", "9", "9+ to 10-", "10", "11", "12", "13", "13+ to 14-", "14", "14+ to 15-", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46"]
+          "enum": [
+            "Early cleavage",
+            "During cleavage",
+            "Late cleavage",
+            "1", "2", "3", "4", "5", "6", "7", "7 to 8-", "8", "9",
+            "9+ to 10-", "10", "11", "12", "13", "13+ to 14-", "14",
+            "14+ to 15-", "15", "16", "17", "18", "19", "20", "21", "22", "23",
+            "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34",
+            "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45",
+            "46"]
         },
         "units": {
-          "type": "string",
-          "enum": ["stage Hamburger Hamilton"]
+          "const": "stage Hamburger Hamilton"
         },
         "mandatory": {
           "const": "optional"
