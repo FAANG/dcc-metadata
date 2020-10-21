@@ -31,7 +31,7 @@
           "const": "FAANG"
         },
         "mandatory": {
-          "const": "recommended"
+          "const": "mandatory"
         }
       }
     },
