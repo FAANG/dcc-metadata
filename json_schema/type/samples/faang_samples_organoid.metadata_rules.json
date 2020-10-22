@@ -22,6 +22,102 @@
       "type": "object",
       "$ref": "core/samples/faang_samples_core.metadata_rules.json"
     },
+    "organ_model": {
+      "type": "object",
+      "name": "organ model",
+      "description": "Organ for which this organoid is a model system e.g. 'heart' or 'liver'.",
+      "required": ["text", "term"],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "term": {
+          "oneOf": [
+            {
+              "type": "string",
+              "graph_restriction": {
+                "ontologies": ["obo:uberon", "obo:bto"],
+                "classes": ["UBERON:0001062", "BTO:0000042"],
+                "relations": ["rdfs:subClassOf"],
+                "direct": false,
+                "include_self": true
+              }
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        },
+        "ontology_name": {
+          "type": "string",
+          "enum": ["UBERON", "BTO"]
+        }
+      }
+    },
+    "organ_part_model": {
+      "type": "object",
+      "name": "organ part model",
+      "description": "Organ part for which this organoid is a model system e.g. 'bone marrow' or 'islet of Langerhans'.",
+      "required": ["text", "term"],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "term": {
+          "oneOf": [
+            {
+              "type": "string",
+              "graph_restriction": {
+                "ontologies": ["obo:uberon", "obo:bto"],
+                "classes": ["UBERON:0001062", "BTO:0000042"],
+                "relations": ["rdfs:subClassOf"],
+                "direct": false,
+                "include_self": true
+              }
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        },
+        "ontology_name": {
+          "type": "string",
+          "enum": ["UBERON", "BTO"]
+        }
+      }
+    },
+    "freezing_date": {
+      "type": "object",
+      "name": "freezing date",
+      "description": "Date that the organoid was frozen.",
+      "required": ["value", "units"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])|[12]\\d{3}-(0[1-9]|1[0-2])|[12]\\d{3}$"
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["YYYY-MM-DD", "YYYY-MM", "YYYY", "restricted access"]
+        }
+      }
+    },
     "freezing_protocol": {
       "type": "object",
       "name": "freezing protocol",
