@@ -69,7 +69,7 @@
           "const": "OBI"
         },
         "_comment": {
-          "const": "Covers organism, specimen from organism, cell specimen, pool of specimens, cell culture, cell line."
+          "const": "Covers organism, specimen from organism, cell specimen, pool of specimens, cell culture, cell line, organoid."
         }
       }
     },

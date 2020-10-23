@@ -25,7 +25,7 @@
     "organ_model": {
       "type": "object",
       "name": "organ model",
-      "description": "Organ for which this organoid is a model system e.g. 'heart' or 'liver'.",
+      "description": "Organ for which this organoid is a model system e.g. 'heart' or 'liver'. High level organ term.",
       "required": ["text", "term"],
       "properties": {
         "text": {
@@ -60,7 +60,7 @@
     "organ_part_model": {
       "type": "object",
       "name": "organ part model",
-      "description": "Organ part for which this organoid is a model system e.g. 'bone marrow' or 'islet of Langerhans'.",
+      "description": "Organ part for which this organoid is a model system e.g. 'bone marrow' or 'islet of Langerhans'. More specific part of organ.",
       "required": ["text", "term"],
       "properties": {
         "text": {
@@ -84,7 +84,7 @@
           ]
         },
         "mandatory": {
-          "const": "mandatory"
+          "const": "optional"
         },
         "ontology_name": {
           "type": "string",
@@ -115,6 +115,32 @@
         "units": {
           "type": "string",
           "enum": ["YYYY-MM-DD", "YYYY-MM", "YYYY", "restricted access"]
+        }
+      }
+    },
+    "freezing_method": {
+      "type": "object",
+      "name": "freezing method",
+      "description": "Method of freezing of organoid. Temperatures are in celsius. 'Frozen, vapor phase' refers to storing samples above liquid nitrogen in the vapor.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "ambient temperature",
+            "cut slide",
+            "fresh",
+            "frozen, -70 freezer",
+            "frozen, -150 freezer",
+            "frozen, liquid nitrogen",
+            "frozen, vapor phase",
+            "paraffin block",
+            "RNAlater, frozen",
+            "TRIzol, frozen"
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
         }
       }
     },
@@ -191,11 +217,11 @@
         "units": {
           "type": "string",
           "enum": [
-            "meters",
             "seconds",
+            "minutes",
             "hours",
             "days",
-        	"weeks"]
+        	  "weeks"]
         },
         "mandatory": {
           "const": "mandatory"
@@ -204,8 +230,8 @@
     },
     "organoid_size": {
       "type": "object",
-      "name": "organoid size and units",
-      "description": "Organoid size.",
+      "name": "organoid size.",
+      "description": "Organoid size before freezing. Often taken from photo before freezing.",
       "required": ["value", "units"],
       "properties": {
         "value": {
@@ -242,7 +268,7 @@
     "organoid_morphology": {
       "type": "object",
       "name": "organoid morphology",
-      "description": "General description of the organoid morphology. e.g. 'Epithelial monolayer with budding crypt-like domains' or 'Optic cup structure'.",
+      "description": "General description of the organoid morphology. e.g. 'Epithelial monolayer with budding crypt-like domains' or 'Optic cup structure'. Be consistent within your project if multiple similar samples.",
       "required": ["value"],
       "properties": {
         "value": {
@@ -293,7 +319,7 @@
           "type": "number"
         },
         "units": {
-          "const": "%"
+          "const": "cells"
         },
         "mandatory": {
           "const": "mandatory"
@@ -303,7 +329,7 @@
     "stored_oxygen_level": {
       "type": "object",
       "name": "stored oxygen level",
-      "description": "Percentage oxygen level organoid was stored in last pasage.",
+      "description": "Percentage oxygen level organoid was stored in last passage.",
       "required": ["value", "units"],
       "properties": {
         "value": {

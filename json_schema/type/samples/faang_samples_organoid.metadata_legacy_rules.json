@@ -1,0 +1,360 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Ruleset for material is 'organoid'.",
+  "title": "FAANG sample metadata rules for 'organoid'",
+  "name": "faang_samples_organoid.metadata_rules",
+  "$async": true,
+  "type": "object",
+  "required": [
+  ],
+  "properties": {
+    "describedBy": {
+      "const": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_sample_metadata.md"
+    },
+    "schema_version": {
+      "description": "The version number of the schema in major.minor.patch format.",
+      "type": "string",
+      "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
+      "example": "4.6.1"
+    },
+    "samples_core": {
+      "description": "Core samples-level information.",
+      "type": "object",
+      "$ref": "core/samples/faang_samples_core.metadata_rules.json"
+    },
+    "organ_model": {
+      "type": "object",
+      "name": "organ model",
+      "description": "Organ for which this organoid is a model system e.g. 'heart' or 'liver'. High level organ term.",
+      "required": ["text", "term"],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "term": {
+          "oneOf": [
+            {
+              "type": "string",
+              "graph_restriction": {
+                "ontologies": ["obo:uberon", "obo:bto"],
+                "classes": ["UBERON:0001062", "BTO:0000042"],
+                "relations": ["rdfs:subClassOf"],
+                "direct": false,
+                "include_self": true
+              }
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        },
+        "ontology_name": {
+          "type": "string",
+          "enum": ["UBERON", "BTO"]
+        }
+      }
+    },
+    "organ_part_model": {
+      "type": "object",
+      "name": "organ part model",
+      "description": "Organ part for which this organoid is a model system e.g. 'bone marrow' or 'islet of Langerhans'. More specific part of organ.",
+      "required": ["text", "term"],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "term": {
+          "oneOf": [
+            {
+              "type": "string",
+              "graph_restriction": {
+                "ontologies": ["obo:uberon", "obo:bto"],
+                "classes": ["UBERON:0001062", "BTO:0000042"],
+                "relations": ["rdfs:subClassOf"],
+                "direct": false,
+                "include_self": true
+              }
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "optional"
+        },
+        "ontology_name": {
+          "type": "string",
+          "enum": ["UBERON", "BTO"]
+        }
+      }
+    },
+    "freezing_date": {
+      "type": "object",
+      "name": "freezing date",
+      "description": "Date that the organoid was frozen.",
+      "required": ["value", "units"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])|[12]\\d{3}-(0[1-9]|1[0-2])|[12]\\d{3}$"
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "optional"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["YYYY-MM-DD", "YYYY-MM", "YYYY", "restricted access"]
+        }
+      }
+    },
+    "freezing_method": {
+      "type": "object",
+      "name": "freezing method",
+      "description": "Method of freezing of organoid. Temperatures are in celsius. 'Frozen, vapor phase' refers to storing samples above liquid nitrogen in the vapor.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "ambient temperature",
+            "cut slide",
+            "fresh",
+            "frozen, -70 freezer",
+            "frozen, -150 freezer",
+            "frozen, liquid nitrogen",
+            "frozen, vapor phase",
+            "paraffin block",
+            "RNAlater, frozen",
+            "TRIzol, frozen"
+          ]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "freezing_protocol": {
+      "type": "object",
+      "name": "freezing protocol",
+      "description": "A link to the protocol for freezing.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "organoid passage": {
+      "type": "object",
+      "name": "input aggregate cell count",
+      "description": "Number of passages. Passage 0 is the plating of cells to create the organoid",
+      "required": ["value", "units"],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "passages"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    }, 
+    "organoid_passage_protocol": {
+      "type": "object",
+      "name": "organoid passage protocol",
+      "description": "A link to the protocol for organoid passage.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "organoid_age": {
+      "type": "object",
+      "name": "organoid age",
+      "description": "Organoid age since last passage.",
+      "required": ["value", "units"],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": [
+            "seconds",
+            "hours",
+            "days",
+        	  "weeks"]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "organoid_size": {
+      "type": "object",
+      "name": "organoid size.",
+      "description": "Organoid size before freezing. Often taken from photo before freezing.",
+      "required": ["value", "units"],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": [
+            "meters",
+            "centimeters",
+            "millimeters",
+            "micrometers"]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "type_of_organoid_culture": {
+      "type": "object",
+      "name": "type of organoid culture",
+      "description": "Whether the organoid culture two dimensional or three dimensional.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": ["2D", "3D"]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "organoid_morphology": {
+      "type": "object",
+      "name": "organoid morphology",
+      "description": "General description of the organoid morphology. e.g. 'Epithelial monolayer with budding crypt-like domains' or 'Optic cup structure'. Be consistent within your project if multiple similar samples.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+   	"embedded_in_matrigel": {
+      "type": "object",
+      "name": "embeddded in matrigel",
+      "description": "Whether the organoid is embedded in a matrigel. Yes or no.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": ["Yes", "No"]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+	"growth_environment": {
+      "type": "object",
+      "name": "growth environment",
+      "description": "Growth environment in which the organoid is grown. e.g. 'matrigel', 'liquid suspension' or 'adherent'.",
+      "required": ["value", "units"],
+      "properties": {
+		"value": {
+          "type": "string",
+          "enum": ["matrigel", "liquid suspension", "adherent"]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "input_aggregate_cell_count": {
+      "type": "object",
+      "name": "input aggregate cell count",
+      "description": "Estimated number of cells per input cell aggregate.",
+      "required": ["value", "units"],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "cells"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },    
+    "stored_oxygen_level": {
+      "type": "object",
+      "name": "stored oxygen level",
+      "description": "Percentage oxygen level organoid was stored in last passage.",
+      "required": ["value", "units"],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "%"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "derived_from": {
+      "type": "object",
+      "name": "derived from",
+      "description": "Sample name or BioSample ID for a specimen or organoid record.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    }
+  }
+}
