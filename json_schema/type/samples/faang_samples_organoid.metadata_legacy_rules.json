@@ -6,6 +6,8 @@
   "$async": true,
   "type": "object",
   "required": [
+    "samples_core",
+    "organ_model",
   ],
   "properties": {
     "describedBy": {

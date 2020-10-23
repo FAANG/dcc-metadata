@@ -6,6 +6,21 @@
   "$async": true,
   "type": "object",
   "required": [
+    "samples_core",
+    "organ_model",
+    "freezing_date",
+    "freezing_method",
+    "freezing_protocol",
+    "organoid passage",
+    "organoid_passage_protocol",
+    "organoid_age",
+    "type_of_organoid_culture",
+    "organoid_morphology",
+    "embedded_in_matrigel",
+    "growth_environment",
+    "input_aggregate_cell_count",
+    "stored_oxygen_level",
+    "derived_from"
   ],
   "properties": {
     "describedBy": {
