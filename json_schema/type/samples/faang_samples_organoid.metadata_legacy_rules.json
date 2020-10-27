@@ -241,7 +241,6 @@
         "units": {
           "type": "string",
           "enum": [
-            "meters",
             "centimeters",
             "millimeters",
             "micrometers"]
@@ -338,6 +337,23 @@
         },
         "units": {
           "const": "%"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "incubation_temperature": {
+      "type": "object",
+      "name": "incubation temperature",
+      "description": "Incubation temperature in last passage.",
+      "required": ["value", "units"],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "degrees celsius"
         },
         "mandatory": {
           "const": "optional"
