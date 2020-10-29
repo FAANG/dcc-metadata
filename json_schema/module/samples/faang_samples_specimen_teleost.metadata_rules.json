@@ -6,26 +6,18 @@
   "$async": true,
   "type": "object",
   "required": [
-    "generations_from_wild",
     "hatching",
     "maturity_state",
     "time_post_fertilisation",
-    "rearing_conditions",
-    "diet",
     "food_restriction",
     "pre-hatching_water_temperature_average",
     "post-hatching_water_temperature_average",
-    "average_water_oxygen",
     "average_water_salinity",
     "photoperiod",
-    "standard_length",
-    "total_length",
-    "fork_length",
     "sampling_weight",
     "sampling_day_start_time",
     "sampling_day_end_time",
     "method_of_schedule_1_killing",
-    "anaesthetic_or_sedative_name"
   ],
   "properties": {
     "describedBy": {
@@ -36,6 +28,25 @@
       "type": "string",
       "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
       "example": "4.6.1"
+    },
+    "origin": {
+      "type": "object",
+      "name": "Origin",
+      "description": "Organism origin",
+      "required": ["text"],
+      "properties": {
+        "text": {
+          "type": "string",
+          "enum": [
+            "Domesticated Double-haploid",
+            "Domesticated Isogenic",
+            "Wild",
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
     },
     "generations_from_wild": {
       "type": "object",
@@ -51,7 +62,74 @@
           "enum": ["generations from wild"]
         },
         "mandatory": {
-          "const": "recommended"
+          "const": "optional"
+        }
+      }
+    },
+    "experimental_strain_ID": {
+      "type": "object",
+      "name": "experimental strain ID",
+      "description": "Experimental strain ID",
+      "required": ["text"],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "genetic_background": {
+      "type": "object",
+      "name": "genetic_background",
+      "description": "Genetic background diversity.",
+      "required": ["text"],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "reproductive_strategy": {
+      "type": "object",
+      "name": "Reproductive strategy",
+      "description": "Reproductive strategy.",
+      "required": ["text"],
+      "properties": {
+        "text": {
+          "type": "string",
+          "enum": [
+            "gonochoric",
+            "simultaneous hermaphrodite",
+            "successive hermaphrodite"
+          ]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "gonad_type": {
+      "type": "object",
+      "name": "Gonad type",
+      "description": "Gonad type",
+      "required": ["text"],
+      "properties": {
+        "text": {
+          "type": "string",
+          "enum": [
+            "testis",
+            "ovary",
+            "intersexual/transitional stage",
+            "ovotestis"
+          ]
+        },
+        "mandatory": {
+          "const": "optional"
         }
       }
     },
@@ -110,26 +188,42 @@
         }
       }
     },
-    "rearing_conditions": {
+    "water_rearing_conditions": {
       "type": "object",
-      "name": "Rearing conditions",
-      "description": "Food composition of organism",
+      "name": "Water Rearing conditions",
+      "description": "The water rearing conditions.",
       "required": ["text"],
       "properties": {
         "text": {
           "type": "string",
           "enum": [
-            "Indoors",
-            "tanks",
-            "recirculated systems",
-            "cages"
+            "Closed water system (recirculatory)",
+            "Open water system"
           ]
         },
         "mandatory": {
           "const": "optional"
         }
       }
-    },    
+    },
+    "Post-hatching_animal_density": {
+      "type": "object",
+      "name": "Post-hatching animal density ",
+      "description": "Post-hatching animal density .",
+      "required": ["value", "units"],
+      "properties": {
+        "value": {
+          "type": "integer"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["hours"]TODO
+        },
+        "mandatory": {
+          "const": TODO
+        }
+      }
+    },   
     "diet": {
       "type": "object",
       "name": "diet",
@@ -176,7 +270,7 @@
           "enum": ["Degrees celsius"]
         },
         "mandatory": {
-          "const": "recommended"
+          "const": "mandatory"
         }
       }
     },
@@ -201,7 +295,7 @@
     "average_water_oxygen": {
       "type": "object",
       "name": "Average water oxygen length",
-      "description": "The average water oxygen during sampling",
+      "description": "The average water oxygen over organisms entire lifetime. Measured either as mg/L or %.",
       "required": ["value", "units"],
       "properties": {
         "value": {
@@ -209,7 +303,7 @@
         },
         "units": {
           "type": "string",
-          "enum": ["percent"]
+          "enum": ["%","mg/L"]
         },
         "mandatory": {
           "const": "optional"
@@ -219,7 +313,7 @@
     "average_water_salinity": {
       "type": "object",
       "name": "Average water salinity",
-      "description": "The average water salinity during sampling",
+      "description": "The average water salinity over organisms entire lifetime.",
       "required": ["value", "units"],
       "properties": {
         "value": {
@@ -309,7 +403,7 @@
     "sampling_weight": {
       "type": "object",
       "name": "Sampling weight",
-      "description": "Weight of entire organism at point of sampling",
+      "description": "Weight of entire organism at point of sampling.",
       "required": ["value", "units"],
       "properties": {
         "value": {
@@ -364,7 +458,12 @@
         "text": {
           "type": "string",
           "enum": [
-            TODO
+            "Non-lethal anaesthetic and exsanguination",
+            "Non-lethal anaesthetic and severing spinal cord",
+            "Lethal anaesthetic and exsanguination",
+            "Lethal anaesthetic and severing spinal cord",
+            "Concussive blow and exsanguination",
+            "Concussive blow and severing spinal cord",
           ]
         },
         "mandatory": {
@@ -381,7 +480,10 @@
         "text": {
           "type": "string",
           "enum": [
-            TODO
+            "Tricaine methanesulfonate (MS-222)",
+            "Tert-butyl hydroperoxide (TBH)",
+            "Benzocaine",
+            "Clove oil"
           ]
         },
         "mandatory": {

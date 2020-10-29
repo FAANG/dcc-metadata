@@ -9,7 +9,9 @@
     "hathcing",
     "time_post_fertilisation",
     "pre-hatching_water_temperature_average",
-    "degree days"
+    "degree_days",
+    "Growing_media"
+
   ],
   "properties": {
     "describedBy": {
@@ -71,7 +73,7 @@
           "enum": ["Degrees celsius"]
         },
         "mandatory": {
-          "const": "recommended"
+          "const": "mandatory"
         }
       }
     },
@@ -86,12 +88,47 @@
         },
         "units": {
           "type": "string",
+          "enum": ["Thermal time"]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "Growing_media": {
+      "type": "object",
+      "name": "Growing media or water",
+      "description": "Type of growing Media or water. Please contact FAANG DCC to add more controlled terms.",
+      "required": ["text"],
+      "properties": {
+        "text": {
+          "type": "string",
+          "enum": [
+            "Water"
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "medium_replacement_frequency": {
+      "type": "object",
+      "name": "Frequency of medium replacement in days.",
+      "description": "Degree days",
+      "required": ["value", "units"],
+      "properties": {
+        "value": {
+          "type": "integer"
+        },
+        "units": {
+          "type": "string",
           "enum": ["Days"]
         },
         "mandatory": {
           "const": "mandatory"
         }
       }
-    }
+    },
   }
 }
