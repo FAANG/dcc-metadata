@@ -1,0 +1,217 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Ruleset for material is 'cell specimen' or 'single cell specimen'.",
+  "title": "FAANG sample metadata rules for 'cell specimen' or 'single cell specimen'.",
+  "name": "faang_samples_purified_cells.metadata_rules",
+  "$async": true,
+  "type": "object",
+  "required": [
+    "tissue_dissociation",
+    "cell_enrichment",
+    "cell_type", 
+    "purification_protocol", 
+    "derived_from"],
+  "properties": {
+    "describedBy": {
+      "const": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_sample_metadata.md"
+    },
+    "schema_version": {
+      "description": "The version number of the schema in major.minor.patch format.",
+      "type": "string",
+      "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
+      "example": "4.6.1"
+    },
+    "samples_core": {
+      "description": "Core samples-level information.",
+      "type": "object",
+      "$ref": "core/samples/faang_samples_core.metadata_rules.json"
+    },
+    "tissue_dissociation": {
+      "type": "object",
+      "name": "Tissue dissociation",
+      "description": "The method by which tissues are dissociated into purified or single cells in suspension. Examples are 'proteolysis', 'mesh passage', 'fine needle trituration'. Please contact FAANG DCC to add more terms.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": ["proteolysis", "mesh passage", "fine needle trituration"]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "cell_enrichment": {
+      "type": "object",
+      "name": "Cell enrichment",
+      "description": "The method by which specific cell populations are sorted or enriched, e.g. 'fluorescence-activated cell sorting (FACS)'. Please contact FAANG DCC to add more terms.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": ["fluorescence-activated cell sorting (FACS)"]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "enrichment_markers": {
+      "type": "object",
+      "name": "Enrichment markers",
+      "description": "Description of the specificity markers used to isolate cell populations, e.g. 'CD45+'. Please contact FAANG DCC to add more terms.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": ["CD45+"]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "cell_type": {
+      "type": "array",
+      "name": "cell type",
+      "description": "Provide a cell type from the CL ontology.",
+      "items": {
+        "type": "object",
+        "required": ["text", "term"],
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "term": {
+            "oneOf": [
+              {
+                "type": "string",
+                "graph_restriction": {
+                  "ontologies": ["obo:cl"],
+                  "classes": ["CL:0000000"],
+                  "relations": ["rdfs:subClassOf"],
+                  "direct": false,
+                  "include_self": true
+                }
+              },
+              {
+                "const": "restricted access"
+              }
+            ]
+          },
+          "mandatory": {
+            "const": "mandatory"
+          },
+          "ontology_name": {
+            "const": "CL"
+          }
+        }
+      }
+    },
+    "single_cell_isolation": {
+      "type": "object",
+      "name": "Single cell isolation",
+      "description": "The method by which individual cells, nuclei, or another portion are separated for individual barcoding. Examples are 'FACS', 'microfluidics', 'manual selection', 'droplet-based cell isolation'. Please contact FAANG DCC to add more terms.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": ["FACS", "microfluidics", "manual selection", "droplet-based cell isolation"]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "single_cell_entity": {
+      "type": "object",
+      "name": "Single cell entity",
+      "description": "The type of single cell entity derived from isolation protocol e.g. 'whole cell', 'nucleus', 'cell-cell multimer', 'spatially encoded cell barcoding'. Please contact FAANG DCC to add more terms.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": ["whole cell", "nucleus", "cell-cell multimer", "spatially encoded cell barcoding"]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "single_cell_quality": {
+      "type": "object",
+      "name": "Single cell quality",
+      "description": "Visual inspection prior to cell lysis qualified as OK or not OK.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": ["OK", "not OK"]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "cell_number": {
+      "type": "object",
+      "name": "number of pieces",
+      "description": "For droplet experiments, the number of cells used as input for the library preparation, e.g. '5000'.",
+      "required": ["value", "units"],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "cells"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "single_cell_isolation_protocol": {
+      "type": "object",
+      "name": "Single cell isolation protocol",
+      "description": "Link to protocol describing how the single cells were separated into a single-cell suspension.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "derived_from": {
+      "type": "object",
+      "name": "Derived from",
+      "description": "Sample name or BioSample ID for a specimen record.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    }
+  }
+}
