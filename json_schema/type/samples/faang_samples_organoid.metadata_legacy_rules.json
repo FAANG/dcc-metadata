@@ -229,27 +229,6 @@
         }
       }
     },
-    "organoid_size": {
-      "type": "object",
-      "name": "organoid size.",
-      "description": "Organoid size before freezing. Often taken from photo before freezing.",
-      "required": ["value", "units"],
-      "properties": {
-        "value": {
-          "type": "number"
-        },
-        "units": {
-          "type": "string",
-          "enum": [
-            "centimeters",
-            "millimeters",
-            "micrometers"]
-        },
-        "mandatory": {
-          "const": "optional"
-        }
-      }
-    },
     "type_of_organoid_culture": {
       "type": "object",
       "name": "type of organoid culture",
