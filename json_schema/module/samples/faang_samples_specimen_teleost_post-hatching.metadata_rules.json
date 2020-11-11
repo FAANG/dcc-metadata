@@ -1,14 +1,18 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Ruleset for specimens from teleost fish",
-  "title": "FAANG sample metadata rules for Teleostei",
-  "name": "faang_samples_specimen_teleost.metadata_rules",
+  "description": "Ruleset for post-hatching specimens from teleost fish",
+  "title": "FAANG sample metadata rules for post-hatching Teleostei",
+  "name": "faang_samples_specimen_teleost_post-hatching.metadata_rules",
   "$async": true,
   "type": "object",
   "required": [
+    "origin",
+    "reproductive_strategy",
+    "gonad_type",
     "hatching",
     "maturity_state",
     "time_post_fertilisation",
+    "post-hatching_animal_density",
     "food_restriction",
     "pre-hatching_water_temperature_average",
     "post-hatching_water_temperature_average",
@@ -32,15 +36,55 @@
     "origin": {
       "type": "object",
       "name": "Origin",
-      "description": "Organism origin",
+      "description": "Organism origin, one of four accepted terms.",
       "required": ["text"],
       "properties": {
         "text": {
           "type": "string",
           "enum": [
+            "Domesticated diploid",
             "Domesticated Double-haploid",
             "Domesticated Isogenic",
             "Wild",
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "reproductive_strategy": {
+      "type": "object",
+      "name": "Reproductive strategy",
+      "description": "Reproductive strategy.",
+      "required": ["text"],
+      "properties": {
+        "text": {
+          "type": "string",
+          "enum": [
+            "gonochoric",
+            "simultaneous hermaphrodite",
+            "successive hermaphrodite"
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "gonad_type": {
+      "type": "object",
+      "name": "Gonad type",
+      "description": "Gonad type.",
+      "required": ["text"],
+      "properties": {
+        "text": {
+          "type": "string",
+          "enum": [
+            "testis",
+            "ovary",
+            "intersexual/transitional stage",
+            "ovotestis",
           ]
         },
         "mandatory": {
@@ -88,45 +132,6 @@
       "properties": {
         "text": {
           "type": "string"
-        },
-        "mandatory": {
-          "const": "optional"
-        }
-      }
-    },
-    "reproductive_strategy": {
-      "type": "object",
-      "name": "Reproductive strategy",
-      "description": "Reproductive strategy.",
-      "required": ["text"],
-      "properties": {
-        "text": {
-          "type": "string",
-          "enum": [
-            "gonochoric",
-            "simultaneous hermaphrodite",
-            "successive hermaphrodite"
-          ]
-        },
-        "mandatory": {
-          "const": "optional"
-        }
-      }
-    },
-    "gonad_type": {
-      "type": "object",
-      "name": "Gonad type",
-      "description": "Gonad type",
-      "required": ["text"],
-      "properties": {
-        "text": {
-          "type": "string",
-          "enum": [
-            "testis",
-            "ovary",
-            "intersexual/transitional stage",
-            "ovotestis"
-          ]
         },
         "mandatory": {
           "const": "optional"
@@ -206,21 +211,21 @@
         }
       }
     },
-    "Post-hatching_animal_density": {
+    "post-hatching_animal_density": {
       "type": "object",
       "name": "Post-hatching animal density ",
-      "description": "Post-hatching animal density .",
+      "description": "Post-hatching animal density measured in Kg/L.",
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "integer"
+          "type": "number"
         },
         "units": {
           "type": "string",
-          "enum": ["hours"]TODO
+          "enum": ["Kg/L"]
         },
         "mandatory": {
-          "const": TODO
+          "const": "mandatory"
         }
       }
     },   
@@ -490,6 +495,6 @@
           "const": "optional"
         }
       }
-    },
+    }
   }
 }
