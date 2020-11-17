@@ -6,13 +6,18 @@
   "$async": true,
   "type": "object",
   "required": [
+    "origin",
+    "reproductive_strategy",
     "hathcing",
     "time_post_fertilisation",
     "pre-hatching_water_temperature_average",
+    "post-hatching_water_temperature_average",
     "degree_days",
     "growth_media",
     "medium_replacement_frequency",
-
+    "percentage_total_somite_number",
+    "average_water_salinity",
+    "photoperiod"
   ],
   "properties": {
     "describedBy": {
@@ -23,6 +28,45 @@
       "type": "string",
       "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
       "example": "4.6.1"
+    },
+    "origin": {
+      "type": "object",
+      "name": "Origin",
+      "description": "Organism origin, one of four accepted terms.",
+      "required": ["text"],
+      "properties": {
+        "text": {
+          "type": "string",
+          "enum": [
+            "Domesticated diploid",
+            "Domesticated Double-haploid",
+            "Domesticated Isogenic",
+            "Wild",
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "reproductive_strategy": {
+      "type": "object",
+      "name": "Reproductive strategy",
+      "description": "Reproductive strategy.",
+      "required": ["text"],
+      "properties": {
+        "text": {
+          "type": "string",
+          "enum": [
+            "gonochoric",
+            "simultaneous hermaphrodite",
+            "successive hermaphrodite"
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
     },
     "hatching": {
       "type": "object",
@@ -63,6 +107,24 @@
     "pre-hatching_water_temperature_average": {
       "type": "object",
       "name": "Pre-hatching water temperature average",
+      "description": "The average measured water temperature recoded post-hatching in degrees Celsius",
+      "required": ["value", "units"],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["Degrees celsius"]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "post-hatching_water_temperature_average": {
+      "type": "object",
+      "name": "Post-hatching water temperature average",
       "description": "The average measured water temperature recoded post-hatching in degrees Celsius",
       "required": ["value", "units"],
       "properties": {
@@ -149,6 +211,60 @@
           "const": "mandatory"
         }
       }
-    }
+    },
+    "average_water_salinity": {
+      "type": "object",
+      "name": "Average water salinity",
+      "description": "The average water salinity over organisms entire lifetime.",
+      "required": ["value", "units"],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["parts per thousand"]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "photoperiod": {
+      "type": "object",
+      "name": "Photoperiod",
+      "description": "The photoperiod cycle recorded as light to dark ratio, or as 'natural light",
+      "required": ["text"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {"type": "string",
+            "pattern": "^[0-24]L:[0-24]D$"},
+            {"const": "natural light"}
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "generations_from_wild": {
+      "type": "object",
+      "name": "Generations from wild",
+      "description": "Generations from wild, put 0 if a wild caught fish",
+      "required": ["value", "units"],
+      "properties": {
+        "value": {
+          "type": "integer"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["generations from wild"]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    } 
   }
 }
