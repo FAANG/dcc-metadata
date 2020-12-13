@@ -145,7 +145,7 @@
           "type": "string",
           "enum": [
             "pre",
-            "post",
+            "post"
           ]
         },
         "mandatory": {
@@ -475,5 +475,5 @@
         }
       }
     }
-  }
 }
+
