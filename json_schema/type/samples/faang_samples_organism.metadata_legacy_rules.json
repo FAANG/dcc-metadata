@@ -126,6 +126,20 @@
         }
       }
     },
+    "diet": {
+      "type": "object",
+      "name": "diet",
+      "description": "Organism diet summary, more detailed information will be recorded in the associated protocols. Particuarly important for projects with controlled diet treatements. Free text field, but ensure standardisation within each study.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
     "birth_location": {
       "type": "object",
       "name": "birth location",
@@ -248,6 +262,20 @@
         }
       }
     },
+    "pedigree": {
+      "type": "object",
+      "name": "Pedigree",
+      "description": "A link to pedigree information for the animal.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
     "child_of": {
       "type": "array",
       "name": "Child of",
@@ -262,20 +290,6 @@
           "mandatory": {
             "const": "optional"
           }
-        }
-      }
-    },
-    "pedigree": {
-      "type": "object",
-      "name": "Pedigree",
-      "description": "A link to pedigree information for the animal.",
-      "required": ["value"],
-      "properties": {
-        "value": {
-          "type": "string"
-        },
-        "mandatory": {
-          "const": "optional"
         }
       }
     }
