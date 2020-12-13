@@ -45,6 +45,7 @@
             "pool of specimens",
             "cell culture",
             "cell line",
+            "organoid",
             "restricted access"
           ]
         },
@@ -57,6 +58,7 @@
             "OBI:0302716",
             "OBI:0001876",
             "CLO:0000031",
+            "NCIT_C172259",
             "restricted access"
           ]
         },
@@ -67,7 +69,7 @@
           "const": "OBI"
         },
         "_comment": {
-          "const": "Covers organism, specimen from organism, cell specimen, pool of specimens, cell culture, cell line."
+          "const": "Covers organism, specimen from organism, cell specimen, pool of specimens, cell culture, cell line, organoid."
         }
       }
     },
