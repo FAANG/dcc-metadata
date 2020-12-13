@@ -34,7 +34,9 @@
       "type": "object",
       "name": "Origin",
       "description": "Organism origin, one of four accepted terms.",
-      "required": ["text"],
+      "required": [
+        "text"
+      ],
       "properties": {
         "text": {
           "type": "string",
@@ -54,7 +56,9 @@
       "type": "object",
       "name": "Reproductive strategy",
       "description": "Reproductive strategy.",
-      "required": ["text"],
+      "required": [
+        "text"
+      ],
       "properties": {
         "text": {
           "type": "string",
@@ -73,7 +77,9 @@
       "type": "object",
       "name": "Gonad type",
       "description": "Gonad type.",
-      "required": ["text"],
+      "required": [
+        "text"
+      ],
       "properties": {
         "text": {
           "type": "string",
@@ -93,14 +99,19 @@
       "type": "object",
       "name": "Generations from wild",
       "description": "Generations from wild, put 0 if a wild caught fish",
-      "required": ["value", "units"],
+      "required": [
+        "value",
+        "units"
+      ],
       "properties": {
         "value": {
           "type": "integer"
         },
         "units": {
           "type": "string",
-          "enum": ["generations from wild"]
+          "enum": [
+            "generations from wild"
+          ]
         },
         "mandatory": {
           "const": "recommended"
@@ -111,7 +122,9 @@
       "type": "object",
       "name": "experimental strain ID",
       "description": "Experimental strain ID",
-      "required": ["text"],
+      "required": [
+        "text"
+      ],
       "properties": {
         "text": {
           "type": "string"
@@ -125,7 +138,9 @@
       "type": "object",
       "name": "genetic_background",
       "description": "Genetic background diversity.",
-      "required": ["text"],
+      "required": [
+        "text"
+      ],
       "properties": {
         "text": {
           "type": "string"
@@ -139,7 +154,9 @@
       "type": "object",
       "name": "hatching",
       "description": "Sampled organism is pre- or post-hatching",
-      "required": ["text"],
+      "required": [
+        "text"
+      ],
       "properties": {
         "text": {
           "type": "string",
@@ -157,13 +174,22 @@
       "type": "object",
       "name": "Maturity state",
       "description": "Maturity state, either Mature (PATO_0001701) or Immature (PATO_0001501). Gonnad development state supported by micrographs.",
-      "required": ["text"],
+      "required": [
+        "text"
+      ],
       "properties": {
         "type": "string",
-          "graph_restriction": {
-          "ontologies": ["obo:pato"],
-          "classes": ["PATO_0001501", "PATO_0001701"],
-          "relations": ["rdfs:subClassOf"],
+        "graph_restriction": {
+          "ontologies": [
+            "obo:pato"
+          ],
+          "classes": [
+            "PATO_0001501",
+            "PATO_0001701"
+          ],
+          "relations": [
+            "rdfs:subClassOf"
+          ],
           "direct": false,
           "include_self": true
         },
@@ -176,14 +202,22 @@
       "type": "object",
       "name": "Time post fertilisation",
       "description": "The time passed since fertilisation.",
-      "required": ["value", "units"],
+      "required": [
+        "value",
+        "units"
+      ],
       "properties": {
         "value": {
           "type": "number"
         },
         "units": {
           "type": "string",
-          "enum": ["hours", "days", "months", "years"]
+          "enum": [
+            "hours",
+            "days",
+            "months",
+            "years"
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -194,7 +228,9 @@
       "type": "object",
       "name": "Water Rearing conditions",
       "description": "The water rearing conditions.",
-      "required": ["text"],
+      "required": [
+        "text"
+      ],
       "properties": {
         "text": {
           "type": "string",
@@ -212,25 +248,32 @@
       "type": "object",
       "name": "Post-hatching animal density ",
       "description": "Post-hatching animal density measured in Kg/L.",
-      "required": ["value", "units"],
+      "required": [
+        "value",
+        "units"
+      ],
       "properties": {
         "value": {
           "type": "number"
         },
         "units": {
           "type": "string",
-          "enum": ["Kg/L"]
+          "enum": [
+            "Kg/L"
+          ]
         },
         "mandatory": {
           "const": "mandatory"
         }
       }
-    },   
+    },
     "diet": {
       "type": "object",
       "name": "diet",
       "description": "Food composition of organism",
-      "required": ["text"],
+      "required": [
+        "text"
+      ],
       "properties": {
         "text": {
           "type": "string"
@@ -244,14 +287,19 @@
       "type": "object",
       "name": "Food restriction",
       "description": "Hours since last feeding",
-      "required": ["value", "units"],
+      "required": [
+        "value",
+        "units"
+      ],
       "properties": {
         "value": {
           "type": "integer"
         },
         "units": {
           "type": "string",
-          "enum": ["hours"]
+          "enum": [
+            "hours"
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -262,14 +310,19 @@
       "type": "object",
       "name": "Post-hatching water temperature average",
       "description": "The average measured water temperature recoded post-hatching in degrees Celsius",
-      "required": ["value", "units"],
+      "required": [
+        "value",
+        "units"
+      ],
       "properties": {
         "value": {
           "type": "number"
         },
         "units": {
           "type": "string",
-          "enum": ["Degrees celsius"]
+          "enum": [
+            "Degrees celsius"
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -280,32 +333,43 @@
       "type": "object",
       "name": "Average water oxygen",
       "description": "The average water oxygen over organisms entire lifetime. Measured either as mg/L or %.",
-      "required": ["value", "units"],
+      "required": [
+        "value",
+        "units"
+      ],
       "properties": {
         "value": {
           "type": "number"
         },
         "units": {
           "type": "string",
-          "enum": ["%","mg/L"]
+          "enum": [
+            "%",
+            "mg/L"
+          ]
         },
         "mandatory": {
           "const": "optional"
         }
       }
-    }, 
+    },
     "average_water_salinity": {
       "type": "object",
       "name": "Average water salinity",
       "description": "The average water salinity over organisms entire lifetime.",
-      "required": ["value", "units"],
+      "required": [
+        "value",
+        "units"
+      ],
       "properties": {
         "value": {
           "type": "number"
         },
         "units": {
           "type": "string",
-          "enum": ["parts per thousand"]
+          "enum": [
+            "parts per thousand"
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -316,32 +380,44 @@
       "type": "object",
       "name": "Photoperiod",
       "description": "The photoperiod cycle recorded as light to dark ratio, or as 'natural light",
-      "required": ["text"],
+      "required": [
+        "text"
+      ],
       "properties": {
         "value": {
           "oneOf": [
-            {"type": "string",
-            "pattern": "^[0-24]L:[0-24]D$"},
-            {"const": "natural light"}
+            {
+              "type": "string",
+              "pattern": "^[0-24]L:[0-24]D$"
+            },
+            {
+              "const": "natural light"
+            }
           ]
         },
         "mandatory": {
           "const": "mandatory"
         }
       }
-    },   
+    },
     "standard_length": {
       "type": "object",
       "name": "Standard length",
       "description": "Measured length from the tip of the snout to the posterior end of the last vertebra",
-      "required": ["value", "units"],
+      "required": [
+        "value",
+        "units"
+      ],
       "properties": {
         "value": {
           "type": "number"
         },
         "units": {
           "type": "string",
-          "enum": ["millimeters","centimeters"]
+          "enum": [
+            "millimeters",
+            "centimeters"
+          ]
         },
         "mandatory": {
           "const": "recommended"
@@ -352,14 +428,20 @@
       "type": "object",
       "name": "Total length",
       "description": "Measured length from the tip of the snout to the furtherst reach of the caudal fin",
-      "required": ["value", "units"],
+      "required": [
+        "value",
+        "units"
+      ],
       "properties": {
         "value": {
           "type": "number"
         },
         "units": {
           "type": "string",
-          "enum": ["millimeters","centimeters"]
+          "enum": [
+            "millimeters",
+            "centimeters"
+          ]
         },
         "mandatory": {
           "const": "recommended"
@@ -370,14 +452,20 @@
       "type": "object",
       "name": "Fork length",
       "description": "Measured length from the tip of the snout to the end of the middle caudal fin rays",
-      "required": ["value", "units"],
+      "required": [
+        "value",
+        "units"
+      ],
       "properties": {
         "value": {
           "type": "number"
         },
         "units": {
           "type": "string",
-          "enum": ["millimeters","centimeters"]
+          "enum": [
+            "millimeters",
+            "centimeters"
+          ]
         },
         "mandatory": {
           "const": "recommended"
@@ -388,14 +476,20 @@
       "type": "object",
       "name": "Sampling weight",
       "description": "Weight of entire organism at point of sampling.",
-      "required": ["value", "units"],
+      "required": [
+        "value",
+        "units"
+      ],
       "properties": {
         "value": {
           "type": "number"
         },
         "units": {
           "type": "string",
-          "enum": ["grams","kilograms"]
+          "enum": [
+            "grams",
+            "kilograms"
+          ]
         },
         "mandatory": {
           "const": "mandatory"
@@ -406,23 +500,26 @@
       "type": "object",
       "name": "Sampling data start time",
       "description": "The time of day (local time) that sampling started",
-      "required": ["value"],
+      "required": [
+        "value"
+      ],
       "properties": {
         "value": {
           "type": "string",
           "pattern": "^([0-1][0-9]|[2][0-3]):([0-5][0-9])$"
-          }
-        },
-        "mandatory": {
-          "const": "recommended"
         }
+      },
+      "mandatory": {
+        "const": "recommended"
       }
     },
     "sampling_day_end_time": {
       "type": "object",
       "name": "Sampling data end time",
       "description": "The time of day (local time) that sampling ended",
-      "required": ["value"],
+      "required": [
+        "value"
+      ],
       "properties": {
         "value": {
           "type": "string",
@@ -437,7 +534,9 @@
       "type": "object",
       "name": "Method of schedule 1 killing",
       "description": "The method used for schedule 1 killing of organism",
-      "required": ["text"],
+      "required": [
+        "text"
+      ],
       "properties": {
         "text": {
           "type": "string",
@@ -459,7 +558,9 @@
       "type": "object",
       "name": "Anaesthetic or sedative name",
       "description": "Anaesthetic or sedative name used in sampling. To add more controlled terms contact FAANG DCC",
-      "required": ["text"],
+      "required": [
+        "text"
+      ],
       "properties": {
         "text": {
           "type": "string",
@@ -475,5 +576,6 @@
         }
       }
     }
+  }
 }
 
