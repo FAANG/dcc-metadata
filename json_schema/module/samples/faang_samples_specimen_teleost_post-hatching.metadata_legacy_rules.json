@@ -18,7 +18,7 @@
     "average_water_salinity",
     "photoperiod",
     "sampling_weight",
-    "method_of_schedule_1_killing",
+    "method_of_schedule_1_killing"
   ],
   "properties": {
     "describedBy": {
@@ -42,7 +42,7 @@
             "Domesticated diploid",
             "Domesticated Double-haploid",
             "Domesticated Isogenic",
-            "Wild",
+            "Wild"
           ]
         },
         "mandatory": {
@@ -81,7 +81,7 @@
             "testis",
             "ovary",
             "intersexual/transitional stage",
-            "ovotestis",
+            "ovotestis"
           ]
         },
         "mandatory": {
@@ -145,7 +145,7 @@
           "type": "string",
           "enum": [
             "pre",
-            "post",
+            "post"
           ]
         },
         "mandatory": {
@@ -447,7 +447,7 @@
             "Lethal anaesthetic and exsanguination",
             "Lethal anaesthetic and severing spinal cord",
             "Concussive blow and exsanguination",
-            "Concussive blow and severing spinal cord",
+            "Concussive blow and severing spinal cord"
           ]
         },
         "mandatory": {

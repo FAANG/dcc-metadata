@@ -41,7 +41,7 @@
             "Domesticated diploid",
             "Domesticated Double-haploid",
             "Domesticated Isogenic",
-            "Wild",
+            "Wild"
           ]
         },
         "mandatory": {
@@ -78,7 +78,7 @@
           "type": "string",
           "enum": [
             "pre",
-            "post",
+            "post"
           ]
         },
         "mandatory": {
