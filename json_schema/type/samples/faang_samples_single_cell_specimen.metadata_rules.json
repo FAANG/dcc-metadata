@@ -9,7 +9,7 @@
     "tissue_dissociation",
     "cell_enrichment",
     "cell_type", 
-    "purification_protocol", 
+    "single_cell_isolation_protocol", 
     "derived_from"],
   "properties": {
     "describedBy": {
@@ -29,12 +29,12 @@
     "tissue_dissociation": {
       "type": "object",
       "name": "Tissue dissociation",
-      "description": "The method by which tissues are dissociated into purified or single cells in suspension. Examples are 'proteolysis', 'mesh passage', 'fine needle trituration'. Please contact FAANG DCC to add more terms.",
+      "description": "The method by which tissues are dissociated into purified or single cells in suspension. Examples are 'proteolysis', 'mesh passage', 'fine needle trituration'. For blood, milk and other fluids, where there is no tissue dissociation use 'fluids'. Please contact FAANG DCC to add more terms.",
       "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
-          "enum": ["proteolysis", "mesh passage", "fine needle trituration"]
+          "enum": ["proteolysis", "mesh passage", "fine needle trituration", "fluids"]
         },
         "mandatory": {
           "const": "mandatory"
@@ -49,7 +49,7 @@
       "properties": {
         "value": {
           "type": "string",
-          "enum": ["fluorescence-activated cell sorting (FACS)"]
+          "enum": ["fluorescence-activated cell sorting (FACS)", "centrifugation", "magnetic levitation", "bead-based sorting", "Raman-spectometry sorting", "cell culture"]
         },
         "mandatory": {
           "const": "mandatory"
@@ -64,7 +64,7 @@
       "properties": {
         "value": {
           "type": "string",
-          "enum": ["CD45+"]
+          "enum": ["CD45+", "CD8+", "CD4+", "CD14+", "KRT8+", "KRT18+", "CD68+", "CD79A+", "CD79B+"]
         },
         "mandatory": {
           "const": "recommended"
@@ -141,12 +141,12 @@
     "single_cell_quality": {
       "type": "object",
       "name": "Single cell quality",
-      "description": "Visual inspection prior to cell lysis qualified as OK or not OK.",
+      "description": "Inspection type prior to cell lysis.",
       "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
-          "enum": ["OK", "not OK"]
+          "enum": ["visual inspection", "viability metrics", "not done"]
         },
         "mandatory": {
           "const": "recommended"

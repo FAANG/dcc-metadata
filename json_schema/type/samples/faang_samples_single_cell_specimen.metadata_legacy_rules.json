@@ -7,7 +7,10 @@
   "type": "object",
   "required": [
     "tissue_dissociation",
-    "cell_enrichment"],
+    "cell_enrichment",
+    "cell_type", 
+    "single_cell_isolation_protocol", 
+    "derived_from"],
   "properties": {
     "describedBy": {
       "const": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_sample_metadata.md"
@@ -26,12 +29,12 @@
     "tissue_dissociation": {
       "type": "object",
       "name": "Tissue dissociation",
-      "description": "The method by which tissues are dissociated into purified or single cells in suspension. Examples are 'proteolysis', 'mesh passage', 'fine needle trituration'. Please contact FAANG DCC to add more terms.",
+      "description": "The method by which tissues are dissociated into purified or single cells in suspension. Examples are 'proteolysis', 'mesh passage', 'fine needle trituration'. For blood, milk and other fluids, where there is no tissue dissociation use 'fluids'. Please contact FAANG DCC to add more terms.",
       "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
-          "enum": ["proteolysis", "mesh passage", "fine needle trituration"]
+          "enum": ["proteolysis", "mesh passage", "fine needle trituration", "fluids"]
         },
         "mandatory": {
           "const": "mandatory"
@@ -46,7 +49,7 @@
       "properties": {
         "value": {
           "type": "string",
-          "enum": ["fluorescence-activated cell sorting (FACS)"]
+          "enum": ["fluorescence-activated cell sorting (FACS)", "centrifugation", "magnetic levitation", "bead-based sorting", "Raman-spectometry sorting", "cell culture"]
         },
         "mandatory": {
           "const": "mandatory"
@@ -61,10 +64,10 @@
       "properties": {
         "value": {
           "type": "string",
-          "enum": ["CD45+"]
+          "enum": ["CD45+", "CD8+", "CD4+", "CD14+", "KRT8+", "KRT18+", "CD68+", "CD79A+", "CD79B+"]
         },
         "mandatory": {
-          "const": "optional"
+          "const": "recommended"
         }
       }
     },
@@ -97,7 +100,7 @@
             ]
           },
           "mandatory": {
-            "const": "optional"
+            "const": "mandatory"
           },
           "ontology_name": {
             "const": "CL"
@@ -116,7 +119,7 @@
           "enum": ["FACS", "microfluidics", "manual selection", "droplet-based cell isolation"]
         },
         "mandatory": {
-          "const": "optional"
+          "const": "recommended"
         }
       }
     },
@@ -131,22 +134,22 @@
           "enum": ["whole cell", "nucleus", "cell-cell multimer", "spatially encoded cell barcoding"]
         },
         "mandatory": {
-          "const": "optional"
+          "const": "recommended"
         }
       }
     },
     "single_cell_quality": {
       "type": "object",
       "name": "Single cell quality",
-      "description": "Visual inspection prior to cell lysis qualified as OK or not OK.",
+      "description": "Inspection type prior to cell lysis.",
       "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
-          "enum": ["OK", "not OK"]
+          "enum": ["visual inspection", "viability metrics", "not done"]
         },
         "mandatory": {
-          "const": "optional"
+          "const": "recommended"
         }
       }
     },
@@ -163,7 +166,7 @@
           "const": "cells"
         },
         "mandatory": {
-          "const": "optional"
+          "const": "recommended"
         }
       }
     },
@@ -185,7 +188,7 @@
           ]
         },
         "mandatory": {
-          "const": "optional"
+          "const": "mandatory"
         }
       }
     },
@@ -206,7 +209,7 @@
           ]
         },
         "mandatory": {
-          "const": "optional"
+          "const": "mandatory"
         }
       }
     }
