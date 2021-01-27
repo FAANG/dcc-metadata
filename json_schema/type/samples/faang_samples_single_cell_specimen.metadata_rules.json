@@ -155,7 +155,7 @@
     },
     "cell_number": {
       "type": "object",
-      "name": "number of pieces",
+      "name": "Cell number",
       "description": "For droplet experiments, the number of cells used as input for the library preparation, e.g. '5000'.",
       "required": ["value", "units"],
       "properties": {
