@@ -135,7 +135,7 @@
         }
       }
     },
-    "rna_purity-260:280_ratio": {
+    "rna_purity_260-280_ratio": {
       "type": "object",
       "name": "rna purity - 260:280 ratio",
       "description": "Sample purity assessed with fluorescence ratio at 260 and 280nm, informative for protein contamination.",
@@ -162,7 +162,7 @@
         }
       }
     },
-    "rna_purity-260:230_ratio": {
+    "rna_purity_260-230_ratio": {
       "type": "object",
       "name": "rna purity - 260:230 ratio",
       "description": "Sample purity assessed with fluorescence ratio at 260 and 230nm, informative for contamination by phenolate ion, thiocyanates, and other organic compounds.",
