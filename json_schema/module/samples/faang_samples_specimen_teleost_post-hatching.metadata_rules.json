@@ -182,7 +182,7 @@
         "term": {
           "type": "string",
           "graph_restriction": {
-            "ontologies": ["obo:pato"],
+            "ontologies": ["obo:pato", "obo:pato"],
             "classes": ["PATO_0001501", "PATO_0001701"],
             "relations": ["rdfs:subClassOf"],
             "direct": false,
