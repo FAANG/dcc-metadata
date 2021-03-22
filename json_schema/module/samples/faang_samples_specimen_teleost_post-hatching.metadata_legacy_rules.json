@@ -38,7 +38,7 @@
         "text"
       ],
       "properties": {
-        "text": {
+        "value": {
           "type": "string",
           "enum": [
             "Domesticated diploid",
@@ -60,7 +60,7 @@
         "text"
       ],
       "properties": {
-        "text": {
+        "value": {
           "type": "string",
           "enum": [
             "gonochoric",
@@ -81,7 +81,7 @@
         "text"
       ],
       "properties": {
-        "text": {
+        "value": {
           "type": "string",
           "enum": [
             "testis",
@@ -105,7 +105,7 @@
       ],
       "properties": {
         "value": {
-          "type": "integer"
+          "type": "number"
         },
         "units": {
           "type": "string",
@@ -126,7 +126,7 @@
         "text"
       ],
       "properties": {
-        "text": {
+        "value": {
           "type": "string"
         },
         "mandatory": {
@@ -142,7 +142,7 @@
         "text"
       ],
       "properties": {
-        "text": {
+        "value": {
           "type": "string"
         },
         "mandatory": {
@@ -158,7 +158,7 @@
         "text"
       ],
       "properties": {
-        "text": {
+        "value": {
           "type": "string",
           "enum": [
             "pre",
@@ -535,10 +535,10 @@
       "name": "Method of schedule 1 killing",
       "description": "The method used for schedule 1 killing of organism",
       "required": [
-        "text"
+        "value"
       ],
       "properties": {
-        "text": {
+        "value": {
           "type": "string",
           "enum": [
             "Non-lethal anaesthetic and exsanguination",
@@ -559,10 +559,10 @@
       "name": "Anaesthetic or sedative name",
       "description": "Anaesthetic or sedative name used in sampling. To add more controlled terms contact FAANG DCC",
       "required": [
-        "text"
+        "value"
       ],
       "properties": {
-        "text": {
+        "value": {
           "type": "string",
           "enum": [
             "Tricaine methanesulfonate (MS-222)",
