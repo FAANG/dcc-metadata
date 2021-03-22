@@ -191,6 +191,10 @@
         },
         "mandatory": {
           "const": "mandatory"
+        },
+        "ontology_name": {
+          "type": "string",
+          "enum": ["PATO"]
         }
       }
     },
