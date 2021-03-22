@@ -35,7 +35,7 @@
       "description": "Organism origin, one of four accepted terms.",
       "required": ["text"],
       "properties": {
-        "text": {
+        "value": {
           "type": "string",
           "enum": [
             "Domesticated diploid",
@@ -55,7 +55,7 @@
       "description": "Reproductive strategy.",
       "required": ["text"],
       "properties": {
-        "text": {
+        "value": {
           "type": "string",
           "enum": [
             "gonochoric",
@@ -74,7 +74,7 @@
       "description": "Sampled organism is pre- or post-hatching",
       "required": ["text"],
       "properties": {
-        "text": {
+        "value": {
           "type": "string",
           "enum": [
             "pre",
@@ -147,7 +147,7 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "integer"
+          "type": "number"
         },
         "units": {
           "type": "string",
@@ -164,7 +164,7 @@
       "description": "Whether Growing medium or water was used.",
       "required": ["text"],
       "properties": {
-        "text": {
+        "value": {
           "type": "string",
           "enum": [
             "Water",
@@ -183,7 +183,7 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "integer"
+          "type": "number"
         },
         "units": {
           "type": "string",
@@ -255,7 +255,7 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "integer"
+          "type": "number"
         },
         "units": {
           "type": "string",
