@@ -130,7 +130,7 @@
     "breed": {
       "type": "object",
       "name": "breed",
-      "description": "Animal breed, described using the FAANG breed description guidelines (http://bit.ly/FAANGbreed).",
+      "description": "Animal breed, described using the FAANG breed description guidelines (http://bit.ly/FAANGbreed). Should be considered mandatory for terrestiral species, for aquatic species record 'not applicable'.",
       "required": ["text", "term"],
       "properties": {
         "text": {
@@ -148,13 +148,17 @@
                 "include_self": false
               }
             },
-            {
-              "const": "restricted access"
-            }
+              {
+                "type": "string",
+                "enum": [
+                  "not applicable",
+                  "restricted access"
+                ]
+              }
           ]
         },
         "mandatory": {
-          "const": "mandatory"
+          "const": "recommended"
         },
         "ontology_name": {
           "const": "LBO"
