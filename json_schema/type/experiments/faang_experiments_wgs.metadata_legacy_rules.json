@@ -44,6 +44,9 @@
         },
         "mandatory": {
           "const": "mandatory"
+        },
+        "ontology_name": {
+          "const": "EFO"
         }
       }
     },
