@@ -224,10 +224,10 @@
         }
       }
     },
-    "water_rearing_conditions": {
+    "water_rearing_system": {
       "type": "object",
-      "name": "Water Rearing conditions",
-      "description": "The water rearing conditions.",
+      "name": "Water rearing system",
+      "description": "The water rearing system.",
       "required": [
         "text"
       ],
@@ -247,7 +247,7 @@
     "post-hatching_animal_density": {
       "type": "object",
       "name": "Post-hatching animal density ",
-      "description": "Post-hatching animal density measured in Kg/L.",
+      "description": "Post-hatching animal density measured in Kg/L or Kg/m3.",
       "required": [
         "value",
         "units"
@@ -259,7 +259,8 @@
         "units": {
           "type": "string",
           "enum": [
-            "Kg/L"
+            "Kg/L",
+            "Kg/m3"
           ]
         },
         "mandatory": {
@@ -530,10 +531,10 @@
         }
       }
     },
-    "method_of_schedule_1_killing": {
+    "method_of_euthanasia": {
       "type": "object",
-      "name": "Method of schedule 1 killing",
-      "description": "The method used for schedule 1 killing of organism",
+      "name": "Method of euthanasia",
+      "description": "The method used for euthanasia of organism",
       "required": [
         "value"
       ],
@@ -543,6 +544,7 @@
           "enum": [
             "Non-lethal anaesthetic and exsanguination",
             "Non-lethal anaesthetic and severing spinal cord",
+            "Lethal anaesthetic",
             "Lethal anaesthetic and exsanguination",
             "Lethal anaesthetic and severing spinal cord",
             "Concussive blow and exsanguination",
