@@ -174,27 +174,27 @@
       "type": "object",
       "name": "Maturity state",
       "description": "Maturity state, either Mature (PATO_0001701) or Immature (PATO_0001501). Gonnad development state supported by micrographs.",
-      "required": [
-        "text"
-      ],
+      "required": ["text", "term"],
       "properties": {
-        "type": "string",
-        "graph_restriction": {
-          "ontologies": [
-            "obo:pato"
-          ],
-          "classes": [
-            "PATO_0001501",
-            "PATO_0001701"
-          ],
-          "relations": [
-            "rdfs:subClassOf"
-          ],
-          "direct": false,
-          "include_self": true
+        "text": {
+          "type": "string"
+        },
+        "term": {
+          "type": "string",
+          "graph_restriction": {
+            "ontologies": ["obo:pato", "obo:pato"],
+            "classes": ["PATO_0001501", "PATO_0001701"],
+            "relations": ["rdfs:subClassOf"],
+            "direct": false,
+            "include_self": true
+          }
         },
         "mandatory": {
           "const": "mandatory"
+        },
+        "ontology_name": {
+          "type": "string",
+          "enum": ["PATO"]
         }
       }
     },
@@ -224,15 +224,15 @@
         }
       }
     },
-    "water_rearing_conditions": {
+    "water_rearing_system": {
       "type": "object",
-      "name": "Water Rearing conditions",
-      "description": "The water rearing conditions.",
+      "name": "Water rearing system",
+      "description": "The water rearing system.",
       "required": [
         "text"
       ],
       "properties": {
-        "text": {
+        "value": {
           "type": "string",
           "enum": [
             "Closed water system (recirculatory)",
@@ -247,7 +247,7 @@
     "post-hatching_animal_density": {
       "type": "object",
       "name": "Post-hatching animal density ",
-      "description": "Post-hatching animal density measured in Kg/L.",
+      "description": "Post-hatching animal density measured in Kg/L or Kg/m3.",
       "required": [
         "value",
         "units"
@@ -259,7 +259,8 @@
         "units": {
           "type": "string",
           "enum": [
-            "Kg/L"
+            "Kg/L",
+            "Kg/m3"
           ]
         },
         "mandatory": {
@@ -272,10 +273,10 @@
       "name": "diet",
       "description": "Food composition of organism",
       "required": [
-        "text"
+        "value"
       ],
       "properties": {
-        "text": {
+        "value": {
           "type": "string"
         },
         "mandatory": {
@@ -293,7 +294,7 @@
       ],
       "properties": {
         "value": {
-          "type": "integer"
+          "type": "number"
         },
         "units": {
           "type": "string",
@@ -507,10 +508,10 @@
         "value": {
           "type": "string",
           "pattern": "^([0-1][0-9]|[2][0-3]):([0-5][0-9])$"
-        }
-      },
-      "mandatory": {
+        },
+        "mandatory": {
         "const": "recommended"
+        }
       }
     },
     "sampling_day_end_time": {
@@ -530,10 +531,10 @@
         }
       }
     },
-    "method_of_schedule_1_killing": {
+    "method_of_euthanasia": {
       "type": "object",
-      "name": "Method of schedule 1 killing",
-      "description": "The method used for schedule 1 killing of organism",
+      "name": "Method of euthanasia",
+      "description": "The method used for euthanasia of organism",
       "required": [
         "value"
       ],
@@ -543,6 +544,7 @@
           "enum": [
             "Non-lethal anaesthetic and exsanguination",
             "Non-lethal anaesthetic and severing spinal cord",
+            "Lethal anaesthetic",
             "Lethal anaesthetic and exsanguination",
             "Lethal anaesthetic and severing spinal cord",
             "Concussive blow and exsanguination",
@@ -578,3 +580,4 @@
     }
   }
 }
+
