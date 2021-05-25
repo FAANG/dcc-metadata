@@ -481,7 +481,7 @@
     },
     "sampling_day_start_time": {
       "type": "object",
-      "name": "Sampling data start time",
+      "name": "Sampling day start time",
       "description": "The time of day (local time) that sampling started",
       "required": ["value"],
       "properties": {
