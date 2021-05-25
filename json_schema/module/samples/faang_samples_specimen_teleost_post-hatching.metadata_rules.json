@@ -34,9 +34,7 @@
       "type": "object",
       "name": "Origin",
       "description": "Organism origin, one of four accepted terms.",
-      "required": [
-        "text"
-      ],
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -56,9 +54,7 @@
       "type": "object",
       "name": "Reproductive strategy",
       "description": "Reproductive strategy.",
-      "required": [
-        "text"
-      ],
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -77,9 +73,7 @@
       "type": "object",
       "name": "Gonad type",
       "description": "Gonad type.",
-      "required": [
-        "text"
-      ],
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -122,9 +116,7 @@
       "type": "object",
       "name": "experimental strain ID",
       "description": "Experimental strain ID",
-      "required": [
-        "text"
-      ],
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
@@ -138,9 +130,7 @@
       "type": "object",
       "name": "genetic_background",
       "description": "Genetic background diversity.",
-      "required": [
-        "text"
-      ],
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
@@ -154,9 +144,7 @@
       "type": "object",
       "name": "hatching",
       "description": "Sampled organism is pre- or post-hatching",
-      "required": [
-        "text"
-      ],
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -228,9 +216,7 @@
       "type": "object",
       "name": "Water rearing system",
       "description": "The water rearing system.",
-      "required": [
-        "text"
-      ],
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -272,9 +258,7 @@
       "type": "object",
       "name": "diet",
       "description": "Food composition of organism",
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string"
@@ -381,9 +365,7 @@
       "type": "object",
       "name": "Photoperiod",
       "description": "The photoperiod cycle recorded as light to dark ratio, or as 'natural light",
-      "required": [
-        "text"
-      ],
+      "required": ["value"],
       "properties": {
         "value": {
           "oneOf": [
@@ -501,9 +483,7 @@
       "type": "object",
       "name": "Sampling data start time",
       "description": "The time of day (local time) that sampling started",
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -518,9 +498,7 @@
       "type": "object",
       "name": "Sampling data end time",
       "description": "The time of day (local time) that sampling ended",
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -535,9 +513,7 @@
       "type": "object",
       "name": "Method of euthanasia",
       "description": "The method used for euthanasia of organism",
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
@@ -560,9 +536,7 @@
       "type": "object",
       "name": "Anaesthetic or sedative name",
       "description": "Anaesthetic or sedative name used in sampling. To add more controlled terms contact FAANG DCC",
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
