@@ -171,7 +171,7 @@
           "type": "string",
           "graph_restriction": {
             "ontologies": ["obo:pato", "obo:pato"],
-            "classes": ["PATO_0001501", "PATO_0001701"],
+            "classes": ["PATO:0001501", "PATO:0001701"],
             "relations": ["rdfs:subClassOf"],
             "direct": false,
             "include_self": true
