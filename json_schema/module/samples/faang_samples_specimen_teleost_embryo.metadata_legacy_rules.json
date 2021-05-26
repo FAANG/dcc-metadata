@@ -8,7 +8,7 @@
   "required": [
     "origin",
     "reproductive_strategy",
-    "hathcing",
+    "hatching",
     "time_post_fertilisation",
     "pre-hatching_water_temperature_average",
     "post-hatching_water_temperature_average",
