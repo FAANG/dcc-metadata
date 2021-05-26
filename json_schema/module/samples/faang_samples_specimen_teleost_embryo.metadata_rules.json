@@ -187,7 +187,7 @@
         },
         "units": {
           "type": "string",
-          "enum": ["Days"]
+          "enum": ["days"]
         },
         "mandatory": {
           "const": "mandatory"
@@ -239,7 +239,8 @@
         "value": {
           "oneOf": [
             {"type": "string",
-            "pattern": "^[0-24]L:[0-24]D$"},
+            "pattern": "^2[0-4]L|1[0-9]L|[1-9]L:2[0-4]D|1[0-9]D|[1-9]D$"
+            },
             {"const": "natural light"}
           ]
         },
