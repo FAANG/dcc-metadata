@@ -99,7 +99,20 @@
       ],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "not collected",
+                "not provided",
+                "restricted access",
+                "not applicable"
+              ]
+            }
+          ]
         },
         "units": {
           "type": "string",
