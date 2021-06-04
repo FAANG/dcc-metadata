@@ -246,7 +246,7 @@
     "post-hatching_animal_density": {
       "type": "object",
       "name": "Post-hatching animal density ",
-      "description": "Post-hatching animal density measured in Kg/L or Kg/m3.",
+      "description": "Post-hatching animal density measured in Kg/L, Kg/m2 or Kg/m3.",
       "required": [
         "value",
         "units"
@@ -259,6 +259,7 @@
           "type": "string",
           "enum": [
             "Kg/L",
+            "Kg/m2",
             "Kg/m3"
           ]
         },
