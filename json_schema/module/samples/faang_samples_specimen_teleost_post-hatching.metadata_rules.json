@@ -509,7 +509,7 @@
     },
     "sampling_day_end_time": {
       "type": "object",
-      "name": "Sampling data end time",
+      "name": "Sampling day end time",
       "description": "The time of day (local time) that sampling ended",
       "required": ["value"],
       "properties": {
