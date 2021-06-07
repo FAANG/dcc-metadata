@@ -41,7 +41,8 @@
             "Domesticated diploid",
             "Domesticated Double-haploid",
             "Domesticated Isogenic",
-            "Wild"
+            "Wild",
+            "restricted access"
           ]
         },
         "mandatory": {
@@ -60,7 +61,8 @@
           "enum": [
             "gonochoric",
             "simultaneous hermaphrodite",
-            "successive hermaphrodite"
+            "successive hermaphrodite",
+            "restricted access"
           ]
         },
         "mandatory": {
@@ -78,7 +80,8 @@
           "type": "string",
           "enum": [
             "pre",
-            "post"
+            "post",
+            "restricted access"
           ]
         },
         "mandatory": {
@@ -93,11 +96,19 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string",
+              "enum": ["restricted access"]
+            }
+          ]
         },
         "units": {
           "type": "string",
-          "enum": ["hours", "days", "months", "years"]
+          "enum": ["hours", "days", "months", "years", "restricted access"]
         },
         "mandatory": {
           "const": "mandatory"
@@ -111,11 +122,17 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "string",
+              "enum": ["restricted access"]
+            }
+          ]
         },
         "units": {
           "type": "string",
-          "enum": ["Degrees celsius"]
+          "enum": ["Degrees celsius", "restricted access"]
         },
         "mandatory": {
           "const": "mandatory"
@@ -129,11 +146,17 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "string",
+              "enum": ["restricted access"]
+            }
+          ]
         },
         "units": {
           "type": "string",
-          "enum": ["Degrees celsius"]
+          "enum": ["Degrees celsius", "restricted access"]
         },
         "mandatory": {
           "const": "mandatory"
@@ -147,11 +170,17 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "string",
+              "enum": ["restricted access"]
+            }
+          ]
         },
         "units": {
           "type": "string",
-          "enum": ["Thermal time"]
+          "enum": ["Thermal time", "restricted access"]
         },
         "mandatory": {
           "const": "mandatory"
@@ -168,7 +197,8 @@
           "type": "string",
           "enum": [
             "Water",
-            "Growing medium"
+            "Growing medium",
+            "restricted access"
           ]
         },
         "mandatory": {
@@ -183,11 +213,17 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "string",
+              "enum": ["restricted access"]
+            }
+          ]
         },
         "units": {
           "type": "string",
-          "enum": ["days"]
+          "enum": ["days", "restricted access"]
         },
         "mandatory": {
           "const": "mandatory"
@@ -201,11 +237,17 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "string",
+              "enum": ["restricted access"]
+            }
+          ]
         },
         "units": {
           "type": "string",
-          "enum": ["%"]
+          "enum": ["%", "restricted access"]
         },
         "mandatory": {
           "const": "mandatory"
@@ -219,11 +261,17 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "string",
+              "enum": ["restricted access"]
+            }
+          ]
         },
         "units": {
           "type": "string",
-          "enum": ["parts per thousand"]
+          "enum": ["parts per thousand", "restricted access"]
         },
         "mandatory": {
           "const": "mandatory"
@@ -241,7 +289,10 @@
             {"type": "string",
             "pattern": "^2[0-4]L|1[0-9]L|[1-9]L:2[0-4]D|1[0-9]D|[1-9]D$"
             },
-            {"const": "natural light"}
+            {
+              "type": "string",
+              "enum": ["natural light", "restricted access"]
+            }
           ]
         },
         "mandatory": {
@@ -256,7 +307,20 @@
       "required": ["value", "units"],
       "properties": {
         "value": {
-          "type": "number"
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
         },
         "units": {
           "type": "string",
