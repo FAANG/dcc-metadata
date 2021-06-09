@@ -101,8 +101,9 @@
             "type": "string",
             "enum": [
               "AQUA-FAANG",
+              "BovReg",
               "GENE-SWitCH",
-              "BovReg"
+              "Bovine-FAANG"
             ]
           },
           "mandatory": {
