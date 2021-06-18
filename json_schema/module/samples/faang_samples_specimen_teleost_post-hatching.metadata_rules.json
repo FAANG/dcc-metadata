@@ -125,7 +125,7 @@
         }
       }
     },
-    "experimental_strain_ID": {
+    "experimental_strain_id": {
       "type": "object",
       "name": "experimental strain ID",
       "description": "Experimental strain ID",
