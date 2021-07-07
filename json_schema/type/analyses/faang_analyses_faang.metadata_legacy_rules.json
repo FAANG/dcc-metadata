@@ -56,7 +56,8 @@
             "enum": [
               "AQUA-FAANG",
               "GENE-SWitCH",
-              "BovReg"
+              "BovReg",
+              "Bovine-FAANG"
             ]
           },
           "mandatory": {
