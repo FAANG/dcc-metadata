@@ -154,6 +154,33 @@
         }
       }
     },
+    "analysis_code_version": {
+      "type": "object",
+      "name": "analysis version",
+      "description": "Version of the analysis code used in the analysis.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "string",
+            },
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
     "reference_genome": {
       "type": "object",
       "name": "reference genome",
