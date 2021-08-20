@@ -133,7 +133,7 @@
         "value": {
           "oneOf": [
             {
-              "type": "string",
+              "type": "string"
             },
             {
               "type": "string",
