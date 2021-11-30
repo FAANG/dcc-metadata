@@ -128,7 +128,7 @@
     },
     "analysis_code_version": {
       "type": "object",
-      "name": "analysis version",
+      "name": "analysis code version",
       "description": "Version of the analysis code used in the analysis.",
       "required": ["value"],
       "properties": {
@@ -150,6 +150,33 @@
         },
         "mandatory": {
           "const": "optional"
+        }
+      }
+    },
+        "analysis_code_command": {
+      "type": "object",
+      "name": "analysis code command",
+      "description": "The command used to run the analysis code used in the analysis.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "recommended"
         }
       }
     },
