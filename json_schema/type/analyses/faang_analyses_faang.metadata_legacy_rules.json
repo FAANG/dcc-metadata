@@ -86,7 +86,8 @@
             "microRNA profiling by high throughput sequencing",
             "RNA-seq of total RNA",
             "RNA-seq of coding RNA",
-            "RNA-seq of non coding RNA"
+            "RNA-seq of non coding RNA",
+            "ISO-Seq"
           ]
         },
         "mandatory": {
