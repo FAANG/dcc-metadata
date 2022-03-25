@@ -167,15 +167,6 @@
           "oneOf": [
             {
               "type": "string"
-            },
-            {
-              "type": "string",
-              "enum": [
-                "not applicable",
-                "not collected",
-                "not provided",
-                "restricted access"
-              ]
             }
           ]
         },
