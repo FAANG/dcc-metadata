@@ -136,8 +136,7 @@
         "value": {
           "oneOf": [
             {
-              "type": "string",
-              "format": "uri"
+              "type": "string"
             },
             {
               "type": "string",
