@@ -138,15 +138,6 @@
           "oneOf": [
             {
               "type": "string"
-            },
-            {
-              "type": "string",
-              "enum": [
-                "not applicable",
-                "not collected",
-                "not provided",
-                "restricted access"
-              ]
             }
           ]
         },
@@ -171,6 +162,36 @@
             "GRCg6a",
             "ARS1"
           ]
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "nextflow_config_url": {
+      "type": "object",
+      "name": "nextflow config url",
+      "description": "Url of uploaded nextflow configuration file which is stored on our local nginx file server.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "uri"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "nextflow_spreadsheet_url": {
+      "type": "object",
+      "name": "nextflow spreadsheet url",
+      "description": "Url of uploaded nextflow spreadsheet file which is stored on our local nginx file server.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "uri"
         },
         "mandatory": {
           "const": "optional"
