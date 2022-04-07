@@ -6,6 +6,7 @@
   "$async": true,
   "type": "object",
   "required": [
+    "project",
     "assay_type",
     "sample_storage_processing",
     "sampling_to_preparation_interval",
