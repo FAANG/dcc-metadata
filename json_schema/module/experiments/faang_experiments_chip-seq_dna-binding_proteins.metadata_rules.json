@@ -59,7 +59,7 @@
         },
         "ontology_name": {
           "type": "string",
-          "enum": ["CHEBI", "OMIT", "NCIT", "NCIT"]
+          "enum": ["CHEBI", "OMIT", "NCIT"]
         }
       }
     },
