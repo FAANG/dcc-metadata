@@ -1,0 +1,312 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Ruleset for assay type is 'scatac-seq'.",
+  "title": "FAANG experiment metadata rules for 'scatac-seq'",
+  "name": "faang_experiments_scatac-seq.metadata_rules",
+  "$async": true,
+  "type": "object",
+  "required": [
+    "sequencing_method",
+    "sequence_file_name",
+    "sequencing_format",
+    "kit_retail_name",
+    "sequencing_protocol",
+    "sequence_file_read_index"
+  ],
+  "properties": {
+    "describedBy": {
+      "const": "type/samples/faang_samples_single_cell_specimen.metadata_rules.json"
+    },
+    "schema_version": {
+      "description": "The version number of the schema in major.minor.patch format.",
+      "type": "string",
+      "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
+      "example": "4.6.1"
+    },
+    "experiments_core": {
+      "description": "Core experiments-level information.",
+      "type": "object",
+      "$ref": "core/experiments/faang_experiments_core.metadata_rules.json"
+    },
+    "sequencing_method": {
+      "type": "object",
+      "name": "sequencing method",
+      "description": "sequencing method",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "sequence_file_name": {
+      "type": "object",
+      "name": "sequence file name",
+      "description": "sequence file name",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "uri"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "sequencing_format": {
+      "type": "object",
+      "name": "sequencing format",
+      "description": "sequencing format",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "kit_retail_name": {
+      "type": "object",
+      "name": "kit retail name",
+      "description": "kit retail name",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "sequencing_protocol": {
+      "type": "object",
+      "name": "sequencing protocol",
+      "description": "sequencing protocol",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "uri"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "sequence_file_read_index": {
+      "type": "object",
+      "name": "sequence file read index",
+      "description": "sequence file read index",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "cell_barcode_read": {
+      "type": "object",
+      "name": "cell barcode read",
+      "description": "cell barcode read",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "construction_method": {
+      "type": "object",
+      "name": "construction method",
+      "description": "construction method",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "analysis_protocol_name": {
+      "type": "object",
+      "name": "analysis protocol name",
+      "description": "analysis protocol name",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "uri"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "analysis_protocol_description": {
+      "type": "object",
+      "name": "analysis protocol description",
+      "description": "analysis protocol description",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "analysis_protocol_type": {
+      "type": "object",
+      "name": "analysis protocol type",
+      "description": "analysis protocol type",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "analysis_computational_method": {
+      "type": "object",
+      "name": "analysis computational method",
+      "description": "analysis computational method",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "analysis_file_name": {
+      "type": "object",
+      "name": "analysis file name",
+      "description": "analysis file name",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "uri"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "analysis_file_format": {
+      "type": "object",
+      "name": "analysis file format",
+      "description": "analysis file format",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "analysis_file_description": {
+      "type": "object",
+      "name": "analysis file description",
+      "description": "analysis file description",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "nuclei_acid_molecule": {
+      "type": "object",
+      "name": "nuclei acid molecule",
+      "description": "nuclei acid molecule",
+      "required": ["text", "term"],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "term": {
+          "type": "string",
+          "graph_restriction": {
+            "ontologies": ["obo:cl"],
+            "classes": ["CL:0000000"],
+            "relations": ["rdfs:subClassOf"],
+            "direct": false,
+            "include_self": true
+          }
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "nucleic_acid_source": {
+      "type": "object",
+      "name": "nucleic acid source",
+      "description": "nucleic acid source",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    }
+    "cell_count": {
+      "type": "object",
+      "name": "nucleic acid ontology",
+      "description": "nucleic acid ontology",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "kit_manufacturer": {
+      "type": "object",
+      "name": "kit manufacturer",
+      "description": "kit manufacturer",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    }
+  }
+}
