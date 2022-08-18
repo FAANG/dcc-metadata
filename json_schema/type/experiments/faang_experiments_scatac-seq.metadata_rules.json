@@ -15,7 +15,7 @@
   ],
   "properties": {
     "describedBy": {
-      "const": "type/samples/faang_samples_single_cell_specimen.metadata_rules.json"
+      "const": "https://raw.githubusercontent.com/FAANG/dcc-metadata/hca/json_schema/type/samples/faang_samples_single_cell_specimen.metadata_rules.json"
     },
     "schema_version": {
       "description": "The version number of the schema in major.minor.patch format.",
@@ -26,7 +26,50 @@
     "experiments_core": {
       "description": "Core experiments-level information.",
       "type": "object",
-      "$ref": "core/experiments/faang_experiments_core.metadata_rules.json"
+      "$ref": "https://raw.githubusercontent.com/FAANG/dcc-metadata/hca/json_schema/core/experiments/faang_experiments_core.metadata_rules.json"
+    },
+    "experiment_target": {
+      "type": "object",
+      "name": "experiment target",
+      "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'open_chromatin_region'.",
+      "required": ["text", "term"],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "term": {
+          "oneOf": [
+            {"const": "SO:0001747"},
+            {"const": "restricted access"}
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        },
+        "ontology_name": {
+          "const": "SO"
+        }
+      }
+    },
+    "transposase_protocol": {
+      "type": "object",
+      "name": "transposase protocol",
+      "description": "Link to the protocol used for transposase treatment.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {"const": "restricted access"}
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
     },
     "sequencing_method": {
       "type": "object",
@@ -35,7 +78,7 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string"
+          "const": "scATAC-seq"
         },
         "mandatory": {
           "const": "mandatory"
@@ -64,7 +107,8 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string"
+          "type": "string",
+          "enum": ["fq.gz", "fq.bz2"]
         },
         "mandatory": {
           "const": "mandatory"
@@ -107,7 +151,8 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string"
+          "type": "string",
+          "enum": ["R1", "R2", "R3", "I1"]
         },
         "mandatory": {
           "const": "mandatory"
@@ -142,7 +187,7 @@
         }
       }
     },
-    "analysis_protocol_name": {
+    "analysis_protocol_description": {
       "type": "object",
       "name": "analysis protocol name",
       "description": "analysis protocol name",
@@ -151,20 +196,6 @@
         "value": {
           "type": "string",
           "format": "uri"
-        },
-        "mandatory": {
-          "const": "recommended"
-        }
-      }
-    },
-    "analysis_protocol_description": {
-      "type": "object",
-      "name": "analysis protocol description",
-      "description": "analysis protocol description",
-      "required": ["value"],
-      "properties": {
-        "value": {
-          "type": "string"
         },
         "mandatory": {
           "const": "recommended"

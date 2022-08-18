@@ -21,7 +21,7 @@
     "samples_core": {
       "description": "Core samples-level information.",
       "type": "object",
-      "$ref": "core/samples/faang_samples_core.metadata_rules.json"
+      "$ref": "https://raw.githubusercontent.com/FAANG/dcc-metadata/hca/json_schema/core/samples/faang_samples_core.metadata_rules.json"
     },
     "tissue_dissociation": {
       "type": "object",
