@@ -16,7 +16,7 @@
   ],
   "properties": {
     "describedBy": {
-      "const": "https://github.com/FAANG/dcc-metadata/blob/master/docs/faang_analysis_metadata.md"
+      "const": "https://raw.githubusercontent.com/FAANG/dcc-metadata/hca/json_schema/type/analyses/faang_analyses_ena.metadata_rules.json"
     },
     "schema_version": {
       "description": "The version number of the schema in major.minor.patch format.",
@@ -27,7 +27,7 @@
     "eva": {
       "description": "EVA analysis information.",
       "type": "object",
-      "$ref": "module/analyses/faang_analyses_eva.metadata_rules.json"
+      "$ref": "https://raw.githubusercontent.com/FAANG/dcc-metadata/hca/json_schema/module/analyses/faang_analyses_eva.metadata_rules.json"
     },
     "title": {
       "type": "object",
