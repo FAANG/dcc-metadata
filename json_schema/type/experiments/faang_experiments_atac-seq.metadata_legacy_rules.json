@@ -8,7 +8,7 @@
   "required": ["experiment_target"],
   "properties": {
     "describedBy": {
-      "const": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_experiment_metadata.md"
+      "const": "https://raw.githubusercontent.com/FAANG/dcc-metadata/hca/json_schema/type/experiments/faang_experiments_atac-seq.metadata_legacy_rules.json"
     },
     "schema_version": {
       "description": "The version number of the schema in major.minor.patch format.",
@@ -19,7 +19,7 @@
     "experiments_core": {
       "description": "Core experiments-level information.",
       "type": "object",
-      "$ref": "core/experiments/faang_experiments_core.metadata_legacy_rules.json"
+      "$ref": "https://raw.githubusercontent.com/FAANG/dcc-metadata/hca/json_schema/core/experiments/faang_experiments_core.metadata_legacy_rules.json"
     },
     "experiment_target": {
       "type": "object",
