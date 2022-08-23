@@ -15,7 +15,7 @@
   ],
   "properties": {
     "describedBy": {
-      "const": "https://raw.githubusercontent.com/FAANG/dcc-metadata/hca/json_schema/type/samples/faang_samples_single_cell_specimen.metadata_rules.json"
+      "const": "https://raw.githubusercontent.com/FAANG/dcc-metadata/hca/json_schema/type/experiments/faang_experiments_scatac-seq.metadata_rules.json"
     },
     "schema_version": {
       "description": "The version number of the schema in major.minor.patch format.",
@@ -107,8 +107,7 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string",
-          "enum": ["fq.gz", "fq.bz2"]
+          "const": "fastq.gz"
         },
         "mandatory": {
           "const": "mandatory"
@@ -166,7 +165,7 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string"
+          "const": "i5 index"
         },
         "mandatory": {
           "const": "recommended"
@@ -180,7 +179,7 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string"
+          "const": "Chromium Single Cell ATAC-seq"
         },
         "mandatory": {
           "const": "recommended"
@@ -209,7 +208,8 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string"
+          "type": "string",
+          "enum": ["raw matrix generation", "processed matrix generation"]
         },
         "mandatory": {
           "const": "recommended"
@@ -223,7 +223,8 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string"
+          "type": "string",
+          "enum": ["cell ranger", "Seurat", "Signac", "scran", "scanpy"]
         },
         "mandatory": {
           "const": "recommended"
@@ -252,7 +253,8 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string"
+          "type": "string",
+          "enum": ["tsv.gz", "mtx.gz", "bed.gz", "fastq.gz", "RDS", "rds"]
         },
         "mandatory": {
           "const": "recommended"
