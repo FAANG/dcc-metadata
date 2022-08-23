@@ -7,7 +7,7 @@
   "type": "object",
   "properties": {
     "describedBy": {
-      "const": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_experiment_metadata.md"
+      "const": "https://raw.githubusercontent.com/FAANG/dcc-metadata/hca/json_schema/module/experiments/faang_experiments_chip-seq_input_dna.metadata_legacy_rules.json"
     },
     "schema_version": {
       "description": "The version number of the schema in major.minor.patch format.",
