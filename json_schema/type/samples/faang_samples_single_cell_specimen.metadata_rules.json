@@ -12,6 +12,9 @@
     "single_cell_isolation_protocol", 
     "derived_from"],
   "properties": {
+    "describedBy": {
+      "const": "https://raw.githubusercontent.com/FAANG/dcc-metadata/hca/json_schema/type/samples/faang_samples_single_cell_specimen.metadata_rules.json"
+    },
     "schema_version": {
       "description": "The version number of the schema in major.minor.patch format.",
       "type": "string",
