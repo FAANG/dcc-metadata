@@ -97,7 +97,7 @@
       "properties": {
         "value": {
           "type": "string",
-          "enum": ["tsv.gz", "mtx.gz", "bed.gz", "fast.gz", "RDS", "rds"]
+          "enum": ["tsv.gz", "mtx.gz", "bed.gz", "fastq.gz", "RDS", "rds"]
         },
         "mandatory": {
           "const": "recommended"
