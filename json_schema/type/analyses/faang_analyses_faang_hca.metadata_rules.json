@@ -67,7 +67,7 @@
       "properties": {
         "value": {
           "type": "string",
-          "enum": ["Seurat", "scanpy"]
+          "enum": ["cell ranger", "Seurat", "Signac", "scran", "scanpy"]
         },
         "mandatory": {
           "const": "recommended"
@@ -97,7 +97,7 @@
       "properties": {
         "value": {
           "type": "string",
-          "enum": ["fast.gz"]
+          "enum": ["tsv.gz", "mtx.gz", "bed.gz", "fast.gz", "RDS", "rds"]
         },
         "mandatory": {
           "const": "recommended"
