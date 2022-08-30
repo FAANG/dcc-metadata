@@ -312,7 +312,7 @@
           "const": "optional"
         }
       }
-    }
+    },
     "cell_count": {
       "type": "object",
       "name": "nucleic acid ontology",
