@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Validation rules for the FAANG project. Rules are divided into one group that is applied to all analyses, and additional groups based on the analysis type.",
+  "title": "FAANG analyses metadata rules for 'faang hca ingestion'",
+  "name": "faang_analyses_faang_hca.metadata_rules",
+  "$async": true,
+  "type": "object",
+  "properties": {
+    "describedBy": {
+      "const": "https://raw.githubusercontent.com/FAANG/dcc-metadata/hca/json_schema/type/analyses/faang_analyses_faang_hca.metadata_rules.json"
+    },
+    "schema_version": {
+      "description": "The version number of the schema in major.minor.patch format.",
+      "type": "string",
+      "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
+      "example": "4.6.1"
+    },
+    "analysis_protocol_name": {
+      "type": "object",
+      "name": "analysis protocol",
+      "description": "analysis protocol",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "uri"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "analysis_protocol_description": {
+      "type": "object",
+      "name": "analysis protocol description",
+      "description": "analysis protocol description",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "analysis_protocol_type": {
+      "type": "object",
+      "name": "analysis protocol type",
+      "description": "analysis protocol type",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": ["raw", "processed"]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "computational_method": {
+      "type": "object",
+      "name": "computational method",
+      "description": "computational method",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": ["Seurat", "scanpy"]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "analysis_file_name": {
+      "type": "object",
+      "name": "analysis file name",
+      "description": "analysis file name",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "uri"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "analysis_file_format": {
+      "type": "object",
+      "name": "analysis file format",
+      "description": "analysis file format",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": ["fast.gz"]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
+    "analysis_file_description": {
+      "type": "object",
+      "name": "analysis file description",
+      "description": "analysis file description",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    }
+  }
+}
