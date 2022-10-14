@@ -22,8 +22,7 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string",
-          "format": "uri"
+          "type": "string"
         },
         "mandatory": {
           "const": "recommended"
@@ -74,6 +73,20 @@
         }
       }
     },
+    "computational_method_version": {
+      "type": "object",
+      "name": "computational method",
+      "description": "computational method",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    },
     "analysis_file_name": {
       "type": "object",
       "name": "analysis file name",
@@ -81,8 +94,7 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "type": "string",
-          "format": "uri"
+          "type": "string"
         },
         "mandatory": {
           "const": "recommended"
