@@ -51,7 +51,7 @@
       "properties": {
         "value": {
           "type": "string",
-          "enum": ["raw", "processed"]
+          "enum": ["raw matrix generation", "processed matrix generation"]
         },
         "mandatory": {
           "const": "recommended"
