@@ -324,7 +324,13 @@
         },
         "units": {
           "type": "string",
-          "enum": ["generations from wild"]
+          "enum": [
+            "generations from wild",
+            "not applicable",
+            "not collected",
+            "not provided",
+            "restricted access"
+          ]
         },
         "mandatory": {
           "const": "recommended"
