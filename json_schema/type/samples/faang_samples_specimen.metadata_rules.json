@@ -25,7 +25,7 @@
     "samples_core": {
       "description": "Core samples-level information.",
       "type": "object",
-      "$ref": "https://raw.githubusercontent.com/FAANG/dcc-metadata/hca/json_schema/type/core/samples/faang_samples_core.metadata_rules.json"
+      "$ref": "https://raw.githubusercontent.com/FAANG/dcc-metadata/hca/json_schema/core/samples/faang_samples_core.metadata_rules.json"
     },
     "specimen_collection_date": {
       "type": "object",
