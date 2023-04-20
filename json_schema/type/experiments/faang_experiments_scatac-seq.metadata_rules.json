@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Ruleset for material is organism sample.",
+  "title": "FAANG sample metadata rules for organism",
+  "name": "faang_experiments_atac-seq.metadata_rules",
+  "$async": true,
+  "type": "object",
+  "required": ["experiment_target", "transposase_protocol"],
+  "properties": {
+    "describedBy": {
+      "const": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_experiment_metadata.md"
+    },
+    "schema_version": {
+      "description": "The version number of the schema in major.minor.patch format.",
+      "type": "string",
+      "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
+      "example": "4.6.1"
+    },
+    "experiments_core": {
+      "description": "Core experiments-level information.",
+      "type": "object",
+      "$ref": "core/experiments/faang_experiments_core.metadata_rules.json"
+    },
+    "experiment_target": {
+      "type": "object",
+      "name": "experiment target",
+      "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'open_chromatin_region'.",
+      "required": ["text", "term"],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "term": {
+          "oneOf": [
+            {"const": "SO:0001747"},
+            {"const": "restricted access"}
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        },
+        "ontology_name": {
+          "const": "SO"
+        }
+      }
+    },
+    "transposase_protocol": {
+      "type": "object",
+      "name": "transposase protocol",
+      "description": "Link to the protocol used for transposase treatment.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {"const": "restricted access"}
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "transposed_dna_sequence_file_read_index": {
+      "type": "object",
+      "name": "transposed dna sequence file read index",
+      "description": "Transposed DNA Sequence File Read Index",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": ["R1", "R3"]
+            },
+            {"const": "restricted access"}
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "cell_barcode_read": {
+      "type": "object",
+      "name": "cell barcode read",
+      "description": "Cell Barcode Read",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": ["R2", "restricted access"]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "sample_index_read": {
+      "type": "object",
+      "name": "sample index read",
+      "description": "Sample Index Read",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": ["I1", "restricted access"]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    }
+  }
+}
