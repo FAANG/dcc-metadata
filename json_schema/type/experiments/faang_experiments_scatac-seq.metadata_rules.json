@@ -71,13 +71,8 @@
       "required": ["value"],
       "properties": {
         "value": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": ["R1", "R3"]
-            },
-            {"const": "restricted access"}
-          ]
+           "type": "string",
+           "enum": ["R1", "R3", "restricted access"]
         },
         "mandatory": {
           "const": "mandatory"
