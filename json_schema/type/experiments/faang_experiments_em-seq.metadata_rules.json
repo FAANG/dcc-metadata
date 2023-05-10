@@ -1,0 +1,150 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Ruleset for material is organism sample.",
+  "title": "FAANG sample metadata rules for organism",
+  "name": "faang_experiments_atac-seq.metadata_rules",
+  "$async": true,
+  "type": "object",
+  "required": ["experiment_target", "library_selection", "max_fragment_size_selection_range",
+    "min_fragment_size_selection_range", "enzymatic_methylation_conversion_protocol"],
+  "properties": {
+    "describedBy": {
+      "const": "https://github.com/FAANG/faang-metadata/blob/master/docs/faang_experiment_metadata.md"
+    },
+    "schema_version": {
+      "description": "The version number of the schema in major.minor.patch format.",
+      "type": "string",
+      "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
+      "example": "4.6.1"
+    },
+    "experiments_core": {
+      "description": "Core experiments-level information.",
+      "type": "object",
+      "$ref": "core/experiments/faang_experiments_core.metadata_rules.json"
+    },
+    "experiment_target": {
+      "type": "object",
+      "name": "experiment target",
+      "description": "What the experiment was trying to find, list the text rather than ontology link, please use 'DNA methylation'.",
+      "required": ["text", "term"],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "term": {
+          "oneOf": [
+            {"const": "GO:0006306"},
+            {"const": "restricted access"}
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        },
+        "ontology_name": {
+          "const": "OBI"
+        }
+      }
+    },
+    "library_selection": {
+      "type": "object",
+      "name": "library selection",
+      "description": "Library selection is Whole Genome Bisulfite Sequencing or Reduced Representation Bisulfite Sequencing.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "RRBS",
+            "WGBS",
+            "restricted access"
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "max_fragment_size_selection_range": {
+      "type": "object",
+      "name": "max fragment size selection range",
+      "description": "The maximum fragment size of the fragment selection range.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {"type": "number"},
+            {
+              "const": "restricted access"
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "min_fragment_size_selection_range": {
+      "type": "object",
+      "name": "min fragment size selection range",
+      "description": "The minimum fragment size of the fragment selection range.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {"type": "number"},
+            {
+              "const": "restricted access"
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "enzymatic_methylation_conversion_protocol": {
+      "type": "object",
+      "name": "enzymatic methylation conversion protocol",
+      "description": "Link to enzymatic methylation conversion protocol.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {"const": "restricted access"}
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
+    "enzymatic_methylation_conversion_percent": {
+      "type": "object",
+      "name": "enzymatic methylation conversion percent",
+      "description": "Enzymatic methylation conversion percent.",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {"type": "number"},
+            {"type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "recommended"
+        }
+      }
+    }
+  }
+}
