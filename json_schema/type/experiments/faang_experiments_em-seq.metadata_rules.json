@@ -48,14 +48,14 @@
     "library_selection": {
       "type": "object",
       "name": "library selection",
-      "description": "Library selection is Whole Genome Bisulfite Sequencing or Reduced Representation Bisulfite Sequencing.",
+      "description": "Library selection is enzymatic methylation of whole-genome or selected genomic regions",
       "required": ["value"],
       "properties": {
         "value": {
           "type": "string",
           "enum": [
-            "RRBS",
-            "WGBS",
+            "whole-genome",
+            "selected genomic regions",
             "restricted access"
           ]
         },
@@ -74,12 +74,18 @@
           "oneOf": [
             {"type": "number"},
             {
-              "const": "restricted access"
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
             }
           ]
         },
         "mandatory": {
-          "const": "mandatory"
+          "const": "recommended"
         }
       }
     },
@@ -93,12 +99,18 @@
           "oneOf": [
             {"type": "number"},
             {
-              "const": "restricted access"
+              "type": "string",
+              "enum": [
+                "not applicable",
+                "not collected",
+                "not provided",
+                "restricted access"
+              ]
             }
           ]
         },
         "mandatory": {
-          "const": "mandatory"
+          "const": "recommended"
         }
       }
     },
