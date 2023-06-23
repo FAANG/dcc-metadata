@@ -7,6 +7,7 @@
   "type": "object",
   "required": [
     "specimen_collection_date",
+    "geographic_location",
     "animal_age_at_collection",
     "developmental_stage",
     "organism_part",
@@ -50,6 +51,28 @@
         "units": {
           "type": "string",
           "enum": ["YYYY-MM-DD", "YYYY-MM", "YYYY", "restricted access"]
+        }
+      }
+    },
+    "geographic_location": {
+      "type": "object",
+      "name": "Geographic location",
+      "description": "The location the sample was collected from with the intention of sequencing, as defined by  the country or sea. Country or sea names should be chosen from the INSDC country list https://www.insdc.org/submitting-standards/country-qualifier-vocabulary/",
+
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "const": "restricted access"
+            }
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
         }
       }
     },
