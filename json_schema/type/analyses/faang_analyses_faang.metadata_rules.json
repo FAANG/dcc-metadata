@@ -162,7 +162,7 @@
     "analysis_code_version": {
       "type": "object",
       "name": "analysis version",
-      "description": "Version of the analysis code used in the analysis.",
+      "description": "Version of the analysis code used in the analysis, or if no version is listed then list the date of download in the format YYYY-MM-DD, YYYY-MM, YYYY.",
       "required": ["value"],
       "properties": {
         "value": {
