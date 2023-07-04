@@ -181,7 +181,7 @@
         }
       }
     },
-    "organoid passage": {
+    "organoid_passage": {
       "type": "object",
       "name": "organoid passage",
       "description": "Number of passages. Passage 0 is the plating of cells to create the organoid",
