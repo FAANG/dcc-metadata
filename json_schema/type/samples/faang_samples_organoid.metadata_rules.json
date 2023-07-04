@@ -13,13 +13,8 @@
     "freezing_protocol",
     "organoid_passage",
     "organoid_passage_protocol",
-    "organoid_age",
     "type_of_organoid_culture",
-    "organoid_morphology",
-    "embedded_in_matrigel",
     "growth_environment",
-    "input_aggregate_cell_count",
-    "stored_oxygen_level",
     "derived_from"
   ],
   "properties": {
@@ -220,29 +215,6 @@
         }
       }
     },
-    "organoid_age": {
-      "type": "object",
-      "name": "organoid age",
-      "description": "Organoid age since last passage.",
-      "required": ["value", "units"],
-      "properties": {
-        "value": {
-          "type": "number"
-        },
-        "units": {
-          "type": "string",
-          "enum": [
-            "seconds",
-            "minutes",
-            "hours",
-            "days",
-        	  "weeks"]
-        },
-        "mandatory": {
-          "const": "mandatory"
-        }
-      }
-    },
     "type_of_organoid_culture": {
       "type": "object",
       "name": "type of organoid culture",
@@ -268,22 +240,7 @@
           "type": "string"
         },
         "mandatory": {
-          "const": "mandatory"
-        }
-      }
-    },
-   	"embedded_in_matrigel": {
-      "type": "object",
-      "name": "embeddded in matrigel",
-      "description": "Whether the organoid is embedded in a matrigel. Yes or no.",
-      "required": ["value"],
-      "properties": {
-        "value": {
-          "type": "string",
-          "enum": ["Yes", "No"]
-        },
-        "mandatory": {
-          "const": "mandatory"
+          "const": "optional"
         }
       }
     },
@@ -302,23 +259,6 @@
         }
       }
     },
-    "input_aggregate_cell_count": {
-      "type": "object",
-      "name": "input aggregate cell count",
-      "description": "Estimated number of cells per input cell aggregate.",
-      "required": ["value", "units"],
-      "properties": {
-        "value": {
-          "type": "number"
-        },
-        "units": {
-          "const": "cells"
-        },
-        "mandatory": {
-          "const": "mandatory"
-        }
-      }
-    },    
     "stored_oxygen_level": {
       "type": "object",
       "name": "stored oxygen level",
@@ -332,7 +272,7 @@
           "const": "%"
         },
         "mandatory": {
-          "const": "mandatory"
+          "const": "optional"
         }
       }
     },
