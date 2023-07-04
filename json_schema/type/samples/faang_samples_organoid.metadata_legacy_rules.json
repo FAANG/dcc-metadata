@@ -170,7 +170,7 @@
     },
     "organoid passage": {
       "type": "object",
-      "name": "input aggregate cell count",
+      "name": "organoid passage",
       "description": "Number of passages. Passage 0 is the plating of cells to create the organoid",
       "required": ["value", "units"],
       "properties": {
