@@ -82,6 +82,21 @@
           "const": "mandatory"
         }
       }
+    },
+    "adapter_step": {
+      "type": "object",
+      "name": "adapter step",
+      "description": "Method for adding sequencing adapters",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": ["Tn5 tagmentation", "Ligation", "restricted access"]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
     }
   }
 }
