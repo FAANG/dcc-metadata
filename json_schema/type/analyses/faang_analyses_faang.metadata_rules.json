@@ -146,16 +146,13 @@
             {
               "type": "string",
               "enum": [
-                "not applicable",
-                "not collected",
-                "not provided",
                 "restricted access"
               ]
             }
           ]
         },
         "mandatory": {
-          "const": "recommended"
+          "const": "mandatory"
         }
       }
     },
@@ -169,11 +166,15 @@
           "oneOf": [
             {
               "type": "string"
+            },
+            {
+              "type": "string",
+              "enum": ["restricted access"]
             }
           ]
         },
         "mandatory": {
-          "const": "recommended"
+          "const": "mandatory"
         }
       }
     },
