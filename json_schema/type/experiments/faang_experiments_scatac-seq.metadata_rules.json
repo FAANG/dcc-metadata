@@ -72,7 +72,7 @@
       "properties": {
         "value": {
            "type": "string",
-           "enum": ["R1", "R3", "restricted access"]
+           "enum": ["R1, R3", "restricted access"]
         },
         "mandatory": {
           "const": "mandatory"
