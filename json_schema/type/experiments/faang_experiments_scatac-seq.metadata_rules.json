@@ -108,6 +108,104 @@
           "const": "mandatory"
         }
       }
+    },
+    "nuclei_acid_molecule": {
+      "type": "object",
+      "name": "nuclei acid molecule",
+      "description": "Nuclei Acid Molecule",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "nucleic_acid_source": {
+      "type": "object",
+      "name": "nucleic acid source",
+      "description": "Nucleic Acid Source",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "sequencing_method": {
+      "type": "object",
+      "name": "sequencing method",
+      "description": "Sequencing Method",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "kit_retail_name": {
+      "type": "object",
+      "name": "kit retail name",
+      "description": "Kit Retail Name",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "kit_manufacturer": {
+      "type": "object",
+      "name": "kit manufacturer",
+      "description": "Kit Manufacturer",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "sequencing_protocol": {
+      "type": "object",
+      "name": "sequencing protocol",
+      "description": "Sequencing Protocol",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
+    "library_construction_method": {
+      "type": "object",
+      "name": "library construction method",
+      "description": "Library Construction Method",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
     }
   }
 }
