@@ -128,32 +128,6 @@
         }
       }
     },
-    "freezing_method": {
-      "type": "object",
-      "name": "freezing method",
-      "description": "Method of freezing of organoid. Temperatures are in celsius. 'Frozen, vapor phase' refers to storing samples above liquid nitrogen in the vapor.",
-      "required": ["value"],
-      "properties": {
-        "value": {
-          "type": "string",
-          "enum": [
-            "ambient temperature",
-            "cut slide",
-            "fresh",
-            "frozen, -70 freezer",
-            "frozen, -150 freezer",
-            "frozen, liquid nitrogen",
-            "frozen, vapor phase",
-            "paraffin block",
-            "RNAlater, frozen",
-            "TRIzol, frozen"
-          ]
-        },
-        "mandatory": {
-          "const": "mandatory"
-        }
-      }
-    },
     "freezing_protocol": {
       "type": "object",
       "name": "freezing protocol",
@@ -176,6 +150,23 @@
         }
       }
     },
+    "number_of_frozen_cells": {
+      "type": "object",
+      "name": "number of frozen cells",
+      "description": "Number of organoids cells that were frozen.",
+      "required": ["value", "units"],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "organoids"
+        },
+        "mandatory": {
+          "const": "optional"
+        }
+      }
+    },
     "organoid_passage": {
       "type": "object",
       "name": "organoid passage",
@@ -193,10 +184,10 @@
         }
       }
     }, 
-    "organoid_passage_protocol": {
+    "organoid_culture_and_passage_protocol": {
       "type": "object",
-      "name": "organoid passage protocol",
-      "description": "A link to the protocol for organoid passage.",
+      "name": "organoid culture and passage protocol",
+      "description": "Protocol for the culture and passage of organoids, growth environment (matrigel or other); incubation temperature and oxygen level are expected in this protocol",
       "required": ["value"],
       "properties": {
         "value": {
@@ -238,55 +229,6 @@
       "properties": {
         "value": {
           "type": "string"
-        },
-        "mandatory": {
-          "const": "optional"
-        }
-      }
-    },
-	"growth_environment": {
-      "type": "object",
-      "name": "growth environment",
-      "description": "Growth environment in which the organoid is grown. e.g. 'matrigel', 'liquid suspension' or 'adherent'.",
-      "required": ["value"],
-      "properties": {
-		"value": {
-          "type": "string",
-          "enum": ["matrigel", "liquid suspension", "adherent"]
-        },
-        "mandatory": {
-          "const": "mandatory"
-        }
-      }
-    },
-    "stored_oxygen_level": {
-      "type": "object",
-      "name": "stored oxygen level",
-      "description": "Percentage oxygen level organoid was stored in last passage.",
-      "required": ["value", "units"],
-      "properties": {
-        "value": {
-          "type": "number"
-        },
-        "units": {
-          "const": "%"
-        },
-        "mandatory": {
-          "const": "optional"
-        }
-      }
-    },
-    "incubation_temperature": {
-      "type": "object",
-      "name": "incubation temperature",
-      "description": "Incubation temperature in last passage.",
-      "required": ["value", "units"],
-      "properties": {
-        "value": {
-          "type": "number"
-        },
-        "units": {
-          "const": "degrees celsius"
         },
         "mandatory": {
           "const": "optional"
