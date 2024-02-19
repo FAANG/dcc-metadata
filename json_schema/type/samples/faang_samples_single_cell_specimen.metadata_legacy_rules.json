@@ -34,7 +34,7 @@
       "properties": {
         "value": {
           "type": "string",
-          "enum": ["proteolysis", "mesh passage", "fine needle trituration", "fluids"]
+          "enum": ["proteolysis", "mesh passage", "fine needle trituration", "fluids", "mechanical dissociation"]
         },
         "mandatory": {
           "const": "mandatory"
