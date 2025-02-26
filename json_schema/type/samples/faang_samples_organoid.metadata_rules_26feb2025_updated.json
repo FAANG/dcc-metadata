@@ -128,32 +128,6 @@
         }
       }
     },
-    "freezing_method": {
-      "type": "object",
-      "name": "freezing method",
-      "description": "Method of freezing of organoid. Temperatures are in celsius. 'Frozen, vapor phase' refers to storing samples above liquid nitrogen in the vapor.",
-      "required": ["value"],
-      "properties": {
-        "value": {
-          "type": "string",
-          "enum": [
-            "ambient temperature",
-            "cut slide",
-            "fresh",
-            "frozen, -70 freezer",
-            "frozen, -150 freezer",
-            "frozen, liquid nitrogen",
-            "frozen, vapor phase",
-            "paraffin block",
-            "RNAlater, frozen",
-            "TRIzol, frozen"
-          ]
-        },
-        "mandatory": {
-          "const": "mandatory"
-        }
-      }
-    },
     "freezing_protocol": {
       "type": "object",
       "name": "freezing protocol",
@@ -210,28 +184,6 @@
         }
       }
     },
-    "organoid_passage_protocol": {
-      "type": "object",
-      "name": "organoid passage protocol",
-      "description": "A link to the protocol for organoid passage.",
-      "required": ["value"],
-      "properties": {
-        "value": {
-          "oneOf": [
-            {
-              "type": "string",
-              "format": "uri"
-            },
-            {
-              "const": "restricted access"
-            }
-          ]
-        },
-        "mandatory": {
-          "const": "mandatory"
-        }
-      }
-    },
     "organoid_culture_and_passage_protocol": {
       "type": "object",
       "name": "organoid culture and passage protocol",
@@ -248,21 +200,6 @@
               "const": "restricted access"
             }
           ]
-        },
-        "mandatory": {
-          "const": "mandatory"
-        }
-      }
-    },
-    "growth_environment": {
-      "type": "object",
-      "name": "growth environment",
-      "description": "Growth environment in which the organoid is grown. e.g. 'matrigel', 'liquid suspension' or 'adherent'.",
-      "required": ["value", "units"],
-      "properties": {
-		"value": {
-          "type": "string",
-          "enum": ["matrigel", "liquid suspension", "adherent"]
         },
         "mandatory": {
           "const": "mandatory"
