@@ -5,33 +5,7 @@
   "name": "faang_samples_organoid.metadata_rules",
   "$async": true,
   "type": "object",
-  "allOf": [
-    {
-      "if": {
-        "properties": {
-          "freezing_method": {
-            "properties": {
-              "value": {
-                "const": "fresh"
-              }
-            }
-          }
-        }
-      },
-      "then": {
-        "required": [
-          "samples_core",
-          "organ_model",
-          "freezing_method",
-          "organoid_passage",
-          "organoid_passage_protocol",
-          "type_of_organoid_culture",
-          "growth_environment",
-          "derived_from"
-        ]
-      },
-      "else": {
-        "required": [
+    "required": [
           "samples_core",
           "organ_model",
           "freezing_date",
@@ -42,9 +16,6 @@
           "type_of_organoid_culture",
           "growth_environment",
           "derived_from"
-        ]
-      }
-    }
   ],
   "properties": {
     "describedBy": {
