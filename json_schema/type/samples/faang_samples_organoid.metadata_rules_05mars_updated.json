@@ -5,7 +5,7 @@
   "name": "faang_samples_organoid.metadata_rules",
   "$async": true,
   "type": "object",
-    "required": [
+  "required": [
           "samples_core",
           "organ_model",
           "freezing_date",
