@@ -254,6 +254,21 @@
         }
       }
     },
+    "growth_environment": {
+      "type": "object",
+      "name": "growth environment",
+      "description": "Growth environment in which the organoid is grown. e.g. 'matrigel', 'liquid suspension' or 'adherent'.",
+      "required": ["value"],
+      "properties": {
+		"value": {
+          "type": "string",
+          "enum": ["matrigel", "liquid suspension", "adherent"]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        }
+      }
+    },
     "type_of_organoid_culture": {
       "type": "object",
       "name": "type of organoid culture",
