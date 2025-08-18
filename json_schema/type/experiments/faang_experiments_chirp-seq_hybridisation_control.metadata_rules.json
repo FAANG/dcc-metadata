@@ -51,7 +51,7 @@
     },
     "chirp_protocol": {
       "type": "object",
-      "name": "chirp protocol",
+      "name": "ChIRP protocol",
       "description": "Link to the ChIRP protocol used.",
       "required": ["value"],
       "properties": {
@@ -71,6 +71,31 @@
         }
       }
     },
+    "chirp_control_target": {
+      "type": "object",
+      "name": "ChIRP control target",
+      "description": "None",
+      "required": ["text", "term"],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "term": {
+          "type": "string",
+          "enum": [
+            "None",
+            "restricted access"
+          ]
+        },
+        "mandatory": {
+          "const": "mandatory"
+        },
+        "ontology_name": {
+          "type": "string",
+          "enum": ["None"]
+        }
+      }
+    },
     "control_experiment": {
       "type": "object",
       "name": "control experiment input",
@@ -87,22 +112,8 @@
     },
     "chirp_control_antibody_provider": {
       "type": "object",
-      "name": "chirp control antibody provider",
+      "name": "ChIRP control antibody provider",
       "description": "The name of the company, laboratory or person that provided the antibody e.g. Diagneode.",
-      "required": ["value"],
-      "properties": {
-        "value": {
-          "type": "string"
-        },
-        "mandatory": {
-          "const": "mandatory"
-        }
-      }
-    },
-    "chirp_antibody_catalog": {
-      "type": "object",
-      "name": "chirp antibody catalog",
-      "description": "The catalog from which the antibody was purchased e.g. pAb-003-050.",
       "required": ["value"],
       "properties": {
         "value": {
@@ -115,7 +126,7 @@
     },
     "chirp_control_antibody_catalog": {
       "type": "object",
-      "name": "chirp antibody catalog",
+      "name": "ChIRP control antibody catalog",
       "description": "The catalog from which the antibody was purchased e.g. pAb-003-050.",
       "required": ["value"],
       "properties": {

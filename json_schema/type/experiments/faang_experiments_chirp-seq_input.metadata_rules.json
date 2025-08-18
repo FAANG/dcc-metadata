@@ -51,7 +51,7 @@
     },
     "chirp_protocol": {
       "type": "object",
-      "name": "chirp protocol",
+      "name": "ChIRP protocol",
       "description": "Link to the ChIRP protocol used.",
       "required": ["value"],
       "properties": {
