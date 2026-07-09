@@ -130,7 +130,7 @@
     "breed": {
       "type": "object",
       "name": "breed",
-      "description": "Animal breed, described using the [FAANG breed description guidelines](https://embl.atlassian.net/wiki/spaces/FAANG/pages/25788808/FAANG+guidelines+for+livestock+breed+nomenclature). Should be considered mandatory for terrestrial species, for aquatic species record 'not applicable'.",
+      "description": "Animal breed, described using the <a href=\"https://embl.atlassian.net/wiki/spaces/FAANG/pages/25788808/FAANG+guidelines+for+livestock+breed+nomenclature\" target=\"_blank\" rel=\"noopener noreferrer\">FAANG breed description guidelines</a>. Should be considered mandatory for terrestiral species, for aquatic species record 'not applicable'.",
       "required": ["text", "term"],
       "properties": {
         "text": {
